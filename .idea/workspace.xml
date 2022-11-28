@@ -9,12 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="added readme">
-      <change afterPath="$PROJECT_DIR$/src/main/java/helloWorldServlet/HelloWorldServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war_exploded.xml" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="servlets work fine">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/helloWorldServlet/HelloWorldServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello_world_servlet/HelloWorldServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +60,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.0.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/epam_servlet_war_exploded" />
       <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -158,7 +157,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669674341276</updated>
-      <workItem from="1669674346925" duration="1537000" />
+      <workItem from="1669674346925" duration="2741000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -167,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669674673156</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="servlets work fine">
+      <created>1669675974366</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669675974366</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +192,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="added readme" />
+    <MESSAGE value="servlets work fine" />
+    <option name="LAST_COMMIT_MESSAGE" value="servlets work fine" />
   </component>
 </project>

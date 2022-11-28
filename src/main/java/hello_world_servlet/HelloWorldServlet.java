@@ -1,4 +1,4 @@
-package helloWorldServlet;
+package hello_world_servlet;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "helloWorldServlet", value = "/")
+@WebServlet(name = "hello_world_servlet", value = "/")
 public class HelloWorldServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
