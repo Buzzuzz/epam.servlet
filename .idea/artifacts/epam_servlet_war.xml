@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="epam-servlet-1.0-SNAPSHOT.war">
+    <root id="archive" name="epam-servlet-0.1.war">
       <element id="artifact" artifact-name="epam.servlet:war exploded" />
     </root>
   </artifact>
