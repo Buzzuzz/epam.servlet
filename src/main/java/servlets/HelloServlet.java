@@ -1,4 +1,4 @@
-package com.epam.servlet.hello_world;
+package servlets;
 
 import java.io.*;
 
