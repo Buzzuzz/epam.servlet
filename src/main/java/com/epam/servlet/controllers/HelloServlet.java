@@ -1,13 +1,16 @@
-package servlets;
+package com.epam.servlet.controllers;
 
 import java.io.*;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
     private String message;
+    private static Logger log = LogManager.getLogger(HelloServlet.class);
 
     @Override
     public void init() {
@@ -17,6 +20,8 @@ public class HelloServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
+
+        log.fatal("IT WORKS");
 
         // Hello
         PrintWriter out = response.getWriter();
