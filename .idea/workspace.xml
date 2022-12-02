@@ -9,33 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="test folders commit test">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Topic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/TopicCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/UserCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/UserType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/epam_coursework.1HhHwA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/epam_coursework.1HhHwA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/epam_coursework.1HhHwA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/epam_coursework.1HhHwA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/epam_coursework.1HhHwA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/epam_coursework.1HhHwA/schema/project.GUuQ7Q.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/epam_coursework.1HhHwA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0aa3a7c9-e168-4b8c-9030-3b9d85892980/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="created db entities">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/1892a11a748451d4b59332f1833709f41bc2f375" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/8/285d93d018524d3673e3fdd07a9fbe884e450078" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/943601f0495a70de3edf68993b559ea5215ff338" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/8/988d254c25f9678156ab5399ac7fc1c08117adab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/d/9d5c7e64600f5d85ac1c6318a5e2d6de02b4f377" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/0/b04578cffb47b1e57970601a0cacef6081245859" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/5/d5863888d0cc098c55794f68a2b21a87652126d1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec218257dcea67a374f5e8741ea27e6e88a50599" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/servlet/controllers/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/TopicCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/TopicCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/UserCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/UserType.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +78,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "database.query.execution",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Java",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -223,7 +215,7 @@
       <workItem from="1669888190550" duration="190000" />
       <workItem from="1669888393241" duration="4557000" />
       <workItem from="1669899398320" duration="2865000" />
-      <workItem from="1669932980812" duration="2777000" />
+      <workItem from="1669932980812" duration="7452000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -288,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669900467692</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="created db entities">
+      <created>1669935919680</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669935919680</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +315,11 @@
     <MESSAGE value="set up logger" />
     <MESSAGE value="some additional data" />
     <MESSAGE value="test folders commit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test folders commit test" />
+    <MESSAGE value="created db entities" />
+    <option name="LAST_COMMIT_MESSAGE" value="created db entities" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

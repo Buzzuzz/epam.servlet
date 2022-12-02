@@ -1,11 +1,21 @@
 package entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
+/**
+ * User entity from database.
+ * All default getters/setters created via lombok. <br>
+ * Check {@link UserType UserType} for possible user types
+ * (System access levels depend on them).
+ */
 @Data
+@AllArgsConstructor
 public class User {
     private final long u_id;
     private String email;
+    @ToString.Exclude
     private String password;
     private String first_name;
     private String last_name;

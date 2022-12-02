@@ -1,9 +1,13 @@
 package entities;
 
 import lombok.Data;
-
 import java.sql.Timestamp;
 
+/**
+ * Representation of course table in database. <br>
+ * Annotated with lombok <code>@Data</code> annotation,
+ * which means that class contains all trivial constructors, getters, setters (except IDs).
+ */
 @Data
 public class Course {
     private final long c_id;
