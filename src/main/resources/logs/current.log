@@ -1,1 +1,3 @@
-2022-12-01 12:35:20.172 [ FATAL | com.epam.servlet.controllers.HelloServlet | HelloServlet ] - IT WORKS
+2022-12-06 21:04:47.934 [ WARN | controllers.HelloServlet | HelloServlet ] - Hello servlet logger
+2022-12-06 21:04:53.107 [ WARN | controllers.HelloServlet | HelloServlet ] - Hello servlet logger
+2022-12-06 21:04:57.053 [ WARN | controllers.HelloServlet | HelloServlet ] - Hello servlet logger
