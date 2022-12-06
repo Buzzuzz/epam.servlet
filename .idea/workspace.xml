@@ -9,17 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="added documentation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestNoConfigFileDataSource.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="datasource created, tested">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/4/943601f0495a70de3edf68993b559ea5215ff338" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/db.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestNoConfigFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +100,36 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="TestConfigFileDataSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testDAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestConfigFileDataSource" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDataSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testDAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestDataSource" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="testDAO in epam.servlet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
@@ -200,12 +235,16 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.TestConfigFileDataSource" />
+      <item itemvalue="JUnit.TestDataSource" />
       <item itemvalue="JUnit.testDAO in epam.servlet" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestDataSource" />
         <item itemvalue="JUnit.testDAO in epam.servlet" />
+        <item itemvalue="JUnit.TestConfigFileDataSource" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +272,8 @@
       <workItem from="1669932980812" duration="7655000" />
       <workItem from="1670325018665" duration="14000" />
       <workItem from="1670329678124" duration="12046000" />
-      <workItem from="1670354682335" duration="303000" />
+      <workItem from="1670354682335" duration="7580000" />
+      <workItem from="1670362718527" duration="6546000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -312,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669940613253</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="datasource created, tested">
+      <created>1670355225524</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670355225524</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +389,8 @@
     <MESSAGE value="test folders commit test" />
     <MESSAGE value="created db entities" />
     <MESSAGE value="added documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="added documentation" />
+    <MESSAGE value="datasource created, tested" />
+    <option name="LAST_COMMIT_MESSAGE" value="datasource created, tested" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -351,11 +399,25 @@
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="dao.DAOException" package="dao" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dao/UserDAO.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>testDAO.*</FILTER>
+    </SUITE>
   </component>
 </project>

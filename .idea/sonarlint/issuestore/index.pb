@@ -47,17 +47,16 @@ w
 G.idea/sonarlint/issuestore/1/8/1892a11a748451d4b59332f1833709f41bc2f375,6\1\61a1cde95ef2c166208d64167d06d90b237f3be1
 T
 $src/main/java/entities/UserType.java,4\2\425abeaaedb221daa2bc728094d143a981a9f817
-N
-src/main/java/dao/UserDAO.java,0\8\08fd4d05331df73808435971d121bd8c04c01bab
 R
 "src/main/java/entities/Course.java,0\8\08b52406e851c83f546f645a977c2edfca9a902e
 Q
 !src/main/java/entities/Topic.java,f\c\fcc42fe7162e5d052b0b571c4993403a68c51ced
 W
 'src/main/java/entities/TopicCourse.java,6\4\6498cbfe1a8d350b7866af7d59f567cdeb045d5c
-P
- src/main/java/entities/User.java,5\f\5fa02fe45c9f7e20c3b267dee4d4126eab2f79f8
 V
 &src/main/java/entities/UserCourse.java,a\c\ac2051e3d52f4b77d756b42b03bb0fb718833554
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 S
 #src/main/java/dao/DAOException.java,8\0\80bf04d133e117cabb4d62ade4b7ceafa3269c87
