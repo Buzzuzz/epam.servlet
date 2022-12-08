@@ -1,12 +1,12 @@
 package testDAO;
 
+import dao.DAOException;
 import dao.impl.UserDAO;
 import entities.User;
 import entities.UserType;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
-import java.util.Optional;
 
 class TestUserDAO {
     static long generatedID;
@@ -25,6 +25,7 @@ class TestUserDAO {
     static void cleanup() {
         dao.delete(generatedID);
     }
+
     @Test
     void testSuccessfulGetUser() {
         generatedID = dao.save(testUser);
@@ -58,5 +59,25 @@ class TestUserDAO {
     void testSuccessfulInsertUser() {
         generatedID = dao.save(testUser);
         Assertions.assertNotEquals(0, generatedID);
+    }
+
+    @Test
+    void testGetNonExistentUser() {
+        Assertions.assertFalse(dao.get(-1).isPresent());
+    }
+
+    @Test
+    void testDeleteNonExistentUser() {
+        Assertions.assertEquals(dao.delete(-1), 0);
+    }
+
+    @Test
+    void testUpdateNonExistentUser() {
+        Assertions.assertThrows(DAOException.class, () -> dao.update(new User(-1)));
+    }
+
+    @Test
+    void testInsertNotValidUser() {
+        Assertions.assertThrows(DAOException.class, () -> dao.save(new User(-1)));
     }
 }

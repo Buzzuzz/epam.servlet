@@ -1,15 +1,16 @@
 package entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
  * Representation of topic table in database. <br>
  * Annotated with lombok <code>@Data</code> annotation, which means
- * that class contains all trivial constructors, getters, setters (except IDs).
+ * that class contains all trivial constructors, getters, setters.
  */
-@Data
+@Data @AllArgsConstructor
 public class Topic {
-    private final long t_id;
+    private long t_id;
     private String name;
     private String description;
 }

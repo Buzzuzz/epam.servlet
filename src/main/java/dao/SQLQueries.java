@@ -21,4 +21,6 @@ public class SQLQueries {
                     " send_notification = ?" +
                     " where u_id = ? returning u_id";
     public static final String DELETE_USER = "delete from epam.user where u_id = ? returning u_id";
+    public static final String FIND_TOPIC_BY_ID = "select * from epam.topic where t_id = ?";
+    public static final String FIND_ALL_TOPICS_IDS = "select t_id from epam.topic";
 }

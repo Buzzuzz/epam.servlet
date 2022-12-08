@@ -2,7 +2,7 @@ package entities;
 
 /**
  * Enum class to represent possible user types in system <br>
- * On these values depend user's access to system
+ * Access to the system functionality is defined by these values
  */
 public enum UserType {
     ADMINISTRATOR,

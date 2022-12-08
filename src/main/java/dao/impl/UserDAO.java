@@ -1,9 +1,6 @@
 package dao.impl;
 
-import dao.DAO;
-import dao.DAOException;
-import dao.DataSource;
-import dao.SQLQueries;
+import dao.*;
 import entities.User;
 import entities.UserType;
 import lombok.NoArgsConstructor;
@@ -23,6 +20,12 @@ import java.util.Optional;
 @Log4j2
 @NoArgsConstructor
 public class UserDAO implements DAO<User> {
+
+    /**
+     * Implementation of {@link DAO#get(long id)} interface method to retrieve User entity from database.
+     * @param id Field by which will be committed search in database table.
+     * @return {@link Optional<User>} with entity from database (if such exists)
+     */
     public Optional<User> get(long id) {
         ResultSet resultSet = null;
         PreparedStatement statement = null;
@@ -53,22 +56,17 @@ public class UserDAO implements DAO<User> {
             log.error("Can't get user from database");
             throw new DAOException("Can't get user from database", e);
         } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-            } catch (SQLException e) {
-                log.error("Can't close one of statements (resultSet, connection etc.)");
-            }
-
+            ConnectionUtils.close(resultSet);
+            ConnectionUtils.close(statement);
         }
 
         return Optional.ofNullable(user);
     }
 
+    /**
+     * Implementation of {@link DAO#getAll()} interface method to retrieve all Users form database.
+     * @return {@link Collection<User>} of users from database
+     */
     @Override
     public Collection<User> getAll() {
         List<User> users = new ArrayList<>();
@@ -86,27 +84,23 @@ public class UserDAO implements DAO<User> {
             log.error("Can't get all users from database");
             throw new DAOException("Can't get all users from database", e);
         } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-            } catch (SQLException e) {
-                log.error("Can't close one of statements (resultSet, connection etc.)");
-            }
-
+            ConnectionUtils.close(resultSet);
+            ConnectionUtils.close(statement);
         }
 
         return users;
     }
 
+    /**
+     * Implementation of {@link DAO#update(Object user)} interface method to update specified user
+     * @param user Specified entity from {@link entities} package, from which data will be obtained
+     *             and then updated
+     * @return Number of affected rows
+     */
     @Override
     public long update(User user) {
         Connection con = null;
         PreparedStatement statement = null;
-        ResultSet resultSet = null;
         long affectedRows;
         try {
             con = DataSource.getConnection();
@@ -136,29 +130,23 @@ public class UserDAO implements DAO<User> {
             log.error("Can't update user");
             throw new DAOException("Can't update user", e);
         } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                log.error("Can't close one of statements (connection, resultSet etc.)");
-            }
+            ConnectionUtils.close(statement);
+            ConnectionUtils.close(con);
         }
 
         return affectedRows;
     }
 
+    /**
+     * Implementation of {@link DAO#delete(long id)} interface method
+     * to delete specified entry from User table.
+     * @param id ID of entity to be removed from table
+     * @return Number of affected rows
+     */
     @Override
     public long delete(long id) {
         Connection con = null;
         PreparedStatement statement = null;
-        ResultSet resultSet = null;
         long affectedRows;
         try {
             con = DataSource.getConnection();
@@ -168,9 +156,6 @@ public class UserDAO implements DAO<User> {
             statement.setLong(1, id);
 
             affectedRows = statement.executeUpdate();
-//            resultSet = statement.getGeneratedKeys();
-//            resultSet.next();
-//            affectedRows = resultSet.getLong(1);
             con.commit();
         } catch (Exception e) {
             try {
@@ -182,24 +167,19 @@ public class UserDAO implements DAO<User> {
             log.error("Can't delete user");
             throw new DAOException("Can't delete user", e);
         } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                log.error("Can't close one of statements (connection, resultSet etc.)");
-            }
+            ConnectionUtils.close(statement);
+            ConnectionUtils.close(con);
         }
 
         return affectedRows;
     }
 
+    /**
+     * Implementation of {@link DAO#save(Object user)} interface method
+     * to add specified entry to User table.
+     * @param user Specified entity from {@link entities} package to be saved in database table
+     * @return Generated ID of this entry
+     */
     @Override
     public long save(User user) {
         Connection con = null;
@@ -236,19 +216,9 @@ public class UserDAO implements DAO<User> {
             log.error("Can't add user to database");
             throw new DAOException("Can't add user to database", e);
         } finally {
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException e) {
-                log.error("Can't close one of statements (connection, resultSet etc.)");
-            }
+            ConnectionUtils.close(resultSet);
+            ConnectionUtils.close(statement);
+            ConnectionUtils.close(con);
         }
 
         return generatedID;

@@ -11,7 +11,7 @@ public interface DAO<T> {
     /**
      * Get method to retrieve specified entity from {@link entities} package from database table
      * @param id Field by which will be committed search in database table.
-     * @return {@link Optional} result if such entry exists in database table.
+     * @return {@link Optional} result of such entry in database table.
      */
     Optional<T> get(long id);
 
@@ -24,6 +24,7 @@ public interface DAO<T> {
     /**
      * Update method to update specific database entry
      * @param entity Specified entity from {@link entities} package, from which data will be obtained
+     *               and then updated.
      * @return ID of updated entity
      */
     long update(T entity);

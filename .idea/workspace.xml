@@ -9,22 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="documentation, added dao interface, implemented user dao">
-      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="user dao tests (part of them)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/UserType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,22 +95,7 @@
       <recent name="C:\Users\Admin\IdeaProjects\epam.servlet\src\main\config" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="TestDataSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testDAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testDAO" />
-      <option name="MAIN_CLASS_NAME" value="testDAO.TestDataSource" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TestUserDAO">
     <configuration name="TestUserDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
@@ -131,7 +111,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUserDAO.testSuccessfulInsertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUserDAO.testDeleteNonExistentUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -141,13 +121,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="testDAO" />
       <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
-      <option name="METHOD_NAME" value="testSuccessfulInsertUser" />
+      <option name="METHOD_NAME" value="testDeleteNonExistentUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUserDAO.testSuccessfulUpdateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUserDAO.testGetNonExistentUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -157,13 +137,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="testDAO" />
       <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
-      <option name="METHOD_NAME" value="testSuccessfulUpdateUser" />
+      <option name="METHOD_NAME" value="testGetNonExistentUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testDAO in epam.servlet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUserDAO.testInsertNotValidUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -172,7 +152,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="testDAO" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
+      <option name="METHOD_NAME" value="testInsertNotValidUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUserDAO.testUpdateNonExistentUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testDAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
+      <option name="METHOD_NAME" value="testUpdateNonExistentUser" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -268,20 +266,20 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.TestUserDAO.testDeleteNonExistentUser" />
+      <item itemvalue="JUnit.TestUserDAO.testGetNonExistentUser" />
+      <item itemvalue="JUnit.TestUserDAO.testInsertNotValidUser" />
+      <item itemvalue="JUnit.TestUserDAO.testUpdateNonExistentUser" />
       <item itemvalue="JUnit.TestUserDAO" />
-      <item itemvalue="JUnit.TestUserDAO.testSuccessfulInsertUser" />
-      <item itemvalue="JUnit.TestUserDAO.testSuccessfulUpdateUser" />
-      <item itemvalue="JUnit.TestDataSource" />
-      <item itemvalue="JUnit.testDAO in epam.servlet" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestUserDAO.testSuccessfulInsertUser" />
-        <item itemvalue="JUnit.TestUserDAO.testSuccessfulUpdateUser" />
         <item itemvalue="JUnit.TestUserDAO" />
-        <item itemvalue="JUnit.TestDataSource" />
-        <item itemvalue="JUnit.testDAO in epam.servlet" />
+        <item itemvalue="JUnit.TestUserDAO.testInsertNotValidUser" />
+        <item itemvalue="JUnit.TestUserDAO.testUpdateNonExistentUser" />
+        <item itemvalue="JUnit.TestUserDAO.testDeleteNonExistentUser" />
+        <item itemvalue="JUnit.TestUserDAO.testGetNonExistentUser" />
       </list>
     </recent_temporary>
   </component>
@@ -315,7 +313,8 @@
       <workItem from="1670484079263" duration="4292000" />
       <workItem from="1670488395254" duration="48000" />
       <workItem from="1670490582065" duration="5373000" />
-      <workItem from="1670523623256" duration="11585000" />
+      <workItem from="1670523623256" duration="11903000" />
+      <workItem from="1670538066796" duration="3980000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -415,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670495526654</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="user dao tests (part of them)">
+      <created>1670535811748</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670535811748</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +454,8 @@
     <MESSAGE value="datasource created, tested" />
     <MESSAGE value="set up datasource, implemented user insertion into db" />
     <MESSAGE value="documentation, added dao interface, implemented user dao" />
-    <option name="LAST_COMMIT_MESSAGE" value="documentation, added dao interface, implemented user dao" />
+    <MESSAGE value="user dao tests (part of them)" />
+    <option name="LAST_COMMIT_MESSAGE" value="user dao tests (part of them)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
