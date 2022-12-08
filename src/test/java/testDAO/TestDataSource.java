@@ -10,7 +10,7 @@ import java.sql.SQLException;
 @Log4j2
 class TestDataSource {
     @Test
-    void TestSuccessfulGetConnection() {
+    void testSuccessfulGetConnection() {
         Connection con = DataSource.getConnection();
         Assertions.assertNotNull(DataSource.getConnection());
         try {

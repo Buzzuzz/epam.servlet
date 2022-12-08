@@ -12,7 +12,7 @@ import lombok.ToString;
  */
 @Data @AllArgsConstructor
 public class User {
-    private final long u_id;
+    private long u_id;
     private String email;
     @ToString.Exclude
     private String password;

@@ -11,7 +11,14 @@ public class SQLQueries {
             "insert into epam.user(email, password, first_name, last_name, phone, user_type, is_blocked, send_notification) " +
                     "values (?, ?, ?, ?, ?, ?, ?, ?)";
     public static final String UPDATE_USER =
-            "update epam.user set (email, password, first_name, last_name, phone, user_type, is_blocked, send_notification) = " +
-                    "(?, ?, ?, ?, ?, ?, ?, ?) where u_id = ?";
-    public static final String DELETE_USER = "delete from epam.users where u_id = ?";
+            "update epam.user set email = ?," +
+                    " password = ?," +
+                    " first_name = ?," +
+                    " last_name = ?," +
+                    " phone = ?," +
+                    " user_type = ?," +
+                    " is_blocked = ?," +
+                    " send_notification = ?" +
+                    " where u_id = ? returning u_id";
+    public static final String DELETE_USER = "delete from epam.user where u_id = ? returning u_id";
 }

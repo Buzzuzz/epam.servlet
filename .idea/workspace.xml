@@ -9,25 +9,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="set up datasource, implemented user insertion into db">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc/storage_v2/_src_/database/epam.F5ovAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc/storage_v2/_src_/database/epam.F5ovAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc/storage_v2/_src_/database/epam.F5ovAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/00bfb6f9-8232-4adb-9fd4-d595c14f38fc/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" beforeDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="documentation, added dao interface, implemented user dao">
+      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/8/988d254c25f9678156ab5399ac7fc1c08117adab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/5/d5863888d0cc098c55794f68a2b21a87652126d1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/c/ec218257dcea67a374f5e8741ea27e6e88a50599" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -103,22 +100,7 @@
       <recent name="C:\Users\Admin\IdeaProjects\epam.servlet\src\main\config" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestConfigFileDataSource">
-    <configuration name="TestConfigFileDataSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testDAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testDAO" />
-      <option name="MAIN_CLASS_NAME" value="testDAO.TestConfigFileDataSource" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="TestDataSource" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
@@ -130,6 +112,53 @@
       <option name="PACKAGE_NAME" value="testDAO" />
       <option name="MAIN_CLASS_NAME" value="testDAO.TestDataSource" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUserDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testDAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUserDAO.testSuccessfulInsertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testDAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
+      <option name="METHOD_NAME" value="testSuccessfulInsertUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestUserDAO.testSuccessfulUpdateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testDAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
+      <option name="METHOD_NAME" value="testSuccessfulUpdateUser" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -239,16 +268,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.TestConfigFileDataSource" />
+      <item itemvalue="JUnit.TestUserDAO" />
+      <item itemvalue="JUnit.TestUserDAO.testSuccessfulInsertUser" />
+      <item itemvalue="JUnit.TestUserDAO.testSuccessfulUpdateUser" />
       <item itemvalue="JUnit.TestDataSource" />
       <item itemvalue="JUnit.testDAO in epam.servlet" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestUserDAO.testSuccessfulInsertUser" />
+        <item itemvalue="JUnit.TestUserDAO.testSuccessfulUpdateUser" />
+        <item itemvalue="JUnit.TestUserDAO" />
         <item itemvalue="JUnit.TestDataSource" />
         <item itemvalue="JUnit.testDAO in epam.servlet" />
-        <item itemvalue="JUnit.TestConfigFileDataSource" />
       </list>
     </recent_temporary>
   </component>
@@ -281,7 +314,8 @@
       <workItem from="1670483969493" duration="98000" />
       <workItem from="1670484079263" duration="4292000" />
       <workItem from="1670488395254" duration="48000" />
-      <workItem from="1670490582065" duration="4861000" />
+      <workItem from="1670490582065" duration="5373000" />
+      <workItem from="1670523623256" duration="11585000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -374,7 +408,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670369334963</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="documentation, added dao interface, implemented user dao">
+      <created>1670495526654</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670495526654</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +447,8 @@
     <MESSAGE value="added documentation" />
     <MESSAGE value="datasource created, tested" />
     <MESSAGE value="set up datasource, implemented user insertion into db" />
-    <option name="LAST_COMMIT_MESSAGE" value="set up datasource, implemented user insertion into db" />
+    <MESSAGE value="documentation, added dao interface, implemented user dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="documentation, added dao interface, implemented user dao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

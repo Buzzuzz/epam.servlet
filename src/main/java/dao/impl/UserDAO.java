@@ -24,9 +24,9 @@ import java.util.Optional;
 @NoArgsConstructor
 public class UserDAO implements DAO<User> {
     public Optional<User> get(long id) {
-        User user = null;
         ResultSet resultSet = null;
         PreparedStatement statement = null;
+        User user = null;
         try (Connection con = DataSource.getConnection()) {
             statement = con.prepareStatement(SQLQueries.FIND_USER_BY_ID);
             statement.setLong(1, id);
@@ -124,17 +124,15 @@ public class UserDAO implements DAO<User> {
             statement.setBoolean(++k, user.isSend_notification());
             statement.setLong(++k, user.getU_id());
 
-            statement.executeUpdate();
-            resultSet = statement.getGeneratedKeys();
-            resultSet.next();
-            affectedRows = resultSet.getLong(1);
+            affectedRows = statement.executeUpdate();
             con.commit();
         } catch (Exception e) {
             try {
                 if (con != null) {
                     con.rollback();
                 }
-            } catch (SQLException ignored) {}
+            } catch (SQLException ignored) {
+            }
             log.error("Can't update user");
             throw new DAOException("Can't update user", e);
         } finally {
@@ -169,17 +167,18 @@ public class UserDAO implements DAO<User> {
 
             statement.setLong(1, id);
 
-            statement.executeUpdate();
-            resultSet = statement.getGeneratedKeys();
-            resultSet.next();
-            affectedRows = resultSet.getLong(1);
+            affectedRows = statement.executeUpdate();
+//            resultSet = statement.getGeneratedKeys();
+//            resultSet.next();
+//            affectedRows = resultSet.getLong(1);
             con.commit();
         } catch (Exception e) {
             try {
                 if (con != null) {
                     con.rollback();
                 }
-            } catch (SQLException ignored) {}
+            } catch (SQLException ignored) {
+            }
             log.error("Can't delete user");
             throw new DAOException("Can't delete user", e);
         } finally {

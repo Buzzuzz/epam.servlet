@@ -12,7 +12,7 @@ import java.nio.file.Files;
 import java.util.Properties;
 
 @Log4j2
-public class TestConfigFileDataSource {
+class TestConfigFileDataSource {
     static File testPath = new File("src/main/resources/config/db.properties");
     static File afterTestPath = new File("src/main/resources/config/db_test.properties");
 
@@ -32,7 +32,7 @@ public class TestConfigFileDataSource {
     }
 
     @Test
-    void TestWrongProperties() {
+    void testWrongProperties() {
         InputStream input = null;
         OutputStream out = null;
         try {

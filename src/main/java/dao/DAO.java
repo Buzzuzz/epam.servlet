@@ -24,14 +24,14 @@ public interface DAO<T> {
     /**
      * Update method to update specific database entry
      * @param entity Specified entity from {@link entities} package, from which data will be obtained
-     * @return Number of updated rows
+     * @return ID of updated entity
      */
     long update(T entity);
 
     /**
      * Delete method to remove specific database entry
      * @param id ID of entity to be removed from table
-     * @return Number of affected rows
+     * @return ID of deleted entity
      */
     long delete(long id);
 
