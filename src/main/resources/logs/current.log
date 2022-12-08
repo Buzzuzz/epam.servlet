@@ -1,18 +1,18 @@
-2022-12-07 00:37:35.531 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 00:37:35.531 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
 2022-12-07 00:37:35.579 [ FATAL | dao.DataSource | DataSource ] - Can't locate database config file
-2022-12-07 00:39:55.527 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 00:39:55.527 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
 2022-12-07 00:39:55.563 [ FATAL | dao.DataSource | DataSource ] - Can't locate database config file
-2022-12-07 00:41:21.926 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 00:41:21.926 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
 2022-12-07 00:41:21.964 [ FATAL | dao.DataSource | DataSource ] - Can't locate database config file
-2022-12-07 00:43:18.325 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 00:43:18.325 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
 2022-12-07 00:43:18.374 [ FATAL | dao.DataSource | DataSource ] - Can't locate database config file
-2022-12-07 00:54:48.629 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 00:54:48.629 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
 2022-12-07 00:54:48.659 [ FATAL | dao.DataSource | DataSource ] - Can't config connection pool
-2022-12-07 01:02:38.521 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 01:02:38.521 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
 2022-12-07 01:02:38.549 [ FATAL | dao.DataSource | DataSource ] - Can't config connection pool
-2022-12-07 01:06:05.946 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 01:06:05.946 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
 2022-12-07 01:06:05.977 [ FATAL | dao.DataSource | DataSource ] - Can't config connection pool
-2022-12-07 01:06:34.984 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 01:06:34.984 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
 2022-12-07 01:06:35.038 [ FATAL | dao.DataSource | DataSource ] - Can't config connection pool
-2022-12-07 01:08:44.010 [ INFO | dao.UserDAO | UserDAO ] - started user creating
-2022-12-07 01:15:58.957 [ INFO | dao.UserDAO | UserDAO ] - started user creating
+2022-12-07 01:08:44.010 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating
+2022-12-07 01:15:58.957 [ INFO | dao.impl.UserDAO | UserDAO ] - started user creating

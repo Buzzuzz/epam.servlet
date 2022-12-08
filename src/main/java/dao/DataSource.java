@@ -4,11 +4,8 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.log4j.Log4j2;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Properties;
 
 /**
  * DataSource class to get connection to database. <br>
@@ -42,7 +39,7 @@ public class DataSource {
      * Getter for connection from connection pool
      *
      * @return {@link Connection} to database defined in config file
-     * @throws SQLException In case Hikari couldn't establish connection
+     * @throws DAOException In case Hikari couldn't establish connection
      */
     public static Connection getConnection() throws DAOException {
         try {
