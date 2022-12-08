@@ -9,17 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="user dao tests (part of them)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="all TestUserDAO tests, started TopicDAO, added ConnectionUtils">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/UserType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +308,7 @@
       <workItem from="1670488395254" duration="48000" />
       <workItem from="1670490582065" duration="5373000" />
       <workItem from="1670523623256" duration="11903000" />
-      <workItem from="1670538066796" duration="3980000" />
+      <workItem from="1670538066796" duration="5137000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -421,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670535811748</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="all TestUserDAO tests, started TopicDAO, added ConnectionUtils">
+      <created>1670542368507</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670542368507</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +456,8 @@
     <MESSAGE value="set up datasource, implemented user insertion into db" />
     <MESSAGE value="documentation, added dao interface, implemented user dao" />
     <MESSAGE value="user dao tests (part of them)" />
-    <option name="LAST_COMMIT_MESSAGE" value="user dao tests (part of them)" />
+    <MESSAGE value="all TestUserDAO tests, started TopicDAO, added ConnectionUtils" />
+    <option name="LAST_COMMIT_MESSAGE" value="all TestUserDAO tests, started TopicDAO, added ConnectionUtils" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

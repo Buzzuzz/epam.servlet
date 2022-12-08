@@ -23,6 +23,7 @@ public class UserDAO implements DAO<User> {
 
     /**
      * Implementation of {@link DAO#get(long id)} interface method to retrieve User entity from database.
+     *
      * @param id Field by which will be committed search in database table.
      * @return {@link Optional<User>} with entity from database (if such exists)
      */
@@ -65,6 +66,7 @@ public class UserDAO implements DAO<User> {
 
     /**
      * Implementation of {@link DAO#getAll()} interface method to retrieve all Users form database.
+     *
      * @return {@link Collection<User>} of users from database
      */
     @Override
@@ -93,6 +95,7 @@ public class UserDAO implements DAO<User> {
 
     /**
      * Implementation of {@link DAO#update(Object user)} interface method to update specified user
+     *
      * @param user Specified entity from {@link entities} package, from which data will be obtained
      *             and then updated
      * @return Number of affected rows
@@ -121,12 +124,7 @@ public class UserDAO implements DAO<User> {
             affectedRows = statement.executeUpdate();
             con.commit();
         } catch (Exception e) {
-            try {
-                if (con != null) {
-                    con.rollback();
-                }
-            } catch (SQLException ignored) {
-            }
+            ConnectionUtils.rollback(con);
             log.error("Can't update user");
             throw new DAOException("Can't update user", e);
         } finally {
@@ -140,6 +138,7 @@ public class UserDAO implements DAO<User> {
     /**
      * Implementation of {@link DAO#delete(long id)} interface method
      * to delete specified entry from User table.
+     *
      * @param id ID of entity to be removed from table
      * @return Number of affected rows
      */
@@ -158,12 +157,7 @@ public class UserDAO implements DAO<User> {
             affectedRows = statement.executeUpdate();
             con.commit();
         } catch (Exception e) {
-            try {
-                if (con != null) {
-                    con.rollback();
-                }
-            } catch (SQLException ignored) {
-            }
+            ConnectionUtils.rollback(con);
             log.error("Can't delete user");
             throw new DAOException("Can't delete user", e);
         } finally {
@@ -177,6 +171,7 @@ public class UserDAO implements DAO<User> {
     /**
      * Implementation of {@link DAO#save(Object user)} interface method
      * to add specified entry to User table.
+     *
      * @param user Specified entity from {@link entities} package to be saved in database table
      * @return Generated ID of this entry
      */
@@ -207,12 +202,7 @@ public class UserDAO implements DAO<User> {
             generatedID = resultSet.getLong(1);
             con.commit();
         } catch (Exception e) {
-            try {
-                if (con != null) {
-                    con.rollback();
-                }
-            } catch (SQLException ignored) {
-            }
+            ConnectionUtils.rollback(con);
             log.error("Can't add user to database");
             throw new DAOException("Can't add user to database", e);
         } finally {

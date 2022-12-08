@@ -29,11 +29,8 @@ public class TopicDAO implements DAO<Topic> {
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
-                topic = new Topic(
-                        resultSet.getLong("t_id"),
-                        resultSet.getString("name"),
-                        resultSet.getString("description"));
+            while (resultSet.next()) {
+                topic = new Topic(resultSet.getLong("t_id"), resultSet.getString("name"), resultSet.getString("description"));
             }
         } catch (Exception e) {
             log.error("Can't get topic from database");
@@ -56,7 +53,12 @@ public class TopicDAO implements DAO<Topic> {
 
         try {
             con = DataSource.getConnection();
+            statement = con.prepareStatement(SQLQueries.FIND_ALL_TOPICS_IDS);
+            resultSet = statement.executeQuery();
 
+            while (resultSet.next()) {
+                get(resultSet.getLong("t_id")).ifPresent(topics::add);
+            }
         } catch (Exception e) {
             log.error("Can't get all topics from database");
             throw new DAOException("Can't get all topics from database", e);
@@ -65,6 +67,8 @@ public class TopicDAO implements DAO<Topic> {
             ConnectionUtils.close(statement);
             ConnectionUtils.close(con);
         }
+
+        return topics;
     }
 
     @Override
@@ -74,7 +78,32 @@ public class TopicDAO implements DAO<Topic> {
 
     @Override
     public long delete(long id) {
-        return 0;
+        Connection con = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        long affectedRows;
+
+        try {
+            con = DataSource.getConnection();
+            con.setAutoCommit(false);
+            statement = con.prepareStatement(SQLQueries.DELETE_TOPIC, Statement.RETURN_GENERATED_KEYS);
+
+            statement.setLong(1, id);
+            resultSet = statement.executeQuery();
+            resultSet.next();
+            affectedRows = resultSet.getLong("t_id");
+            con.commit();
+        } catch (Exception e) {
+            ConnectionUtils.rollback(con);
+            log.error("Can't delete specified topic");
+            throw new DAOException("Can't delete specified topic", e);
+        } finally {
+            ConnectionUtils.close(resultSet);
+            ConnectionUtils.close(statement);
+            ConnectionUtils.close(con);
+        }
+
+        return affectedRows;
     }
 
     @Override
