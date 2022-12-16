@@ -11,15 +11,7 @@ import java.util.List;
 class TestUserDAO {
     static long generatedID;
     static UserDAO dao = new UserDAO();
-    static User testUser = new User(0,
-            "test_email@gmail.com",
-            "pass123",
-            "John",
-            "Doe",
-            "+380972322160",
-            UserType.STUDENT,
-            false,
-            false);
+    static User testUser = new User(0, "test_email@gmail.com", "pass123", "John", "Doe", "+380972322160", UserType.STUDENT, false, false);
 
     @AfterAll
     static void cleanup() {
@@ -35,8 +27,10 @@ class TestUserDAO {
 
     @Test
     void testSuccessfulGetAllUsers() {
+        long toRemove = dao.save(new User(0, "test", "p", "J", "D", "+38", UserType.STUDENT, false, false));
         List<User> temp = (List<User>) dao.getAll();
-        Assertions.assertTrue(temp.size() > 1);
+        Assertions.assertTrue(temp.size() >= 1);
+        dao.delete(toRemove);
     }
 
     @Test
@@ -68,7 +62,8 @@ class TestUserDAO {
 
     @Test
     void testDeleteNonExistentUser() {
-        Assertions.assertEquals(dao.delete(-1), 0);
+        Assertions.assertThrows(DAOException.class, () -> dao.delete(-1));
+//        Assertions.assertEquals(dao.delete(-1), 0);
     }
 
     @Test

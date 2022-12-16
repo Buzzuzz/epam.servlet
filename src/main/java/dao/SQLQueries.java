@@ -24,4 +24,6 @@ public class SQLQueries {
     public static final String FIND_TOPIC_BY_ID = "select * from epam.topic where t_id = ?";
     public static final String FIND_ALL_TOPICS_IDS = "select t_id from epam.topic";
     public static final String DELETE_TOPIC = "delete from epam.topic where t_id = ? returning t_id";
+    public static final String CREATE_TOPIC = "insert into epam.topic(name, description) values (?, ?)";
+    public static final String UPDATE_TOPIC = "update epam.topic set name = ?, description = ? where t_id = ?";
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-223.7571.182">
-    <data-source name="epam@localhost" uuid="0d83ecf4-bee8-409d-93e2-efccb643dff3">
-      <database-info product="PostgreSQL" version="15.1" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="15.1" exact-driver-version="42.5">
+    <data-source name="postgres@localhost" uuid="01aaa583-71ff-4198-9277-c15f55a949e2">
+      <database-info product="PostgreSQL" version="12.12 (Ubuntu 12.12-0ubuntu0.20.04.1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="12.12" exact-driver-version="42.5">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
@@ -15,8 +15,12 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="epam">
-              <node kind="schema" negative="1" />
+              <node kind="schema">
+                <name qname="epam" />
+                <name qname="public" />
+              </node>
             </node>
+            <node kind="database" qname="postgres" />
           </node>
         </introspection-scope>
       </schema-mapping>

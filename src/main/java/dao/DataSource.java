@@ -17,8 +17,7 @@ import java.sql.SQLException;
 public class DataSource {
     private static HikariConfig config;
     private static HikariDataSource ds;
-
-    private static String path = "C:/Users/Admin/IdeaProjects/epam.servlet/src/main/resources/config/db.properties";
+    private static String path = "src/main/resources/db.properties";
 
     static {
         try {

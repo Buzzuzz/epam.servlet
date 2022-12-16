@@ -1,0 +1,25 @@
+2022-12-16 21:45:09.073 [ FATAL | dao.DataSource | DataSource ] - Can't config connection pool
+2022-12-16 22:30:17.093 [ ERROR | dao.impl.TopicDAO | TopicDAO ] - Can't add topic to database
+2022-12-16 22:30:31.720 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't update user
+2022-12-16 22:30:31.752 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:30:31.781 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't delete user
+2022-12-16 22:31:23.579 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't update user
+2022-12-16 22:31:23.596 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:31:23.598 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:31:23.612 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't delete user
+2022-12-16 22:32:57.583 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't update user
+2022-12-16 22:32:57.605 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:32:57.663 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't delete user
+2022-12-16 22:33:40.719 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't update user
+2022-12-16 22:33:40.745 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:33:40.757 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:33:40.769 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't delete user
+2022-12-16 22:33:40.774 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:35:34.459 [ FATAL | dao.DataSource | DataSource ] - Can't config connection pool
+2022-12-16 22:35:55.530 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't update user
+2022-12-16 22:35:55.553 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:35:55.602 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't delete user
+2022-12-16 22:37:05.361 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't update user
+2022-12-16 22:37:05.380 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't add user to database
+2022-12-16 22:37:05.425 [ ERROR | dao.impl.UserDAO | UserDAO ] - Can't delete user
+2022-12-16 22:47:40.381 [ ERROR | dao.impl.TopicDAO | TopicDAO ] - Can't add topic to database

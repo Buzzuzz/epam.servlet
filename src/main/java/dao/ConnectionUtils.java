@@ -18,7 +18,6 @@ public class ConnectionUtils {
 
     /**
      * Method that replaces try/catch boilerplate code when closing connection, etc.
-     *
      * @param closeable {@link AutoCloseable} object that will be tried to close
      */
     public static void close(AutoCloseable closeable) {
@@ -31,6 +30,22 @@ public class ConnectionUtils {
         }
     }
 
+    /**
+     * Code snippet to close several {@link AutoCloseable statements} in one line of code
+     * (yeah, I definitely love shortening code). Order of arguments in method is important
+     * (the first one passed will be closed also at first).
+     * @param args Varargs to be closed
+     */
+    public static void closeAll(AutoCloseable... args) {
+        for (AutoCloseable arg : args) {
+            close(arg);
+        }
+    }
+
+    /**
+     * Method to try {@link Connection#rollback() rollback} transaction (and shorten boilerplate code)
+     * @param con {@link Connection} on which will be tried rollback
+     */
     public static void rollback(Connection con) {
         try {
             con.rollback();

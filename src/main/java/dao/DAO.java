@@ -25,7 +25,7 @@ public interface DAO<T> {
      * Update method to update specific database entry
      * @param entity Specified entity from {@link entities} package, from which data will be obtained
      *               and then updated.
-     * @return ID of updated entity
+     * @return Number of affected rows
      */
     long update(T entity);
 
@@ -39,7 +39,7 @@ public interface DAO<T> {
     /**
      * Create method to add entry to database table
      * @param entity Specified entity from {@link entities} package to be saved in database table
-     * @return Generated entry's ID
+     * @return Generated entity's ID
      */
     long save(T entity);
 

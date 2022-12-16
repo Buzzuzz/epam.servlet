@@ -1,5 +1,7 @@
 package dao.impl;
 
+import static dao.ConnectionUtils.*;
+
 import dao.*;
 import entities.Topic;
 import lombok.extern.log4j.Log4j2;
@@ -12,7 +14,8 @@ import java.util.Optional;
 
 
 /**
- * TopicDAO class is implementation of {@link DAO} interface for Topic table. (Topic entity specified).
+ * TopicDAO class is implementation of {@link DAO} interface for Topic table.
+ * (Topic entity specified).
  */
 @Log4j2
 public class TopicDAO implements DAO<Topic> {
@@ -36,9 +39,7 @@ public class TopicDAO implements DAO<Topic> {
             log.error("Can't get topic from database");
             throw new DAOException("Can't get topic from database", e);
         } finally {
-            ConnectionUtils.close(resultSet);
-            ConnectionUtils.close(statement);
-            ConnectionUtils.close(con);
+            closeAll(resultSet, statement, con);
         }
 
         return Optional.ofNullable(topic);
@@ -63,17 +64,39 @@ public class TopicDAO implements DAO<Topic> {
             log.error("Can't get all topics from database");
             throw new DAOException("Can't get all topics from database", e);
         } finally {
-            ConnectionUtils.close(resultSet);
-            ConnectionUtils.close(statement);
-            ConnectionUtils.close(con);
+            closeAll(resultSet, statement, con);
         }
 
         return topics;
     }
 
     @Override
-    public long update(Topic entity) {
-        return 0;
+    public long update(Topic topic) {
+        Connection con = null;
+        PreparedStatement statement = null;
+        long affectedRows;
+
+        try {
+            con = DataSource.getConnection();
+            con.setAutoCommit(false);
+            statement = con.prepareStatement(SQLQueries.UPDATE_TOPIC, Statement.RETURN_GENERATED_KEYS);
+
+            int k = 1;
+            statement.setString(k++, topic.getName());
+            statement.setString(k++, topic.getDescription());
+            statement.setLong(k, topic.getT_id());
+
+            affectedRows = statement.executeUpdate();
+            con.commit();
+        } catch (Exception e) {
+            rollback(con);
+            log.error("Can't update topic");
+            throw new DAOException("Can't update topic", e);
+        } finally {
+            closeAll(statement, con);
+        }
+
+        return affectedRows;
     }
 
     @Override
@@ -89,25 +112,51 @@ public class TopicDAO implements DAO<Topic> {
             statement = con.prepareStatement(SQLQueries.DELETE_TOPIC, Statement.RETURN_GENERATED_KEYS);
 
             statement.setLong(1, id);
-            resultSet = statement.executeQuery();
+            statement.executeUpdate();
+            resultSet = statement.getGeneratedKeys();
             resultSet.next();
-            affectedRows = resultSet.getLong("t_id");
+            affectedRows = resultSet.getLong(1);
             con.commit();
         } catch (Exception e) {
-            ConnectionUtils.rollback(con);
+            rollback(con);
             log.error("Can't delete specified topic");
             throw new DAOException("Can't delete specified topic", e);
         } finally {
-            ConnectionUtils.close(resultSet);
-            ConnectionUtils.close(statement);
-            ConnectionUtils.close(con);
+            closeAll(resultSet, statement, con);
         }
 
         return affectedRows;
     }
 
     @Override
-    public long save(Topic entity) {
-        return 0;
+    public long save(Topic topic) {
+        Connection con = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        long generatedId;
+
+        try {
+            con = DataSource.getConnection();
+            con.setAutoCommit(false);
+            statement = con.prepareStatement(SQLQueries.CREATE_TOPIC, Statement.RETURN_GENERATED_KEYS);
+
+            int k = 1;
+            statement.setString(k++, topic.getName());
+            statement.setString(k, topic.getDescription());
+
+            statement.executeUpdate();
+            resultSet = statement.getGeneratedKeys();
+            resultSet.next();
+            generatedId = resultSet.getLong(1);
+            con.commit();
+        } catch (Exception e) {
+            rollback(con);
+            log.error("Can't add topic to database");
+            throw new DAOException("Can't add topic to database", e);
+        } finally {
+            closeAll(resultSet, statement, con);
+        }
+
+        return generatedId;
     }
 }
