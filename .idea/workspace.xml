@@ -9,12 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="test commit from linux">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/CourseDAO.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="created course dao">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C:/Users/Admin/IdeaProjects/epam.servlet/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/C:/Users/Admin/IdeaProjects/epam.servlet/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/CourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestCourseDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +94,7 @@
       <recent name="C:\Users\Admin\IdeaProjects\epam.servlet\src\main\webapp\WEB-INF" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestTopicDAO">
+  <component name="RunManager">
     <configuration name="TestTopicDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
@@ -316,7 +320,7 @@
       <workItem from="1671223543398" duration="30000" />
       <workItem from="1671223583159" duration="445000" />
       <workItem from="1671237015392" duration="146000" />
-      <workItem from="1671275830801" duration="2291000" />
+      <workItem from="1671275830801" duration="5736000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -444,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671223763538</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="created course dao">
+      <created>1671278194659</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1671278194659</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +492,8 @@
     <MESSAGE value="all TestUserDAO tests, started TopicDAO, added ConnectionUtils" />
     <MESSAGE value="more TopicDAO methods implementation, added to ConnectionUtils rollback method" />
     <MESSAGE value="test commit from linux" />
-    <option name="LAST_COMMIT_MESSAGE" value="test commit from linux" />
+    <MESSAGE value="created course dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="created course dao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

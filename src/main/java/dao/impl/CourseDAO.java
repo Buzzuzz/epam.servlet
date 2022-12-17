@@ -93,7 +93,7 @@ public class CourseDAO implements DAO<Course> {
             con.commit();
         } catch (Exception e) {
             rollback(con);
-            log.error("Can't update course" + entity.getC_id(), e);
+            log.error("Can't update course " + entity.getC_id(), e);
             throw new DAOException("Can't update course " + entity.getC_id(), e);
         } finally {
             closeAll(statement, con);
