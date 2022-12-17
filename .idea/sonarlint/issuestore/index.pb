@@ -38,8 +38,6 @@ V
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 [
 +src/main/java/controllers/HelloServlet.java,3\8\387c20ddb655f9cb43126f86ab7fb4d5ed336590
-Y
-)src/test/java/testDAO/TestDataSource.java,b\1\b1fb0924e288404319eb948e03fdc001245eb507
 R
 "src/main/java/entities/Course.java,0\8\08b52406e851c83f546f645a977c2edfca9a902e
 S
@@ -52,7 +50,5 @@ T
 $src/main/java/entities/UserType.java,4\2\425abeaaedb221daa2bc728094d143a981a9f817
 Q
 !src/main/java/entities/Topic.java,f\c\fcc42fe7162e5d052b0b571c4993403a68c51ced
-V
-&src/main/java/dao/ConnectionUtils.java,8\e\8e6d45321162823f421777bdcfadd730b349bf7b
 J
 src/main/java/dao/DAO.java,8\5\854afe0992586767882304145dc1841dd1eecb4e

@@ -1,10 +1,14 @@
 package testDAO;
 
 import dao.DAOException;
+import dao.TestSetup;
 import dao.impl.UserDAO;
 import entities.User;
 import entities.UserType;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
@@ -13,9 +17,15 @@ class TestUserDAO {
     static UserDAO dao = UserDAO.getInstance();
     static User testUser = new User(0, "test_email@gmail.com", "pass123", "John", "Doe", "+380972322160", UserType.STUDENT, false, false);
 
+    @BeforeAll
+    static void setup() {
+        TestSetup.setup();
+    }
+
     @AfterAll
     static void cleanup() {
         dao.delete(generatedID);
+        TestSetup.cleanup();
     }
 
     @Test

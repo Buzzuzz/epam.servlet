@@ -1,17 +1,26 @@
 package testDAO;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import dao.DAOException;
+import dao.TestSetup;
 import dao.impl.TopicDAO;
 import entities.Topic;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestTopicDAO {
     static TopicDAO dao = TopicDAO.getInstance();
     static long generatedId;
+
+    @BeforeAll
+    static void setup() {
+        TestSetup.setup();
+    }
+
+    @AfterAll
+    static void clean() {
+        TestSetup.cleanup();
+    }
 
     @BeforeEach
     void init() {

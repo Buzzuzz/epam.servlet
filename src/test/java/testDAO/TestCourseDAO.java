@@ -1,11 +1,10 @@
 package testDAO;
 
 import dao.DAOException;
+import dao.TestSetup;
 import dao.impl.CourseDAO;
 import entities.Course;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.sql.Timestamp;
 
@@ -14,6 +13,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class TestCourseDAO {
     static CourseDAO dao = CourseDAO.getInstance();
     long generatedId;
+
+    @BeforeAll
+    static void setup() {
+        TestSetup.setup();
+    }
+
+    @AfterAll
+    static void clean() {
+        TestSetup.cleanup();
+    }
 
     @BeforeEach
     void init() {
