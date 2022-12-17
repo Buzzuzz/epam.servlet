@@ -1,16 +1,23 @@
 package dao.impl;
 
-import static dao.ConnectionUtils.*;
-
-import dao.*;
+import dao.DAO;
+import dao.DAOException;
+import dao.DataSource;
+import dao.SQLQueries;
 import entities.Course;
 import lombok.extern.log4j.Log4j2;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+
+import static dao.ConnectionUtils.closeAll;
+import static dao.ConnectionUtils.rollback;
 
 
 /**
@@ -19,6 +26,22 @@ import java.util.Optional;
  */
 @Log4j2
 public class CourseDAO implements DAO<Course> {
+    // Suppress constructor
+    private CourseDAO() {
+    }
+
+    /**
+     * Method to acquire specified {@link DAO} implementation ({@link Course} in this case).
+     * Singleton pattern
+     * @return {@link DAO} implementation for {@link Course} entity.
+     */
+    public static CourseDAO getInstance() {
+        return Holder.dao;
+    }
+
+    private static class Holder {
+        private static final CourseDAO dao = new CourseDAO();
+    }
 
     @Override
     public Optional<Course> get(long id) {

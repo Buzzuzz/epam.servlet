@@ -19,6 +19,20 @@ import java.util.Optional;
  */
 @Log4j2
 public class TopicDAO implements DAO<Topic> {
+    //Suppress constructor
+    private TopicDAO() {}
+
+    /**
+     * Method to acquire TopicDAO implementation of {@link DAO} interface (singleton pattern).
+     * @return {@link DAO} implementation for specified entity ({@link Topic} in this case)
+     */
+    public static TopicDAO getInstance() {
+        return Holder.dao;
+    }
+
+    private static class Holder {
+        private static final TopicDAO dao = new TopicDAO();
+    }
     @Override
     public Optional<Topic> get(long id) {
         Connection con = null;

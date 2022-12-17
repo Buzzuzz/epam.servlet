@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TestTopicDAO {
-    static TopicDAO dao = new TopicDAO();
+    static TopicDAO dao = TopicDAO.getInstance();
     static long generatedId;
 
     @BeforeEach

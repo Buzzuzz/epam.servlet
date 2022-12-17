@@ -4,6 +4,8 @@ package dao;
  * Class only for SQL queries in constant Strings (nothing more to see here)
  */
 public class SQLQueries {
+    // Suppress constructor
+    private SQLQueries() {}
     public static final String FIND_USER_BY_ID = "select * from epam.user where u_id = ?";
     public static final String FIND_USER_BY_EMAIL = "select * from epam.user where email = ?";
     public static final String FIND_ALL_USERS_IDS = "select u_id from epam.user";

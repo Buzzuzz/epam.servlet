@@ -10,7 +10,7 @@ import java.util.List;
 
 class TestUserDAO {
     static long generatedID;
-    static UserDAO dao = new UserDAO();
+    static UserDAO dao = UserDAO.getInstance();
     static User testUser = new User(0, "test_email@gmail.com", "pass123", "John", "Doe", "+380972322160", UserType.STUDENT, false, false);
 
     @AfterAll

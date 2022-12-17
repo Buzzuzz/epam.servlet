@@ -11,8 +11,8 @@ import java.sql.Timestamp;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestCourseDAO {
-    static CourseDAO dao = new CourseDAO();
+class TestCourseDAO {
+    static CourseDAO dao = CourseDAO.getInstance();
     long generatedId;
 
     @BeforeEach

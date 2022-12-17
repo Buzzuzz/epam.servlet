@@ -1,18 +1,24 @@
 package dao.impl;
 
-import static dao.ConnectionUtils.*;
-
-import dao.*;
+import dao.DAO;
+import dao.DAOException;
+import dao.DataSource;
+import dao.SQLQueries;
 import entities.User;
 import entities.UserType;
-import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+
+import static dao.ConnectionUtils.closeAll;
+import static dao.ConnectionUtils.rollback;
 
 /**
  * UserDAO class is realization of DAO layer for user entity.
@@ -20,8 +26,28 @@ import java.util.Optional;
  * and to write (create new) users to database.
  */
 @Log4j2
-@NoArgsConstructor
 public class UserDAO implements DAO<User> {
+
+    //Suppress constructor
+    private UserDAO() {
+    }
+
+    /**
+     * Method to acquire instance of this class (one and only one, singleton pattern)
+     * @return {@link DAO} implementation for specified entity (Currently, {@link UserDAO}).
+     */
+    public static UserDAO getInstance() {
+        return Holder.dao;
+    }
+
+    /**
+     * Nested Holder class that holds instance of {@link DAO} implementation (Currently, UserDAO).
+     * Implementation of Singleton pattern.
+     */
+    private static class Holder {
+        private static final UserDAO dao = new UserDAO();
+    }
+
 
     public Optional<User> get(long id) {
         ResultSet resultSet = null;
