@@ -9,53 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="more TopicDAO methods implementation, added to ConnectionUtils rollback method">
-      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestTopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d83ecf4-bee8-409d-93e2-efccb643dff3/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="test commit from linux">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/CourseDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entities/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/TopicCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/TopicCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/UserCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entities/UserType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +66,7 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -355,7 +314,9 @@
       <workItem from="1671219138944" duration="133000" />
       <workItem from="1671219282388" duration="2947000" />
       <workItem from="1671223543398" duration="30000" />
-      <workItem from="1671223583159" duration="40000" />
+      <workItem from="1671223583159" duration="445000" />
+      <workItem from="1671237015392" duration="146000" />
+      <workItem from="1671275830801" duration="2291000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -476,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670543533293</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="test commit from linux">
+      <created>1671223763538</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671223763538</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +480,8 @@
     <MESSAGE value="user dao tests (part of them)" />
     <MESSAGE value="all TestUserDAO tests, started TopicDAO, added ConnectionUtils" />
     <MESSAGE value="more TopicDAO methods implementation, added to ConnectionUtils rollback method" />
-    <option name="LAST_COMMIT_MESSAGE" value="more TopicDAO methods implementation, added to ConnectionUtils rollback method" />
+    <MESSAGE value="test commit from linux" />
+    <option name="LAST_COMMIT_MESSAGE" value="test commit from linux" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

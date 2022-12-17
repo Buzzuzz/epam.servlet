@@ -26,4 +26,9 @@ public class SQLQueries {
     public static final String DELETE_TOPIC = "delete from epam.topic where t_id = ? returning t_id";
     public static final String CREATE_TOPIC = "insert into epam.topic(name, description) values (?, ?)";
     public static final String UPDATE_TOPIC = "update epam.topic set name = ?, description = ? where t_id = ?";
+    public static final String FIND_COURSE_BY_ID = "select * from epam.course where c_id = ?";
+    public static final String FIND_ALL_COURSES_IDS = "select c_id from epam.course";
+    public static final String UPDATE_COURSE = "update epam.course set name = ?, description = ?, start_date = ?, end_date = ? where c_id = ?";
+    public static final String DELETE_COURSE = "delete from epam.course where c_id = ? returning c_id";
+    public static final String CREATE_COURSE = "insert into epam.course (name, description, start_date, end_date) values (?, ?, ?, ?)";
 }

@@ -1,5 +1,6 @@
 package entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import java.sql.Timestamp;
 
@@ -8,7 +9,7 @@ import java.sql.Timestamp;
  * Annotated with lombok <code>@Data</code> annotation,
  * which means that class contains all trivial constructors, getters, setters (except IDs).
  */
-@Data
+@Data @AllArgsConstructor
 public class Course {
     private final long c_id;
     private String name;
