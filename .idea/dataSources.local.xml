@@ -25,5 +25,25 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="epam_test@localhost" uuid="faa2baaf-ee99-4b40-9bcc-f79d3822d91b">
+      <database-info product="PostgreSQL" version="12.13 (Ubuntu 12.13-1.pgdg20.04+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="12.13" exact-driver-version="42.5">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node negative="1">
+            <node kind="database" qname="@">
+              <node kind="schema" qname="@" />
+            </node>
+            <node kind="database" qname="epam_test">
+              <node kind="schema" qname="epam" />
+            </node>
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
   </component>
 </project>

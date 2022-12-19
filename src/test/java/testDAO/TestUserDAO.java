@@ -1,88 +1,109 @@
 package testDAO;
 
-import dao.DAOException;
-import dao.TestSetup;
-import dao.impl.UserDAO;
-import entities.User;
-import entities.UserType;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import model.dao.DAOException;
+import model.dao.DataSource;
+import model.dao.TestSetup;
+import model.dao.impl.UserDAO;
+import model.entities.User;
+import model.entities.UserType;
+import org.junit.jupiter.api.*;
 
+import java.sql.Connection;
 import java.util.List;
 
 class TestUserDAO {
     static long generatedID;
     static UserDAO dao = UserDAO.getInstance();
-    static User testUser = new User(0, "test_email@gmail.com", "pass123", "John", "Doe", "+380972322160", UserType.STUDENT, false, false);
+    static User testUser;
+    static Connection con;
 
     @BeforeAll
     static void setup() {
         TestSetup.setup();
+        con = DataSource.getConnection();
     }
 
     @AfterAll
     static void cleanup() {
-        dao.delete(generatedID);
         TestSetup.cleanup();
+        DataSource.close(con);
+    }
+
+    @BeforeEach
+    void init() {
+        testUser = new User(
+                0,
+                "test_email@gmail.com",
+                "pass123",
+                "John",
+                "Doe",
+                "+380972322160",
+                UserType.STUDENT,
+                false,
+                false);
+        generatedID = dao.save(con, testUser);
+    }
+
+    @AfterEach
+    void clean() {
+        dao.delete(con, generatedID);
     }
 
     @Test
     void testSuccessfulGetUser() {
-        generatedID = dao.save(testUser);
-        Assertions.assertEquals(dao.get(generatedID).get().getU_id(), generatedID);
-        dao.delete(generatedID);
+        Assertions.assertEquals(dao.get(con, generatedID).get().getU_id(), generatedID);
     }
 
     @Test
     void testSuccessfulGetAllUsers() {
-        long toRemove = dao.save(new User(0, "test", "p", "J", "D", "+38", UserType.STUDENT, false, false));
-        List<User> temp = (List<User>) dao.getAll();
+        long toRemove = dao.save(con, new User(0, "test", "p", "J", "D", "+38", UserType.STUDENT, false, false));
+        List<User> temp = (List<User>) dao.getAll(con);
         Assertions.assertTrue(temp.size() >= 1);
-        dao.delete(toRemove);
+        dao.delete(con, toRemove);
     }
 
     @Test
     void testSuccessfulUpdateUser() {
-        generatedID = dao.save(testUser);
-        testUser.setU_id(generatedID);
+        testUser = dao.get(con, generatedID).get();
         testUser.setEmail("new_test_email@gmail.com");
-        dao.update(testUser);
-        Assertions.assertEquals(testUser.getEmail(), dao.get(generatedID).get().getEmail());
+        dao.update(con, testUser);
+        Assertions.assertEquals(testUser.getEmail(), dao.get(con, generatedID).get().getEmail());
     }
 
     @Test
     void testSuccessfulDeleteUser() {
-        long affected = dao.delete(generatedID);
-        Assertions.assertTrue(affected > 0);
-        Assertions.assertFalse(dao.get(generatedID).isPresent());
+        long affected = dao.delete(con, generatedID);
+        Assertions.assertEquals(affected, generatedID);
+        Assertions.assertFalse(dao.get(con, generatedID).isPresent());
+        generatedID = dao.save(con, testUser);
     }
 
     @Test
     void testSuccessfulInsertUser() {
-        generatedID = dao.save(testUser);
+        Assertions.assertEquals(dao.get(con, generatedID).get().getU_id(), generatedID);
+        dao.delete(con, generatedID);
+        generatedID = dao.save(con, testUser);
         Assertions.assertNotEquals(0, generatedID);
     }
 
     @Test
     void testGetNonExistentUser() {
-        Assertions.assertFalse(dao.get(-1).isPresent());
+        Assertions.assertFalse(dao.get(con, -1).isPresent());
     }
 
     @Test
     void testDeleteNonExistentUser() {
-        Assertions.assertThrows(DAOException.class, () -> dao.delete(-1));
+        Assertions.assertThrows(DAOException.class, () -> dao.delete(con, -1));
 //        Assertions.assertEquals(dao.delete(-1), 0);
     }
 
     @Test
     void testUpdateNonExistentUser() {
-        Assertions.assertThrows(DAOException.class, () -> dao.update(new User(-1)));
+        Assertions.assertThrows(DAOException.class, () -> dao.update(con, new User(-1)));
     }
 
     @Test
     void testInsertNotValidUser() {
-        Assertions.assertThrows(DAOException.class, () -> dao.save(new User(-1)));
+        Assertions.assertThrows(DAOException.class, () -> dao.save(con, new User(-1)));
     }
 }

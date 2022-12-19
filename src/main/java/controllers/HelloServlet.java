@@ -1,33 +1,18 @@
 package controllers;
 
-import java.io.*;
-
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.IOException;
+
 @Log4j2
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "HelloServlet", value = "/")
 public class HelloServlet extends HttpServlet {
-    private String message;
-
     @Override
-    public void init() {
-        message = "Hello World!";
-    }
-
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
-    }
-
-    @Override
-    public void destroy() {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        resp.getWriter().append("<html>").append("<h1>Hello World!QQW</h1>").append("</html>");
     }
 }

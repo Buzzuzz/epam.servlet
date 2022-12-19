@@ -5,10 +5,6 @@ w
 G.idea/sonarlint/issuestore/7/8/78379de8ae977d95be40bc1bd6f8eb17b0d3c6f4,d\6\d6e45ffd833fed3d3f911d1e8a8577145c94e260
 w
 G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b\4\b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
-O
-src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
-I
-src/main/webapp/index.jsp,8\e\8e6d3b70c9f5b02570779b0441540d45eceb0ded
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 w
@@ -18,37 +14,11 @@ G.idea/sonarlint/issuestore/3/a/3ad6d356b7a42a0b4e7530b1623775202a584b38,9\d\9d
 w
 G.idea/sonarlint/issuestore/b/4/b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3,b\0\b04578cffb47b1e57970601a0cacef6081245859
 w
-G.idea/sonarlint/issuestore/8/e/8e6d3b70c9f5b02570779b0441540d45eceb0ded,2\8\285d93d018524d3673e3fdd07a9fbe884e450078
-w
-G.idea/sonarlint/issuestore/2/8/285d93d018524d3673e3fdd07a9fbe884e450078,6\4\64914fa4815d2b2eeeb7bf39c082a73624256dda
-w
 G.idea/sonarlint/issuestore/b/0/b04578cffb47b1e57970601a0cacef6081245859,7\2\72d60672c1f4ee9fd0ef10acd6189a6dce5f9e9f
 w
 G.idea/sonarlint/issuestore/9/d/9d5c7e64600f5d85ac1c6318a5e2d6de02b4f377,1\d\1d62c4a54ed13d37b23e3389acc5523cfcf9d122
 w
 G.idea/sonarlint/issuestore/1/8/1892a11a748451d4b59332f1833709f41bc2f375,6\1\61a1cde95ef2c166208d64167d06d90b237f3be1
-V
-&src/main/java/entities/UserCourse.java,a\c\ac2051e3d52f4b77d756b42b03bb0fb718833554
-]
--.idea/artifacts/epam_servlet_war_exploded.xml,3\a\3ad6d356b7a42a0b4e7530b1623775202a584b38
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-[
-+src/main/java/controllers/HelloServlet.java,3\8\387c20ddb655f9cb43126f86ab7fb4d5ed336590
-R
-"src/main/java/entities/Course.java,0\8\08b52406e851c83f546f645a977c2edfca9a902e
-S
-#src/main/java/dao/DAOException.java,8\0\80bf04d133e117cabb4d62ade4b7ceafa3269c87
-P
- src/main/java/entities/User.java,5\f\5fa02fe45c9f7e20c3b267dee4d4126eab2f79f8
-W
-'src/main/java/entities/TopicCourse.java,6\4\6498cbfe1a8d350b7866af7d59f567cdeb045d5c
-T
-$src/main/java/entities/UserType.java,4\2\425abeaaedb221daa2bc728094d143a981a9f817
-Q
-!src/main/java/entities/Topic.java,f\c\fcc42fe7162e5d052b0b571c4993403a68c51ced
-J
-src/main/java/dao/DAO.java,8\5\854afe0992586767882304145dc1841dd1eecb4e

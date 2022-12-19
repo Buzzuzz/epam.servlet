@@ -1,6 +1,6 @@
 package testDAO.testConfig;
 
-import dao.DataSource;
+import model.dao.DataSource;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,6 +17,7 @@ class TestConfigFileDataSource {
         testPath.renameTo(afterTestPath);
         Assertions.assertThrows(ExceptionInInitializerError.class, DataSource::getConnection);
         afterTestPath.renameTo(testPath);
+        afterTestPath.delete();
     }
 
 }
