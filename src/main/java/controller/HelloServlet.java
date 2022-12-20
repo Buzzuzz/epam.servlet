@@ -1,4 +1,4 @@
-package controllers;
+package controller;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,5 +14,7 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.getWriter().append("<html>").append("<h1>Hello World!QQW</h1>").append("</html>");
+        log.info("hello from servlet");
+        log.info(req.getRequestURL().toString());
     }
 }
