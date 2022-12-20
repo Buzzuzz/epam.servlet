@@ -9,16 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="moved conUtils to dataSource, refactored dao impl, tests, moved into packages">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/FrontControllerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandsPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="started implementation of frontController and command patterns">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/filters/EncodingFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/components/footer.jspf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/components/menu.jspf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/components/metadata.jspf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/FrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/FrontControllerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/HelloServlet.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +30,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -88,11 +89,11 @@
       <recent name="C:\Users\Admin\IdeaProjects\epam.servlet\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/components" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="C:\Users\Admin\IdeaProjects\epam.servlet\src\main\resources\config" />
       <recent name="C:\Users\Admin\IdeaProjects\epam.servlet\src\main\resources" />
       <recent name="C:\Users\Admin\IdeaProjects\epam.servlet" />
-      <recent name="C:\Users\Admin\IdeaProjects\epam.servlet\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -332,7 +333,7 @@
       <workItem from="1671437542291" duration="36000" />
       <workItem from="1671467245555" duration="4349000" />
       <workItem from="1671471610966" duration="4166000" />
-      <workItem from="1671535527248" duration="3668000" />
+      <workItem from="1671535527248" duration="10419000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -495,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671473103990</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="started implementation of frontController and command patterns">
+      <created>1671539270258</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1671539270259</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +545,8 @@
     <MESSAGE value="singleton pattern impl in dao classes" />
     <MESSAGE value="added test setup class (and test database)" />
     <MESSAGE value="moved conUtils to dataSource, refactored dao impl, tests, moved into packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved conUtils to dataSource, refactored dao impl, tests, moved into packages" />
+    <MESSAGE value="started implementation of frontController and command patterns" />
+    <option name="LAST_COMMIT_MESSAGE" value="started implementation of frontController and command patterns" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
