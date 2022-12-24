@@ -1,0 +1,33 @@
+:root {
+    --black: #1A120B;
+    --brown: #3C2A21;
+    --cream-light: #E5E5CB;
+    --cream: #D5CEA3;
+}
+
+body {
+    background-color: var(--cream-light);
+}
+
+header {
+    background-color: var(--cream);
+}
+
+footer {
+    background-color: var(--cream);
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+    background-color: var(--brown) !important;
+    border-color: var(--brown);
+}
+
+.card {
+    background-color: var(--cream);
+}
+
+.form-control, .form-control:focus {
+    background-color: var(--cream-light);
+    border-color: var(--cream-light);
+    box-shadow: none;
+}

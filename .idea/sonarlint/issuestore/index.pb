@@ -72,5 +72,9 @@ Y
 )src/main/java/model/dao/impl/UserDAO.java,c/7/c7218255ff75a853213a9aa0dd388e5e09cb89d4
 Z
 *src/main/java/model/entities/UserType.java,5/c/5cbe5d30eb47357a658639ed9ef3243e776b8520
-7
-pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
+^
+.src/main/java/controller/commands/Command.java,4/6/46b7084af8a8382db24e03758e22189ae5dcf726
+g
+7src/main/java/controller/commands/CommandException.java,f/3/f3d0e990858c83e3b046236de3bcffa7514f5540
+c
+3src/main/java/controller/commands/CommandsPool.java,7/6/76ffa51cf914ca778f6e43530ac32d058fa15053

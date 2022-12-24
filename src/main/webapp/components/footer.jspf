@@ -1,4 +1,10 @@
 <footer>
-    <p>some footer here</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col text-center">
+                <p class="mt-3">EPAM Java Summer 2022 </p>
+            </div>
+        </div>
+    </div>
 </footer>
 
