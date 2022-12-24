@@ -36,14 +36,8 @@ y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/databas
 .idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/pg_catalog.0S1ZNQ.meta,9/a/9a44a08d064027682d74748ac6631a7d8f8baf0a
 X
 (src/main/java/model/entities/Course.java,9/1/91bc0d24d35a2ef119006c5b93d86b458766a7f8
-[
-+src/main/java/model/dao/impl/CourseDAO.java,a/1/a13e4ec39bf5bc822ea989ef7a6a7864f463855c
 P
  src/main/java/model/dao/DAO.java,d/4/d4be9dff6130ca62d35aaf96505327a90e80fad6
-Y
-)src/main/java/model/dao/DAOException.java,0/9/09f257f92f9a49f521071680f5abae2877d747a8
-W
-'src/main/java/model/dao/DataSource.java,5/1/518f149e91541f1f159fc512f570213d8faea660
 W
 'src/main/java/model/dao/SQLQueries.java,7/d/7de4c20a247449614f89e73a82fe3a5a4ae8a3a5
 n
@@ -68,8 +62,6 @@ V
 &src/main/java/model/entities/User.java,1/e/1e75bd4f7a5b764cf9a86881607c3314587c3b90
 \
 ,src/main/java/model/entities/UserCourse.java,a/0/a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
-Y
-)src/main/java/model/dao/impl/UserDAO.java,c/7/c7218255ff75a853213a9aa0dd388e5e09cb89d4
 Z
 *src/main/java/model/entities/UserType.java,5/c/5cbe5d30eb47357a658639ed9ef3243e776b8520
 ^

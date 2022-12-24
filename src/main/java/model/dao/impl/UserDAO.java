@@ -47,7 +47,6 @@ public class UserDAO implements DAO<User> {
         private static final UserDAO dao = new UserDAO();
     }
 
-
     public Optional<User> get(Connection con, long id) {
         ResultSet resultSet = null;
         PreparedStatement statement = null;
@@ -76,6 +75,42 @@ public class UserDAO implements DAO<User> {
 
         } catch (Exception e) {
             log.error("Can't get user from database");
+            throw new DAOException("Can't get user from database", e);
+        } finally {
+            closeAll(resultSet, statement);
+        }
+
+        return Optional.ofNullable(user);
+    }
+
+    public Optional<User> getByEmail(Connection con, String email) {
+        ResultSet resultSet = null;
+        PreparedStatement statement = null;
+        User user = null;
+        try {
+            statement = con.prepareStatement(SQLQueries.FIND_USER_BY_EMAIL);
+            statement.setString(1, email);
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                user = new User(resultSet.getLong("u_id"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setFirst_name(resultSet.getString("first_name"));
+                user.setLast_name(resultSet.getString("last_name"));
+                user.setPhone(resultSet.getString("phone"));
+
+                String userType = resultSet.getString("user_type");
+                if (userType.equals(UserType.ADMINISTRATOR.name())) user.setUser_type(UserType.ADMINISTRATOR);
+                if (userType.equals(UserType.TEACHER.name())) user.setUser_type(UserType.TEACHER);
+                if (userType.equals(UserType.STUDENT.name())) user.setUser_type(UserType.STUDENT);
+
+                user.set_blocked(resultSet.getBoolean("is_blocked"));
+                user.setSend_notification(resultSet.getBoolean("send_notification"));
+            }
+
+        } catch (Exception e) {
+            log.error("Can't get user from database", e);
             throw new DAOException("Can't get user from database", e);
         } finally {
             closeAll(resultSet, statement);
