@@ -22,8 +22,6 @@ G.idea/sonarlint/issuestore/1/8/1892a11a748451d4b59332f1833709f41bc2f375,6\1\61
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-]
--.idea/artifacts/epam_servlet_war_exploded.xml,3/a/3ad6d356b7a42a0b4e7530b1623775202a584b38
 j
 :.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b.xml,6/3/63f6ea0575d82860fcbde95a1b19a3c8baafc926
 –
@@ -36,8 +34,6 @@ y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/databas
 .idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/pg_catalog.0S1ZNQ.meta,9/a/9a44a08d064027682d74748ac6631a7d8f8baf0a
 X
 (src/main/java/model/entities/Course.java,9/1/91bc0d24d35a2ef119006c5b93d86b458766a7f8
-P
- src/main/java/model/dao/DAO.java,d/4/d4be9dff6130ca62d35aaf96505327a90e80fad6
 W
 'src/main/java/model/dao/SQLQueries.java,7/d/7de4c20a247449614f89e73a82fe3a5a4ae8a3a5
 n
@@ -48,8 +44,6 @@ Y
 )src/test/java/testDAO/TestDataSource.java,b/1/b1fb0924e288404319eb948e03fdc001245eb507
 V
 &src/main/java/model/dao/TestSetup.java,3/d/3d1cd698f1f28dc03d92ade22fe67fc0841b661e
-W
-'src/test/java/testDAO/TestTopicDAO.java,9/7/97d03a67c6a2c617773581f1c40da6844e4e1966
 V
 &src/test/java/testDAO/TestUserDAO.java,6/8/680604700ac5239325ac6646ff46712d500be975
 W
@@ -58,8 +52,6 @@ W
 -src/main/java/model/entities/TopicCourse.java,3/5/350a144c244a29edf17fc78f6609eafd85199a91
 Z
 *src/main/java/model/dao/impl/TopicDAO.java,b/5/b5494ae30f447bde28ec299205591a2719d840bc
-V
-&src/main/java/model/entities/User.java,1/e/1e75bd4f7a5b764cf9a86881607c3314587c3b90
 \
 ,src/main/java/model/entities/UserCourse.java,a/0/a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
 Z
@@ -70,3 +62,29 @@ g
 7src/main/java/controller/commands/CommandException.java,f/3/f3d0e990858c83e3b046236de3bcffa7514f5540
 c
 3src/main/java/controller/commands/CommandsPool.java,7/6/76ffa51cf914ca778f6e43530ac32d058fa15053
+V
+&src/main/webapp/components/footer.jspf,2/6/26b3095d40a790d372e975ab3eb689d92183dd77
+O
+src/main/webapp/pages/login.jsp,f/9/f917108e3aedac2a9c4cc5dfd98f70b815e92372
+X
+(src/main/webapp/components/metadata.jspf,c/9/c9285f2570b0a57313b914bf65baed92ff4549d7
+Q
+!src/main/webapp/pages/restore.jsp,d/c/dcd64f48ab77e701c27768b7badae1723b2ca46c
+P
+ src/main/webapp/pages/signin.jsp,2/8/288667badd112838c9889e1045fcebddafc68b41
+Y
+)src/main/java/model/dao/DAOException.java,0/9/09f257f92f9a49f521071680f5abae2877d747a8
+[
++src/main/java/model/dao/impl/CourseDAO.java,a/1/a13e4ec39bf5bc822ea989ef7a6a7864f463855c
+W
+'src/main/java/model/dao/DataSource.java,5/1/518f149e91541f1f159fc512f570213d8faea660
+W
+'src/test/java/testDAO/TestTopicDAO.java,9/7/97d03a67c6a2c617773581f1c40da6844e4e1966
+O
+src/main/webapp/WEB-INF/web.xml,2/e/2e22b6edd746fa3dc40ad7276c87c8d87d72a392
+P
+ src/main/java/model/dao/DAO.java,d/4/d4be9dff6130ca62d35aaf96505327a90e80fad6
+Y
+)src/main/java/model/dao/impl/UserDAO.java,c/7/c7218255ff75a853213a9aa0dd388e5e09cb89d4
+O
+src/main/webapp/pages/index.jsp,6/d/6d1882855c5a6ca4ae29c49e862e7c6d94997549

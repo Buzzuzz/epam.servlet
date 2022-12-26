@@ -14,6 +14,9 @@
           <element id="module-output" name="epam.servlet" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0" />
+          <element id="library" level="project" name="Maven: jakarta.el:jakarta.el-api:5.0.0" />
+          <element id="library" level="project" name="Maven: org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:2.0.6" />
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.5.1" />
           <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />

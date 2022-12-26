@@ -10,7 +10,8 @@ import lombok.ToString;
  * Check {@link UserType UserType} for possible user types
  * (System access levels depend on them).
  */
-@Data @AllArgsConstructor
+@Data
+@AllArgsConstructor
 public class User {
     private long u_id;
     private String email;
@@ -25,6 +26,7 @@ public class User {
 
     /**
      * This constructor is needed to create user with ID only without possibility to change it.
+     *
      * @param ID For assigning to user object
      */
     public User(long ID) {

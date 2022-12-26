@@ -6,10 +6,11 @@
 }
 
 body {
+    margin-top: 7%;
     background-color: var(--cream-light);
 }
 
-header {
+header, .navbar {
     background-color: var(--cream);
 }
 
@@ -17,9 +18,10 @@ footer {
     background-color: var(--cream);
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .input-group-text{
     background-color: var(--brown) !important;
     border-color: var(--brown);
+    color: white;
 }
 
 .card {

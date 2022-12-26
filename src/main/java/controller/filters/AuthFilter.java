@@ -24,7 +24,7 @@ public class AuthFilter implements Filter {
 
         if (request.getSession().getAttribute("loggedUser") == null) {
             Connection con = DataSource.getConnection();
-            log.debug(request.getParameter("email"));
+
             Optional<User> daoResult = dao.getByEmail(con, request.getParameter("email"));
             DataSource.close(con);
 
@@ -32,7 +32,9 @@ public class AuthFilter implements Filter {
                 User user = daoResult.get();
                 if (user.getPassword().equals(request.getParameter("password"))) {
                     request.getSession().setAttribute("loggedUser", user);
-                    log.debug("User " + user.getEmail() + " logged in successful!");
+                    log.info("User " + user.getEmail() + " logged in successful!");
+                } else {
+                    log.debug("Password doesn't match!");
                 }
             } else {
                 log.debug("No user with email " + request.getParameter("email"));
