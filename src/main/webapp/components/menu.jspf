@@ -22,7 +22,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link"
                                                href="${pageContext.request.contextPath}/pages/signin.jsp">Sign
-                                                In</a>
+                                                Up</a>
                                         </li>
                                     </c:if>
                                     <c:if test="${sessionScope.loggedUser != null}">
