@@ -2,11 +2,12 @@ package controller.commands;
 
 import controller.commands.impl.LogInCommand;
 import controller.commands.impl.LogOutCommand;
+import controller.commands.impl.SignUpCommand;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.HashMap;
 import java.util.Map;
-import static constants.CommandNamesConstants.*;
+import static constants.CommandNameConstants.*;
 
 /**
  * Class that contains {@link Command commands} inside of it and methods to get them
@@ -21,10 +22,10 @@ public class CommandPool {
 
     // Initializing pool - adding commands
     static {
-        log.debug("Started CommandPool initialization");
         COMMANDS_POOL.put(LOG_OUT_COMMAND, new LogOutCommand());
         COMMANDS_POOL.put(LOG_IN_COMMAND, new LogInCommand());
-        //TODO: instantiate command objects here
+        COMMANDS_POOL.put(SIGN_UP_COMMAND, new SignUpCommand());
+
         log.debug("Initialization of CommandPool successful");
     }
 

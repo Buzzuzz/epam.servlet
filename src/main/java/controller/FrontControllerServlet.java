@@ -3,7 +3,6 @@ package controller;
 import controller.commands.Command;
 import controller.commands.CommandException;
 import controller.commands.CommandPool;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,8 +10,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 
-import static constants.AttributesConstants.*;
-import static constants.PagesConstants.*;
+import static constants.AttributeConstants.*;
+import static constants.PageConstants.*;
 
 
 import java.io.IOException;
@@ -28,15 +27,15 @@ public class FrontControllerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect(req.getContextPath() + process(req, resp));
+        resp.sendRedirect(req.getContextPath() + process(req));
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect(req.getContextPath() + process(req, resp));
+        resp.sendRedirect(req.getContextPath() + process(req));
     }
 
-    private String process(HttpServletRequest req, HttpServletResponse resp) {
+    private String process(HttpServletRequest req) {
         if (req.getParameter(COMMAND_ATTR) == null) {
             return HOME_PAGE;
         }
@@ -48,9 +47,6 @@ public class FrontControllerServlet extends HttpServlet {
             return CommandPool.getCommand(req.getParameter(COMMAND_ATTR)).execute(req);
         } catch (CommandException e) {
             log.error(e.getMessage(), e);
-//            Throwable throwable = (Throwable) req.getAttribute("javax.servlet.error.exception");
-//            Integer statusCode = (Integer) req.getAttribute("javax.servlet.error.status_code");
-            log.info(req.getAttribute(RequestDispatcher.ERROR_STATUS_CODE));
             return ERROR_PAGE;
         }
     }

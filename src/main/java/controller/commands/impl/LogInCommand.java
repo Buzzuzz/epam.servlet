@@ -3,8 +3,8 @@ package controller.commands.impl;
 import controller.commands.Command;
 import controller.commands.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
-import static constants.PagesConstants.*;
-import static constants.AttributesConstants.*;
+import static constants.PageConstants.*;
+import static constants.AttributeConstants.*;
 
 public class LogInCommand implements Command {
     @Override

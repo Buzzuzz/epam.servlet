@@ -13,19 +13,19 @@
                     </div>
                     <form>
                         <div class="form-outline">
-                            <input type="email" id="form2Example1" class="form-control"/>
+                            <input type="email" id="form2Example1" class="form-control" name="email"/>
                             <label class="form-label" for="form2Example1">Email address*</label>
                         </div>
                         <div class="row row-cols-2">
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="password" id="form2Example2" class="form-control"/>
+                                    <input type="password" id="form2Example2" class="form-control" name="password"/>
                                     <label class="form-label" for="form2Example2">Password*</label>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="password" id="form2Example3" class="form-control"/>
+                                    <input type="password" id="form2Example3" class="form-control" name="password-repeat"/>
                                     <label class="form-label" for="form2Example3">Repeat password*</label>
                                 </div>
                             </div>
@@ -33,19 +33,19 @@
                         <div class="row row-cols-2">
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" class="form-control" id="f-name"/>
+                                    <input type="text" class="form-control" id="f-name" name="f-name"/>
                                     <label class="form-label" for="f-name">First Name*</label>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="text" class="form-control" id="l-name"/>
+                                    <input type="text" class="form-control" id="l-name" name="l-name"/>
                                     <label class="form-label" for="l-name">Last Name*</label>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <input type="text" class="form-control" id="phone-number"/>
+                            <input type="text" class="form-control" id="phone-number" name="phone-number"/>
                             <label class="form-label" for="phone-number">Phone number*</label>
                         </div>
                         <div class="text-center mb-4">

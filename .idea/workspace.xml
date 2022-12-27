@@ -10,40 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="file rearrangement, started commands implementation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/constants/AttributesConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/constants/CommandNamesConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/constants/PagesConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogInCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogOutCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/SignUpCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CommandsPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/AttributesConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/CommandNamesConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/CommandNameConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/PagesConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/PageConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/FrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/FrontControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Course.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Topic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/TopicCourse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserCourse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/filters/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/EncodingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/components/metadata.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/components/metadata.jspf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogInCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogInCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogOutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogOutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/filters/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/filters/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/EncodingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/signin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/signin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,7 +351,7 @@
       <workItem from="1672057115154" duration="10000" />
       <workItem from="1672060095521" duration="32000" />
       <workItem from="1672149232689" duration="267000" />
-      <workItem from="1672154145772" duration="9517000" />
+      <workItem from="1672154145772" duration="12729000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -591,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672155126364</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="file rearrangement, started commands implementation">
+      <created>1672164125891</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1672164125891</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

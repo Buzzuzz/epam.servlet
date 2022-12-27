@@ -34,8 +34,6 @@ y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/databas
 .idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/pg_catalog.0S1ZNQ.meta,9/a/9a44a08d064027682d74748ac6631a7d8f8baf0a
 X
 (src/main/java/model/entities/Course.java,9/1/91bc0d24d35a2ef119006c5b93d86b458766a7f8
-W
-'src/main/java/model/dao/SQLQueries.java,7/d/7de4c20a247449614f89e73a82fe3a5a4ae8a3a5
 n
 >src/test/java/testDAO/testConfig/TestConfigFileDataSource.java,8/7/878132128c017724f41871ace6fa06294e831390
 X
@@ -50,8 +48,6 @@ W
 'src/main/java/model/entities/Topic.java,5/6/562f929a6b0cecef87b489129a983cbb25503a91
 ]
 -src/main/java/model/entities/TopicCourse.java,3/5/350a144c244a29edf17fc78f6609eafd85199a91
-Z
-*src/main/java/model/dao/impl/TopicDAO.java,b/5/b5494ae30f447bde28ec299205591a2719d840bc
 \
 ,src/main/java/model/entities/UserCourse.java,a/0/a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
 Z
@@ -66,8 +62,6 @@ W
 'src/test/java/testDAO/TestTopicDAO.java,9/7/97d03a67c6a2c617773581f1c40da6844e4e1966
 P
  src/main/java/model/dao/DAO.java,d/4/d4be9dff6130ca62d35aaf96505327a90e80fad6
-Y
-)src/main/java/model/dao/impl/UserDAO.java,c/7/c7218255ff75a853213a9aa0dd388e5e09cb89d4
 I
 src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
 ]

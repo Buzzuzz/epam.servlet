@@ -1,5 +1,6 @@
 package controller.filters;
 
+import constants.CommandNameConstants;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,8 +12,8 @@ import model.entities.User;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Optional;
-import static constants.PagesConstants.*;
-import static constants.AttributesConstants.*;
+
+import static constants.AttributeConstants.*;
 
 @WebFilter(filterName = "AuthFilter", value = "/*")
 @Log4j2
@@ -22,7 +23,9 @@ public class AuthFilter implements Filter {
         UserDAO dao = UserDAO.getInstance();
         HttpServletRequest request = (HttpServletRequest) req;
 
-        if (request.getSession().getAttribute(LOGGED_USER_ATTR) == null) {
+        if (request.getSession().getAttribute(LOGGED_USER_ATTR) == null &&
+                request.getParameter(COMMAND_ATTR) != null &&
+                request.getParameter(COMMAND_ATTR).equals(CommandNameConstants.LOG_IN_COMMAND)) {
             Connection con = DataSource.getConnection();
 
             Optional<User> daoResult = dao.getByEmail(con, request.getParameter(EMAIL_ATTR));

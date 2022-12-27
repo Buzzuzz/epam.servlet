@@ -1,6 +1,6 @@
 package constants;
 
-public interface PagesConstants {
+public interface PageConstants {
     String ERROR_PAGE = "/pages/error.jsp";
     String HOME_PAGE = "/pages/index.jsp";
     String LOGIN_PAGE = "/pages/login.jsp";

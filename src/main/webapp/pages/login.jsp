@@ -26,10 +26,10 @@
                         </div>
                         <div class="row row-cols-2 justify-content-center text-center">
                             <div class="col">
-                                <a href="signin.jsp">Register</a>
+                                <a href="${pageContext.request.contextPath}/pages/signin.jsp">Register</a>
                             </div>
                             <div class="col">
-                                <a href="restore.jsp">Forgot password?</a>
+                                <a href="${pageContext.request.contextPath}/pages/restore.jsp">Forgot password?</a>
                             </div>
                         </div>
                     </form>
