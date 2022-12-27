@@ -88,3 +88,17 @@ Y
 )src/main/java/model/dao/impl/UserDAO.java,c/7/c7218255ff75a853213a9aa0dd388e5e09cb89d4
 O
 src/main/webapp/pages/index.jsp,6/d/6d1882855c5a6ca4ae29c49e862e7c6d94997549
+I
+src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
+]
+-.idea/artifacts/epam_servlet_war_exploded.xml,3\a\3ad6d356b7a42a0b4e7530b1623775202a584b38
+Q
+!src/main/webapp/pages/cabinet.jsp,8\5\85cd8ea57e4194c3eba14fea8e7c75b3d7e3705a
+d
+4src/main/java/controller/filters/EncodingFilter.java,f\f\ffc31786e533b1b9f4914f59cfdb8cfbe8045fcc
+T
+$src/main/webapp/components/menu.jspf,7\b\7b3498325fd7f8308d3b8c9dee5a7ad985d3dc0e
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+V
+&src/main/java/model/entities/User.java,1\e\1e75bd4f7a5b764cf9a86881607c3314587c3b90

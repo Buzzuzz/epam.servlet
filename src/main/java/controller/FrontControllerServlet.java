@@ -1,5 +1,6 @@
 package controller;
 
+import commands.Command;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,7 +12,7 @@ import java.io.IOException;
 
 /**
  * Class-implementation of front controller pattern, extends {@link HttpServlet}.
- * Redirects user to some other part of program by executing {@link controller.commands.Command command}
+ * Redirects user to some other part of program by executing {@link Command command}
  */
 @WebServlet("/controller")
 @Log4j2
