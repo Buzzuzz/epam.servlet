@@ -49,11 +49,11 @@
                             <label class="form-label" for="phone-number">Phone number*</label>
                         </div>
                         <div class="text-center mb-4">
-                            <button type="button" class="btn btn-primary btn-block w-50">Sign Up</button>
+                            <button type="button" class="btn btn-primary btn-block w-50" name="command" value="signup">Sign Up</button>
                         </div>
                         <div class="row row-cols-2 justify-content-center text-center">
                             <div class="col">
-                                <a href="login.jsp">Log In</a>
+                                <a href="${pageContext.request.contextPath}/pages/login.jsp">Log In</a>
                             </div>
                         </div>
                     </form>

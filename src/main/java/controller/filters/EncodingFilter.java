@@ -1,4 +1,4 @@
-package filters;
+package controller.filters;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
@@ -11,11 +11,10 @@ import java.io.IOException;
 public class EncodingFilter implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        log.debug("Started encoding filter");
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html; charset=UTF-8;");
         resp.setCharacterEncoding("UTF-8");
-        log.debug("Finished encoding filter");
+        log.debug("Encoding filter");
         chain.doFilter(req, resp);
     }
 }

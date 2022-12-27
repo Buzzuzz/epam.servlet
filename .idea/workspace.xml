@@ -9,37 +9,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="test from yet another system">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/Topic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/TopicCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/UserCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entities/UserType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config/log4j2.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/2022-12-24.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/20221201.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logs/20221206.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="file rearrangement, started commands implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/constants/AttributesConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/constants/CommandNamesConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/constants/PagesConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogInCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogOutCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/SignUpCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/commands/CommandsPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/FrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/FrontControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/CommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/CommandException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/CommandsPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/commands/CommandsPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/filters/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/filters/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/filters/EncodingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/ConnectionUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DAOException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/DataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/SQLQueries.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/TopicDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/impl/UserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/Topic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/TopicCourse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserCourse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entities/UserType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/filters/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/EncodingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/components/metadata.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/components/metadata.jspf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/signin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/signin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +53,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="CSS File" />
-        <option value="Class" />
+        <option value="Interface" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -368,7 +372,7 @@
       <workItem from="1672057115154" duration="10000" />
       <workItem from="1672060095521" duration="32000" />
       <workItem from="1672149232689" duration="267000" />
-      <workItem from="1672154145772" duration="134000" />
+      <workItem from="1672154145772" duration="9517000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -580,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672024957479</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="test from yet another system">
+      <created>1672155126364</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1672155126364</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="finally got structure of the project" />
     <MESSAGE value="added hikari cp dependency" />
     <MESSAGE value="set up logger" />
     <MESSAGE value="some additional data" />
@@ -626,7 +636,8 @@
     <MESSAGE value="started filter implementation" />
     <MESSAGE value="test" />
     <MESSAGE value="test from yet another system" />
-    <option name="LAST_COMMIT_MESSAGE" value="test from yet another system" />
+    <MESSAGE value="file rearrangement, started commands implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="file rearrangement, started commands implementation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

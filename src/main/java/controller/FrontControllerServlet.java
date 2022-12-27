@@ -1,12 +1,19 @@
 package controller;
 
-import commands.Command;
+import controller.commands.Command;
+import controller.commands.CommandException;
+import controller.commands.CommandPool;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
+
+import static constants.AttributesConstants.*;
+import static constants.PagesConstants.*;
+
 
 import java.io.IOException;
 
@@ -21,21 +28,30 @@ public class FrontControllerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameter("command") == null) {
-            req.getRequestDispatcher(req.getContextPath() + "/index.jsp").forward(req, resp);
-        }
-        if (req.getSession().getAttribute("loggedUser") == null) {
-            req.getRequestDispatcher(req.getContextPath() + "/pages/login.jsp").forward(req, resp);
-        }
+        resp.sendRedirect(req.getContextPath() + process(req, resp));
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (req.getParameter("command") == null) {
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + process(req, resp));
+    }
+
+    private String process(HttpServletRequest req, HttpServletResponse resp) {
+        if (req.getParameter(COMMAND_ATTR) == null) {
+            return HOME_PAGE;
         }
-        if (req.getSession().getAttribute("loggedUser") == null) {
-            req.getRequestDispatcher("pages/login.jsp").forward(req, resp);
+        if (req.getSession().getAttribute(LOGGED_USER_ATTR) == null) {
+            return LOGIN_PAGE;
+        }
+
+        try {
+            return CommandPool.getCommand(req.getParameter(COMMAND_ATTR)).execute(req);
+        } catch (CommandException e) {
+            log.error(e.getMessage(), e);
+//            Throwable throwable = (Throwable) req.getAttribute("javax.servlet.error.exception");
+//            Integer statusCode = (Integer) req.getAttribute("javax.servlet.error.status_code");
+            log.info(req.getAttribute(RequestDispatcher.ERROR_STATUS_CODE));
+            return ERROR_PAGE;
         }
     }
 }

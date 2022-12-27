@@ -1,6 +1,6 @@
 package testDAO;
 
-import dao.DataSource;
+import model.dao.DataSource;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
