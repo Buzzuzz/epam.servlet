@@ -1,8 +1,9 @@
 package services;
 
+import exceptions.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
-import model.dao.DAOException;
+import exceptions.DAOException;
 import model.dao.DataSource;
 import model.dao.impl.UserDAO;
 import model.entities.User;
@@ -80,5 +81,9 @@ public class UserService {
             }
         }
         return false;
+    }
+
+    public static boolean updateUserData() {
+        throw new UnsupportedOperationException();
     }
 }

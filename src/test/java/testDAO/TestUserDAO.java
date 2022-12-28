@@ -1,6 +1,6 @@
 package testDAO;
 
-import model.dao.DAOException;
+import exceptions.DAOException;
 import model.dao.DataSource;
 import model.dao.TestSetup;
 import model.dao.impl.UserDAO;

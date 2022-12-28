@@ -2,7 +2,7 @@ package model.dao.impl;
 
 import lombok.extern.log4j.Log4j2;
 import model.dao.DAO;
-import model.dao.DAOException;
+import exceptions.DAOException;
 import constants.SQLQueries;
 import model.entities.Course;
 

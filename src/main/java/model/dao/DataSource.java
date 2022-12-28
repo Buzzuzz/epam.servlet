@@ -2,6 +2,7 @@ package model.dao;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import exceptions.DAOException;
 import lombok.extern.log4j.Log4j2;
 
 import java.sql.Connection;

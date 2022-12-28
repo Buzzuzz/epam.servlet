@@ -1,4 +1,4 @@
-package controller.commands;
+package exceptions;
 
 import lombok.experimental.StandardException;
 

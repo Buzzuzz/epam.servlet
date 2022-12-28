@@ -40,6 +40,7 @@
                                                     type="text"
                                                     class="form-control"
                                                     aria-label="type-user"
+                                                    name="f-name"
                                                     value="${sessionScope.loggedUser.first_name}"
                                                     required>
                                         </div>
@@ -51,6 +52,7 @@
                                                     type="text"
                                                     class="form-control"
                                                     aria-label="type-user"
+                                                    name="l-name"
                                                     value="${sessionScope.loggedUser.last_name}"
                                                     required>
                                         </div>
@@ -63,6 +65,7 @@
                                                 type="email"
                                                 class="form-control"
                                                 aria-label="type-user"
+                                                name="email"
                                                 value="${sessionScope.loggedUser.email}"
                                                 required>
                                     </div>
@@ -74,8 +77,8 @@
                                                 type="password"
                                                 class="form-control"
                                                 aria-label="type-user"
-                                                value="${sessionScope.loggedUser.password}"
-                                                required>
+                                                name="password"
+                                        >
                                     </div>
                                 </div>
                                 <div class="col">
@@ -85,15 +88,14 @@
                                                 type="text"
                                                 class="form-control"
                                                 aria-label="type-user"
+                                                name="phone-number"
                                                 value="${sessionScope.loggedUser.phone}"
                                                 required>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="col">

@@ -1,7 +1,7 @@
 package controller.commands;
 
+import exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Interface to mark class as Command with only one method {@link Command#execute(HttpServletRequest)}. <br>

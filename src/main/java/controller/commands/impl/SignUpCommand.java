@@ -1,10 +1,10 @@
 package controller.commands.impl;
 
 import controller.commands.Command;
-import controller.commands.CommandException;
+import exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
-import services.ServiceException;
+import exceptions.ServiceException;
 import services.UserService;
 import static constants.PageConstants.*;
 

@@ -1,7 +1,7 @@
 package controller.commands.impl;
 
 import controller.commands.Command;
-import controller.commands.CommandException;
+import exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 import static constants.PageConstants.*;
 import static constants.AttributeConstants.*;

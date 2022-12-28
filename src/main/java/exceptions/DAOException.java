@@ -1,4 +1,4 @@
-package model.dao;
+package exceptions;
 
 import lombok.experimental.StandardException;
 

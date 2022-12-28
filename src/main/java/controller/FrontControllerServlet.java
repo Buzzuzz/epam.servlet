@@ -1,8 +1,8 @@
 package controller;
 
 import controller.commands.Command;
-import controller.commands.CommandException;
 import controller.commands.CommandPool;
+import exceptions.NoSuchCommandException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -23,11 +23,9 @@ import java.io.IOException;
 @WebServlet("/controller")
 @Log4j2
 public class FrontControllerServlet extends HttpServlet {
-    //TODO: implement get | post methods
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect(req.getContextPath() + process(req));
+        req.getRequestDispatcher(process(req)).forward(req, resp);
     }
 
     @Override
@@ -36,11 +34,9 @@ public class FrontControllerServlet extends HttpServlet {
     }
 
     private String process(HttpServletRequest req) {
-
-
         try {
             return CommandPool.getCommand(req.getParameter(COMMAND_ATTR)).execute(req);
-        } catch (CommandException e) {
+        } catch (NoSuchCommandException e) {
             log.error(e.getMessage(), e);
             return ERROR_PAGE;
         }

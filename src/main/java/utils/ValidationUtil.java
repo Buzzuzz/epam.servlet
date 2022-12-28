@@ -78,22 +78,22 @@ public class ValidationUtil {
      */
     public static boolean validateNewUser(HttpServletRequest req) {
         HttpSession session = req.getSession();
-        if (!checkEmailIsAvailable((String) req.getParameter(EMAIL_ATTR))) {
+        if (!checkEmailIsAvailable(req.getParameter(EMAIL_ATTR))) {
             session.setAttribute(ERROR, EMAIL_ATTR);
             return false;
         }
         log.debug("email pass");
-        if (!validatePassword((String) req.getParameter(PASSWORD_ATTR))) {
+        if (!validatePassword(req.getParameter(PASSWORD_ATTR))) {
             session.setAttribute(ERROR, PASSWORD_ATTR);
             return false;
         }
         log.debug("valid password");
-        if (!comparePasswords((String) req.getParameter(PASSWORD_REPEAT_ATTR), (String) req.getParameter(PASSWORD_ATTR))) {
+        if (!comparePasswords(req.getParameter(PASSWORD_REPEAT_ATTR), req.getParameter(PASSWORD_ATTR))) {
             session.setAttribute(ERROR, PASSWORD_REPEAT_ATTR);
             return false;
         }
         log.debug("passwords are equal");
-        if (!validatePhoneNumber((String) req.getParameter(PHONE_NUMBER))) {
+        if (!validatePhoneNumber(req.getParameter(PHONE_NUMBER))) {
             session.setAttribute(ERROR, PHONE_NUMBER);
             return false;
         }

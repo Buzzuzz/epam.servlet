@@ -1,4 +1,4 @@
-package services;
+package exceptions;
 
 import lombok.experimental.StandardException;
 

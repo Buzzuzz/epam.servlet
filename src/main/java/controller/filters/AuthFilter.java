@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import model.entities.User;
-import services.ServiceException;
+import exceptions.ServiceException;
 import services.UserService;
 
 import java.io.IOException;
