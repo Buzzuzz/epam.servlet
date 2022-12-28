@@ -9,14 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="login | logout commands implemented">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/ValidationUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="started services creation, registration">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/filters/AccessFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/ServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/epam_servlet_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogOutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/LogOutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/filters/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/components/menu.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/components/menu.jspf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/signin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/signin.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Interface" />
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -345,7 +355,7 @@
       <workItem from="1672057115154" duration="10000" />
       <workItem from="1672060095521" duration="32000" />
       <workItem from="1672149232689" duration="267000" />
-      <workItem from="1672154145772" duration="16020000" />
+      <workItem from="1672154145772" duration="22497000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -578,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672168887315</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="started services creation, registration">
+      <created>1672182844362</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1672182844362</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,7 +616,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="set up logger" />
     <MESSAGE value="some additional data" />
     <MESSAGE value="test folders commit test" />
     <MESSAGE value="created db entities" />
@@ -624,7 +640,8 @@
     <MESSAGE value="test from yet another system" />
     <MESSAGE value="file rearrangement, started commands implementation" />
     <MESSAGE value="login | logout commands implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="login | logout commands implemented" />
+    <MESSAGE value="started services creation, registration" />
+    <option name="LAST_COMMIT_MESSAGE" value="started services creation, registration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

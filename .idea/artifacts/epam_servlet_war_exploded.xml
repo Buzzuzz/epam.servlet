@@ -14,6 +14,9 @@
           <element id="module-output" name="epam.servlet" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: de.mkammerer:argon2-jvm:2.11" />
+          <element id="library" level="project" name="Maven: de.mkammerer:argon2-jvm-nolibs:2.11" />
+          <element id="library" level="project" name="Maven: net.java.dev.jna:jna:5.8.0" />
           <element id="library" level="project" name="Maven: jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0" />
           <element id="library" level="project" name="Maven: jakarta.el:jakarta.el-api:5.0.0" />
           <element id="library" level="project" name="Maven: org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1" />

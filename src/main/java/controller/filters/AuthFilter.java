@@ -5,13 +5,11 @@ import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
-import model.dao.DataSource;
-import model.dao.impl.UserDAO;
 import model.entities.User;
+import services.ServiceException;
+import services.UserService;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.util.Optional;
 
 import static constants.AttributeConstants.*;
 
@@ -20,28 +18,19 @@ import static constants.AttributeConstants.*;
 public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
-        UserDAO dao = UserDAO.getInstance();
         HttpServletRequest request = (HttpServletRequest) req;
 
-        if (request.getSession().getAttribute(LOGGED_USER_ATTR) == null &&
-                request.getParameter(COMMAND_ATTR) != null &&
-                request.getParameter(COMMAND_ATTR).equals(CommandNameConstants.LOG_IN_COMMAND)) {
-            Connection con = DataSource.getConnection();
+        if (request.getSession().getAttribute(LOGGED_USER_ATTR) == null
+                && request.getParameter(COMMAND_ATTR) != null
+                && request.getParameter(COMMAND_ATTR).equals(CommandNameConstants.LOG_IN_COMMAND)) {
 
-            Optional<User> daoResult = dao.getByEmail(con, request.getParameter(EMAIL_ATTR));
-            DataSource.close(con);
-
-            if (daoResult.isPresent()) {
-                User user = daoResult.get();
-                if (user.getPassword().equals(request.getParameter(PASSWORD_ATTR))) {
-                    request.getSession().setAttribute(LOGGED_USER_ATTR, user);
-                    log.info("User " + user.getEmail() + " logged in successful!");
-                } else {
-                    log.debug("Password doesn't match! " + user.getEmail());
-                }
-            } else {
-                log.debug("No user with email " + request.getParameter(EMAIL_ATTR));
+            try {
+                User user = UserService.logIn(request.getParameter(EMAIL_ATTR), request.getParameter(PASSWORD_ATTR));
+                request.getSession().setAttribute(LOGGED_USER_ATTR, user);
+            } catch (ServiceException e) {
+                log.error(e.getMessage(), e);
             }
+
         }
 
         chain.doFilter(request, resp);
