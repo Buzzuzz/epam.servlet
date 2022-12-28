@@ -27,7 +27,7 @@ public class ValidationUtil {
      * @param password for validation
      * @return {@link Boolean#TRUE true} if check is passed successful, {@link Boolean#FALSE false} if not
      */
-    public static boolean validatePassword(String password) {
+    private static boolean validatePassword(String password) {
         return password.matches(PASSWORD_REGEX);
     }
 
@@ -37,7 +37,7 @@ public class ValidationUtil {
      * @param phone for validation
      * @return true if check is passed, false otherwise
      */
-    public static boolean validatePhoneNumber(String phone) {
+    private static boolean validatePhoneNumber(String phone) {
         return phone.matches(PHONE_NUMBER_REGEX);
     }
 
@@ -46,7 +46,7 @@ public class ValidationUtil {
      * @param compare Another input to compare with password for equality
      * @return {@link Boolean#TRUE true} if check is passed successful, {@link Boolean#FALSE false} if not
      */
-    public static boolean comparePasswords(String pass, String compare) {
+    private static boolean comparePasswords(String pass, String compare) {
         return pass.equals(compare);
     }
 
@@ -56,7 +56,7 @@ public class ValidationUtil {
      * @param email Email to be checked for presence in database
      * @return true if email isn't registered (is unique), false otherwise
      */
-    public static boolean checkEmailIsAvailable(String email) {
+    private static boolean checkEmailIsAvailable(String email) {
         UserDAO dao = UserDAO.getInstance();
         Connection con = null;
         try {
@@ -78,26 +78,42 @@ public class ValidationUtil {
      */
     public static boolean validateNewUser(HttpServletRequest req) {
         HttpSession session = req.getSession();
+        log.debug("new user validation");
+        return validEmail(req, session) && validPassword(req) && validRepeatPassword(req) && validPhoneNumber(req);
+    }
+
+    public static boolean validEmail(HttpServletRequest req, HttpSession session) {
         if (!checkEmailIsAvailable(req.getParameter(EMAIL_ATTR))) {
             session.setAttribute(ERROR, EMAIL_ATTR);
             return false;
         }
-        log.debug("email pass");
+        return true;
+    }
+
+    public static boolean validPassword(HttpServletRequest req) {
+        if (req.getParameter(PASSWORD_ATTR).equals("")) {
+            return true;
+        }
         if (!validatePassword(req.getParameter(PASSWORD_ATTR))) {
-            session.setAttribute(ERROR, PASSWORD_ATTR);
+            req.getSession().setAttribute(ERROR, PASSWORD_ATTR);
             return false;
         }
-        log.debug("valid password");
+        return true;
+    }
+
+    public static boolean validRepeatPassword(HttpServletRequest req) {
         if (!comparePasswords(req.getParameter(PASSWORD_REPEAT_ATTR), req.getParameter(PASSWORD_ATTR))) {
-            session.setAttribute(ERROR, PASSWORD_REPEAT_ATTR);
+            req.getSession().setAttribute(ERROR, PASSWORD_REPEAT_ATTR);
             return false;
         }
-        log.debug("passwords are equal");
+        return true;
+    }
+
+    public static boolean validPhoneNumber(HttpServletRequest req) {
         if (!validatePhoneNumber(req.getParameter(PHONE_NUMBER))) {
-            session.setAttribute(ERROR, PHONE_NUMBER);
+            req.getSession().setAttribute(ERROR, PHONE_NUMBER);
             return false;
         }
-        log.debug("phone is valid");
         return true;
     }
 }

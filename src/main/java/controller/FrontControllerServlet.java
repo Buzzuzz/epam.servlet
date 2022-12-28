@@ -33,12 +33,12 @@ public class FrontControllerServlet extends HttpServlet {
         resp.sendRedirect(req.getContextPath() + process(req));
     }
 
-    private String process(HttpServletRequest req) {
+    private String process(HttpServletRequest req) throws ServletException {
         try {
             return CommandPool.getCommand(req.getParameter(COMMAND_ATTR)).execute(req);
         } catch (NoSuchCommandException e) {
             log.error(e.getMessage(), e);
-            return ERROR_PAGE;
+            throw new ServletException(e.getMessage(), e);
         }
     }
 }

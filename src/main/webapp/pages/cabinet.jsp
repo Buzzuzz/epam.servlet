@@ -32,6 +32,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col mb-2">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Email</span>
+                                        <input
+                                                type="email"
+                                                class="form-control"
+                                                aria-label="type-user"
+                                                name="email"
+                                                value="${sessionScope.loggedUser.email}"
+                                                required
+                                                disabled>
+                                    </div>
+                                </div>
                                 <div class="row mb-2">
                                     <div class="col">
                                         <div class="input-group">
@@ -60,38 +73,48 @@
                                 </div>
                                 <div class="col mb-2">
                                     <div class="input-group">
-                                        <span class="input-group-text">Email</span>
-                                        <input
-                                                type="email"
-                                                class="form-control"
-                                                aria-label="type-user"
-                                                name="email"
-                                                value="${sessionScope.loggedUser.email}"
-                                                required>
-                                    </div>
-                                </div>
-                                <div class="col mb-2">
-                                    <div class="input-group">
                                         <span class="input-group-text">Password</span>
                                         <input
                                                 type="password"
                                                 class="form-control"
+                                                value=""
                                                 aria-label="type-user"
                                                 name="password"
                                         >
                                     </div>
+                                    <c:if test="${sessionScope.error == 'password'}">
+                                        <span>Wrong Password!</span>
+                                    </c:if>
+                                </div>
+                                <div class="col mb-2">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Repeat Password</span>
+                                        <input
+                                                type="password"
+                                                class="form-control"
+                                                value=""
+                                                aria-label="type-user"
+                                                name="password-repeat"
+                                        >
+                                    </div>
+                                    <c:if test="${sessionScope.error == 'password-repeat'}">
+                                        <span>Password doesn't match!</span>
+                                    </c:if>
                                 </div>
                                 <div class="col">
                                     <div class="input-group">
                                         <span class="input-group-text">Phone +380</span>
                                         <input
-                                                type="text"
+                                                type="number"
                                                 class="form-control"
                                                 aria-label="type-user"
                                                 name="phone-number"
                                                 value="${sessionScope.loggedUser.phone}"
                                                 required>
                                     </div>
+                                    <c:if test="${sessionScope.error == 'phone-number'}">
+                                        Wrong number format!
+                                    </c:if>
                                 </div>
                             </div>
                         </div>

@@ -58,8 +58,6 @@ X
 (src/main/webapp/components/metadata.jspf,c\9\c9285f2570b0a57313b914bf65baed92ff4549d7
 c
 3src/test/java/testDAO/TestConfigFileDataSource.java,2\5\25bc844a98a2e1060f998eb40e157ee0a8d32169
-I
-src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 j

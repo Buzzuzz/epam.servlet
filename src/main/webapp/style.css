@@ -45,3 +45,7 @@ footer {
     border-color: var(--cream-white);
     box-shadow: none;
 }
+
+#home-button {
+    color: white !important;
+}

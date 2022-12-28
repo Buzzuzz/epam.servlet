@@ -2,6 +2,7 @@ package controller.commands;
 
 import controller.commands.impl.LogInCommand;
 import controller.commands.impl.LogOutCommand;
+import controller.commands.impl.UpdateUserCommand;
 import exceptions.NoSuchCommandException;
 import controller.commands.impl.SignUpCommand;
 import lombok.extern.log4j.Log4j2;
@@ -27,6 +28,7 @@ public class CommandPool {
         COMMANDS_POOL.put(LOG_OUT_COMMAND, new LogOutCommand());
         COMMANDS_POOL.put(LOG_IN_COMMAND, new LogInCommand());
         COMMANDS_POOL.put(SIGN_UP_COMMAND, new SignUpCommand());
+        COMMANDS_POOL.put(UPDATE_USER_COMMAND, new UpdateUserCommand());
 
         log.debug("Initialization of CommandPool successful");
     }

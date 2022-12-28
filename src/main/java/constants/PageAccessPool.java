@@ -36,6 +36,7 @@ public class PageAccessPool {
         ANON_PAGES.addAll(BASE_PAGES);
         ANON_PAGES.add(LOGIN_PAGE);
         ANON_PAGES.add(SIGNIN_PAGE);
+        ANON_PAGES.add(RESTORE_PASSWORD_PAGE);
 
         // student commands
         STUDENT_PAGES.addAll(BASE_PAGES);

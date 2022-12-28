@@ -2,6 +2,7 @@ package services;
 
 import exceptions.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.log4j.Log4j2;
 import exceptions.DAOException;
 import model.dao.DataSource;
@@ -55,7 +56,7 @@ public class UserService {
         req.getSession().invalidate();
     }
 
-    public static boolean signup(HttpServletRequest req) throws ServiceException {
+    public static boolean signUp(HttpServletRequest req) throws ServiceException {
         if (validateNewUser(req)) {
             Connection con = null;
             long generatedId = 0;
@@ -71,7 +72,7 @@ public class UserService {
                         UserType.STUDENT,
                         false,
                         false));
-                log.info("User " + generatedId + req.getParameter(EMAIL_ATTR) + " registered successfully!");
+                log.info("User " + generatedId + " " + req.getParameter(EMAIL_ATTR) + " registered successfully!");
                 return true;
             } catch (DAOException e) {
                 log.error(e.getMessage());
@@ -83,7 +84,27 @@ public class UserService {
         return false;
     }
 
-    public static boolean updateUserData() {
-        throw new UnsupportedOperationException();
+    public static boolean updateUserData(HttpServletRequest req) throws ServiceException {
+        Connection con = null;
+        User user = (User) req.getSession().getAttribute(LOGGED_USER_ATTR);
+        try {
+            con = DataSource.getConnection();
+            if (validPassword(req) && validRepeatPassword(req) && validPhoneNumber(req)) {
+                user.setFirst_name(req.getParameter(FIRST_NAME));
+                user.setLast_name(req.getParameter(LAST_NAME));
+                user.setPassword(PasswordHashUtil.encode(req.getParameter(PASSWORD_ATTR)));
+                user.setPhone(req.getParameter(PHONE_NUMBER));
+                dao.update(con, user);
+                req.getSession().setAttribute(ERROR, null);
+                log.debug("User " + user.getEmail() + " updated successful");
+                return true;
+            }
+            return false;
+        } catch (DAOException e) {
+            log.error("Can't update user " + user.getEmail());
+            throw new ServiceException("Can't update user " + user.getEmail());
+        } finally {
+            DataSource.close(con);
+        }
     }
 }

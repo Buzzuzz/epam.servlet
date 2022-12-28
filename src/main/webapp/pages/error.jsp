@@ -28,6 +28,11 @@
                 </tbody>
             </table>
         </div>
+        <div class="col">
+            <button class="btn btn-primary">
+                <a class="nav-link" id="home-button" href="${pageContext.request.contextPath}/pages/index.jsp">Home
+                    Page</a></button>
+        </div>
     </div>
 </div>
 <%@include file="../components/footer.jspf" %>
