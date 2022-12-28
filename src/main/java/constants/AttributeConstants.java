@@ -9,4 +9,5 @@ public interface AttributeConstants {
     String FIRST_NAME = "f-name";
     String LAST_NAME = "l-name";
     String PHONE_NUMBER = "phone-number";
+    String ERROR = "error";
 }

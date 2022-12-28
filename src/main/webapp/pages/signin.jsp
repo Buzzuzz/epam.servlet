@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
-<base href="${pageContext.request.contextPath}/">
 <%@include file="../components/metadata.jspf" %>
 <body>
 <%@include file="../components/menu.jspf" %>
@@ -12,24 +11,35 @@
                     <div class="text-center">
                         <h2 class="display-6">Реєстрація</h2>
                     </div>
-                    <form action="controller">
+                    <form action="${pageContext.request.contextPath}/controller" method="post">
                         <div class="form-outline">
-                            <input type="email" id="form2Example1" class="form-control" name="email" required/>
-                            <label class="form-label" for="form2Example1">Email address*</label>
+                            <input type="email" class="form-control" name="email" required/>
+                            <label class="form-label">Email address*
+                            <c:if test="${sessionScope.error == 'email'}">
+                                Email already in use!
+                            </c:if></label>
                         </div>
                         <div class="row row-cols-2">
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="password" id="form2Example2" class="form-control" name="password"
+                                    <input type="password" id="password" class="form-control" name="password"
                                            required/>
-                                    <label class="form-label" for="form2Example2">Password*</label>
+                                    <label class="form-label" for="password">Password*
+                                    <c:if test="${sessionScope.error == 'password'}">
+                                        Wrong password!
+                                    </c:if>
+                                    </label>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="password" id="form2Example3" class="form-control"
+                                    <input type="password" id="password-repeat" class="form-control"
                                            name="password-repeat" required/>
-                                    <label class="form-label" for="form2Example3">Repeat password*</label>
+                                    <label class="form-label" for="password-repeat">Repeat password*
+                                    <c:if test="${sessionScope.error == 'password-repeat'}">
+                                        Password doesn't match!
+                                    </c:if>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -47,11 +57,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <input type="text" class="form-control" id="phone-number" name="phone-number" required/>
-                            <label class="form-label" for="phone-number">Phone number*</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">+380</span>
+                            <input type="number" class="form-control" name="phone-number" required/>
                         </div>
-                        <div class="text-center mb-4">
+                        <span>Phone number*
+                        <c:if test="${sessionScope.error == 'phone-number'}">
+                            Only digits (9 of them)
+                        </c:if> </span>
+                        <div class="text-center mb-3 mt-2">
                             <button type="submit" class="btn btn-primary btn-block w-50" name="command" value="signup">
                                 Sign Up
                             </button>

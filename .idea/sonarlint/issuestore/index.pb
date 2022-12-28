@@ -62,7 +62,5 @@ W
 'src/test/java/testDAO/TestTopicDAO.java,9/7/97d03a67c6a2c617773581f1c40da6844e4e1966
 P
  src/main/java/model/dao/DAO.java,d/4/d4be9dff6130ca62d35aaf96505327a90e80fad6
-]
--.idea/artifacts/epam_servlet_war_exploded.xml,3\a\3ad6d356b7a42a0b4e7530b1623775202a584b38
 V
 &src/main/java/model/entities/User.java,1\e\1e75bd4f7a5b764cf9a86881607c3314587c3b90

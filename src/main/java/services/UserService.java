@@ -6,12 +6,14 @@ import model.dao.DAOException;
 import model.dao.DataSource;
 import model.dao.impl.UserDAO;
 import model.entities.User;
+import model.entities.UserType;
 import utils.PasswordHashUtil;
 
 import java.sql.Connection;
 import java.util.Optional;
 
 import static constants.AttributeConstants.*;
+import static utils.ValidationUtil.*;
 
 @Log4j2
 public class UserService {
@@ -34,16 +36,16 @@ public class UserService {
                     return user;
                 } else {
                     log.debug("Password doesn't match! " + user.getEmail());
+                    throw new ServiceException(PASSWORD_ATTR);
                 }
             } else {
                 log.debug("No user with email " + email);
-                throw new ServiceException("Can't login user " + email);
+                throw new ServiceException(EMAIL_ATTR);
             }
         } catch (DAOException e) {
             log.error(e.getMessage(), e);
             throw new ServiceException("Can't log in user " + email);
         }
-        return null;
     }
 
     public static void logOut(HttpServletRequest req) {
@@ -52,7 +54,31 @@ public class UserService {
         req.getSession().invalidate();
     }
 
-    public static boolean signup() {
-        throw new UnsupportedOperationException();
+    public static boolean signup(HttpServletRequest req) throws ServiceException {
+        if (validateNewUser(req)) {
+            Connection con = null;
+            long generatedId = 0;
+            try {
+                con = DataSource.getConnection();
+                generatedId = dao.save(con, new User(
+                        generatedId,
+                        req.getParameter(EMAIL_ATTR),
+                        PasswordHashUtil.encode(req.getParameter(PASSWORD_ATTR)),
+                        req.getParameter(FIRST_NAME),
+                        req.getParameter(LAST_NAME),
+                        req.getParameter(PHONE_NUMBER),
+                        UserType.STUDENT,
+                        false,
+                        false));
+                log.info("User " + generatedId + req.getParameter(EMAIL_ATTR) + " registered successfully!");
+                return true;
+            } catch (DAOException e) {
+                log.error(e.getMessage());
+                throw new ServiceException("Can't register new user", e);
+            } finally {
+                DataSource.close(con);
+            }
+        }
+        return false;
     }
 }

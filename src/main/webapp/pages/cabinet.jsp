@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="input-group">
-                                        <span class="input-group-text">Phone</span>
+                                        <span class="input-group-text">Phone +380</span>
                                         <input
                                                 type="text"
                                                 class="form-control"

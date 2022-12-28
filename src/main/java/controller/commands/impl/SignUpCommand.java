@@ -3,10 +3,22 @@ package controller.commands.impl;
 import controller.commands.Command;
 import controller.commands.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.extern.log4j.Log4j2;
+import services.ServiceException;
+import services.UserService;
+import static constants.PageConstants.*;
 
+@Log4j2
 public class SignUpCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        return null;
+        try {
+            if (UserService.signup(req)) {
+                return LOGIN_PAGE;
+            }
+            return SIGNIN_PAGE;
+        } catch (ServiceException e) {
+            throw new CommandException(e);
+        }
     }
 }

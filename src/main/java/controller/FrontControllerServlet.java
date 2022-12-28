@@ -36,12 +36,7 @@ public class FrontControllerServlet extends HttpServlet {
     }
 
     private String process(HttpServletRequest req) {
-        if (req.getParameter(COMMAND_ATTR) == null) {
-            return HOME_PAGE;
-        }
-        if (req.getSession().getAttribute(LOGGED_USER_ATTR) == null) {
-            return LOGIN_PAGE;
-        }
+
 
         try {
             return CommandPool.getCommand(req.getParameter(COMMAND_ATTR)).execute(req);

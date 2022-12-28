@@ -15,11 +15,19 @@
                         <input type="hidden" name="command" value="login"/>
                         <div class="form-outline">
                             <input type="email" id="email" class="form-control" name="email" required/>
-                            <label class="form-label" for="email">Email address*</label>
+                            <label class="form-label" for="email">Email address*
+                            <c:if test="${sessionScope.error == 'email'}">
+                                Wrong email!
+                            </c:if>
+                            </label>
                         </div>
                         <div class="form-outline">
                             <input type="password" name="password" id="pas" class="form-control" required/>
-                            <label class="form-label" for="pas">Password*</label>
+                            <label class="form-label" for="pas">Password*
+                                <c:if test="${sessionScope.error == 'password'}">
+                                    Wrong password!
+                                </c:if>
+                            </label>
                         </div>
                         <div class="text-center mb-4">
                             <button type="submit" class="btn btn-primary btn-block w-50">Log in</button>

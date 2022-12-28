@@ -23,12 +23,13 @@ public class AuthFilter implements Filter {
         if (request.getSession().getAttribute(LOGGED_USER_ATTR) == null
                 && request.getParameter(COMMAND_ATTR) != null
                 && request.getParameter(COMMAND_ATTR).equals(CommandNameConstants.LOG_IN_COMMAND)) {
-
             try {
                 User user = UserService.logIn(request.getParameter(EMAIL_ATTR), request.getParameter(PASSWORD_ATTR));
                 request.getSession().setAttribute(LOGGED_USER_ATTR, user);
+                request.getSession().setAttribute(ERROR, null);
             } catch (ServiceException e) {
-                log.error(e.getMessage(), e);
+                log.error("Authorization failed, cause: " + e.getMessage());
+                request.getSession().setAttribute(ERROR, e.getMessage());
             }
 
         }
