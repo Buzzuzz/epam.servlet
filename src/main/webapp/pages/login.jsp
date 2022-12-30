@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<html>
 <%@include file="../components/metadata.jspf" %>
+<html lang="${sessionScope.locale}">
+<%@include file="../components/head.jspf" %>
 <body>
 <%@include file="../components/menu.jspf" %>
 <div class="container min-vh-100">
@@ -19,9 +19,9 @@
                             <input type="email" id="email" class="form-control" name="email" required/>
                             <label class="form-label" for="email">
                                 <fmt:message key="email"/>*
-                            <c:if test="${sessionScope.error == 'email'}">
-                                <fmt:message key="wrong_email"/>
-                            </c:if>
+                                <c:if test="${sessionScope.error == 'email'}">
+                                    <fmt:message key="wrong_email"/>
+                                </c:if>
                             </label>
                         </div>
                         <div class="form-outline">
@@ -40,7 +40,7 @@
                         </div>
                         <div class="row row-cols-2 justify-content-center text-center">
                             <div class="col">
-                                <a href="${pageContext.request.contextPath}/pages/signin.jsp">
+                                <a href="${pageContext.request.contextPath}/pages/signup.jsp">
                                     <fmt:message key="signup"/>
                                 </a>
                             </div>
@@ -56,7 +56,6 @@
         </div>
     </div>
 </div>
-
 <%@include file="../components/footer.jspf" %>
 </body>
 </html>

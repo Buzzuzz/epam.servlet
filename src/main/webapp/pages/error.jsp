@@ -1,6 +1,7 @@
 <%@page isErrorPage="true" %>
-<html>
 <%@include file="../components/metadata.jspf" %>
+<html lang="${sessionScope.locale}">
+<%@include file="../components/head.jspf" %>
 <body>
 <%@include file="../components/menu.jspf" %>
 <div class="min-vh-100 container text-center">

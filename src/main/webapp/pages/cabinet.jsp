@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<html>
 <%@include file="../components/metadata.jspf" %>
+<html lang="${sessionScope.locale}">
+<%@include file="../components/head.jspf" %>
 <body>
 <%@include file="../components/menu.jspf" %>
 <form action="${pageContext.request.contextPath}/controller" method="post">

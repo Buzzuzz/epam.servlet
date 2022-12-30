@@ -1,6 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<html>
 <%@include file="../components/metadata.jspf" %>
+<html lang="${sessionScope.locale}">
+<%@include file="../components/head.jspf" %>
 <body>
 <%@include file="../components/menu.jspf" %>
 <div class="container min-vh-100">
@@ -18,9 +18,9 @@
                             <input type="email" class="form-control" name="email" required/>
                             <label class="form-label">
                                 <fmt:message key="email"/>*
-                            <c:if test="${sessionScope.error == 'email'}">
-                                <fmt:message key="email_in_use"/>
-                            </c:if></label>
+                                <c:if test="${sessionScope.error == 'email'}">
+                                    <fmt:message key="email_in_use"/>
+                                </c:if></label>
                         </div>
                         <div class="row row-cols-2">
                             <div class="col">
@@ -29,9 +29,9 @@
                                            required/>
                                     <label class="form-label" for="password">
                                         <fmt:message key="password"/>*
-                                    <c:if test="${sessionScope.error == 'password'}">
-                                        <fmt:message key="wrong_password"/>
-                                    </c:if>
+                                        <c:if test="${sessionScope.error == 'password'}">
+                                            <fmt:message key="wrong_password"/>
+                                        </c:if>
                                     </label>
                                 </div>
                             </div>
@@ -41,9 +41,9 @@
                                            name="password-repeat" required/>
                                     <label class="form-label" for="password-repeat">
                                         <fmt:message key="repeat_password"/>*
-                                    <c:if test="${sessionScope.error == 'password-repeat'}">
-                                        <fmt:message key="password_not_match"/>
-                                    </c:if>
+                                        <c:if test="${sessionScope.error == 'password-repeat'}">
+                                            <fmt:message key="password_not_match"/>
+                                        </c:if>
                                     </label>
                                 </div>
                             </div>

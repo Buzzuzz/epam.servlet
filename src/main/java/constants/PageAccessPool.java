@@ -31,11 +31,12 @@ public class PageAccessPool {
         // logged in commands
         LOGGED_IN_PAGES.addAll(BASE_PAGES);
         LOGGED_IN_PAGES.add(CABINET_PAGE);
+        LOGGED_IN_PAGES.add(COURSES_PAGE);
 
         // anon commands
         ANON_PAGES.addAll(BASE_PAGES);
         ANON_PAGES.add(LOGIN_PAGE);
-        ANON_PAGES.add(SIGNIN_PAGE);
+        ANON_PAGES.add(SIGN_UP_PAGE);
         ANON_PAGES.add(RESTORE_PASSWORD_PAGE);
 
         // student commands

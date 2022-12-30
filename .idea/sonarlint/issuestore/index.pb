@@ -8,8 +8,6 @@ G.idea/sonarlint/issuestore/d/6/d6e45ffd833fed3d3f911d1e8a8577145c94e260,1\8\18
 w
 G.idea/sonarlint/issuestore/3/a/3ad6d356b7a42a0b4e7530b1623775202a584b38,9\d\9d5c7e64600f5d85ac1c6318a5e2d6de02b4f377
 w
-G.idea/sonarlint/issuestore/b/4/b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3,b\0\b04578cffb47b1e57970601a0cacef6081245859
-w
 G.idea/sonarlint/issuestore/b/0/b04578cffb47b1e57970601a0cacef6081245859,7\2\72d60672c1f4ee9fd0ef10acd6189a6dce5f9e9f
 w
 G.idea/sonarlint/issuestore/9/d/9d5c7e64600f5d85ac1c6318a5e2d6de02b4f377,1\d\1d62c4a54ed13d37b23e3389acc5523cfcf9d122
@@ -90,9 +88,27 @@ W
 'src/main/java/constants/SQLQueries.java,f\d\fdd4ae19a13048f436c488d7ad9f95d2477032ed
 i
 9src/main/java/controller/commands/impl/LogOutCommand.java,0\c\0c4b09e73a6ef642e1496481fdfa80d1c8fd863a
-[
-+src/main/java/constants/PageAccessPool.java,5\4\54695d2c5685c7b81e39305f2b9ec7ebf339a981
 m
 =src/main/java/controller/commands/impl/UpdateUserCommand.java,4\8\4866207921b3025d9b9e41e79d7bd32b18d7a704
 Y
 )src/main/java/utils/PasswordHashUtil.java,a\a\aa6a759da4fd7d9ae40385bed928034014f4af15
+W
+'src/main/java/utils/ValidationUtil.java,5\3\536c0fdbe7748270c71d30cbaebbce07856da56f
+^
+.src/main/java/controller/commands/Command.java,4\6\46b7084af8a8382db24e03758e22189ae5dcf726
+b
+2src/main/java/controller/filters/AccessFilter.java,a\0\a0d1e51d76319a88f87449ba17893a20653f6513
+_
+/src/main/java/constants/AttributeConstants.java,3\0\302fcba448292e6ca81291a192790400274822ab
+a
+1src/main/java/constants/CommandNameConstants.java,8\8\88f8b90005bb2623178e0044c42688b77923a1e6
+b
+2src/main/java/controller/commands/CommandPool.java,c\c\ccfb6d98a02b7e76755bdb893be3a448b03a2378
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+d
+4src/main/java/controller/FrontControllerServlet.java,0\0\00a9046e2ef66bc9f8ba1eeee0429923cf89f37e
+b
+2src/main/java/controller/filters/LocaleFilter.java,7\c\7c1ab2d725feb932f449909cd169bfc4ccb76ff7
+P
+ src/main/webapp/pages/signin.jsp,2\8\288667badd112838c9889e1045fcebddafc68b41

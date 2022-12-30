@@ -16,7 +16,7 @@ public class SignUpCommand implements Command {
             if (UserService.signUp(req)) {
                 return LOGIN_PAGE;
             }
-            return SIGNIN_PAGE;
+            return SIGN_UP_PAGE;
         } catch (ServiceException e) {
             throw new CommandException(e);
         }
