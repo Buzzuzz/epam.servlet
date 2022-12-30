@@ -11,7 +11,7 @@
     <style>
         <%@ include file="/style.css"%>
     </style>
-    <base href="${pageContext.request.contextPath}"/>
-    <fmt:setLocale value="${sessionScope.locale}"/>
-    <fmt:setBundle basename="locale"/>
 </head>
+<fmt:setLocale value="${sessionScope.locale}"/>
+<fmt:setBundle basename="locale"/>
+

@@ -33,7 +33,6 @@ public class FrontControllerServlet extends HttpServlet {
 
     private String process(HttpServletRequest req) throws ServletException {
         try {
-            log.info("controller " + req.getParameter(COMMAND_ATTR));
             return CommandPool.getCommand(req.getParameter(COMMAND_ATTR)).execute(req);
         } catch (NoSuchCommandException e) {
             log.error(e.getMessage(), e);

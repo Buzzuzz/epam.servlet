@@ -37,8 +37,8 @@
                                         </li>
                                     </c:if>
                                     <li class="nav-item ms-2">
-                                        <form action="${pageContext.request.contextPath}/${pageContext.request.servletPath}"
-                                              class="m-0 p-0" method="post">
+                                        <form action="${pageContext.request.contextPath}${pageContext.request.servletPath}"
+                                              class="m-0 p-0" method="get">
                                             <input hidden="hidden" name="command" value="change-locale"
                                                    aria-label="change-locale"/>
                                             <select class="form-select" aria-label="Default select example"

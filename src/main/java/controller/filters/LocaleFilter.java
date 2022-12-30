@@ -29,11 +29,11 @@ public class LocaleFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
         if (req.getSession().getAttribute(LOCALE_ATTR) == null) {
-            log.info("locale filter init locale");
+            log.info("Locale filter init locale");
             req.getSession().setAttribute(LOCALE_ATTR, config.getInitParameter(LOCALE_ATTR));
         }
         if (Objects.equals(req.getParameter(COMMAND_ATTR), CommandNameConstants.CHANGE_LOCALE_COMMAND)) {
-            log.info("locale filter change locale to " + req.getParameter(LOCALE_ATTR));
+            log.info("Locale filter change: " + req.getParameter(LOCALE_ATTR));
             req.getSession().setAttribute(LOCALE_ATTR, req.getParameter(LOCALE_ATTR));
         }
         chain.doFilter(req, resp);

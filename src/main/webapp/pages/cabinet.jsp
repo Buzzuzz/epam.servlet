@@ -14,7 +14,9 @@
                                 <div class="row mb-2">
                                     <div class="col">
                                         <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">ID</span>
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <fmt:message key="id"/>
+                                            </span>
                                             <input type="text" class="form-control" placeholder="Username"
                                                    aria-label="Username" value="${sessionScope.loggedUser.u_id}"
                                                    disabled>
@@ -22,7 +24,9 @@
                                     </div>
                                     <div class="col">
                                         <div class="input-group">
-                                            <span class="input-group-text">Тип</span>
+                                            <span class="input-group-text">
+                                                <fmt:message key="user_type"/>
+                                            </span>
                                             <input
                                                     type="text"
                                                     class="form-control"
@@ -34,7 +38,9 @@
                                 </div>
                                 <div class="col mb-2">
                                     <div class="input-group">
-                                        <span class="input-group-text">Email</span>
+                                        <span class="input-group-text">
+                                            <fmt:message key="email"/>
+                                        </span>
                                         <input
                                                 type="email"
                                                 class="form-control"
@@ -48,7 +54,9 @@
                                 <div class="row mb-2">
                                     <div class="col">
                                         <div class="input-group">
-                                            <span class="input-group-text">Ім'я</span>
+                                            <span class="input-group-text">
+                                                <fmt:message key="first_name"/>
+                                            </span>
                                             <input
                                                     type="text"
                                                     class="form-control"
@@ -60,7 +68,9 @@
                                     </div>
                                     <div class="col">
                                         <div class="input-group">
-                                            <span class="input-group-text">Прізвище</span>
+                                            <span class="input-group-text">
+                                                <fmt:message key="last_name"/>
+                                            </span>
                                             <input
                                                     type="text"
                                                     class="form-control"
@@ -73,7 +83,9 @@
                                 </div>
                                 <div class="col mb-2">
                                     <div class="input-group">
-                                        <span class="input-group-text">Password</span>
+                                        <span class="input-group-text">
+                                            <fmt:message key="password"/>
+                                        </span>
                                         <input
                                                 type="password"
                                                 class="form-control"
@@ -83,12 +95,16 @@
                                         >
                                     </div>
                                     <c:if test="${sessionScope.error == 'password'}">
-                                        <span>Wrong Password!</span>
+                                        <span>
+                                            <fmt:message key="wrong_password"/>
+                                        </span>
                                     </c:if>
                                 </div>
                                 <div class="col mb-2">
                                     <div class="input-group">
-                                        <span class="input-group-text">Repeat Password</span>
+                                        <span class="input-group-text">
+                                            <fmt:message key="repeat_password"/>
+                                        </span>
                                         <input
                                                 type="password"
                                                 class="form-control"
@@ -98,12 +114,16 @@
                                         >
                                     </div>
                                     <c:if test="${sessionScope.error == 'password-repeat'}">
-                                        <span>Password doesn't match!</span>
+                                        <span>
+                                            <fmt:message key="password_not_match"/>
+                                        </span>
                                     </c:if>
                                 </div>
                                 <div class="col">
                                     <div class="input-group">
-                                        <span class="input-group-text">Phone +380</span>
+                                        <span class="input-group-text">
+                                            <fmt:message key="phone"/>
+                                        </span>
                                         <input
                                                 type="number"
                                                 class="form-control"
@@ -113,7 +133,7 @@
                                                 required>
                                     </div>
                                     <c:if test="${sessionScope.error == 'phone-number'}">
-                                        Wrong number format!
+                                        <fmt:message key="wrong_phone"/>
                                     </c:if>
                                 </div>
                             </div>
@@ -125,13 +145,13 @@
                 <div class="card shadow">
                     <div class="card-body d-grid gap-2">
                         <button class="btn-primary btn w-100" type="submit" name="command" value="user-courses">
-                            My courses
+                            <fmt:message key="my_courses"/>
                         </button>
                         <button class="btn btn-primary w-100" type="submit" name="command" value="update-user">
-                            Save
+                            <fmt:message key="save"/>
                         </button>
                         <button class="btn btn-danger w-100" type="submit" name="command" value="logout">
-                            Log Out
+                            <fmt:message key="logout"/>
                         </button>
                     </div>
                 </div>

@@ -9,35 +9,45 @@
             <div class="card shadow">
                 <div class="card-body">
                     <div class="text-center">
-                        <h2 class="display-6">Вхід</h2>
+                        <h2 class="display-6">
+                            <fmt:message key="enter"/>
+                        </h2>
                     </div>
                     <form action="${pageContext.request.contextPath}/controller" method="post">
                         <input type="hidden" name="command" value="login"/>
                         <div class="form-outline">
                             <input type="email" id="email" class="form-control" name="email" required/>
-                            <label class="form-label" for="email">Email address*
+                            <label class="form-label" for="email">
+                                <fmt:message key="email"/>*
                             <c:if test="${sessionScope.error == 'email'}">
-                                Wrong email!
+                                <fmt:message key="wrong_email"/>
                             </c:if>
                             </label>
                         </div>
                         <div class="form-outline">
                             <input type="password" name="password" id="pas" class="form-control" required/>
-                            <label class="form-label" for="pas">Password*
+                            <label class="form-label" for="pas">
+                                <fmt:message key="password"/>*
                                 <c:if test="${sessionScope.error == 'password'}">
-                                    Wrong password!
+                                    <fmt:message key="wrong_password"/>
                                 </c:if>
                             </label>
                         </div>
                         <div class="text-center mb-4">
-                            <button type="submit" class="btn btn-primary btn-block w-50">Log in</button>
+                            <button type="submit" class="btn btn-primary btn-block w-50">
+                                <fmt:message key="login"/>
+                            </button>
                         </div>
                         <div class="row row-cols-2 justify-content-center text-center">
                             <div class="col">
-                                <a href="${pageContext.request.contextPath}/pages/signin.jsp">Register</a>
+                                <a href="${pageContext.request.contextPath}/pages/signin.jsp">
+                                    <fmt:message key="signup"/>
+                                </a>
                             </div>
                             <div class="col">
-                                <a href="${pageContext.request.contextPath}/pages/restore.jsp">Forgot password?</a>
+                                <a href="${pageContext.request.contextPath}/pages/restore.jsp">
+                                    <fmt:message key="forgot_password"/>
+                                </a>
                             </div>
                         </div>
                     </form>

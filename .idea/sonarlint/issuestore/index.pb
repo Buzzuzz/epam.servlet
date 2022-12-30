@@ -44,14 +44,10 @@ W
 ,src/main/java/model/entities/UserCourse.java,a/0/a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
 Z
 *src/main/java/model/entities/UserType.java,5/c/5cbe5d30eb47357a658639ed9ef3243e776b8520
-V
-&src/main/webapp/components/footer.jspf,2/6/26b3095d40a790d372e975ab3eb689d92183dd77
 P
  src/main/java/model/dao/DAO.java,d/4/d4be9dff6130ca62d35aaf96505327a90e80fad6
 V
 &src/main/java/model/entities/User.java,1\e\1e75bd4f7a5b764cf9a86881607c3314587c3b90
-Q
-!src/main/webapp/pages/restore.jsp,d\c\dcd64f48ab77e701c27768b7badae1723b2ca46c
 c
 3src/test/java/testDAO/TestConfigFileDataSource.java,2\5\25bc844a98a2e1060f998eb40e157ee0a8d32169
 7
@@ -94,8 +90,6 @@ W
 'src/main/java/constants/SQLQueries.java,f\d\fdd4ae19a13048f436c488d7ad9f95d2477032ed
 i
 9src/main/java/controller/commands/impl/LogOutCommand.java,0\c\0c4b09e73a6ef642e1496481fdfa80d1c8fd863a
-O
-src/main/webapp/pages/error.jsp,9\9\99913bd45b22c0fbd30ca43131af12570289d3fc
 [
 +src/main/java/constants/PageAccessPool.java,5\4\54695d2c5685c7b81e39305f2b9ec7ebf339a981
 m
