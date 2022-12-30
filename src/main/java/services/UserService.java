@@ -2,7 +2,6 @@ package services;
 
 import exceptions.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import lombok.extern.log4j.Log4j2;
 import exceptions.DAOException;
 import model.dao.DataSource;
@@ -92,7 +91,8 @@ public class UserService {
             if (validPassword(req) && validRepeatPassword(req) && validPhoneNumber(req)) {
                 user.setFirst_name(req.getParameter(FIRST_NAME));
                 user.setLast_name(req.getParameter(LAST_NAME));
-                user.setPassword(PasswordHashUtil.encode(req.getParameter(PASSWORD_ATTR)));
+                user.setPassword(req.getParameter(PASSWORD_ATTR).equals("") ? user.getPassword() :
+                        PasswordHashUtil.encode(req.getParameter(PASSWORD_ATTR)));
                 user.setPhone(req.getParameter(PHONE_NUMBER));
                 dao.update(con, user);
                 req.getSession().setAttribute(ERROR, null);

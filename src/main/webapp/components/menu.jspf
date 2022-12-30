@@ -8,29 +8,52 @@
                     <div class="container-fluid justify-content-center">
                         <div class="row w-75">
                             <div class="col-2 align-self-center">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/pages/index.jsp">EJournal
-                                    0.1</a>
+                                <a class="nav-link" href="${pageContext.request.contextPath}/pages/index.jsp">
+                                    <fmt:message key="menu_logo"/>
+                                </a>
                             </div>
                             <div class="col">
-                                <ul class="navbar-nav flex-grow-1 flex-shrink-0 d-flex justify-content-end w-100">
+                                <ul class="navbar-nav justify-content-end w-100 align-items-center">
                                     <c:if test="${sessionScope.loggedUser == null}">
                                         <li class="nav-item">
                                             <a class="nav-link"
-                                               href="${pageContext.request.contextPath}/pages/login.jsp">Log In</a>
+                                               href="${pageContext.request.contextPath}/pages/login.jsp">
+                                                <fmt:message key="login"/>
+                                            </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link"
-                                               href="${pageContext.request.contextPath}/pages/signin.jsp">Sign Up</a>
+                                               href="${pageContext.request.contextPath}/pages/signin.jsp">
+                                                <fmt:message key="signup"/>
+                                            </a>
                                         </li>
                                     </c:if>
                                     <c:if test="${sessionScope.loggedUser != null}">
                                         <li class="nav-item">
                                             <a class="nav-link"
                                                href="${pageContext.request.contextPath}/pages/cabinet.jsp">
-                                                Привіт, ${sessionScope.loggedUser.first_name}
+                                                <fmt:message key="user_greeting"/> ${sessionScope.loggedUser.first_name}
                                             </a>
                                         </li>
                                     </c:if>
+                                    <li class="nav-item ms-2">
+                                        <form action="${pageContext.request.contextPath}/${pageContext.request.servletPath}"
+                                              class="m-0 p-0" method="post">
+                                            <input hidden="hidden" name="command" value="change-locale"
+                                                   aria-label="change-locale"/>
+                                            <select class="form-select" aria-label="Default select example"
+                                                    name="locale" onchange="submit();">
+                                                <option value="en"
+                                                ${sessionScope.locale == 'en' ? 'selected' : ''}>
+                                                    <button type="submit">ENG</button>
+                                                </option>
+                                                <option value="ua"
+                                                ${sessionScope.locale == 'ua' ? 'selected' : ''}>
+                                                    УКР
+                                                </option>
+                                            </select>
+                                        </form>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

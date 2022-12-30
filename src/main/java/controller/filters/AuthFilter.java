@@ -10,6 +10,7 @@ import exceptions.ServiceException;
 import services.UserService;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static constants.AttributeConstants.*;
 
@@ -20,9 +21,8 @@ public class AuthFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) req;
 
-        if (request.getSession().getAttribute(LOGGED_USER_ATTR) == null
-                && request.getParameter(COMMAND_ATTR) != null
-                && request.getParameter(COMMAND_ATTR).equals(CommandNameConstants.LOG_IN_COMMAND)) {
+        if (request.getSession().getAttribute(LOGGED_USER_ATTR) == null &&
+                Objects.equals(request.getParameter(COMMAND_ATTR), CommandNameConstants.LOG_IN_COMMAND)) {
             try {
                 User user = UserService.logIn(request.getParameter(EMAIL_ATTR), request.getParameter(PASSWORD_ATTR));
                 request.getSession().setAttribute(LOGGED_USER_ATTR, user);

@@ -5,4 +5,5 @@ public interface CommandNameConstants {
     String LOG_IN_COMMAND = "login";
     String SIGN_UP_COMMAND = "signup";
     String UPDATE_USER_COMMAND = "update-user";
+    String CHANGE_LOCALE_COMMAND = "change-locale";
 }

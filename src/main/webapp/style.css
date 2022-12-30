@@ -25,6 +25,10 @@ header, .navbar, .nav-link {
     color: var(--brown);
 }
 
+.dropdown-menu {
+    background: var(--cream-brown);
+}
+
 footer {
     background-color: var(--blue);
     color: white;

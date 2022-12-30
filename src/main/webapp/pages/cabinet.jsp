@@ -3,7 +3,7 @@
 <%@include file="../components/metadata.jspf" %>
 <body>
 <%@include file="../components/menu.jspf" %>
-<form action="${pageContext.request.contextPath}/controller" method="get">
+<form action="${pageContext.request.contextPath}/controller" method="post">
     <div class="container min-vh-100">
         <div class="row row-cols-2 text-center">
             <div class="col">

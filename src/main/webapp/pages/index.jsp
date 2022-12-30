@@ -7,9 +7,12 @@
     <div class="row row-cols-1 text-center">
         <div class="col">
             <div>
-                <h2 class="display-6 mt-4">Вас вітає електронний журнал</h2>
-                <h2 class="display-6">Версія 0.1</h2>
-
+                <h2 class="display-6 mt-4">
+                    <fmt:message key="greeting"/>
+                </h2>
+                <h2 class="display-6">
+                    <fmt:message key="version"/>
+                </h2>
             </div>
         </div>
     </div>

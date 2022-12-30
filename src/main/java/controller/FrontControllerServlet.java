@@ -11,9 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.log4j.Log4j2;
 
 import static constants.AttributeConstants.*;
-import static constants.PageConstants.*;
-
-
 import java.io.IOException;
 
 /**
@@ -26,6 +23,7 @@ public class FrontControllerServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher(process(req)).forward(req, resp);
+
     }
 
     @Override
@@ -35,6 +33,7 @@ public class FrontControllerServlet extends HttpServlet {
 
     private String process(HttpServletRequest req) throws ServletException {
         try {
+            log.info("controller " + req.getParameter(COMMAND_ATTR));
             return CommandPool.getCommand(req.getParameter(COMMAND_ATTR)).execute(req);
         } catch (NoSuchCommandException e) {
             log.error(e.getMessage(), e);

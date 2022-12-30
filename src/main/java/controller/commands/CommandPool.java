@@ -1,10 +1,7 @@
 package controller.commands;
 
-import controller.commands.impl.LogInCommand;
-import controller.commands.impl.LogOutCommand;
-import controller.commands.impl.UpdateUserCommand;
+import controller.commands.impl.*;
 import exceptions.NoSuchCommandException;
-import controller.commands.impl.SignUpCommand;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.HashMap;

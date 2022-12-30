@@ -28,4 +28,5 @@ Info about database related stuff you can find in (creation script and db scheme
 > [/src/resources/db](src/main/resources/db)
 
 DB Schema
+
 ![db schema image](src/main/resources/db/db_scheme_new.png)
