@@ -1,7 +1,9 @@
 ### Java Servlet Final Project
 This project is a final project for EPAM Java Summer 2022 Course
 
-There is a list of courses divided into topics. One teacher is assigned to each course. It is necessary to implement the following functionality:
+There is a list of courses divided into topics. One teacher is assigned to each course. 
+
+It is necessary to implement the following functionality:
 > sort courses by name (az, za), duration, number of students enrolled in the course;
 
 > a selection of courses related to a specific topic;
@@ -19,7 +21,8 @@ For the student:
   
 For the teacher:
 - viewing and editing an e-journal for assigned courses.
-  The system administrator has the rights:
+
+The system administrator has the rights:
 - registration of the teacher and assignment of the course to him;
 - adding, deleting, editing a course;
 - blocking, unlocking the student.

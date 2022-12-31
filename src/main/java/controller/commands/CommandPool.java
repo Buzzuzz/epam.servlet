@@ -26,6 +26,8 @@ public class CommandPool {
         COMMANDS_POOL.put(LOG_IN_COMMAND, new LogInCommand());
         COMMANDS_POOL.put(SIGN_UP_COMMAND, new SignUpCommand());
         COMMANDS_POOL.put(UPDATE_USER_COMMAND, new UpdateUserCommand());
+        COMMANDS_POOL.put(GET_ALL_COURSES_COMMAND, new GetAllCoursesCommand());
+        COMMANDS_POOL.put(CHANGE_LOCALE_COMMAND, new ChangeLocaleCommand());
 
         log.debug("Initialization of CommandPool successful");
     }

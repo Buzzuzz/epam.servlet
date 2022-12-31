@@ -1,4 +1,5 @@
 <%@include file="../components/metadata.jspf" %>
+<%@page import="model.entities.UserType" %>
 <html lang="${sessionScope.locale}">
 <%@include file="../components/head.jspf" %>
 <body>
@@ -144,9 +145,18 @@
             <div class="col">
                 <div class="card shadow">
                     <div class="card-body d-grid gap-2">
-                        <button class="btn-primary btn w-100" type="submit" name="command" value="user-courses">
-                            <fmt:message key="my_courses"/>
-                        </button>
+                        <c:choose>
+                            <c:when test="${sessionScope.userType eq UserType.STUDENT}">
+                                <button class="btn-primary btn w-100" type="submit" name="command" value="user-courses">
+                                    <fmt:message key="my_courses"/>
+                                </button>
+                            </c:when>
+                            <c:when test="${sessionScope.userType eq 'TEACHER'}">
+
+                            </c:when>
+                            <c:when test="${sessionScope.userType eq 'ADMINISTRATOR'}">
+                            </c:when>
+                        </c:choose>
                         <button class="btn btn-primary w-100" type="submit" name="command" value="update-user">
                             <fmt:message key="save"/>
                         </button>

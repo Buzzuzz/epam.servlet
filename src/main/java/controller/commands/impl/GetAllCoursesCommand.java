@@ -4,14 +4,13 @@ import constants.PageConstants;
 import controller.commands.Command;
 import exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.extern.log4j.Log4j2;
-import services.impl.UserServiceImpl;
+import services.impl.CourseServiceImpl;
+import static constants.AttributeConstants.*;
 
-@Log4j2
-public class LogOutCommand implements Command {
+public class GetAllCoursesCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        UserServiceImpl.getInstance().logOut(req);
-        return PageConstants.LOGIN_PAGE;
+        req.setAttribute(COURSES_ATTR, CourseServiceImpl.getInstance().getAllCourses(req));
+        return PageConstants.COURSES_PAGE;
     }
 }

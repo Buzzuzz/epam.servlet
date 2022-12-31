@@ -1,17 +1,15 @@
 package controller.commands.impl;
 
-import constants.PageConstants;
+import constants.AttributeConstants;
 import controller.commands.Command;
 import exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
-import services.impl.UserServiceImpl;
 
 @Log4j2
-public class LogOutCommand implements Command {
+public class ChangeLocaleCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        UserServiceImpl.getInstance().logOut(req);
-        return PageConstants.LOGIN_PAGE;
+        return (String) req.getSession().getAttribute(AttributeConstants.PREVIOUS_REQUEST);
     }
 }

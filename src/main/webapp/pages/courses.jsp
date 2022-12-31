@@ -7,6 +7,10 @@
     <div class="row text-center">
         <div class="col">
             <p>courses</p>
+            <p>
+                ${requestScope.courses}
+                ${sessionScope.prevRequest}
+            </p>
         </div>
     </div>
 </div>

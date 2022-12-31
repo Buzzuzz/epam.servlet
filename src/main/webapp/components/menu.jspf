@@ -13,9 +13,13 @@
                             <div class="col row align-items-center">
                                 <div class="col-6">
                                     <c:if test="${sessionScope.loggedUser != null}">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/pages/courses.jsp">
-                                            <fmt:message key="courses"/>
-                                        </a>
+                                        <form action="${pageContext.request.contextPath}/controller">
+                                            <label for="get-all-courses" class="nav-link">
+                                                <input type="submit" hidden="hidden" name="command"
+                                                       value="get-all-courses" id="get-all-courses"/>
+                                                <fmt:message key="courses"/>
+                                            </label>
+                                        </form>
                                     </c:if>
                                 </div>
                                 <div class="col">
@@ -44,23 +48,30 @@
                                             </li>
                                         </c:if>
                                         <li class="nav-item ms-2">
-                                            <form action="${pageContext.request.contextPath}${pageContext.request.servletPath}"
+                                            <form action="${pageContext.request.contextPath}/controller"
                                                   class="m-0 p-0" method="get">
                                                 <input hidden="hidden" name="command" value="change-locale"
                                                        aria-label="change-locale"/>
-                                                <select class="form-select" aria-label="Default select example"
-                                                        name="locale" onchange="submit();">
-                                                    <option value="en"
-                                                    ${sessionScope.locale == 'en' ? 'selected' : ''}>
-                                                        <button type="submit">
-                                                            <fmt:message key="en"/>
-                                                        </button>
-                                                    </option>
-                                                    <option value="ua"
-                                                    ${sessionScope.locale == 'ua' ? 'selected' : ''}>
-                                                        <fmt:message key="ua"/>
-                                                    </option>
-                                                </select>
+                                                <div class="dropdown">
+                                                    <span class="nav-link dropdown-toggle" type="button"
+                                                          data-bs-toggle="dropdown" aria-expanded="false">
+                                                        ${sessionScope.locale}
+                                                    </span>
+                                                    <ul class="dropdown-menu">
+                                                        <li>
+                                                            <button type="submit" name="locale" value="en"
+                                                                    class="dropdown-item">
+                                                                <fmt:message key="en"/>
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="submit" name="locale" value="ua"
+                                                                    class="dropdown-item">
+                                                                <fmt:message key="ua"/>
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </form>
                                         </li>
                                     </ul>
