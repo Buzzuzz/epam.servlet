@@ -7,7 +7,7 @@ import java.util.Map;
 public class RequestBuilder {
     private RequestBuilder(){}
 
-    public static String buildGet(HttpServletRequest req) {
+    public static String build(HttpServletRequest req) {
         StringBuilder sb = new StringBuilder();
         Map<String, String[]> paramsMap = req.getParameterMap();
 

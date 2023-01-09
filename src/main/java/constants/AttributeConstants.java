@@ -17,5 +17,6 @@ public interface AttributeConstants {
     String PHONE_NUMBER = "phone-number";
     String ERROR = "error";
     String COURSES_ATTR = "courses";
+    String DATE_ATTR = "date";
     String PREVIOUS_REQUEST = "prevRequest";
 }

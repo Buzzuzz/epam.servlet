@@ -55,7 +55,12 @@ public class CourseDAO implements DAO<Course> {
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                course = new Course(resultSet.getLong("c_id"), resultSet.getString("name"), resultSet.getString("description"), resultSet.getTimestamp("start_date"), resultSet.getTimestamp("end_date"));
+                course = new Course(
+                        resultSet.getLong("c_id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("description"),
+                        resultSet.getTimestamp("start_date"),
+                        resultSet.getTimestamp("end_date"));
             }
         } catch (Exception e) {
             log.error("Can't get course from database", e);

@@ -29,8 +29,6 @@ public class LocaleFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
-        //TODO: remake locale change logic (lost data in case of command)
-
         if (req.getSession().getAttribute(LOCALE_ATTR) == null) {
             log.debug("Locale filter init locale");
             req.getSession().setAttribute(LOCALE_ATTR, config.getInitParameter(LOCALE_ATTR));
@@ -39,7 +37,7 @@ public class LocaleFilter implements Filter {
             log.debug("Locale filter change: " + req.getParameter(LOCALE_ATTR));
             req.getSession().setAttribute(LOCALE_ATTR, req.getParameter(LOCALE_ATTR));
         } else {
-            req.getSession().setAttribute(PREVIOUS_REQUEST, RequestBuilder.buildGet(req));
+            req.getSession().setAttribute(PREVIOUS_REQUEST, RequestBuilder.build(req));
         }
 
         chain.doFilter(req, resp);

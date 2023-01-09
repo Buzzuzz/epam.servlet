@@ -8,8 +8,6 @@ G.idea/sonarlint/issuestore/d/6/d6e45ffd833fed3d3f911d1e8a8577145c94e260,1\8\18
 w
 G.idea/sonarlint/issuestore/3/a/3ad6d356b7a42a0b4e7530b1623775202a584b38,9\d\9d5c7e64600f5d85ac1c6318a5e2d6de02b4f377
 w
-G.idea/sonarlint/issuestore/b/0/b04578cffb47b1e57970601a0cacef6081245859,7\2\72d60672c1f4ee9fd0ef10acd6189a6dce5f9e9f
-w
 G.idea/sonarlint/issuestore/9/d/9d5c7e64600f5d85ac1c6318a5e2d6de02b4f377,1\d\1d62c4a54ed13d37b23e3389acc5523cfcf9d122
 w
 G.idea/sonarlint/issuestore/1/8/1892a11a748451d4b59332f1833709f41bc2f375,6\1\61a1cde95ef2c166208d64167d06d90b237f3be1
@@ -26,8 +24,6 @@ y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/databas
 ‡.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/information_schema.FNRwLQ.meta,e/b/eb0c262b312d92b2618358953f9ec5df1056bf40
 ¯
 .idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/pg_catalog.0S1ZNQ.meta,9/a/9a44a08d064027682d74748ac6631a7d8f8baf0a
-X
-(src/main/java/model/entities/Course.java,9/1/91bc0d24d35a2ef119006c5b93d86b458766a7f8
 n
 >src/test/java/testDAO/testConfig/TestConfigFileDataSource.java,8/7/878132128c017724f41871ace6fa06294e831390
 Y
@@ -46,8 +42,6 @@ V
 &src/main/java/model/entities/User.java,1\e\1e75bd4f7a5b764cf9a86881607c3314587c3b90
 c
 3src/test/java/testDAO/TestConfigFileDataSource.java,2\5\25bc844a98a2e1060f998eb40e157ee0a8d32169
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 j
 :.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml,3\d\3d85f972207e950affbb1f88c95863214abdd32d
 ¤
@@ -84,5 +78,57 @@ W
 'src/main/java/utils/ValidationUtil.java,5\3\536c0fdbe7748270c71d30cbaebbce07856da56f
 ^
 .src/main/java/controller/commands/Command.java,4\6\46b7084af8a8382db24e03758e22189ae5dcf726
+I
+src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
+O
+src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
+V
+&src/main/webapp/components/footer.jspf,2\6\26b3095d40a790d372e975ab3eb689d92183dd77
+T
+$src/main/webapp/components/head.jspf,b\4\b4bbcf6255cf8a7378728c7e7c77f99bbaa1c483
+O
+src/main/webapp/pages/index.jsp,6\d\6d1882855c5a6ca4ae29c49e862e7c6d94997549
+X
+(src/main/webapp/components/metadata.jspf,c\9\c9285f2570b0a57313b914bf65baed92ff4549d7
+Q
+!src/main/webapp/pages/restore.jsp,d\c\dcd64f48ab77e701c27768b7badae1723b2ca46c
 P
- src/main/webapp/pages/signin.jsp,2\8\288667badd112838c9889e1045fcebddafc68b41
+ src/main/webapp/pages/signup.jsp,a\3\a32edbb6e370eacb2cd8b15a1db73a70fc4d2b74
+Z
+*src/main/java/model/entities/UserType.java,5\c\5cbe5d30eb47357a658639ed9ef3243e776b8520
+[
++src/main/java/constants/PageAccessPool.java,5\4\54695d2c5685c7b81e39305f2b9ec7ebf339a981
+b
+2src/main/java/controller/filters/AccessFilter.java,a\0\a0d1e51d76319a88f87449ba17893a20653f6513
+h
+8src/main/java/controller/commands/impl/LogInCommand.java,f\2\f25f4f2f2a51884a45d47d4eca33321f82f74ae7
+[
++src/main/java/constants/RegexConstants.java,6\0\60c856fc478251e34e7ec5f8862ff522c82dad2b
+O
+src/main/webapp/pages/login.jsp,f\9\f917108e3aedac2a9c4cc5dfd98f70b815e92372
+Z
+*src/main/java/constants/PageConstants.java,7\9\797d8c143a08e4571c4e04b458ad408a90319448
+`
+0src/main/java/controller/filters/AuthFilter.java,7\e\7ed260135e49a6479d4f5bd155fb915d6b7d7ea3
+Q
+!src/main/webapp/pages/cabinet.jsp,8\5\85cd8ea57e4194c3eba14fea8e7c75b3d7e3705a
+a
+1src/main/java/constants/CommandNameConstants.java,8\8\88f8b90005bb2623178e0044c42688b77923a1e6
+Y
+)src/main/java/services/CourseService.java,c\f\cfcdef8353bc8b7dc94b3defcc99e676c903b154
+b
+2src/main/java/services/impl/CourseServiceImpl.java,0\1\01999f40909590e9dd554232031ca3314dfa3288
+d
+4src/main/java/controller/filters/EncodingFilter.java,f\f\ffc31786e533b1b9f4914f59cfdb8cfbe8045fcc
+p
+@src/main/java/controller/commands/impl/GetAllCoursesCommand.java,1\3\13777e00ed3f03fad36c8faedfbb2265ecc4094a
+i
+9src/main/java/controller/commands/impl/LogOutCommand.java,0\c\0c4b09e73a6ef642e1496481fdfa80d1c8fd863a
+i
+9src/main/java/controller/commands/impl/SignUpCommand.java,2\6\26c2bd330603499d0bcebea59271d40455a633b1
+m
+=src/main/java/controller/commands/impl/UpdateUserCommand.java,4\8\4866207921b3025d9b9e41e79d7bd32b18d7a704
+W
+'src/main/java/services/UserService.java,f\8\f88b0fc904fcbbe4a39e1cd49ea74cc88d783b2c
+`
+0src/main/java/services/impl/UserServiceImpl.java,a\f\afc03581a511fa8d71dab482337a15ddf65e2e00

@@ -4,13 +4,12 @@ This project is a final project for EPAM Java Summer 2022 Course
 There is a list of courses divided into topics. One teacher is assigned to each course. 
 
 It is necessary to implement the following functionality:
-> sort courses by name (az, za), duration, number of students enrolled in the course;
-
-> a selection of courses related to a specific topic;
-
-> a selection of the teacher courses.
+> - sort courses by name (az, za), duration, number of students enrolled in the course;  
+> - a selection of courses related to a specific topic;  
+> - a selection of the teacher courses.
   
-The student enrolls in one or more courses, registration data is stored. At the end of the course the teacher gives the student a grade, which is stored in the journal.
+The student enrolls in one or more courses, registration data is stored. 
+At the end of the course the teacher gives the student a grade, which is stored in the journal.
 
 Each user has a personal account, which displays brief information about the user, as well as
 
@@ -27,8 +26,8 @@ The system administrator has the rights:
 - adding, deleting, editing a course;
 - blocking, unlocking the student.
 
-Info about database related stuff you can find in (creation script and db scheme)
-> [/src/resources/db](src/main/resources/db)
+Info about database related stuff you can find 
+(creation script and db scheme) [here](src/main/resources/db)
 
 DB Schema
 
