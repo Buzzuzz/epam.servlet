@@ -4,7 +4,11 @@ import controller.commands.Command;
 import exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
+import model.entities.Course;
+import services.CourseService;
+import services.impl.CourseServiceImpl;
 
+import static constants.AttributeConstants.COURSE_DTO;
 import static constants.AttributeConstants.COURSE_ID;
 import static constants.PageConstants.COURSE_DETAILS_PAGE;
 
@@ -12,7 +16,14 @@ import static constants.PageConstants.COURSE_DETAILS_PAGE;
 public class CourseDetailsCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        req.setAttribute(COURSE_ID, req.getParameter(COURSE_ID));
-        return COURSE_DETAILS_PAGE;
+        try {
+            CourseService courseService = CourseServiceImpl.getInstance();
+            Course course = courseService.getCourse(Long.parseLong(req.getParameter(COURSE_ID))).get();
+            req.setAttribute(COURSE_DTO, courseService.getCourseDTO(course).get());
+            return COURSE_DETAILS_PAGE;
+        } catch (Exception e) {
+            log.error("Course details can't be acquired", e);
+            throw new CommandException("Something went horribly wrong!", e);
+        }
     }
 }

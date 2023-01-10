@@ -9,12 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="new command to get detailed info about course, user_course DAO implementation">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="excluded logs, topic_course DAO implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/services/dto/FullCourseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/entities/TopicCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/entities/TopicCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/CourseDetailsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/CourseDetailsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/filters/AccessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/AccessFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/NoSuchCommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/NoSuchCommandException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tag_handlers/DateOnlyTagHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/tag_handlers/DateOnlyTagHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tlds/dateOnly.tld" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tlds/dateOnly.tld" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -355,6 +367,7 @@
       <workItem from="1673292478697" duration="20211000" />
       <workItem from="1673360769351" duration="213000" />
       <workItem from="1673374219972" duration="6525000" />
+      <workItem from="1673381212497" duration="5215000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -664,7 +677,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673378799976</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="excluded logs, topic_course DAO implementation">
+      <created>1673381380624</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1673381380624</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -685,7 +705,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="created course dao" />
     <MESSAGE value="added courseDao tests" />
     <MESSAGE value="singleton pattern impl in dao classes" />
     <MESSAGE value="added test setup class (and test database)" />
@@ -710,7 +729,8 @@
     <MESSAGE value="implementing courses, bug fix of locale change" />
     <MESSAGE value="custom tags (.tld and tag file) added, started courses page implementation" />
     <MESSAGE value="new command to get detailed info about course, user_course DAO implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="new command to get detailed info about course, user_course DAO implementation" />
+    <MESSAGE value="excluded logs, topic_course DAO implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="excluded logs, topic_course DAO implementation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

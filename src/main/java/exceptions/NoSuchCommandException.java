@@ -7,5 +7,5 @@ import lombok.experimental.StandardException;
  * {@link controller.commands.CommandPool CommandPool}
  */
 @StandardException
-public class NoSuchCommandException extends Exception{
+public class NoSuchCommandException extends CommandException{
 }

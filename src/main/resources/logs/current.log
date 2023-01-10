@@ -33,3 +33,62 @@
 2023-01-10 20:22:22.732 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command change-locale acquired successful
 2023-01-10 20:22:22.733 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
 2023-01-10 20:22:26.098 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-10 23:17:51.230 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-10 23:17:51.247 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-10 23:17:52.649 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-10 23:17:57.788 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User t@t.com logged in successful!
+2023-01-10 23:17:57.816 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-10 23:17:57.817 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-10 23:17:59.320 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter change: ua
+2023-01-10 23:17:59.321 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command change-locale acquired successful
+2023-01-10 23:18:00.835 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:19:51.900 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:20:00.495 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-10 23:21:22.019 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:21:24.129 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:21:30.267 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:21:31.665 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:21:32.647 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:21:34.693 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:22:13.482 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:22:16.912 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-10 23:24:57.356 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:25:54.098 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:26:30.573 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-10 23:26:30.614 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-10 23:26:33.708 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User t@t.com logged in successful!
+2023-01-10 23:26:33.717 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-10 23:26:33.718 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-10 23:26:34.979 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:27:34.110 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:35:56.703 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-10 23:35:56.727 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-10 23:35:58.244 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-10 23:36:01.824 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User t@t.com logged in successful!
+2023-01-10 23:36:01.842 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-10 23:36:01.842 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-10 23:36:03.210 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:36:05.059 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-10 23:37:28.311 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter change: ua
+2023-01-10 23:37:28.311 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command change-locale acquired successful
+2023-01-10 23:37:28.311 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-10 23:40:27.949 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command logout acquired successful
+2023-01-10 23:40:27.949 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User t@t.com logged out
+2023-01-10 23:40:27.981 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-10 23:40:33.193 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-10 23:40:33.193 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-10 23:40:35.245 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:40:36.411 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-10 23:40:39.777 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command logout acquired successful
+2023-01-10 23:40:39.777 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged out
+2023-01-10 23:40:39.784 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-10 23:40:44.685 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User test@test.com logged in successful!
+2023-01-10 23:40:44.686 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-10 23:40:51.163 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:41:05.186 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-10 23:41:09.826 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter change: ua
+2023-01-10 23:41:09.827 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command change-locale acquired successful
+2023-01-10 23:41:10.589 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:41:12.196 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-10 23:41:16.060 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-10 23:41:17.078 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful

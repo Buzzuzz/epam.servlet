@@ -18,10 +18,10 @@
                                 <fmt:message key="course_name"/>
                             </th>
                             <th scope="col">
-                                <fmt:message key="start_date"/>
+                                <fmt:message key="topic"/>
                             </th>
                             <th>
-                                <fmt:message key="end_date"/>
+                                <fmt:message key="teacher"/>
                             </th>
                             <th scope="colgroup" colspan="3">
                                 <fmt:message key="actions"/>

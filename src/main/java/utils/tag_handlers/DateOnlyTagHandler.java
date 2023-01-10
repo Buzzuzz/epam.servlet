@@ -1,4 +1,4 @@
-package tag_handlers;
+package utils.tag_handlers;
 
 import jakarta.servlet.jsp.JspException;
 import jakarta.servlet.jsp.tagext.TagSupport;

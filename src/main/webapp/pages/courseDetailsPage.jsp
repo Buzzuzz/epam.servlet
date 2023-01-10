@@ -7,7 +7,7 @@
 <div class="container min-vh-100">
     <div class="row">
         <div class="col">
-            <p>${c_id}</p>
+            <p>${requestScope.course}</p>
         </div>
     </div>
 </div>

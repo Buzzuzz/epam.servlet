@@ -17,7 +17,6 @@ import static constants.AttributeConstants.*;
 public class AccessFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
-        //TODO: implement redirect to cabinet / login page instead of exception
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         if (PageAccessPool.getAllowedPages(req).contains(req.getServletPath())) {
             chain.doFilter(req, servletResponse);
