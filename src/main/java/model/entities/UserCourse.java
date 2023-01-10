@@ -1,5 +1,6 @@
 package model.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -10,6 +11,7 @@ import java.sql.Timestamp;
  * class contains all trivial constructors, getters, setters (except IDs).
  */
 @Data
+@AllArgsConstructor
 public class UserCourse {
     private final long u_c_id;
     private final long u_id;

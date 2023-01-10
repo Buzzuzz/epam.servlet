@@ -7,4 +7,7 @@ public interface CommandNameConstants {
     String UPDATE_USER_COMMAND = "update-user";
     String CHANGE_LOCALE_COMMAND = "change-locale";
     String GET_ALL_COURSES_COMMAND = "get-all-courses";
+    String COURSE_DETAILS_COMMAND = "course-details";
+    String EDIT_COURSE_COMMAND = "edit-course";
+    String ENROLL_COMMAND = "enroll";
 }

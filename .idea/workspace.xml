@@ -9,21 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tag_handlers/DateOnlyTagHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tlds/dateOnly.tld" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="custom tags (.tld and tag file) added, started courses page implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/CourseDetailsCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/filters/LocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/LocaleFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RequestBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/CommandNameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/CommandNameConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/PageAccessPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/PageAccessPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/PageConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/PageConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/log4j2.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/20221201.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/20221206.log.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +39,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Tag Library Descriptor" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -98,10 +103,10 @@
       <recent name="C:\Users\Admin\IdeaProjects\epam.servlet\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\webapp\pages" />
       <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\webapp\WEB-INF\tlds" />
       <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\webapp\WEB-INF" />
       <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\resources" />
-      <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\webapp\pages" />
       <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\webapp\pages\login-required" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -361,7 +366,9 @@
       <workItem from="1672347572594" duration="18704000" />
       <workItem from="1672431166831" duration="18716000" />
       <workItem from="1672869555857" duration="90000" />
-      <workItem from="1673292478697" duration="7730000" />
+      <workItem from="1673292478697" duration="20211000" />
+      <workItem from="1673360769351" duration="213000" />
+      <workItem from="1673374219972" duration="1448000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1669674673156</created>
@@ -657,7 +664,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672451573061</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="custom tags (.tld and tag file) added, started courses page implementation">
+      <created>1673300535862</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1673300535862</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -678,7 +692,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="more TopicDAO methods implementation, added to ConnectionUtils rollback method" />
     <MESSAGE value="test commit from linux" />
     <MESSAGE value="created course dao" />
     <MESSAGE value="added courseDao tests" />
@@ -703,7 +716,8 @@
     <MESSAGE value="localization of .jsp pages" />
     <MESSAGE value="minor changes in jsp (head and metadata), started courses implementation" />
     <MESSAGE value="implementing courses, bug fix of locale change" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing courses, bug fix of locale change" />
+    <MESSAGE value="custom tags (.tld and tag file) added, started courses page implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="custom tags (.tld and tag file) added, started courses page implementation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

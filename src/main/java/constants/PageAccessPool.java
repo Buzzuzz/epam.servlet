@@ -23,31 +23,32 @@ public class PageAccessPool {
     private static final Set<String> ADMIN_PAGES = new HashSet<>();
 
     static {
-        // base commands
+        // base pages
         BASE_PAGES.add(HOME_PAGE);
         BASE_PAGES.add(ERROR_PAGE);
         BASE_PAGES.add(CONTROLLER);
 
-        // logged in commands
+        // logged in pages
         LOGGED_IN_PAGES.addAll(BASE_PAGES);
         LOGGED_IN_PAGES.add(CABINET_PAGE);
         LOGGED_IN_PAGES.add(COURSES_PAGE);
+        LOGGED_IN_PAGES.add(COURSE_DETAILS_PAGE);
 
-        // anon commands
+        // anon pages
         ANON_PAGES.addAll(BASE_PAGES);
         ANON_PAGES.add(LOGIN_PAGE);
         ANON_PAGES.add(SIGN_UP_PAGE);
         ANON_PAGES.add(RESTORE_PASSWORD_PAGE);
 
-        // student commands
+        // student pages
         STUDENT_PAGES.addAll(BASE_PAGES);
         STUDENT_PAGES.addAll(LOGGED_IN_PAGES);
 
-        // teacher commands
+        // teacher pages
         TEACHER_PAGES.addAll(BASE_PAGES);
         TEACHER_PAGES.addAll(LOGGED_IN_PAGES);
 
-        // admin commands
+        // admin pages
         ADMIN_PAGES.addAll(BASE_PAGES);
         ADMIN_PAGES.addAll(LOGGED_IN_PAGES);
 

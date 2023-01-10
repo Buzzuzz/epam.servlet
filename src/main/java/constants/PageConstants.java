@@ -9,4 +9,5 @@ public interface PageConstants {
     String CABINET_PAGE = "/pages/cabinet.jsp";
     String COURSES_PAGE = "/pages/courses.jsp";
     String RESTORE_PASSWORD_PAGE = "/pages/restore.jsp";
+    String COURSE_DETAILS_PAGE = "/pages/courseDetailsPage.jsp";
 }
