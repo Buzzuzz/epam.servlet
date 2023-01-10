@@ -3,6 +3,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+resources/logs/
+
 ### IntelliJ IDEA ###
 .idea/sonarlint/issuestore
 .idea/modules.xml

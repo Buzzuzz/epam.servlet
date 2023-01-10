@@ -35,4 +35,8 @@ public interface SQLQueries {
     String UPDATE_USER_COURSE = "update epam.user_course set u_id = ?, c_id = ?, registration_date = ?, final_mark = ? where u_c_id = ?";
     String DELETE_USER_COURSE = "delete from epam.user_course where u_c_id = ? returning u_c_id";
     String CREATE_USER_COURSE = "insert into epam.user_course (u_id, c_id, registration_date, final_mark) values (?, ?, ?, ?)";
+    String FIND_TOPIC_COURSE_BY_C_ID = "select * from epam.topic_course where c_id = ?";
+    String UPDATE_TOPIC_COURSE = "update epam.topic_course set t_id = ?, c_id = ? where c_id = ?";
+    String DELETE_TOPIC_COURSE = "delete from epam.topic_course where c_id = ? returning c_id";
+    String CREATE_TOPIC_COURSE = "insert into epam.topic_course (t_id, c_id) values (?, ?)";
 }

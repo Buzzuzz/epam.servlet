@@ -11,9 +11,6 @@ w
 G.idea/sonarlint/issuestore/9/d/9d5c7e64600f5d85ac1c6318a5e2d6de02b4f377,1\d\1d62c4a54ed13d37b23e3389acc5523cfcf9d122
 w
 G.idea/sonarlint/issuestore/1/8/1892a11a748451d4b59332f1833709f41bc2f375,6\1\61a1cde95ef2c166208d64167d06d90b237f3be1
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 j
 :.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b.xml,6/3/63f6ea0575d82860fcbde95a1b19a3c8baafc926
 –
@@ -30,8 +27,6 @@ Y
 )src/test/java/testDAO/TestDataSource.java,b/1/b1fb0924e288404319eb948e03fdc001245eb507
 V
 &src/main/java/model/dao/TestSetup.java,3/d/3d1cd698f1f28dc03d92ade22fe67fc0841b661e
-P
- src/main/java/model/dao/DAO.java,d/4/d4be9dff6130ca62d35aaf96505327a90e80fad6
 V
 &src/main/java/model/entities/User.java,1\e\1e75bd4f7a5b764cf9a86881607c3314587c3b90
 c
@@ -134,3 +129,37 @@ Y
 )src/main/java/services/CourseService.java,c\f\cfcdef8353bc8b7dc94b3defcc99e676c903b154
 p
 @src/main/java/controller/commands/impl/GetAllCoursesCommand.java,1\3\13777e00ed3f03fad36c8faedfbb2265ecc4094a
+W
+'src/main/java/model/entities/Topic.java,5\6\562f929a6b0cecef87b489129a983cbb25503a91
+X
+(src/main/java/model/entities/Course.java,9\1\91bc0d24d35a2ef119006c5b93d86b458766a7f8
+I
+src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
+_
+/src/main/java/constants/AttributeConstants.java,3\0\302fcba448292e6ca81291a192790400274822ab
+a
+1src/main/java/constants/CommandNameConstants.java,8\8\88f8b90005bb2623178e0044c42688b77923a1e6
+b
+2src/main/java/controller/commands/CommandPool.java,c\c\ccfb6d98a02b7e76755bdb893be3a448b03a2378
+W
+'src/main/webapp/WEB-INF/tags/Course.tag,0\1\01b76a9389d95a4d65579a6bbd207491a2471941
+p
+@src/main/java/controller/commands/impl/CourseDetailsCommand.java,6\8\68b1de520da62ad94b421d0d9f30b2c02957d598
+[
++src/main/webapp/pages/courseDetailsPage.jsp,e\1\e16dd0acc77b1f31fe59d463753bd6e4ccbca631
+Q
+!src/main/webapp/pages/courses.jsp,c\0\c037d49368456f92c5ff31a285e990af9e805591
+O
+src/main/webapp/pages/error.jsp,9\9\99913bd45b22c0fbd30ca43131af12570289d3fc
+[
++src/main/java/constants/PageAccessPool.java,5\4\54695d2c5685c7b81e39305f2b9ec7ebf339a981
+Z
+*src/main/java/constants/PageConstants.java,7\9\797d8c143a08e4571c4e04b458ad408a90319448
+\
+,src/main/java/model/entities/UserCourse.java,a\0\a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
+_
+/src/main/java/model/dao/impl/UserCourseDAO.java,5\2\520109d990446b91bf20ecc77e9a093eddf1edae
+P
+ src/main/java/model/dao/DAO.java,d\4\d4be9dff6130ca62d35aaf96505327a90e80fad6
+Z
+*src/main/java/model/dao/impl/TopicDAO.java,b\5\b5494ae30f447bde28ec299205591a2719d840bc

@@ -1,5 +1,6 @@
 package model.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -8,6 +9,7 @@ import lombok.Data;
  * that class contains all trivial constructors, getter, setters (except IDs).
  */
 @Data
+@AllArgsConstructor
 public class TopicCourse {
     private final long t_id;
     private final long c_id;
