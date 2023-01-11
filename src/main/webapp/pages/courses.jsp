@@ -91,7 +91,7 @@
                             <th>
                                 <fmt:message key="teacher"/>
                             </th>
-                            <th scope="colgroup" colspan="3">
+                            <th scope="colgroup" colspan="3" style="width:20%">
                                 <fmt:message key="actions"/>
                             </th>
                         </tr>

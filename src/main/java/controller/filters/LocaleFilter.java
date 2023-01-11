@@ -37,7 +37,7 @@ public class LocaleFilter implements Filter {
             log.debug("Locale filter change: " + req.getParameter(LOCALE_ATTR));
             req.getSession().setAttribute(LOCALE_ATTR, req.getParameter(LOCALE_ATTR));
         } else {
-            req.getSession().setAttribute(PREVIOUS_REQUEST, RequestBuilder.build(req));
+            req.getSession().setAttribute(PREVIOUS_REQUEST, RequestBuilder.buildRequest(req));
         }
 
         chain.doFilter(req, resp);

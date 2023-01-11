@@ -41,8 +41,6 @@ W
 'src/main/java/model/dao/DataSource.java,5\1\518f149e91541f1f159fc512f570213d8faea660
 X
 (src/test/java/testDAO/TestCourseDAO.java,1\7\172dc93bfb4573f49ee0455b119b2045e866b7ab
-W
-'src/test/java/testDAO/TestTopicDAO.java,9\7\97d03a67c6a2c617773581f1c40da6844e4e1966
 V
 &src/test/java/testDAO/TestUserDAO.java,6\8\680604700ac5239325ac6646ff46712d500be975
 Y
@@ -75,8 +73,6 @@ o
 ?src/main/java/controller/commands/impl/ChangeLocaleCommand.java,5\d\5d3e386dc3c2141733ef5be70bd947f9c7561c73
 [
 +src/main/java/model/dao/impl/CourseDAO.java,a\1\a13e4ec39bf5bc822ea989ef7a6a7864f463855c
-b
-2src/main/java/controller/filters/LocaleFilter.java,7\c\7c1ab2d725feb932f449909cd169bfc4ccb76ff7
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 X
@@ -87,8 +83,6 @@ O
 ,src/main/java/model/entities/UserCourse.java,a\0\a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
 P
  src/main/java/model/dao/DAO.java,d\4\d4be9dff6130ca62d35aaf96505327a90e80fad6
-Z
-*src/main/java/model/dao/impl/TopicDAO.java,b\5\b5494ae30f447bde28ec299205591a2719d840bc
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -102,8 +96,6 @@ Z
 *src/main/java/exceptions/DAOException.java,e\7\e7d66eba7cc963d1fe73334e26d2464f639dda2f
 W
 'src/main/java/utils/ValidationUtil.java,5\3\536c0fdbe7748270c71d30cbaebbce07856da56f
-W
-'src/main/java/utils/RequestBuilder.java,6\8\6824bb3f4e3fedff40c411691d282cc40e6a8525
 X
 (src/main/java/model/entities/Course.java,9\1\91bc0d24d35a2ef119006c5b93d86b458766a7f8
 V

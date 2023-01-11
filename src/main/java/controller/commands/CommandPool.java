@@ -31,6 +31,7 @@ public class CommandPool {
         COMMANDS_POOL.put(COURSE_DETAILS_COMMAND, new CourseDetailsCommand());
         COMMANDS_POOL.put(GET_ALL_TOPICS_COMMAND, new GetAllTopicsCommand());
         COMMANDS_POOL.put(GET_ALL_USERS_COMMAND,new GetAllUsersCommand());
+        COMMANDS_POOL.put(CREATE_TOPIC, new CreateTopicCommand());
 
         log.debug("Initialization of CommandPool successful");
     }

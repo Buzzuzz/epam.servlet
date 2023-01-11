@@ -50,9 +50,7 @@
                             <textarea class="form-control"
                                       name="courseDescription"
                             ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'} aria-label="courseDescription"
-                            >
-                                ${requestScope.course.courseDescription}
-                            </textarea>
+                            >${requestScope.course.courseDescription}</textarea>
                         </div>
                         <div class="row">
                             <div class="col">

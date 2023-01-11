@@ -12,4 +12,7 @@ public interface CommandNameConstants {
     String ENROLL_COMMAND = "enroll";
     String GET_ALL_TOPICS_COMMAND = "get-all-topics";
     String GET_ALL_USERS_COMMAND = "get-all-users";
+    String UPDATE_TOPIC = "update-topic";
+    String DELETE_TOPIC = "delete-topic";
+    String CREATE_TOPIC = "add-topic";
 }

@@ -30,7 +30,7 @@ class TestTopicDAO {
 
     @BeforeEach
     void init() {
-        generatedId = dao.save(con, new Topic(0, "new_topic", "desc"));
+        generatedId = dao.save(con, new Topic(0, "add_topic", "desc"));
     }
 
     @AfterEach

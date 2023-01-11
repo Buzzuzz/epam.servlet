@@ -154,7 +154,7 @@ public class TopicDAO implements DAO<Topic> {
             resultSet.next();
             generatedId = resultSet.getLong(1);
         } catch (Exception e) {
-            log.error("Can't add topic to database");
+            log.error("Can't add topic to database", e);
             throw new DAOException("Can't add topic to database", e);
         } finally {
             closeAll(resultSet, statement);

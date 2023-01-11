@@ -21,4 +21,7 @@ public interface AttributeConstants {
     String COURSE_ID = "c_id";
     String COURSE_DTO = "course";
     String USERS_ATTR = "users";
+    String TOPICS_ATTR = "topics";
+    String TOPIC_NAME_ATTR = "topicName";
+    String TOPIC_DESCRIPTION_ATTR = "topicDescription";
 }
