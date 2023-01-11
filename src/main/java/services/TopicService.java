@@ -13,4 +13,6 @@ public interface TopicService {
 
     TopicDTO getTopicDTO(Topic topic);
     long createTopic(HttpServletRequest req) throws ServiceException;
+    long updateTopic(HttpServletRequest req) throws ServiceException;
+    long deleteTopic(HttpServletRequest req) throws ServiceException;
 }

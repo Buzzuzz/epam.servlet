@@ -201,3 +201,102 @@ exceptions.NoSuchCommandException: No such command as update-topic
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
 	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-12 01:23:25.583 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 01:23:25.598 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-12 01:23:29.294 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 01:23:34.395 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-12 01:23:34.412 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-12 01:23:34.413 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-12 01:23:35.706 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:42.270 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-12 01:23:42.283 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:44.021 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:45.313 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-12 01:23:46.510 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:53.674 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-12 01:23:53.680 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:56.261 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:56.655 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:56.810 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:56.982 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:57.108 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:57.252 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:57.381 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:57.532 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:57.689 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:57.844 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:23:59.910 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:24:14.085 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-12 01:24:15.601 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:24:16.153 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 01:24:18.233 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:29:33.155 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:29:40.996 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command add-topic acquired successful
+2023-01-12 01:29:40.999 [ DEBUG | controller.commands.impl.CreateTopicCommand | CreateTopicCommand ] - Topic with ID: 16 created successfully
+2023-01-12 01:29:41.008 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:29:42.270 [ ERROR | controller.commands.CommandPool | CommandPool ] - No such command as delete-topic
+2023-01-12 01:29:42.270 [ ERROR | controller.FrontControllerServlet | FrontControllerServlet ] - No such command as delete-topic
+exceptions.NoSuchCommandException: No such command as delete-topic
+	at controller.commands.CommandPool.getCommand(CommandPool.java:55) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doPost(FrontControllerServlet.java:31) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:709) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-12 01:30:08.110 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 01:30:08.122 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-12 01:30:11.929 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-12 01:30:11.944 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-12 01:30:11.944 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-12 01:30:13.092 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:14.811 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-12 01:30:14.820 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:16.156 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:16.354 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:16.522 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:16.679 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:17.188 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-12 01:30:18.286 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 01:30:19.358 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:29.373 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-12 01:30:29.383 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:30.804 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:32.274 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:32.826 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 01:30:33.629 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-12 01:30:34.074 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 01:30:41.947 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-12 01:30:41.962 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful

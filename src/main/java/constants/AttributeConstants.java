@@ -24,4 +24,5 @@ public interface AttributeConstants {
     String TOPICS_ATTR = "topics";
     String TOPIC_NAME_ATTR = "topicName";
     String TOPIC_DESCRIPTION_ATTR = "topicDescription";
+    String TOPIC_ID = "t_id";
 }

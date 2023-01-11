@@ -56,7 +56,7 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public long createTopic(HttpServletRequest req) throws ServiceException{
+    public long createTopic(HttpServletRequest req) throws ServiceException {
         Connection con = null;
         try {
             if (req.getParameter(TOPIC_NAME_ATTR) != null && req.getParameter(TOPIC_DESCRIPTION_ATTR) != null) {
@@ -70,6 +70,38 @@ public class TopicServiceImpl implements TopicService {
             log.error("No required parameters: " +
                     TOPIC_NAME_ATTR + ", " + TOPIC_DESCRIPTION_ATTR);
             throw new ServiceException("No required parameters for command!");
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public long updateTopic(HttpServletRequest req) throws ServiceException {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return dao.update(con, new Topic(
+                    Long.parseLong(req.getParameter(TOPIC_ID)),
+                    req.getParameter(TOPIC_NAME_ATTR),
+                    req.getParameter(TOPIC_DESCRIPTION_ATTR)
+            ));
+        } catch (Exception e) {
+            log.error("Can't update topic: " + req.getParameter(TOPIC_ID), e);
+            throw new ServiceException("Can't update topic: " + req.getParameter(TOPIC_ID), e);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public long deleteTopic(HttpServletRequest req) throws ServiceException {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return dao.delete(con, Long.parseLong(req.getParameter(TOPIC_ID)));
+        } catch (Exception e) {
+            log.error("Can't delete specified topic: " + req.getParameter(TOPIC_ID));
+            throw new ServiceException("Can't delete specified topic: " + req.getParameter(TOPIC_ID));
         } finally {
             close(con);
         }
