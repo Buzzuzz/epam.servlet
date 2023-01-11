@@ -35,7 +35,7 @@ public class CourseServiceImpl implements CourseService {
         private static final CourseService service = new CourseServiceImpl();
     }
     @Override
-    public List<FullCourseDTO> getAllCourses(HttpServletRequest req) {
+    public List<FullCourseDTO> getAllCourses() {
         Connection con = null;
         List<FullCourseDTO> transferList = new ArrayList<>();
         try {
@@ -67,6 +67,7 @@ public class CourseServiceImpl implements CourseService {
                     course.getEnd_date(),
                     "",
                     "",
+                    "",
                     ""
             );
 
@@ -74,6 +75,7 @@ public class CourseServiceImpl implements CourseService {
                 userCourseDAO.get(con, course.getC_id()).isPresent()) {
                 TopicCourse topicCourse = topicCourseDAO.get(con, course.getC_id()).get();
                 courseDTO.setTopicName(topicDAO.get(con, topicCourse.getT_id()).get().getName());
+                courseDTO.setTopicDescription(topicDAO.get(con, topicCourse.getT_id()).get().getDescription());
 
                 UserCourse userCourse = userCourseDAO.get(con, course.getC_id()).get();
                 courseDTO.setFirstName(userDAO.get(con, userCourse.getU_id()).get().getFirst_name());

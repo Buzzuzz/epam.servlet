@@ -51,6 +51,8 @@ public class PageAccessPool {
         // admin pages
         ADMIN_PAGES.addAll(BASE_PAGES);
         ADMIN_PAGES.addAll(LOGGED_IN_PAGES);
+        ADMIN_PAGES.add(TOPICS_PAGE);
+        ADMIN_PAGES.add(USERS_PAGE);
 
         log.debug("Access commands initialized successful");
     }

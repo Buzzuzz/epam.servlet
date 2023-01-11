@@ -22,9 +22,9 @@ public class DateOnlyTagHandler extends TagSupport {
             Timestamp temp = (Timestamp) date;
             LocalDateTime stamp = temp.toLocalDateTime();
             pageContext.getOut().print(
-                    stamp.getDayOfMonth() + "/" +
-                    stamp.getMonthValue() + "/" +
-                    stamp.getYear());
+                    stamp.getYear() + "-" +
+                    stamp.getMonthValue() + "-" +
+                    stamp.getDayOfMonth());
         } catch (IOException e) {
             throw new JspException(e);
         }

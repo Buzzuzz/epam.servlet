@@ -26,7 +26,12 @@ header, .navbar, .nav-link {
 }
 
 .dropdown-menu {
-    background: var(--cream-brown);
+    background: var(--cream-white);
+}
+
+.dropdown-menu > li > button:hover, button:active {
+    color: black;
+    background-color: var(--cream-brown);
 }
 
 footer {
@@ -52,4 +57,8 @@ footer {
 
 #home-button {
     color: white !important;
+}
+
+label:hover {
+    cursor: pointer;
 }

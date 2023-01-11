@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CourseService {
-    List<FullCourseDTO> getAllCourses(HttpServletRequest req);
+    List<FullCourseDTO> getAllCourses();
     Optional<FullCourseDTO> getCourseDTO(Course course);
-
     Optional<Course> getCourse(long id);
 }

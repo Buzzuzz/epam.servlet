@@ -17,8 +17,9 @@ public class FullCourseDTO {
 
     // Topic data
     private String topicName;
+    private String topicDescription;
 
-    // User data
+    // User (teacher) data
     private String firstName;
     private String lastName;
 

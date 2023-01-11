@@ -8,13 +8,19 @@ import model.dao.DataSource;
 import model.dao.impl.UserDAO;
 import model.entities.User;
 import model.entities.UserType;
+import org.eclipse.tags.shaded.org.apache.regexp.RE;
 import services.UserService;
+import services.dto.UserDTO;
 import utils.PasswordHashUtil;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static constants.AttributeConstants.*;
+import static model.dao.DataSource.*;
 import static utils.ValidationUtil.*;
 
 @Log4j2
@@ -37,7 +43,7 @@ public class UserServiceImpl implements UserService {
         try {
             Connection con = DataSource.getConnection();
             Optional<User> daoResult = dao.getByEmail(con, email);
-            DataSource.close(con);
+            close(con);
 
             if (daoResult.isPresent()) {
                 User user = daoResult.get();
@@ -86,7 +92,7 @@ public class UserServiceImpl implements UserService {
                 log.error(e.getMessage());
                 throw new ServiceException("Can't register new user", e);
             } finally {
-                DataSource.close(con);
+                close(con);
             }
         }
         return false;
@@ -113,7 +119,55 @@ public class UserServiceImpl implements UserService {
             log.error("Can't update user " + user.getEmail());
             throw new ServiceException("Can't update user " + user.getEmail());
         } finally {
-            DataSource.close(con);
+            close(con);
+        }
+    }
+
+    @Override
+    public UserDTO getUserDTO(User user) {
+        Connection con = null;
+
+        try {
+            con = getConnection();
+
+            return new UserDTO(
+                    user.getU_id(),
+                    user.getEmail(),
+                    user.getFirst_name(),
+                    user.getLast_name(),
+                    user.getUser_type().name(),
+                    user.is_blocked(),
+                    user.isSend_notification()
+            );
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public Optional<User> getUser(long id) {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return dao.get(con, id);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public List<UserDTO> getAllUsers() {
+        Connection con = null;
+
+        try {
+            con = getConnection();
+            List<User> userList = (List<User>) dao.getAll(con);
+            return userList
+                    .stream()
+                    .map(this::getUserDTO)
+                    .collect(Collectors.toCollection(ArrayList::new));
+        } finally {
+            close(con);
         }
     }
 }

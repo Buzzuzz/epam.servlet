@@ -20,4 +20,5 @@ public interface AttributeConstants {
     String PREVIOUS_REQUEST = "prevRequest";
     String COURSE_ID = "c_id";
     String COURSE_DTO = "course";
+    String USERS_ATTR = "users";
 }

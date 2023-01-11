@@ -10,4 +10,6 @@ public interface CommandNameConstants {
     String COURSE_DETAILS_COMMAND = "course-details";
     String EDIT_COURSE_COMMAND = "edit-course";
     String ENROLL_COMMAND = "enroll";
+    String GET_ALL_TOPICS_COMMAND = "get-all-topics";
+    String GET_ALL_USERS_COMMAND = "get-all-users";
 }

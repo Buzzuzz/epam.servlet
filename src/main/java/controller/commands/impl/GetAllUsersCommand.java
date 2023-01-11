@@ -1,16 +1,16 @@
 package controller.commands.impl;
 
+import constants.AttributeConstants;
 import constants.PageConstants;
 import controller.commands.Command;
 import exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
-import services.impl.CourseServiceImpl;
-import static constants.AttributeConstants.*;
+import services.impl.UserServiceImpl;
 
-public class GetAllCoursesCommand implements Command {
+public class GetAllUsersCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        req.setAttribute(COURSES_ATTR, CourseServiceImpl.getInstance().getAllCourses());
-        return PageConstants.COURSES_PAGE;
+        req.setAttribute(AttributeConstants.USERS_ATTR, UserServiceImpl.getInstance().getAllUsers());
+        return PageConstants.USERS_PAGE;
     }
 }
