@@ -52,6 +52,13 @@
                             ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'} aria-label="courseDescription"
                             >${requestScope.course.courseDescription}</textarea>
                         </div>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <fmt:message key="about_topic"/>
+                            </span>
+                            <textarea class="form-control" disabled aria-label="topicDescription"
+                            >${requestScope.course.topicDescription}</textarea>
+                        </div>
                         <div class="row">
                             <div class="col">
                                 <div class="input-group">
@@ -111,11 +118,13 @@
                                 <div class="col">
                                     <button class="btn btn-info w-100" name="command" value="update-course">
                                         <fmt:message key="save"/>
+                                        <i class="fa-solid fa-floppy-disk"></i>
                                     </button>
                                 </div>
                                 <div class="col">
                                     <button class="btn btn-danger w-100" name="command" value="delete-course">
                                         <fmt:message key="delete"/>
+                                        <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </div>
                             </c:if>

@@ -3,7 +3,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-resources/logs/
+src/main/resources/logs
 
 ### IntelliJ IDEA ###
 .idea/sonarlint/issuestore

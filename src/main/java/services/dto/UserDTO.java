@@ -11,6 +11,6 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String userType;
-    private boolean isBlocked;
-    private boolean sendNotification;
+    private String isBlocked;
+    private String sendNotification;
 }

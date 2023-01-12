@@ -15,4 +15,6 @@ public interface CommandNameConstants {
     String UPDATE_TOPIC = "update-topic";
     String DELETE_TOPIC = "delete-topic";
     String CREATE_TOPIC = "add-topic";
+    String CHANGE_USER_LOCK_STATUS = "change-lock";
+    String DELETE_USER = "delete-user";
 }

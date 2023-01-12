@@ -73,25 +73,25 @@
             </form>
         </div>
     </div>
-    <div class="row text-center">
+    <div class="row">
         <div class="col">
             <div class="card shadow">
                 <div class="card-body">
                     <table class="table table-striped table-bordered border-dark mb-0">
-                        <thead>
+                        <thead class="text-center">
                         <tr>
                             <th scope="col">#</th>
 
                             <th scope="col">
                                 <fmt:message key="course_name"/>
                             </th>
-                            <th scope="col">
+                            <th scope="col" style="width: 25%">
                                 <fmt:message key="topic"/>
                             </th>
                             <th>
                                 <fmt:message key="teacher"/>
                             </th>
-                            <th scope="colgroup" colspan="3" style="width:20%">
+                            <th scope="colgroup" colspan="3" style="width:17%">
                                 <fmt:message key="actions"/>
                             </th>
                         </tr>

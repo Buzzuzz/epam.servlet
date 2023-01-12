@@ -1,4 +1,4 @@
-package controller.commands.impl;
+package controller.commands.impl.course;
 
 import controller.commands.Command;
 import exceptions.CommandException;

@@ -1,4 +1,4 @@
-package controller.commands.impl;
+package controller.commands.impl.topic;
 
 import constants.AttributeConstants;
 import constants.CommandNameConstants;

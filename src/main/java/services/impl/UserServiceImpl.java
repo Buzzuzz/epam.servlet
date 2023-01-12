@@ -136,20 +136,9 @@ public class UserServiceImpl implements UserService {
                     user.getFirst_name(),
                     user.getLast_name(),
                     user.getUser_type().name(),
-                    user.is_blocked(),
-                    user.isSend_notification()
+                    String.valueOf(user.is_blocked()),
+                    String.valueOf(user.isSend_notification())
             );
-        } finally {
-            close(con);
-        }
-    }
-
-    @Override
-    public Optional<User> getUser(long id) {
-        Connection con = null;
-        try {
-            con = getConnection();
-            return dao.get(con, id);
         } finally {
             close(con);
         }
@@ -166,6 +155,50 @@ public class UserServiceImpl implements UserService {
                     .stream()
                     .map(this::getUserDTO)
                     .collect(Collectors.toCollection(ArrayList::new));
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public long deleteUser(long id) throws ServiceException {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return dao.delete(con, id);
+        } catch (DAOException e) {
+            throw new ServiceException(e);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public long changeUserLockStatus(long id, boolean status) throws ServiceException {
+        Connection con = null;
+        long[] generated = new long[1];
+        try {
+            con = getConnection();
+            Connection finalCon = con;
+            dao.get(con, id).ifPresent(user -> {
+                user.set_blocked(status);
+                generated[0] = dao.update(finalCon, user);
+            });
+        } catch (Exception e) {
+            log.error("Can't lock user: " + id, e);
+            throw new ServiceException("Can't lock user: " + id, e);
+        } finally {
+            close(con);
+        }
+        return generated[0];
+    }
+
+    @Override
+    public Optional<User> getUser(long id) {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return dao.get(con, id);
         } finally {
             close(con);
         }

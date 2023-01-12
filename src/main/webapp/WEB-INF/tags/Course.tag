@@ -19,6 +19,7 @@
         <td>
             <button class="btn btn-primary w-100" name="command" type="submit" value="course-details">
                 <fmt:message key="details"/>
+                <i class="fa-solid fa-square-info"></i>
             </button>
         </td>
     </tr>

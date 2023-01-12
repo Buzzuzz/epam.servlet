@@ -39,7 +39,7 @@ footer {
     color: white;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .input-group-text{
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .input-group-text {
     background-color: var(--blue) !important;
     border-color: var(--blue);
     color: white;

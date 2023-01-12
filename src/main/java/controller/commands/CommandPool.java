@@ -1,6 +1,13 @@
 package controller.commands;
 
 import controller.commands.impl.*;
+import controller.commands.impl.course.CourseDetailsCommand;
+import controller.commands.impl.course.GetAllCoursesCommand;
+import controller.commands.impl.topic.CreateTopicCommand;
+import controller.commands.impl.topic.DeleteTopicCommand;
+import controller.commands.impl.topic.GetAllTopicsCommand;
+import controller.commands.impl.topic.UpdateTopicCommand;
+import controller.commands.impl.user.*;
 import exceptions.NoSuchCommandException;
 import lombok.extern.log4j.Log4j2;
 
@@ -33,7 +40,7 @@ public class CommandPool {
         COMMANDS_POOL.put(GET_ALL_USERS_COMMAND,new GetAllUsersCommand());
         COMMANDS_POOL.put(CREATE_TOPIC, new CreateTopicCommand());
         COMMANDS_POOL.put(UPDATE_TOPIC, new UpdateTopicCommand());
-        COMMANDS_POOL.put(DELETE_TOPIC, new DeleteTopicCommand());
+        COMMANDS_POOL.put(CHANGE_USER_LOCK_STATUS, new ChangeUserLockStatusCommand());
 
         log.debug("Initialization of CommandPool successful");
     }

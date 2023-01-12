@@ -1,16 +1,16 @@
-package controller.commands.impl;
+package controller.commands.impl.user;
 
 import constants.AttributeConstants;
 import constants.PageConstants;
 import controller.commands.Command;
 import exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
-import services.impl.TopicServiceImpl;
+import services.impl.UserServiceImpl;
 
-public class GetAllTopicsCommand implements Command {
+public class GetAllUsersCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        req.setAttribute(AttributeConstants.TOPICS_ATTR, TopicServiceImpl.getInstance().getAllTopics());
-        return PageConstants.TOPICS_PAGE;
+        req.setAttribute(AttributeConstants.USERS_ATTR, UserServiceImpl.getInstance().getAllUsers());
+        return PageConstants.USERS_PAGE;
     }
 }

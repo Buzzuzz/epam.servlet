@@ -10,10 +10,18 @@ import java.util.Optional;
 
 public interface UserService {
     User logIn(String email, String password) throws ServiceException;
+
     void logOut(HttpServletRequest req);
+
     boolean signUp(HttpServletRequest req) throws ServiceException;
+
     boolean updateUserData(HttpServletRequest req) throws ServiceException;
+
     UserDTO getUserDTO(User user);
-    Optional<User> getUser(long id);
+
     List<UserDTO> getAllUsers();
+
+    long deleteUser(long id) throws ServiceException;
+    long changeUserLockStatus(long id, boolean status) throws ServiceException;
+    Optional<User> getUser (long id);
 }

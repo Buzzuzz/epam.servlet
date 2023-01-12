@@ -1,4 +1,4 @@
-package controller.commands.impl;
+package controller.commands.impl.user;
 
 import constants.PageConstants;
 import controller.commands.Command;

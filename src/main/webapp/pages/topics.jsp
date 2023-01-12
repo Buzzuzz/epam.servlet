@@ -45,12 +45,14 @@
                                                 <button type="submit" name="command" value="update-topic"
                                                         class="btn btn-info w-100">
                                                     <fmt:message key="save"/>
+                                                    <i class="fa-solid fa-floppy-disk"></i>
                                                 </button>
                                             </div>
                                             <div class="col">
                                                 <button type="submit" name="command" value="delete-topic"
                                                         class="btn btn-danger w-100">
                                                     <fmt:message key="delete"/>
+                                                    <i class="fa-solid fa-trash"></i>
                                                 </button>
                                             </div>
                                         </div>
@@ -76,6 +78,7 @@
                                     <button class="btn btn-success w-100" type="submit" name="command"
                                             value="add-topic">
                                         <fmt:message key="add_topic"/>
+                                        <i class="fa-solid fa-plus"></i>
                                     </button>
                                 </td>
                             </tr>
