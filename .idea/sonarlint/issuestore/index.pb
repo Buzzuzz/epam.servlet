@@ -71,8 +71,6 @@ o
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 X
 (src/main/webapp/components/metadata.jspf,c\9\c9285f2570b0a57313b914bf65baed92ff4549d7
-O
-src/main/webapp/pages/error.jsp,9\9\99913bd45b22c0fbd30ca43131af12570289d3fc
 \
 ,src/main/java/model/entities/UserCourse.java,a\0\a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
 P

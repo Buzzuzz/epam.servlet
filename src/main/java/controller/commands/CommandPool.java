@@ -40,6 +40,7 @@ public class CommandPool {
         COMMANDS_POOL.put(GET_ALL_USERS_COMMAND,new GetAllUsersCommand());
         COMMANDS_POOL.put(CREATE_TOPIC, new CreateTopicCommand());
         COMMANDS_POOL.put(UPDATE_TOPIC, new UpdateTopicCommand());
+        COMMANDS_POOL.put(DELETE_TOPIC, new DeleteTopicCommand());
         COMMANDS_POOL.put(CHANGE_USER_LOCK_STATUS, new ChangeUserLockStatusCommand());
 
         log.debug("Initialization of CommandPool successful");

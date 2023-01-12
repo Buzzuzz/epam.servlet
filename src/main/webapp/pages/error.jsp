@@ -39,11 +39,22 @@
                 </div>
             </div>
         </div>
-        <div class="col">
-            <button class="btn btn-primary">
-                <a class="nav-link" id="home-button" href="${pageContext.request.contextPath}/pages/index.jsp">
-                    <fmt:message key="home_page"/>
-                </a></button>
+        <div class="col d-flex justify-content-center mb-3">
+            <div class="row w-25">
+                <div class="col">
+                    <button class="btn btn-primary w-100">
+                        <a class="nav-link" id="home-button" href="${pageContext.request.contextPath}/pages/index.jsp">
+                            <fmt:message key="home_page"/>
+                        </a></button>
+                </div>
+                <div class="col">
+                    <form action="${pageContext.request.contextPath}/controller">
+                        <button class="btn btn-danger w-100" name="command" value="logout">
+                            <fmt:message key="logout"/>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

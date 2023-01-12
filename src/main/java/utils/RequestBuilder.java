@@ -32,6 +32,6 @@ public class RequestBuilder {
     }
 
     public static String buildCommand(String controller, String command) {
-        return "/" + controller + "?" + AttributeConstants.COMMAND_ATTR + "=" + command;
+        return controller + "?" + AttributeConstants.COMMAND_ATTR + "=" + command;
     }
 }

@@ -1023,3 +1023,191 @@ exceptions.NoSuchCommandException: No such command as change-lock
 2023-01-12 18:53:10.942 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
 2023-01-12 18:53:14.091 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command change-lock acquired successful
 2023-01-12 18:53:14.110 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:01:33.266 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:01:38.208 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:01:39.456 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:01:44.509 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command change-lock acquired successful
+2023-01-12 19:01:44.522 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:02:04.812 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:02:08.652 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command add-topic acquired successful
+2023-01-12 19:02:08.653 [ DEBUG | controller.commands.impl.topic.CreateTopicCommand | CreateTopicCommand ] - Topic with ID: 18 created successfully
+2023-01-12 19:02:08.662 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:02:41.350 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 19:02:41.365 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-12 19:02:45.046 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-12 19:02:45.060 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-12 19:02:45.060 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-12 19:02:47.046 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:02:49.065 [ ERROR | controller.commands.CommandPool | CommandPool ] - No such command as delete-topic
+2023-01-12 19:02:49.066 [ ERROR | controller.FrontControllerServlet | FrontControllerServlet ] - No such command as delete-topic
+exceptions.NoSuchCommandException: No such command as delete-topic
+	at controller.commands.CommandPool.getCommand(CommandPool.java:62) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doPost(FrontControllerServlet.java:31) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:709) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:28) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-12 19:06:47.921 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:06:50.744 [ ERROR | controller.commands.CommandPool | CommandPool ] - No such command as delete-topic
+2023-01-12 19:06:50.744 [ ERROR | controller.FrontControllerServlet | FrontControllerServlet ] - No such command as delete-topic
+exceptions.NoSuchCommandException: No such command as delete-topic
+	at controller.commands.CommandPool.getCommand(CommandPool.java:62) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doPost(FrontControllerServlet.java:31) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:709) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:28) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-12 19:07:05.725 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 19:07:05.739 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-12 19:07:08.991 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-12 19:07:09.018 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-12 19:07:09.018 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-12 19:07:09.981 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-12 19:07:11.535 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:07:12.921 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-12 19:07:12.980 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:07:15.264 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:07:19.480 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:07:20.098 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:07:41.966 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-12 19:07:44.113 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:07:46.756 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:07:55.387 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:08:01.241 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command change-lock acquired successful
+2023-01-12 19:08:01.303 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-12 19:08:05.439 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command logout acquired successful
+2023-01-12 19:08:05.439 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged out
+2023-01-12 19:08:05.450 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 19:08:09.842 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User t@t.com logged in successful!
+2023-01-12 19:10:53.548 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 19:10:53.548 [ ERROR | controller.commands.CommandPool | CommandPool ] - No such command as null
+2023-01-12 19:10:53.549 [ ERROR | controller.FrontControllerServlet | FrontControllerServlet ] - No such command as null
+exceptions.NoSuchCommandException: No such command as null
+	at controller.commands.CommandPool.getCommand(CommandPool.java:63) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:28) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-12 19:13:15.591 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter change: ua
+2023-01-12 19:13:21.920 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter change: en
+2023-01-12 19:15:09.029 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter change: en
+2023-01-12 19:15:22.676 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 19:15:22.690 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-12 19:15:29.484 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User t@t.com logged in successful!
+2023-01-12 19:15:30.912 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-12 19:15:30.912 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command logout acquired successful
+2023-01-12 19:15:30.913 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User t@t.com logged out
+2023-01-12 19:15:35.611 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-12 19:15:35.654 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-12 19:15:35.655 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-12 19:15:37.108 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-12 19:15:38.377 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
