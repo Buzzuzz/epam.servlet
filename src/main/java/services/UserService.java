@@ -13,7 +13,7 @@ public interface UserService {
 
     void logOut(HttpServletRequest req);
 
-    boolean signUp(HttpServletRequest req) throws ServiceException;
+    long signUp(HttpServletRequest req) throws ServiceException;
 
     boolean updateUserData(HttpServletRequest req) throws ServiceException;
 
@@ -22,6 +22,10 @@ public interface UserService {
     List<UserDTO> getAllUsers();
 
     long deleteUser(long id) throws ServiceException;
+
     long changeUserLockStatus(long id, boolean status) throws ServiceException;
-    Optional<User> getUser (long id);
+
+    Optional<User> getUser(long id);
+
+    long createUser(HttpServletRequest req) throws ServiceException;
 }

@@ -93,7 +93,7 @@
         </div>
     </div>
 </div>
-
+${sessionScope.remove("error")}
 <%@include file="../components/footer.jspf" %>
 </body>
 </html>

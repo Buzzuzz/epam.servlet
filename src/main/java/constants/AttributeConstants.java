@@ -27,4 +27,5 @@ public interface AttributeConstants {
     String TOPIC_ID = "t_id";
     String USER_ID = "u_id";
     String USER_STATUS = "user-status";
+    String USER_TYPES = "types";
 }

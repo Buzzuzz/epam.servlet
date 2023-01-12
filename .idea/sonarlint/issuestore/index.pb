@@ -37,8 +37,6 @@ t.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/databas
 v.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta,e\b\eb641fe5cb933ef0ff5b768296a673fc24ee2525
 ]
 -.idea/artifacts/epam_servlet_war_exploded.xml,3\a\3ad6d356b7a42a0b4e7530b1623775202a584b38
-W
-'src/main/java/model/dao/DataSource.java,5\1\518f149e91541f1f159fc512f570213d8faea660
 X
 (src/test/java/testDAO/TestCourseDAO.java,1\7\172dc93bfb4573f49ee0455b119b2045e866b7ab
 V
@@ -51,8 +49,6 @@ Y
 .src/main/java/controller/commands/Command.java,4\6\46b7084af8a8382db24e03758e22189ae5dcf726
 Q
 !src/main/webapp/pages/restore.jsp,d\c\dcd64f48ab77e701c27768b7badae1723b2ca46c
-P
- src/main/webapp/pages/signup.jsp,a\3\a32edbb6e370eacb2cd8b15a1db73a70fc4d2b74
 Z
 *src/main/java/model/entities/UserType.java,5\c\5cbe5d30eb47357a658639ed9ef3243e776b8520
 h
@@ -113,8 +109,6 @@ d
 +src/main/java/constants/RegexConstants.java,6\0\60c856fc478251e34e7ec5f8862ff522c82dad2b
 O
 src/main/webapp/pages/index.jsp,6\d\6d1882855c5a6ca4ae29c49e862e7c6d94997549
-Q
-!src/main/webapp/pages/cabinet.jsp,8\5\85cd8ea57e4194c3eba14fea8e7c75b3d7e3705a
 Y
 )src/main/java/services/CourseService.java,c\f\cfcdef8353bc8b7dc94b3defcc99e676c903b154
 h

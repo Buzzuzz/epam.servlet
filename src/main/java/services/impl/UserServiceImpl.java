@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
         req.getSession().invalidate();
     }
 
-    public boolean signUp(HttpServletRequest req) throws ServiceException {
+    public long signUp(HttpServletRequest req) throws ServiceException {
         if (validateNewUser(req)) {
             Connection con = null;
             long generatedId = 0;
@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService {
                         false,
                         false));
                 log.info("User " + generatedId + " " + req.getParameter(EMAIL_ATTR) + " registered successfully!");
-                return true;
+                return generatedId;
             } catch (DAOException e) {
                 log.error(e.getMessage());
                 throw new ServiceException("Can't register new user", e);
@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserService {
                 close(con);
             }
         }
-        return false;
+        throw new ServiceException("Provided data is not valid!");
     }
 
     public boolean updateUserData(HttpServletRequest req) throws ServiceException {
@@ -199,6 +199,30 @@ public class UserServiceImpl implements UserService {
         try {
             con = getConnection();
             return dao.get(con, id);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public long createUser(HttpServletRequest req) throws ServiceException {
+        Connection con = null;
+        try {
+            con = getConnection();
+            setCommit(con, false);
+
+            long generatedId = signUp(req);
+            Connection finalCon = con;
+            dao.get(con, generatedId).ifPresent(user -> {
+                user.setUser_type(UserType.valueOf(req.getParameter(USER_TYPE_ATTR)));
+                dao.update(finalCon, user);
+            });
+
+            commit(con);
+            return generatedId;
+        } catch (DAOException e) {
+            log.error("Can't create new user, cause: " + e.getMessage(), e);
+            throw new ServiceException("Can't create new user!", e);
         } finally {
             close(con);
         }

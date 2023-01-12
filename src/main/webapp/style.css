@@ -62,3 +62,32 @@ footer {
 label:hover {
     cursor: pointer;
 }
+
+.form-select:active, .form-select:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.form-select {
+    background-color: var(--cream-white);
+}
+
+.pagination a {
+    background-color: var(--cream-brown);
+    color: black;
+    border-color: var(--cream-white);
+}
+
+.pagination a:hover {
+    background-color: var(--cream);
+    color: black;
+}
+
+.pagination a:active, a:checked{
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.modal-content {
+    background-color: var(--cream-brown);
+}

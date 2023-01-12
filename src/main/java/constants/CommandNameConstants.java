@@ -17,4 +17,5 @@ public interface CommandNameConstants {
     String CREATE_TOPIC = "add-topic";
     String CHANGE_USER_LOCK_STATUS = "change-lock";
     String DELETE_USER = "delete-user";
+    String CREATE_USER = "add-user";
 }

@@ -157,6 +157,7 @@
         </div>
     </div>
 </form>
+${sessionScope.remove("error")}
 <%@include file="../components/footer.jspf" %>
 </body>
 </html>

@@ -51,7 +51,7 @@ public class DataSource {
         }
     }
 
-    public static void close(AutoCloseable closeable) throws DAOException{
+    public static void close(AutoCloseable closeable) throws DAOException {
         try {
             if (closeable != null) {
                 closeable.close();
@@ -66,9 +66,10 @@ public class DataSource {
      * Code snippet to close several {@link AutoCloseable statements} in one line of code
      * (yeah, I definitely love shortening code). Order of arguments in method is important
      * (the first one passed will be closed also at first).
+     *
      * @param args Varargs to be closed
      */
-    public static void closeAll(AutoCloseable... args) throws DAOException{
+    public static void closeAll(AutoCloseable... args) throws DAOException {
         for (AutoCloseable arg : args) {
             close(arg);
         }
@@ -76,14 +77,33 @@ public class DataSource {
 
     /**
      * Method to try {@link Connection#rollback() rollback} transaction (and shorten boilerplate code)
+     *
      * @param con {@link Connection} on which will be tried rollback
      */
-    public static void rollback(Connection con) throws DAOException{
+    public static void rollback(Connection con) throws DAOException {
         try {
             con.rollback();
         } catch (Exception e) {
             log.error("Can't rollback transaction");
             throw new DAOException("Can't rollback transaction", e);
+        }
+    }
+
+    public static void commit(Connection con) {
+        try {
+            con.commit();
+        } catch (SQLException e) {
+            log.error("Cant' commit!", e);
+            throw new DAOException("Can't commit!", e);
+        }
+    }
+
+    public static void setCommit(Connection con, boolean type) {
+        try {
+            con.setAutoCommit(type);
+        } catch (SQLException e) {
+            log.error("Can't set connection commit type to " + type, e);
+            throw new DAOException("Can't set connection commit type to " + type, e);
         }
     }
 }
