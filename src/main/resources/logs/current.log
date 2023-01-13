@@ -116,7 +116,7 @@ exceptions.NoSuchCommandException: No such command as delete-user
 2023-01-13 00:41:05.786 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:41:05.787 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:41:06.787 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:41:06.800 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam."user" by u_id field
+2023-01-13 00:41:06.800 [ ERROR | utils.PaginationUtil | CountRecordsUtil ] - Can't count records in table epam."user" by u_id field
 org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
   Position: 23
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
@@ -128,7 +128,7 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
-	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:29) ~[classes/:?]
+	at utils.PaginationUtil.getRecords(CountRecordsUtil.java:29) ~[classes/:?]
 	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
 	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
@@ -178,7 +178,7 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 2023-01-13 00:43:11.737 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:43:11.737 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:43:12.568 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:43:12.581 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+2023-01-13 00:43:12.581 [ ERROR | utils.PaginationUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
 org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
   Position: 23
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
@@ -190,7 +190,7 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
-	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:29) ~[classes/:?]
+	at utils.PaginationUtil.getRecords(CountRecordsUtil.java:29) ~[classes/:?]
 	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
 	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
@@ -241,8 +241,8 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 2023-01-13 00:46:37.676 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:46:37.676 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:46:39.172 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:46:39.181 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@583206999 wrapping select count('u_id') from 'epam.user'
-2023-01-13 00:46:39.188 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+2023-01-13 00:46:39.181 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@583206999 wrapping select count('u_id') from 'epam.user'
+2023-01-13 00:46:39.188 [ ERROR | utils.PaginationUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
 org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
   Position: 23
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
@@ -254,7 +254,7 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
-	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
+	at utils.PaginationUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
 	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
 	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
@@ -304,7 +304,7 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 2023-01-13 00:49:06.404 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:49:06.404 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:49:08.091 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:49:08.109 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+2023-01-13 00:49:08.109 [ ERROR | utils.PaginationUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
 org.postgresql.util.PSQLException: The column index is out of range: 1, number of columns: 0.
 	at org.postgresql.core.v3.SimpleParameterList.bind(SimpleParameterList.java:70) ~[postgresql-42.5.1.jar:42.5.1]
 	at org.postgresql.core.v3.SimpleParameterList.setStringParameter(SimpleParameterList.java:133) ~[postgresql-42.5.1.jar:42.5.1]
@@ -312,7 +312,7 @@ org.postgresql.util.PSQLException: The column index is out of range: 1, number o
 	at org.postgresql.jdbc.PgPreparedStatement.setString(PgPreparedStatement.java:387) ~[postgresql-42.5.1.jar:42.5.1]
 	at org.postgresql.jdbc.PgPreparedStatement.setString(PgPreparedStatement.java:373) ~[postgresql-42.5.1.jar:42.5.1]
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.setString(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
-	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:26) ~[classes/:?]
+	at utils.PaginationUtil.getRecords(CountRecordsUtil.java:26) ~[classes/:?]
 	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
 	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
@@ -362,8 +362,8 @@ org.postgresql.util.PSQLException: The column index is out of range: 1, number o
 2023-01-13 00:50:38.472 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:50:38.472 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:50:40.206 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:50:40.211 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@1259095906 wrapping select count('''u_id''') from '''epam.user'''
-2023-01-13 00:50:40.219 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+2023-01-13 00:50:40.211 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@1259095906 wrapping select count('''u_id''') from '''epam.user'''
+2023-01-13 00:50:40.219 [ ERROR | utils.PaginationUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
 org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
   Position: 23
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
@@ -375,7 +375,7 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
-	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
+	at utils.PaginationUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
 	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
 	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
@@ -425,8 +425,8 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 2023-01-13 00:51:34.556 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:51:34.556 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:51:35.473 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:51:35.480 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@1231440666 wrapping select count('''u_id''') from '''epam.user'''
-2023-01-13 00:51:35.485 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+2023-01-13 00:51:35.480 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@1231440666 wrapping select count('''u_id''') from '''epam.user'''
+2023-01-13 00:51:35.485 [ ERROR | utils.PaginationUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
 org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
   Position: 23
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
@@ -438,7 +438,7 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
-	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
+	at utils.PaginationUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
 	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
 	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
@@ -492,8 +492,8 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 2023-01-13 00:53:17.855 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:53:17.855 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:53:19.881 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:53:19.891 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@69806858 wrapping select count('u_id') from '''epam.user'''
-2023-01-13 00:53:19.900 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+2023-01-13 00:53:19.891 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@69806858 wrapping select count('u_id') from '''epam.user'''
+2023-01-13 00:53:19.900 [ ERROR | utils.PaginationUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
 org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
   Position: 23
 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
@@ -505,7 +505,7 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
-	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:33) ~[classes/:?]
+	at utils.PaginationUtil.getRecords(CountRecordsUtil.java:33) ~[classes/:?]
 	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
 	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
@@ -555,13 +555,13 @@ org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
 2023-01-13 00:58:14.812 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:58:14.812 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:58:15.897 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:58:15.902 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
-2023-01-13 00:58:15.909 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+2023-01-13 00:58:15.902 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 00:58:15.909 [ ERROR | utils.PaginationUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
 org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
 	at org.postgresql.jdbc.PgResultSet.getRawValue(PgResultSet.java:3130) ~[postgresql-42.5.1.jar:42.5.1]
 	at org.postgresql.jdbc.PgResultSet.getLong(PgResultSet.java:2429) ~[postgresql-42.5.1.jar:42.5.1]
 	at com.zaxxer.hikari.pool.HikariProxyResultSet.getLong(HikariProxyResultSet.java) ~[HikariCP-5.0.1.jar:?]
-	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:38) ~[classes/:?]
+	at utils.PaginationUtil.getRecords(CountRecordsUtil.java:38) ~[classes/:?]
 	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
 	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
@@ -611,11 +611,11 @@ org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps yo
 2023-01-13 00:59:06.836 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 00:59:06.837 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 00:59:07.688 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 00:59:07.694 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 00:59:07.694 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 01:02:35.887 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 01:02:35.890 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:02:35.890 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 01:11:49.510 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 01:11:49.515 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:11:49.515 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 01:19:00.774 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
 2023-01-13 01:19:00.790 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
 2023-01-13 01:19:02.836 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
@@ -623,15 +623,15 @@ org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps yo
 2023-01-13 01:19:09.070 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 01:19:09.070 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 01:19:10.396 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 01:19:10.404 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:19:10.404 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 01:20:55.468 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-user acquired successful
 2023-01-13 01:20:55.523 [ DEBUG | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com updated successful
 2023-01-13 01:20:57.508 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 01:20:57.511 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:20:57.511 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 01:22:27.339 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 01:22:27.341 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:22:27.341 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 01:23:35.377 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 01:23:35.379 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:23:35.379 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:00:29.395 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
 2023-01-13 02:00:29.410 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
 2023-01-13 02:00:30.856 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
@@ -704,23 +704,23 @@ org.postgresql.util.PSQLException: The column index is out of range: 1, number o
 2023-01-13 02:02:50.920 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
 2023-01-13 02:02:50.920 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
 2023-01-13 02:02:52.279 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:02:52.284 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:02:52.284 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:03:12.653 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:03:12.654 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:03:12.654 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:03:18.612 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:03:18.615 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:03:18.615 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:03:22.150 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:03:22.153 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:03:22.153 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:04:03.019 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:04:03.022 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:04:03.022 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:04:53.101 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:04:53.104 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:04:53.104 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:05:16.720 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:05:16.721 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:05:16.721 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:05:19.268 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:05:19.269 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:05:19.269 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:05:23.625 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
-2023-01-13 02:05:23.626 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:05:23.626 [ INFO | utils.PaginationUtil | CountRecordsUtil ] - select count(u_id) from epam.user
 2023-01-13 02:09:42.883 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
 2023-01-13 02:09:42.898 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
 2023-01-13 02:09:49.399 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
@@ -1951,3 +1951,1126 @@ exceptions.NoSuchCommandException: No such command as null
 2023-01-13 05:33:42.630 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-user acquired successful
 2023-01-13 05:33:42.637 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
 2023-01-13 05:33:52.681 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:35:35.986 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:35:50.714 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:17.179 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:28.817 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:36.787 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:40.626 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:42.140 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:43.784 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:53.516 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:57.560 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:58.836 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:59.434 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:37:59.881 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:38:00.349 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:38:10.944 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:38:32.513 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:38:56.759 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:39:02.606 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:40:41.685 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:40:47.311 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:40:56.196 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:04.869 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:10.984 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:15.435 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:16.452 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:17.052 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:17.482 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:20.409 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:21.415 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:21.961 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:22.458 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:25.495 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:41:44.777 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:08.116 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:13.721 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:23.066 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:23.924 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:24.350 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:24.713 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:27.703 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 05:42:27.704 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:53.860 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:54.977 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:42:55.496 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:43:20.091 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:43:21.133 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:43:21.647 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:43:26.530 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:43:34.426 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:43:37.413 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:43:49.407 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:44:09.854 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:44:36.162 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:44:52.958 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:45:15.859 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:45:31.492 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:45:53.879 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:46:31.891 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:47:43.768 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:49:38.649 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:49:41.564 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:50:20.137 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:50:55.563 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:51:04.067 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:51:09.767 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:51:19.734 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:52:57.188 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:52:59.340 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:53:00.545 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:53:03.732 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:53:31.436 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:55:59.844 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:56:10.088 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:56:12.169 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:56:14.571 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:56:37.673 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:56:39.590 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:56:40.497 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:56:44.801 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:56:46.091 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:56:46.911 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:56:47.683 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:56:49.104 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:56:50.430 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:57:11.690 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 05:57:13.140 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:58:02.301 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:58:04.151 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:58:22.801 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:58:23.781 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:58:42.473 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:58:43.946 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:58:52.983 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 05:59:00.230 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 06:00:01.589 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 12:05:53.549 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 12:05:53.564 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 12:05:55.467 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 13:50:33.403 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 13:50:33.417 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 13:50:34.857 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 13:50:39.412 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 13:50:39.444 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 13:50:39.444 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 13:50:40.601 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 13:50:42.357 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 13:50:42.366 [ ERROR | utils.PaginationUtil | PaginationUtil ] - Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+java.lang.InstantiationException: constants.AttributeConstants
+	at java.lang.Class.newInstance(Class.java:678) ~[?:?]
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:74) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+Caused by: java.lang.NoSuchMethodException: constants.AttributeConstants.<init>()
+	at java.lang.Class.getConstructor0(Class.java:3641) ~[?:?]
+	at java.lang.Class.newInstance(Class.java:665) ~[?:?]
+	... 44 more
+2023-01-13 13:50:42.375 [ ERROR | services.impl.TopicServiceImpl | TopicServiceImpl ] - Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+exceptions.UtilException: Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:83) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+Caused by: java.lang.InstantiationException: constants.AttributeConstants
+	at java.lang.Class.newInstance(Class.java:678) ~[?:?]
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:74) ~[classes/:?]
+	... 43 more
+Caused by: java.lang.NoSuchMethodException: constants.AttributeConstants.<init>()
+	at java.lang.Class.getConstructor0(Class.java:3641) ~[?:?]
+	at java.lang.Class.newInstance(Class.java:665) ~[?:?]
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:74) ~[classes/:?]
+	... 43 more
+2023-01-13 13:50:42.382 [ ERROR | controller.commands.impl.topic.GetAllTopicsCommand | GetAllTopicsCommand ] - Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+exceptions.ServiceException: Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:59) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+Caused by: exceptions.UtilException: Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:83) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	... 42 more
+Caused by: java.lang.InstantiationException: constants.AttributeConstants
+	at java.lang.Class.newInstance(Class.java:678) ~[?:?]
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:74) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	... 42 more
+Caused by: java.lang.NoSuchMethodException: constants.AttributeConstants.<init>()
+	at java.lang.Class.getConstructor0(Class.java:3641) ~[?:?]
+	at java.lang.Class.newInstance(Class.java:665) ~[?:?]
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:74) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	... 42 more
+2023-01-13 13:53:25.534 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 13:53:25.556 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 13:53:28.752 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 13:53:28.777 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 13:53:28.778 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 13:53:30.111 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 13:53:30.119 [ ERROR | utils.PaginationUtil | PaginationUtil ] - Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+java.lang.NoSuchFieldException: DEFAULT_MODEL.ENTITIES.TOPIC_SORTING
+	at java.lang.Class.getDeclaredField(Class.java:2663) ~[?:?]
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:75) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 13:53:30.125 [ ERROR | services.impl.TopicServiceImpl | TopicServiceImpl ] - Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+exceptions.UtilException: Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:83) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+Caused by: java.lang.NoSuchFieldException: DEFAULT_MODEL.ENTITIES.TOPIC_SORTING
+	at java.lang.Class.getDeclaredField(Class.java:2663) ~[?:?]
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:75) ~[classes/:?]
+	... 43 more
+2023-01-13 13:53:30.131 [ ERROR | controller.commands.impl.topic.GetAllTopicsCommand | GetAllTopicsCommand ] - Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+exceptions.ServiceException: Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:59) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+Caused by: exceptions.UtilException: Can't get default sorting for model.entities.Topic in class interface constants.AttributeConstants
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:83) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	... 42 more
+Caused by: java.lang.NoSuchFieldException: DEFAULT_MODEL.ENTITIES.TOPIC_SORTING
+	at java.lang.Class.getDeclaredField(Class.java:2663) ~[?:?]
+	at utils.PaginationUtil.getSortingType(PaginationUtil.java:75) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:45) ~[classes/:?]
+	... 42 more
+2023-01-13 13:54:56.412 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 13:54:56.422 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 13:54:59.711 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 13:54:59.729 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 13:54:59.729 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 13:55:00.459 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 13:55:00.481 [ ERROR | utils.PaginationUtil | PaginationUtil ] - Can't count records in table topic by t_id field
+org.postgresql.util.PSQLException: ERROR: relation "topic" does not exist
+  Position: 25
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.PaginationUtil.getRecordsCount(PaginationUtil.java:36) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getTopicCount(TopicServiceImpl.java:131) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:50) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 13:56:47.165 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 13:56:47.180 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 13:56:50.082 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 13:56:50.110 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 13:56:50.110 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 13:56:50.930 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 13:56:50.952 [ ERROR | model.dao.impl.TopicDAO | TopicDAO ] - Can't get all topics from database
+2023-01-13 13:57:26.144 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 13:57:26.159 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 13:57:32.073 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 13:57:32.091 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 13:57:32.091 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 13:57:33.480 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 13:57:33.495 [ ERROR | model.dao.impl.TopicDAO | TopicDAO ] - Can't get all topics from database
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "form"
+  Position: 10
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicDAO.getAll(TopicDAO.java:82) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:53) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 14:01:27.169 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:01:27.185 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 14:01:29.323 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:01:33.658 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 14:01:33.693 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 14:01:33.694 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 14:01:34.969 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:01:34.992 [ ERROR | model.dao.impl.TopicDAO | TopicDAO ] - Can't get all topics from database
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "static"
+  Position: 42
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicDAO.getAll(TopicDAO.java:84) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:53) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 14:03:14.508 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:03:14.524 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 14:03:18.175 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 14:03:18.196 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 14:03:18.196 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 14:03:19.192 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:03:19.201 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - select * from epam.topic order by ? limit ? offset ?
+2023-01-13 14:03:19.209 [ ERROR | model.dao.impl.TopicDAO | TopicDAO ] - Can't get all topics from database
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "static"
+  Position: 42
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicDAO.getAll(TopicDAO.java:85) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:53) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 14:06:54.620 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:06:54.643 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 14:06:58.019 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 14:06:58.041 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 14:06:58.041 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 14:06:59.063 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:06:59.074 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - select * from epam.topic order by ? limit ? offset ?
+2023-01-13 14:06:59.078 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - HikariProxyPreparedStatement@268272695 wrapping select * from epam.topic order by public static final java.lang.String constants.AttributeConstants.DEFAULT_TOPIC_SORTING limit 5 offset 0
+2023-01-13 14:06:59.085 [ ERROR | model.dao.impl.TopicDAO | TopicDAO ] - Can't get all topics from database
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "static"
+  Position: 42
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicDAO.getAll(TopicDAO.java:86) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:53) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 14:09:42.139 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:09:42.155 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 14:09:49.520 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 14:09:49.540 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 14:09:49.541 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 14:09:50.765 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:09:50.776 [ WARN | services.impl.TopicServiceImpl | TopicServiceImpl ] - public static final java.lang.String constants.AttributeConstants.DEFAULT_TOPIC_SORTING
+2023-01-13 14:09:50.777 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - select * from epam.topic order by ? limit ? offset ?
+2023-01-13 14:09:50.778 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - HikariProxyPreparedStatement@982624899 wrapping select * from epam.topic order by public static final java.lang.String constants.AttributeConstants.DEFAULT_TOPIC_SORTING limit 5 offset 0
+2023-01-13 14:09:50.785 [ ERROR | model.dao.impl.TopicDAO | TopicDAO ] - Can't get all topics from database
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "static"
+  Position: 42
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicDAO.getAll(TopicDAO.java:86) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:54) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 14:11:22.475 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:11:22.492 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 14:11:25.741 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 14:11:25.763 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 14:11:25.763 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 14:11:26.446 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:11:26.454 [ WARN | services.impl.TopicServiceImpl | TopicServiceImpl ] - DEFAULT_TOPIC_SORTING
+2023-01-13 14:11:26.459 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - select * from epam.topic order by ? limit ? offset ?
+2023-01-13 14:11:26.460 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - HikariProxyPreparedStatement@1054855415 wrapping select * from epam.topic order by DEFAULT_TOPIC_SORTING limit 5 offset 0
+2023-01-13 14:11:26.470 [ ERROR | model.dao.impl.TopicDAO | TopicDAO ] - Can't get all topics from database
+org.postgresql.util.PSQLException: ERROR: column "default_topic_sorting" does not exist
+  Position: 35
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicDAO.getAll(TopicDAO.java:86) ~[classes/:?]
+	at services.impl.TopicServiceImpl.getAllTopics(TopicServiceImpl.java:54) ~[classes/:?]
+	at controller.commands.impl.topic.GetAllTopicsCommand.execute(GetAllTopicsCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:44) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 14:18:04.860 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:18:04.876 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 14:18:06.412 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:18:13.540 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 14:18:13.572 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 14:18:13.572 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 14:18:14.670 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:18:14.681 [ WARN | services.impl.TopicServiceImpl | TopicServiceImpl ] - t_id
+2023-01-13 14:18:14.684 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - select * from epam.topic order by ? limit ? offset ?
+2023-01-13 14:18:14.687 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - HikariProxyPreparedStatement@714572392 wrapping select * from epam.topic order by t_id limit 5 offset 0
+2023-01-13 14:19:36.180 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:19:36.182 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - select * from epam.topic order by ? limit ? offset ?
+2023-01-13 14:19:36.182 [ WARN | model.dao.impl.TopicDAO | TopicDAO ] - HikariProxyPreparedStatement@991879511 wrapping select * from epam.topic order by t_id limit 10 offset 0
+2023-01-13 14:19:38.462 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-13 14:19:38.478 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:20:44.295 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:20:46.574 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:20:54.136 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:07.153 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:13.905 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:21.243 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:23.896 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:34.767 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:36.616 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:45.610 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-13 14:21:45.621 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:52.447 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:53.459 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:54.334 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:55.123 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:55.834 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:56.410 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:57.869 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:21:59.257 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:50:57.943 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:50:57.958 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 14:50:59.428 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 14:51:10.496 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 14:51:10.523 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 14:51:10.524 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 14:51:11.578 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:17.962 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:19.342 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:26.467 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:33.013 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:35.314 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:41.401 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:43.168 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:44.490 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:45.365 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:46.320 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:47.009 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:48.344 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-13 14:51:48.354 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:50.875 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:53.747 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 14:51:53.760 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:56.907 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:51:57.991 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:54:35.565 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:54:37.127 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:54:37.738 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:54:40.520 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:27.976 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:30.590 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:31.791 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:34.588 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:36.077 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:36.880 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:37.395 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:39.458 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:41.774 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:42.276 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:42.826 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:43.602 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:43.997 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:44.849 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:46.127 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:57.086 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-13 14:55:57.098 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:55:59.535 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-13 14:55:59.547 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:56:41.249 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:56:42.185 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:56:45.161 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:56:46.651 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-13 14:56:46.656 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:56:48.622 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:56:49.667 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-13 14:56:49.675 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:00.793 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:05.943 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 14:57:05.948 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:08.359 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:15.858 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:17.867 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:19.347 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:21.582 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:30.188 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 14:57:33.218 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 14:57:33.222 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:01:45.243 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 15:01:45.256 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 15:01:49.703 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 15:01:49.728 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 15:01:49.728 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 15:01:51.187 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:01:55.469 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:01:56.432 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:01:58.735 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:02:01.543 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 15:02:01.556 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:02:09.932 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:02:12.619 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:03:26.481 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 15:03:26.498 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 15:03:30.024 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 15:03:30.045 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 15:03:30.045 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 15:03:31.206 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:03:41.978 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command add-topic acquired successful
+2023-01-13 15:03:41.980 [ DEBUG | controller.commands.impl.topic.CreateTopicCommand | CreateTopicCommand ] - Topic with id 26 created successfully!
+2023-01-13 15:03:41.991 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:03:49.242 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:03:51.201 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:04:00.353 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:04:04.533 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:04:06.338 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:04:09.900 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:04:11.845 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:04:15.110 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:04:17.608 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 15:04:17.614 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:05:18.554 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command add-topic acquired successful
+2023-01-13 15:05:18.557 [ DEBUG | controller.commands.impl.topic.CreateTopicCommand | CreateTopicCommand ] - Topic with id 27 created successfully!
+2023-01-13 15:05:18.568 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:06:15.160 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:06:15.164 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:06:15.164 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:06:15.164 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:06:18.388 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:06:18.389 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:06:18.389 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 5
+2023-01-13 15:06:18.389 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:06:21.155 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:06:21.156 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:06:21.157 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 5
+2023-01-13 15:06:21.157 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:06:23.779 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 15:06:23.791 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:06:23.792 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:06:23.792 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 4
+2023-01-13 15:06:23.792 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:06:31.828 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:06:31.829 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 4
+2023-01-13 15:06:31.829 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 4
+2023-01-13 15:06:31.829 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:06:33.401 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 15:06:33.411 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:06:33.412 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 4
+2023-01-13 15:06:33.412 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 3
+2023-01-13 15:06:33.412 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:07:17.532 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:07:17.534 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:07:17.534 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 3
+2023-01-13 15:07:17.535 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:07:20.143 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:07:20.143 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 3
+2023-01-13 15:07:20.144 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 3
+2023-01-13 15:07:20.144 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:07:22.278 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:07:22.279 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 3
+2023-01-13 15:07:22.279 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 3
+2023-01-13 15:07:22.279 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:07:25.366 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 15:07:25.376 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:07:25.377 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 3
+2023-01-13 15:07:25.377 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:07:25.377 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:08:54.033 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-13 15:09:26.410 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:09:26.411 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:09:26.411 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:09:26.411 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:09:30.827 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:09:30.828 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:09:30.828 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:09:30.828 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:09:34.046 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:09:34.047 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:09:34.047 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:09:34.047 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:09:36.030 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:09:36.031 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:09:36.031 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:09:36.032 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:09:36.879 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:09:36.880 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:09:36.880 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:09:36.880 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:09:41.706 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-topic acquired successful
+2023-01-13 15:09:41.715 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:09:41.716 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:09:41.717 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:09:41.717 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:09:43.514 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-topic acquired successful
+2023-01-13 15:09:43.519 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:09:43.520 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:09:43.520 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:09:43.520 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:09:56.367 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command add-topic acquired successful
+2023-01-13 15:09:56.368 [ DEBUG | controller.commands.impl.topic.CreateTopicCommand | CreateTopicCommand ] - Topic with id 28 created successfully!
+2023-01-13 15:09:56.376 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:09:56.377 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:09:56.377 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:09:56.377 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:10:05.207 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:10:05.208 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:05.209 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:10:05.209 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - true
+2023-01-13 15:10:08.176 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:10:08.177 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:10:08.177 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 2
+2023-01-13 15:10:08.177 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:10:10.665 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:10:10.666 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:10.666 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:10.666 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:10:12.216 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:10:12.218 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:12.219 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:12.219 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:10:19.921 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:10:19.922 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:19.922 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:19.922 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:10:20.761 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 15:10:23.592 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-13 15:10:23.594 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:23.594 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - 1
+2023-01-13 15:10:23.594 [ INFO | services.impl.TopicServiceImpl | TopicServiceImpl ] - false
+2023-01-13 15:10:24.547 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful

@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TopicService {
-    List<TopicDTO> getAllTopics();
+    List<TopicDTO> getAllTopics(HttpServletRequest req) throws ServiceException;
 
     TopicDTO getTopicDTO(Topic topic);
     long createTopic(HttpServletRequest req) throws ServiceException;
     long updateTopic(HttpServletRequest req) throws ServiceException;
     long deleteTopic(HttpServletRequest req) throws ServiceException;
+    int getTopicCount();
 }

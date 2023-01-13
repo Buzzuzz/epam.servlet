@@ -1,6 +1,7 @@
 package services.impl;
 
 import exceptions.ServiceException;
+import exceptions.UtilException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import model.dao.impl.TopicDAO;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 
 import static model.dao.DataSource.*;
 import static constants.AttributeConstants.*;
+import static utils.PaginationUtil.*;
 
 @Log4j2
 public class TopicServiceImpl implements TopicService {
@@ -33,15 +35,32 @@ public class TopicServiceImpl implements TopicService {
 
     // TODO: refactor getAll method
     @Override
-    public List<TopicDTO> getAllTopics() {
+    public List<TopicDTO> getAllTopics(HttpServletRequest req) throws ServiceException{
         Connection con = null;
         try {
             con = getConnection();
+            int limit = getLimit(req);
+            int[] pages = getPages(limit, getTopicCount());
+            int currentPage = Math.min(getCurrentPage(req), pages.length);
+            int offset = getOffset(limit, currentPage);
+            String sorting = getSortingType(req, Topic.class);
+
+            req.setAttribute(SORTING_TYPE, sorting);
+            req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
+            log.info(currentPage);
+            log.info(pages.length);
+            log.info(currentPage < pages.length);
+            req.setAttribute(CURRENT_PAGE, currentPage);
+            req.setAttribute(RECORDS, pages);
+
             return dao
-                    .getAll(con, 0, 0, "")
+                    .getAll(con, limit, offset, sorting)
                     .stream()
                     .map(this::getTopicDTO)
                     .collect(Collectors.toList());
+        } catch (UtilException e) {
+            log.error(e.getMessage(), e);
+            throw new ServiceException(e.getMessage(), e);
         } finally {
             close(con);
         }
@@ -103,6 +122,17 @@ public class TopicServiceImpl implements TopicService {
         } catch (Exception e) {
             log.error("Can't delete specified topic: " + req.getParameter(TOPIC_ID));
             throw new ServiceException("Can't delete specified topic: " + req.getParameter(TOPIC_ID));
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public int getTopicCount() {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return getRecordsCount(con, TOPIC_ID, TOPIC_TABLE);
         } finally {
             close(con);
         }

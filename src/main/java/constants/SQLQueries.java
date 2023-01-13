@@ -23,7 +23,6 @@ public interface SQLQueries {
                     " where u_id = ? returning u_id";
     String DELETE_USER = "delete from epam.user where u_id = ? returning u_id";
     String FIND_TOPIC_BY_ID = "select * from epam.topic where t_id = ?";
-    String FIND_ALL_TOPICS_IDS = "select t_id from epam.topic";
     String DELETE_TOPIC = "delete from epam.topic where t_id = ? returning t_id";
     String CREATE_TOPIC = "insert into epam.topic(name, description) values (?, ?)";
     String UPDATE_TOPIC = "update epam.topic set name = ?, description = ? where t_id = ?";

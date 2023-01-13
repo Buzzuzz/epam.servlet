@@ -1,10 +1,7 @@
 package controller.commands.impl.topic;
 
-import constants.AttributeConstants;
 import constants.CommandNameConstants;
-import constants.PageConstants;
 import controller.commands.Command;
-import controller.commands.CommandPool;
 import exceptions.CommandException;
 import exceptions.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,16 +11,27 @@ import utils.RequestBuilder;
 
 import java.util.HashMap;
 
+import static constants.AttributeConstants.*;
+
 @Log4j2
 public class CreateTopicCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            log.debug("Topic with ID: " + TopicServiceImpl.getInstance().createTopic(req) + " " +
-                    "created successfully");
-            return RequestBuilder.buildCommand(req.getServletPath(), CommandNameConstants.GET_ALL_TOPICS_COMMAND, new HashMap<>());
+            long generatedId = TopicServiceImpl.getInstance().createTopic(req);
+            log.debug(String.format("Topic with id %s created successfully!", generatedId));
+            return RequestBuilder.buildCommand(
+                    req.getServletPath(),
+                    CommandNameConstants.GET_ALL_TOPICS_COMMAND,
+                    RequestBuilder.getParamsMap(
+                            req,
+                            SORTING_TYPE,
+                            DISPLAY_RECORDS_NUMBER,
+                            CURRENT_PAGE
+                    ));
         } catch (ServiceException e) {
-            throw new CommandException("Error in createTopic command", e);
+            log.error(e.getMessage(), e);
+            throw new CommandException(e.getMessage(), e);
         }
     }
 }

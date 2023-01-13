@@ -1,10 +1,12 @@
 package model.dao.impl;
 
+import constants.AttributeConstants;
 import lombok.extern.log4j.Log4j2;
 import model.dao.DAO;
 import exceptions.DAOException;
 import constants.SQLQueries;
 import model.entities.Topic;
+import utils.PaginationUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -72,20 +74,30 @@ public class TopicDAO implements DAO<Topic> {
         ResultSet resultSet = null;
 
         try {
-            statement = con.prepareStatement(SQLQueries.FIND_ALL_TOPICS_IDS);
+            String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.TOPIC_TABLE);
+            temp = temp.replaceFirst("\\?", sorting);
+            statement = con.prepareStatement(temp);
+
+            int k = 0;
+            statement.setInt(++k, limit);
+            statement.setInt(++k, offset);
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                get(con, resultSet.getLong("t_id")).ifPresent(topics::add);
+                k = 0;
+                topics.add(new Topic(
+                        resultSet.getLong(++k),
+                        resultSet.getString(++k),
+                        resultSet.getString(++k)
+                ));
             }
+            return topics;
         } catch (Exception e) {
-            log.error("Can't get all topics from database");
+            log.error("Can't get all topics from database", e);
             throw new DAOException("Can't get all topics from database", e);
         } finally {
             closeAll(resultSet, statement);
         }
-
-        return topics;
     }
 
     @Override

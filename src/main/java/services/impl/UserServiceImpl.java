@@ -10,7 +10,7 @@ import model.entities.User;
 import model.entities.UserType;
 import services.UserService;
 import services.dto.UserDTO;
-import utils.CountRecordsUtil;
+import utils.PaginationUtil;
 import utils.PasswordHashUtil;
 
 import java.sql.Connection;
@@ -170,13 +170,13 @@ public class UserServiceImpl implements UserService {
             req.setAttribute(SORTING_TYPE, sorting);
             req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
             req.setAttribute(CURRENT_PAGE, currentPage);
-            req.setAttribute(RECORDS, CountRecordsUtil.getPages(limit, getUserCount()));
+            req.setAttribute(RECORDS, PaginationUtil.getPages(limit, getUserCount()));
 
-            List<User> userList = (List<User>) dao.getAll(con, limit, offset, sorting);
-            return userList
+            return dao
+                    .getAll(con, limit, offset, sorting)
                     .stream()
                     .map(this::getUserDTO)
-                    .collect(Collectors.toCollection(ArrayList::new));
+                    .collect(Collectors.toList());
         } finally {
             close(con);
         }
@@ -255,7 +255,7 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
         try {
             con = getConnection();
-            return CountRecordsUtil.getRecordsCount(con, USER_ID, USER_TABLE);
+            return PaginationUtil.getRecordsCount(con, USER_ID, USER_TABLE);
         } finally {
             close(con);
         }

@@ -4,57 +4,62 @@
 <body>
 <%@include file="../components/menu.jspf" %>
 <div class="container min-vh-100">
-    <div class="row g-2">
-        <form action="${pageContext.request.contextPath}/controller">
-            <div class="card shadow">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="input-group">
+    <div class="row g-3">
+        <div class="d-flex justify-content-center">
+            <div style="width: 75%">
+                <form action="${pageContext.request.contextPath}/controller">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="input-group">
                             <span class="input-group-text">
                                 <fmt:message key="sort_by"/>
                             </span>
-                                <select class="form-select" name="sorting" aria-label="Default select example">
-                                    <option value="u_id" ${requestScope.sorting eq 'u_id' ? 'selected="selected"' : ''}>
-                                        <fmt:message key="id"/>
-                                    </option>
-                                    <option value="email"
-                                    ${requestScope.sorting eq 'email' ? 'selected="selected"' : ''}>
-                                        <fmt:message key="email"/>
-                                    </option>
-                                    <option value="first_name"
-                                    ${requestScope.sorting eq 'first_name' ? 'selected="selected"' : ''}>
-                                        <fmt:message key="first_name"/>
-                                    </option>
-                                    <option value="user_type"
-                                    ${requestScope.sorting eq 'user_type' ? 'selected="selected"' : ''}>
-                                        <fmt:message key="user_type"/>
-                                    </option>
-                                </select>
+                                        <select class="form-select" name="sorting" aria-label="Default select example">
+                                            <option value="u_id" ${requestScope.sorting eq 'u_id' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="id"/>
+                                            </option>
+                                            <option value="email"
+                                            ${requestScope.sorting eq 'email' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="email"/>
+                                            </option>
+                                            <option value="first_name"
+                                            ${requestScope.sorting eq 'first_name' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="first_name"/>
+                                            </option>
+                                            <option value="user_type"
+                                            ${requestScope.sorting eq 'user_type' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="user_type"/>
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <input class="form-control" type="number" name="display" min="1"
+                                           value="${requestScope.display != null ? requestScope.display : 5}"
+                                           oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1"/>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary w-100" type="submit" name="command"
+                                            value="get-all-users">
+                                        <fmt:message key="search"/>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-success w-100" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal">
+                                        <fmt:message key="add_user"/>
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <input class="form-control" type="number" name="display" min="1"
-                                   value="${requestScope.display != null ? requestScope.display : 5}"
-                                   oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1"/>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-primary w-100" type="submit" name="command" value="get-all-users">
-                                <fmt:message key="search"/>
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-success w-100" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                <fmt:message key="add_user"/>
-                                <i class="fa-solid fa-plus"></i>
-                            </button>
-                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-        </form>
+        </div>
         <div class="card shadow">
             <div class="card-body">
                 <table class="table table-striped table-bordered border-dark m-0">
@@ -129,8 +134,7 @@
                 </table>
             </div>
         </div>
-
-        <!-- TODO pagination -->
+        <!-- Pagination -->
         <form action="${pageContext.request.contextPath}/controller">
 
             <input hidden name="sorting" value="${requestScope.sorting}"/>
@@ -147,22 +151,23 @@
                     </li>
                     <c:forEach var="record" items="${requestScope.records}">
                         <li class="page-item">
-                            <label for="page${record}" class="page-link ${record eq requestScope.page ? 'selected' : ''}">
+                            <label for="page${record}"
+                                   class="page-link ${record eq requestScope.page ? 'selected' : ''}">
                                 <input id="page${record}" hidden type="submit" name="page" value="${record}"/>
-                                ${record}
+                                    ${record}
                             </label>
                         </li>
                     </c:forEach>
                     <li class="page-item">
                         <label for="next-page" class="page-link">
-                            <input id="next-page" hidden type="submit" name="page" value="${fn:length(requestScope.records)}"/>
+                            <input id="next-page" hidden type="submit" name="page"
+                                   value="${fn:length(requestScope.records)}"/>
                             &raquo;
                         </label>
                     </li>
                 </ul>
             </nav>
         </form>
-
         <!-- Modal create user -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
