@@ -120,26 +120,41 @@ public class UserDAO implements DAO<User> {
     }
 
     @Override
-    public Collection<User> getAll(Connection con) {
+    public Collection<User> getAll(Connection con, int limit, int offset, String sorting) {
         List<User> users = new ArrayList<>();
         ResultSet resultSet = null;
         PreparedStatement statement = null;
         try {
-            statement = con.prepareStatement(SQLQueries.FIND_ALL_USERS_IDS);
+            String temp = SQLQueries.FIND_USERS_PAGINATE;
+            temp = temp.replaceFirst("\\?", sorting);
+            statement = con.prepareStatement(temp);
+
+            int k = 0;
+            statement.setInt(++k, limit);
+            statement.setInt(++k, offset);
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                get(con, resultSet.getLong("u_id")).ifPresent(users::add);
+                k = 0;
+                users.add(new User(
+                        resultSet.getLong(++k),
+                        resultSet.getString(++k),
+                        resultSet.getString(++k),
+                        resultSet.getString(++k),
+                        resultSet.getString(++k),
+                        resultSet.getString(++k),
+                        UserType.valueOf(resultSet.getString(++k)),
+                        resultSet.getBoolean(++k),
+                        resultSet.getBoolean(++k)
+                ));
             }
-
+            return users;
         } catch (Exception e) {
-            log.error("Can't get all users from database");
+            log.error("Can't get all users from database", e);
             throw new DAOException("Can't get all users from database", e);
         } finally {
             closeAll(resultSet, statement);
         }
-
-        return users;
     }
 
     @Override

@@ -25,7 +25,7 @@ public interface DAO<T> {
      * @param con {@link Connection} on which operation to be done
      * @return {@link Collection} of database entries
      */
-    Collection<T> getAll(Connection con);
+    Collection<T> getAll(Connection con, int limit, int offset, String sorting);
 
     /**
      * Update method to update specific database entry

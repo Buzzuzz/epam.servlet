@@ -31,13 +31,14 @@ public class TopicServiceImpl implements TopicService {
         return Holder.service;
     }
 
+    // TODO: refactor getAll method
     @Override
     public List<TopicDTO> getAllTopics() {
         Connection con = null;
         try {
             con = getConnection();
             return dao
-                    .getAll(con)
+                    .getAll(con, 0, 0, "")
                     .stream()
                     .map(this::getTopicDTO)
                     .collect(Collectors.toList());

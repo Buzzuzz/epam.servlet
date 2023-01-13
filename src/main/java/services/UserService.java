@@ -19,7 +19,7 @@ public interface UserService {
 
     UserDTO getUserDTO(User user);
 
-    List<UserDTO> getAllUsers();
+    List<UserDTO> getAllUsers(HttpServletRequest req);
 
     long deleteUser(long id) throws ServiceException;
 
@@ -28,4 +28,6 @@ public interface UserService {
     Optional<User> getUser(long id);
 
     long createUser(HttpServletRequest req) throws ServiceException;
+
+    List<Integer> getUserCount();
 }

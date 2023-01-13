@@ -15,23 +15,23 @@
                                 <fmt:message key="sort_by"/>
                             </span>
                                 <select class="form-select" name="sorting" aria-label="Default select example">
-                                    <option value="none">
-                                        <fmt:message key="no_sorting"/>
+                                    <option value="u_id">
+                                        <fmt:message key="id"/>
                                     </option>
                                     <option value="email">
                                         <fmt:message key="email"/>
                                     </option>
-                                    <option value="f-name">
+                                    <option value="first_name">
                                         <fmt:message key="first_name"/>
                                     </option>
-                                    <option value="userType">
+                                    <option value="user_type">
                                         <fmt:message key="user_type"/>
                                     </option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
-                            <input class="form-control" type="number" name="records" value="5" min="1"
+                            <input class="form-control" type="number" name="display" value="5" min="1"
                                    oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1"/>
                         </div>
                         <div class="col">
@@ -122,6 +122,7 @@
         </div>
 
         <!-- TODO pagination -->
+        <c:set var="counter" value="${requestScope.records}"/>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <li class="page-item">
@@ -129,9 +130,12 @@
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <c:forEach var="record" items="${requestScope.records}">
+                    <li class="page-item">
+                        ${record}
+                        <input hidden name="page" value="${record}">
+                    </li>
+                </c:forEach>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

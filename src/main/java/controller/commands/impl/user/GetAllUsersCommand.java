@@ -11,15 +11,18 @@ import services.impl.UserServiceImpl;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import static constants.AttributeConstants.*;
+
 public class GetAllUsersCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        req.setAttribute(AttributeConstants.USERS_ATTR, UserServiceImpl.getInstance().getAllUsers());
-        req.setAttribute(AttributeConstants.USER_TYPES,
+        req.setAttribute(USERS_ATTR, UserServiceImpl.getInstance().getAllUsers(req));
+        req.setAttribute(USER_TYPES,
                 Arrays
                         .stream(UserType.values())
                         .map(Enum::name)
                         .collect(Collectors.toList()));
+        req.setAttribute(RECORDS, UserServiceImpl.getInstance().getUserCount());
         return PageConstants.USERS_PAGE;
     }
 }

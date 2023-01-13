@@ -37,12 +37,8 @@ t.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/databas
 v.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta,e\b\eb641fe5cb933ef0ff5b768296a673fc24ee2525
 ]
 -.idea/artifacts/epam_servlet_war_exploded.xml,3\a\3ad6d356b7a42a0b4e7530b1623775202a584b38
-X
-(src/test/java/testDAO/TestCourseDAO.java,1\7\172dc93bfb4573f49ee0455b119b2045e866b7ab
 V
 &src/test/java/testDAO/TestUserDAO.java,6\8\680604700ac5239325ac6646ff46712d500be975
-Y
-)src/main/java/model/dao/impl/UserDAO.java,c\7\c7218255ff75a853213a9aa0dd388e5e09cb89d4
 Y
 )src/main/java/utils/PasswordHashUtil.java,a\a\aa6a759da4fd7d9ae40385bed928034014f4af15
 ^
@@ -61,16 +57,12 @@ m
 =src/main/java/controller/commands/impl/UpdateUserCommand.java,4\8\4866207921b3025d9b9e41e79d7bd32b18d7a704
 o
 ?src/main/java/controller/commands/impl/ChangeLocaleCommand.java,5\d\5d3e386dc3c2141733ef5be70bd947f9c7561c73
-[
-+src/main/java/model/dao/impl/CourseDAO.java,a\1\a13e4ec39bf5bc822ea989ef7a6a7864f463855c
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 X
 (src/main/webapp/components/metadata.jspf,c\9\c9285f2570b0a57313b914bf65baed92ff4549d7
 \
 ,src/main/java/model/entities/UserCourse.java,a\0\a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
-P
- src/main/java/model/dao/DAO.java,d\4\d4be9dff6130ca62d35aaf96505327a90e80fad6
 ]
 -src/main/java/model/entities/TopicCourse.java,3\5\350a144c244a29edf17fc78f6609eafd85199a91
 ^
@@ -83,16 +75,8 @@ W
 'src/main/java/utils/ValidationUtil.java,5\3\536c0fdbe7748270c71d30cbaebbce07856da56f
 X
 (src/main/java/model/entities/Course.java,9\1\91bc0d24d35a2ef119006c5b93d86b458766a7f8
-V
-&src/main/java/model/entities/User.java,1\e\1e75bd4f7a5b764cf9a86881607c3314587c3b90
 W
 'src/main/java/model/entities/Topic.java,5\6\562f929a6b0cecef87b489129a983cbb25503a91
-W
-'src/main/java/constants/SQLQueries.java,f\d\fdd4ae19a13048f436c488d7ad9f95d2477032ed
-`
-0src/main/java/model/dao/impl/TopicCourseDAO.java,c\1\c1b7976f23cbeb3107fa798bf175f602fe533c5b
-_
-/src/main/java/model/dao/impl/UserCourseDAO.java,5\2\520109d990446b91bf20ecc77e9a093eddf1edae
 b
 2src/main/java/controller/filters/AccessFilter.java,a\0\a0d1e51d76319a88f87449ba17893a20653f6513
 d
@@ -121,8 +105,6 @@ V
 +src/main/java/constants/PageAccessPool.java,5\4\54695d2c5685c7b81e39305f2b9ec7ebf339a981
 Z
 *src/main/java/constants/PageConstants.java,7\9\797d8c143a08e4571c4e04b458ad408a90319448
-b
-2src/main/java/services/impl/CourseServiceImpl.java,0\1\01999f40909590e9dd554232031ca3314dfa3288
 n
 >src/main/java/controller/commands/impl/GetAllUsersCommand.java,6\d\6dedbe0c521fea2d3bcc4d7ccc7cd86efbf124d3
 p

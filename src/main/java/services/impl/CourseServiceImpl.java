@@ -34,6 +34,8 @@ public class CourseServiceImpl implements CourseService {
     private static class Holder {
         private static final CourseService service = new CourseServiceImpl();
     }
+
+    // TODO: refactor getAll method
     @Override
     public List<FullCourseDTO> getAllCourses() {
         Connection con = null;
@@ -41,7 +43,7 @@ public class CourseServiceImpl implements CourseService {
         try {
             con = getConnection();
 
-            List<Course> courseList = (List<Course>) courseDAO.getAll(con);
+            List<Course> courseList = (List<Course>) courseDAO.getAll(con, 0, 0, "");
             for (Course course : courseList) {
                 getCourseDTO(course).ifPresent(transferList::add);
             }
@@ -72,7 +74,7 @@ public class CourseServiceImpl implements CourseService {
             );
 
             if (topicCourseDAO.get(con, course.getC_id()).isPresent() &&
-                userCourseDAO.get(con, course.getC_id()).isPresent()) {
+                    userCourseDAO.get(con, course.getC_id()).isPresent()) {
                 TopicCourse topicCourse = topicCourseDAO.get(con, course.getC_id()).get();
                 courseDTO.setTopicName(topicDAO.get(con, topicCourse.getT_id()).get().getName());
                 courseDTO.setTopicDescription(topicDAO.get(con, topicCourse.getT_id()).get().getDescription());

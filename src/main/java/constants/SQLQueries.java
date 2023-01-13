@@ -7,6 +7,7 @@ public interface SQLQueries {
     String FIND_USER_BY_ID = "select * from epam.user where u_id = ?";
     String FIND_USER_BY_EMAIL = "select * from epam.user where email = ?";
     String FIND_ALL_USERS_IDS = "select u_id from epam.user";
+    String FIND_USERS_PAGINATE = "select * from epam.user order by ? limit ? offset ?";
     String CREATE_USER =
             "insert into epam.user(email, password, first_name, last_name, phone, user_type, is_blocked, send_notification) " +
                     "values (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -39,4 +40,5 @@ public interface SQLQueries {
     String UPDATE_TOPIC_COURSE = "update epam.topic_course set t_id = ?, c_id = ? where c_id = ?";
     String DELETE_TOPIC_COURSE = "delete from epam.topic_course where c_id = ? returning c_id";
     String CREATE_TOPIC_COURSE = "insert into epam.topic_course (t_id, c_id) values (?, ?)";
+    String COUNT_RECORDS = "select count(?) from ?";
 }

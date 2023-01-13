@@ -66,7 +66,7 @@ public class TopicDAO implements DAO<Topic> {
     }
 
     @Override
-    public Collection<Topic> getAll(Connection con) {
+    public Collection<Topic> getAll(Connection con, int limit, int offset, String sorting) {
         List<Topic> topics = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;

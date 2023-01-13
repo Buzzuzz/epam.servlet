@@ -57,7 +57,7 @@ public class TopicCourseDAO implements DAO<TopicCourse> {
     }
 
     @Override
-    public Collection<TopicCourse> getAll(Connection con) {
+    public Collection<TopicCourse> getAll(Connection con, int limit, int offset, String sorting) {
         List<TopicCourse> topicCourseList = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;

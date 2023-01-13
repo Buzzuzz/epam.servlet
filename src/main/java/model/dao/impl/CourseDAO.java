@@ -73,7 +73,7 @@ public class CourseDAO implements DAO<Course> {
     }
 
     @Override
-    public Collection<Course> getAll(Connection con) {
+    public Collection<Course> getAll(Connection con, int limit, int offset, String sorting) {
         List<Course> courses = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;

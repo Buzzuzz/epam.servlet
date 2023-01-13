@@ -9,26 +9,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="minor change in status filter and logic">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/CreateUserCommand.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="create new user (any type) implemented, small changes in signup command">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/CountRecordsUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/constants/CommandNameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/CommandNameConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/GetAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/GetAllUsersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/SignUpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/SignUpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/DataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/TestSetup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/CourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicCourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserCourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/TopicServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_en.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db_test.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/signup.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestCourseDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestTopicDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/testConfig/TestConfigFileDataSource.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -371,14 +378,7 @@
       <workItem from="1673374219972" duration="6525000" />
       <workItem from="1673381212497" duration="5675000" />
       <workItem from="1673426980542" duration="24574000" />
-      <workItem from="1673478947049" duration="20666000" />
-    </task>
-    <task id="LOCAL-00003" summary="servlets work fine">
-      <created>1669677138476</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1669677138476</updated>
+      <workItem from="1673478947049" duration="28028000" />
     </task>
     <task id="LOCAL-00004" summary="finally got structure of the project">
       <created>1669703806766</created>
@@ -716,7 +716,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673543766270</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="create new user (any type) implemented, small changes in signup command">
+      <created>1673561511196</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1673561511196</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -737,7 +744,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="somehow managed proper layout for jsp pages, started implementing auth" />
     <MESSAGE value="started filter implementation" />
     <MESSAGE value="test" />
     <MESSAGE value="test from yet another system" />
@@ -762,7 +768,8 @@
     <MESSAGE value="Get, update, delete, insert topic done" />
     <MESSAGE value="Get users, block (unblock) user, delete user commands done, separate packages for commands" />
     <MESSAGE value="minor change in status filter and logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor change in status filter and logic" />
+    <MESSAGE value="create new user (any type) implemented, small changes in signup command" />
+    <option name="LAST_COMMIT_MESSAGE" value="create new user (any type) implemented, small changes in signup command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

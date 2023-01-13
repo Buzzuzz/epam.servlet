@@ -103,3 +103,695 @@ exceptions.NoSuchCommandException: No such command as delete-user
 2023-01-13 00:10:47.547 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
 2023-01-13 00:10:52.620 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command change-lock acquired successful
 2023-01-13 00:10:52.631 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:12:38.188 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:13:15.069 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command logout acquired successful
+2023-01-13 00:13:15.069 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged out
+2023-01-13 00:13:15.077 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:13:21.163 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@admin.com logged in successful!
+2023-01-13 00:13:21.164 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:13:23.567 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:41:01.283 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:41:01.298 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:41:05.769 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:41:05.786 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:41:05.787 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:41:06.787 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:41:06.800 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam."user" by u_id field
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
+  Position: 23
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:29) ~[classes/:?]
+	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 00:43:08.178 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:43:08.189 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:43:11.712 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:43:11.737 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:43:11.737 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:43:12.568 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:43:12.581 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
+  Position: 23
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:29) ~[classes/:?]
+	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 00:46:34.129 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:46:34.142 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:46:34.143 [ ERROR | controller.filters.AccessFilter | AccessFilter ] - Unauthorized access to page /pages/cabinet.jsp by anon user
+2023-01-13 00:46:37.658 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:46:37.676 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:46:37.676 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:46:39.172 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:46:39.181 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@583206999 wrapping select count('u_id') from 'epam.user'
+2023-01-13 00:46:39.188 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
+  Position: 23
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
+	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 00:48:59.031 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:48:59.044 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:49:06.384 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:49:06.404 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:49:06.404 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:49:08.091 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:49:08.109 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+org.postgresql.util.PSQLException: The column index is out of range: 1, number of columns: 0.
+	at org.postgresql.core.v3.SimpleParameterList.bind(SimpleParameterList.java:70) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.SimpleParameterList.setStringParameter(SimpleParameterList.java:133) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.bindString(PgPreparedStatement.java:1099) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.setString(PgPreparedStatement.java:387) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.setString(PgPreparedStatement.java:373) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.setString(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:26) ~[classes/:?]
+	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 00:50:35.360 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:50:35.373 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:50:38.454 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:50:38.472 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:50:38.472 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:50:40.206 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:50:40.211 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@1259095906 wrapping select count('''u_id''') from '''epam.user'''
+2023-01-13 00:50:40.219 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
+  Position: 23
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
+	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 00:51:31.275 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:51:31.293 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:51:34.522 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:51:34.556 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:51:34.556 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:51:35.473 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:51:35.480 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@1231440666 wrapping select count('''u_id''') from '''epam.user'''
+2023-01-13 00:51:35.485 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
+  Position: 23
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:31) ~[classes/:?]
+	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 00:52:45.280 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:52:45.292 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:52:49.497 [ FATAL | model.dao.DataSource | DataSource ] - Can't config connection pool
+2023-01-13 00:53:12.307 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:53:12.322 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:53:13.705 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:53:17.833 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:53:17.855 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:53:17.855 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:53:19.881 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:53:19.891 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - HikariProxyPreparedStatement@69806858 wrapping select count('u_id') from '''epam.user'''
+2023-01-13 00:53:19.900 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+org.postgresql.util.PSQLException: ERROR: syntax error at or near "$2"
+  Position: 23
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:33) ~[classes/:?]
+	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 00:58:11.362 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:58:11.379 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:58:14.794 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:58:14.812 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:58:14.812 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:58:15.897 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:58:15.902 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 00:58:15.909 [ ERROR | utils.CountRecordsUtil | CountRecordsUtil ] - Can't count records in table epam.user by u_id field
+org.postgresql.util.PSQLException: ResultSet not positioned properly, perhaps you need to call next.
+	at org.postgresql.jdbc.PgResultSet.getRawValue(PgResultSet.java:3130) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgResultSet.getLong(PgResultSet.java:2429) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.HikariProxyResultSet.getLong(HikariProxyResultSet.java) ~[HikariCP-5.0.1.jar:?]
+	at utils.CountRecordsUtil.getRecords(CountRecordsUtil.java:38) ~[classes/:?]
+	at services.impl.UserServiceImpl.getUserCount(UserServiceImpl.java:237) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:25) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 00:59:03.280 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 00:59:03.294 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 00:59:06.809 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 00:59:06.836 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 00:59:06.837 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 00:59:07.688 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 00:59:07.694 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:02:35.887 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 01:02:35.890 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:11:49.510 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 01:11:49.515 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:19:00.774 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 01:19:00.790 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 01:19:02.836 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 01:19:09.041 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 01:19:09.070 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 01:19:09.070 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 01:19:10.396 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 01:19:10.404 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:20:55.468 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-user acquired successful
+2023-01-13 01:20:55.523 [ DEBUG | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com updated successful
+2023-01-13 01:20:57.508 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 01:20:57.511 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:22:27.339 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 01:22:27.341 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 01:23:35.377 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 01:23:35.379 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:00:29.395 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 02:00:29.410 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 02:00:30.856 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 02:00:35.058 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 02:00:35.096 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 02:00:35.096 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 02:00:38.214 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:00:38.226 [ ERROR | model.dao.impl.UserDAO | UserDAO ] - Can't get all users from database
+2023-01-13 02:01:39.942 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 02:01:39.962 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 02:01:44.423 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 02:01:44.444 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 02:01:44.445 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 02:01:46.166 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:01:46.172 [ ERROR | model.dao.impl.UserDAO | UserDAO ] - Can't get all users from database
+org.postgresql.util.PSQLException: The column index is out of range: 1, number of columns: 0.
+	at org.postgresql.core.v3.SimpleParameterList.bind(SimpleParameterList.java:70) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.SimpleParameterList.setStringParameter(SimpleParameterList.java:133) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.bindString(PgPreparedStatement.java:1099) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.setString(PgPreparedStatement.java:387) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.setString(PgPreparedStatement.java:373) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.setString(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.UserDAO.getAll(UserDAO.java:131) ~[classes/:?]
+	at services.impl.UserServiceImpl.getAllUsers(UserServiceImpl.java:163) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 02:02:47.473 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 02:02:47.488 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 02:02:50.901 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 02:02:50.920 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 02:02:50.920 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 02:02:52.279 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:02:52.284 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:03:12.653 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:03:12.654 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:03:18.612 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:03:18.615 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:03:22.150 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:03:22.153 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:04:03.019 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:04:03.022 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:04:53.101 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:04:53.104 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:05:16.720 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:05:16.721 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:05:19.268 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:05:19.269 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:05:23.625 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:05:23.626 [ INFO | utils.CountRecordsUtil | CountRecordsUtil ] - select count(u_id) from epam.user
+2023-01-13 02:09:42.883 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 02:09:42.898 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 02:09:49.399 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 02:09:49.421 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 02:09:49.422 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 02:09:52.761 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:09:52.771 [ ERROR | model.dao.impl.UserDAO | UserDAO ] - Can't get all users from database
+org.postgresql.util.PSQLException: No value specified for parameter 3.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:284) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:340) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.UserDAO.getAll(UserDAO.java:135) ~[classes/:?]
+	at services.impl.UserServiceImpl.getAllUsers(UserServiceImpl.java:163) ~[classes/:?]
+	at controller.commands.impl.user.GetAllUsersCommand.execute(GetAllUsersCommand.java:19) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AuthFilter.doFilter(AuthFilter.java:37) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:43) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-13 02:10:45.243 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-13 02:10:45.256 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-13 02:10:50.036 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-13 02:10:50.053 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-13 02:10:50.053 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-13 02:10:51.211 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:11:00.540 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:11:04.218 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:11:05.783 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:11:08.339 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:11:11.418 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:11:15.606 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:11:27.477 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-13 02:11:31.182 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful

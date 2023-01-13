@@ -28,4 +28,13 @@ public interface AttributeConstants {
     String USER_ID = "u_id";
     String USER_STATUS = "user-status";
     String USER_TYPES = "types";
+    String USER_TABLE = "epam.user";
+    String RECORDS = "records";
+    String DISPLAY_RECORDS_NUMBER = "display";
+    String CURRENT_PAGE = "page";
+    String SORTING_TYPE = "sorting";
+    int DEFAULT_LIMIT = 5;
+    int DEFAULT_OFFSET = 0;
+    int DEFAULT_PAGE = 1;
+    String DEFAULT_USER_SORTING = "u_id";
 }

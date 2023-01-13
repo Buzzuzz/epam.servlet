@@ -11,6 +11,7 @@ import model.entities.UserType;
 import org.eclipse.tags.shaded.org.apache.regexp.RE;
 import services.UserService;
 import services.dto.UserDTO;
+import utils.CountRecordsUtil;
 import utils.PasswordHashUtil;
 
 import java.sql.Connection;
@@ -145,12 +146,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getAllUsers() {
+    public List<UserDTO> getAllUsers(HttpServletRequest req) {
         Connection con = null;
 
         try {
             con = getConnection();
-            List<User> userList = (List<User>) dao.getAll(con);
+            int limit = req.getParameter(DISPLAY_RECORDS_NUMBER) == null ?
+                    DEFAULT_LIMIT :
+                    Integer.parseInt(req.getParameter(DISPLAY_RECORDS_NUMBER));
+            int offset = req.getParameter(CURRENT_PAGE) == null ?
+                    DEFAULT_OFFSET :
+                    Integer.parseInt(req.getParameter(CURRENT_PAGE));
+            String sorting = req.getParameter(SORTING_TYPE) == null ?
+                    DEFAULT_USER_SORTING :
+                    req.getParameter(SORTING_TYPE);
+            List<User> userList = (List<User>) dao.getAll(con, limit, offset, sorting);
             return userList
                     .stream()
                     .map(this::getUserDTO)
@@ -223,6 +233,17 @@ public class UserServiceImpl implements UserService {
         } catch (DAOException e) {
             log.error("Can't create new user, cause: " + e.getMessage(), e);
             throw new ServiceException("Can't create new user!", e);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public List<Integer> getUserCount() {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return CountRecordsUtil.getRecords(con, USER_ID, USER_TABLE);
         } finally {
             close(con);
         }
