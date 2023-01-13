@@ -10,6 +10,7 @@ import lombok.extern.log4j.Log4j2;
 import utils.RequestBuilder;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Objects;
 
 import static constants.AttributeConstants.*;

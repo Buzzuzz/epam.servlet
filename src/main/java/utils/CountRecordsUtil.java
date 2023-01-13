@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static model.dao.DataSource.*;
@@ -20,7 +21,7 @@ public class CountRecordsUtil {
     private CountRecordsUtil() {
     }
 
-    public static List<Integer> getRecords(Connection con, String countable, String table) throws DAOException {
+    public static int getRecordsCount(Connection con, String countable, String table) throws DAOException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
@@ -32,15 +33,17 @@ public class CountRecordsUtil {
 
             resultSet = statement.executeQuery();
             resultSet.next();
-            return Stream
-                    .iterate(1, num -> num + 1)
-                    .limit(resultSet.getLong(1))
-                    .collect(Collectors.toList());
+            return resultSet.getInt(1);
         } catch (Exception e) {
             log.error("Can't count records in table " + table + " by " + countable + " field", e);
             throw new DAOException("Can't count records in table " + table + " by " + countable + " field", e);
         } finally {
             closeAll(resultSet, statement);
         }
+    }
+
+    public static int[] getPages(int limit, int recordsCount) {
+        int maxPages = recordsCount % limit == 0 ? recordsCount / limit : recordsCount / limit + 1;
+        return IntStream.range(1, maxPages + 1).toArray();
     }
 }

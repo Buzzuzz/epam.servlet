@@ -8,7 +8,6 @@ import model.dao.DataSource;
 import model.dao.impl.UserDAO;
 import model.entities.User;
 import model.entities.UserType;
-import org.eclipse.tags.shaded.org.apache.regexp.RE;
 import services.UserService;
 import services.dto.UserDTO;
 import utils.CountRecordsUtil;
@@ -151,15 +150,28 @@ public class UserServiceImpl implements UserService {
 
         try {
             con = getConnection();
-            int limit = req.getParameter(DISPLAY_RECORDS_NUMBER) == null ?
+            int limit, currentPage, offset;
+            String sorting;
+
+            limit = req.getParameter(DISPLAY_RECORDS_NUMBER) == null ?
                     DEFAULT_LIMIT :
                     Integer.parseInt(req.getParameter(DISPLAY_RECORDS_NUMBER));
-            int offset = req.getParameter(CURRENT_PAGE) == null ?
-                    DEFAULT_OFFSET :
+
+            currentPage = req.getParameter(CURRENT_PAGE) == null ?
+                    DEFAULT_PAGE :
                     Integer.parseInt(req.getParameter(CURRENT_PAGE));
-            String sorting = req.getParameter(SORTING_TYPE) == null ?
+
+            offset = limit * (currentPage - 1);
+
+            sorting = req.getParameter(SORTING_TYPE) == null ?
                     DEFAULT_USER_SORTING :
                     req.getParameter(SORTING_TYPE);
+
+            req.setAttribute(SORTING_TYPE, sorting);
+            req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
+            req.setAttribute(CURRENT_PAGE, currentPage);
+            req.setAttribute(RECORDS, CountRecordsUtil.getPages(limit, getUserCount()));
+
             List<User> userList = (List<User>) dao.getAll(con, limit, offset, sorting);
             return userList
                     .stream()
@@ -239,11 +251,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Integer> getUserCount() {
+    public int getUserCount() {
         Connection con = null;
         try {
             con = getConnection();
-            return CountRecordsUtil.getRecords(con, USER_ID, USER_TABLE);
+            return CountRecordsUtil.getRecordsCount(con, USER_ID, USER_TABLE);
         } finally {
             close(con);
         }

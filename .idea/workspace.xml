@@ -9,33 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="create new user (any type) implemented, small changes in signup command">
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/CountRecordsUtil.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="user pagination done">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/CreateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/CreateTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/DeleteTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/DeleteTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/UpdateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/UpdateTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/ChangeUserLockStatusCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/ChangeUserLockStatusCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/CreateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/CreateUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/DeleteUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/DeleteUserCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/GetAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/GetAllUsersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/TestSetup.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/filters/LocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/filters/LocaleFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/TopicServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db_test.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/CountRecordsUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/CountRecordsUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/RequestBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/components/metadata.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/components/metadata.jspf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestConfigFileDataSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestCourseDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestDataSource.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestTopicDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/TestUserDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/testDAO/testConfig/TestConfigFileDataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,14 +371,7 @@
       <workItem from="1673374219972" duration="6525000" />
       <workItem from="1673381212497" duration="5675000" />
       <workItem from="1673426980542" duration="24574000" />
-      <workItem from="1673478947049" duration="28028000" />
-    </task>
-    <task id="LOCAL-00004" summary="finally got structure of the project">
-      <created>1669703806766</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1669703806766</updated>
+      <workItem from="1673478947049" duration="40302000" />
     </task>
     <task id="LOCAL-00005" summary="added hikari cp dependency">
       <created>1669704998991</created>
@@ -723,7 +709,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673561511196</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="deleted tests, started pagination implementation in dao">
+      <created>1673568768884</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1673568768884</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -744,8 +737,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="started filter implementation" />
-    <MESSAGE value="test" />
     <MESSAGE value="test from yet another system" />
     <MESSAGE value="file rearrangement, started commands implementation" />
     <MESSAGE value="login | logout commands implemented" />
@@ -769,7 +760,9 @@
     <MESSAGE value="Get users, block (unblock) user, delete user commands done, separate packages for commands" />
     <MESSAGE value="minor change in status filter and logic" />
     <MESSAGE value="create new user (any type) implemented, small changes in signup command" />
-    <option name="LAST_COMMIT_MESSAGE" value="create new user (any type) implemented, small changes in signup command" />
+    <MESSAGE value="deleted tests, started pagination implementation in dao" />
+    <MESSAGE value="user pagination done" />
+    <option name="LAST_COMMIT_MESSAGE" value="user pagination done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

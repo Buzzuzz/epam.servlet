@@ -29,5 +29,5 @@ public interface UserService {
 
     long createUser(HttpServletRequest req) throws ServiceException;
 
-    List<Integer> getUserCount();
+    int getUserCount();
 }

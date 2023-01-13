@@ -72,22 +72,21 @@ label:hover {
     background-color: var(--cream-white);
 }
 
-.pagination a {
+.page-link {
+    color: black;
     background-color: var(--cream-brown);
-    color: black;
-    border-color: var(--cream-white);
+    border-color: var(--brown);
 }
 
-.pagination a:hover {
+.page-link:hover {
+    color: black;
     background-color: var(--cream);
-    color: black;
-}
-
-.pagination a:active, a:checked{
-    text-shadow: none;
-    box-shadow: none;
 }
 
 .modal-content {
     background-color: var(--cream-brown);
+}
+
+.selected {
+    background-color: var(--cream);
 }

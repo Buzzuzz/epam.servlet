@@ -15,23 +15,27 @@
                                 <fmt:message key="sort_by"/>
                             </span>
                                 <select class="form-select" name="sorting" aria-label="Default select example">
-                                    <option value="u_id">
+                                    <option value="u_id" ${requestScope.sorting eq 'u_id' ? 'selected="selected"' : ''}>
                                         <fmt:message key="id"/>
                                     </option>
-                                    <option value="email">
+                                    <option value="email"
+                                    ${requestScope.sorting eq 'email' ? 'selected="selected"' : ''}>
                                         <fmt:message key="email"/>
                                     </option>
-                                    <option value="first_name">
+                                    <option value="first_name"
+                                    ${requestScope.sorting eq 'first_name' ? 'selected="selected"' : ''}>
                                         <fmt:message key="first_name"/>
                                     </option>
-                                    <option value="user_type">
+                                    <option value="user_type"
+                                    ${requestScope.sorting eq 'user_type' ? 'selected="selected"' : ''}>
                                         <fmt:message key="user_type"/>
                                     </option>
                                 </select>
                             </div>
                         </div>
                         <div class="col">
-                            <input class="form-control" type="number" name="display" value="5" min="1"
+                            <input class="form-control" type="number" name="display" min="1"
+                                   value="${requestScope.display != null ? requestScope.display : 5}"
                                    oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1"/>
                         </div>
                         <div class="col">
@@ -76,6 +80,11 @@
                         <form action="${pageContext.request.contextPath}/controller" method="post">
                             <input hidden name="u_id" value="${user.userId}"/>
                             <input hidden name="user-status" value="${user.isBlocked}"/>
+
+                            <input hidden name="sorting" value="${requestScope.sorting}"/>
+                            <input hidden name="page" value="${requestScope.page}">
+                            <input hidden name="display" value="${requestScope.display}">
+
                             <tr>
                                 <th scope="row">
                                         ${user.userId}
@@ -122,32 +131,46 @@
         </div>
 
         <!-- TODO pagination -->
-        <c:set var="counter" value="${requestScope.records}"/>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <c:forEach var="record" items="${requestScope.records}">
+        <form action="${pageContext.request.contextPath}/controller">
+
+            <input hidden name="sorting" value="${requestScope.sorting}"/>
+            <input hidden name="display" value="${requestScope.display}">
+            <input hidden name="command" value="get-all-users"/>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
                     <li class="page-item">
-                        ${record}
-                        <input hidden name="page" value="${record}">
+                        <label for="prev-page" class="page-link">
+                            <input id="prev-page" hidden type="submit" name="page" value="1"/>
+                            &raquo;
+                        </label>
                     </li>
-                </c:forEach>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+                    <c:forEach var="record" items="${requestScope.records}">
+                        <li class="page-item">
+                            <label for="page${record}" class="page-link ${record eq requestScope.page ? 'selected' : ''}">
+                                <input id="page${record}" hidden type="submit" name="page" value="${record}"/>
+                                ${record}
+                            </label>
+                        </li>
+                    </c:forEach>
+                    <li class="page-item">
+                        <label for="next-page" class="page-link">
+                            <input id="next-page" hidden type="submit" name="page" value="${fn:length(requestScope.records)}"/>
+                            &raquo;
+                        </label>
+                    </li>
+                </ul>
+            </nav>
+        </form>
 
         <!-- Modal create user -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <form action="${pageContext.request.contextPath}/controller" method="post">
+
+                    <input hidden name="sorting" value="${requestScope.sorting}"/>
+                    <input hidden name="page" value="${requestScope.page}">
+                    <input hidden name="display" value="${requestScope.display}">
 
                     <div class="modal-content">
                         <div class="modal-header border-0">
@@ -251,6 +274,7 @@
             </div>
         </div>
     </div>
+
 
 </div>
 </div>

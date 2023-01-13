@@ -59,8 +59,6 @@ o
 ?src/main/java/controller/commands/impl/ChangeLocaleCommand.java,5\d\5d3e386dc3c2141733ef5be70bd947f9c7561c73
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-X
-(src/main/webapp/components/metadata.jspf,c\9\c9285f2570b0a57313b914bf65baed92ff4549d7
 \
 ,src/main/java/model/entities/UserCourse.java,a\0\a0f92e51c0be5a1974c6cd3e005cd4f3115e7804
 ]

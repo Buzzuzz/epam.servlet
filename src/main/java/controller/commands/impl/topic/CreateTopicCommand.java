@@ -12,6 +12,8 @@ import lombok.extern.log4j.Log4j2;
 import services.impl.TopicServiceImpl;
 import utils.RequestBuilder;
 
+import java.util.HashMap;
+
 @Log4j2
 public class CreateTopicCommand implements Command {
     @Override
@@ -19,7 +21,7 @@ public class CreateTopicCommand implements Command {
         try {
             log.debug("Topic with ID: " + TopicServiceImpl.getInstance().createTopic(req) + " " +
                     "created successfully");
-            return RequestBuilder.buildCommand(req.getServletPath(), CommandNameConstants.GET_ALL_TOPICS_COMMAND);
+            return RequestBuilder.buildCommand(req.getServletPath(), CommandNameConstants.GET_ALL_TOPICS_COMMAND, new HashMap<>());
         } catch (ServiceException e) {
             throw new CommandException("Error in createTopic command", e);
         }

@@ -1,6 +1,5 @@
 package controller.commands.impl.user;
 
-import constants.AttributeConstants;
 import constants.CommandNameConstants;
 import controller.commands.Command;
 import exceptions.CommandException;
@@ -20,7 +19,14 @@ public class ChangeUserLockStatusCommand implements Command {
             UserServiceImpl.getInstance().changeUserLockStatus(
                     Long.parseLong(req.getParameter(USER_ID)),
                     !Boolean.parseBoolean(req.getParameter(USER_STATUS)));
-            return RequestBuilder.buildCommand(req.getServletPath(), CommandNameConstants.GET_ALL_USERS_COMMAND);
+            return RequestBuilder.buildCommand(
+                    req.getServletPath(),
+                    CommandNameConstants.GET_ALL_USERS_COMMAND,
+                    RequestBuilder.getParamsMap(
+                            req,
+                            SORTING_TYPE,
+                            DISPLAY_RECORDS_NUMBER,
+                            CURRENT_PAGE));
         } catch (ServiceException e) {
             log.error("Can't change user(id) status: " + req.getParameter(USER_ID), e);
             throw new CommandException("Can't change user(id) status: " + req.getParameter(USER_ID), e);

@@ -37,4 +37,5 @@ public interface AttributeConstants {
     int DEFAULT_OFFSET = 0;
     int DEFAULT_PAGE = 1;
     String DEFAULT_USER_SORTING = "u_id";
+    String PAGES_QUANTITY = "pages-qty";
 }

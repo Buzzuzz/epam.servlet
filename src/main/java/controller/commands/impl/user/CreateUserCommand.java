@@ -1,5 +1,6 @@
 package controller.commands.impl.user;
 
+import constants.AttributeConstants;
 import constants.CommandNameConstants;
 import controller.commands.Command;
 import exceptions.CommandException;
@@ -15,7 +16,14 @@ public class CreateUserCommand implements Command {
     public String execute(HttpServletRequest req) throws CommandException {
         try {
             UserServiceImpl.getInstance().createUser(req);
-            return RequestBuilder.buildCommand(req.getServletPath(), CommandNameConstants.GET_ALL_USERS_COMMAND);
+            return RequestBuilder.buildCommand(
+                    req.getServletPath(),
+                    CommandNameConstants.GET_ALL_USERS_COMMAND,
+                    RequestBuilder.getParamsMap(
+                            req,
+                            AttributeConstants.SORTING_TYPE,
+                            AttributeConstants.DISPLAY_RECORDS_NUMBER,
+                            AttributeConstants.CURRENT_PAGE));
         } catch (ServiceException e) {
             log.error(e.getMessage(), e);
             throw new CommandException(e.getMessage(), e);
