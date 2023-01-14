@@ -1,6 +1,7 @@
 package services.impl;
 
 import exceptions.ServiceException;
+import exceptions.UtilException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import exceptions.DAOException;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 import static constants.AttributeConstants.*;
 import static model.dao.DataSource.*;
 import static utils.ValidationUtil.*;
+import static utils.PaginationUtil.*;
 
 @Log4j2
 public class UserServiceImpl implements UserService {
@@ -145,38 +147,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getAllUsers(HttpServletRequest req) {
+    public List<UserDTO> getAllUsers(HttpServletRequest req) throws ServiceException {
         Connection con = null;
 
         try {
             con = getConnection();
-            int limit, currentPage, offset;
-            String sorting;
-
-            limit = req.getParameter(DISPLAY_RECORDS_NUMBER) == null ?
-                    DEFAULT_LIMIT :
-                    Integer.parseInt(req.getParameter(DISPLAY_RECORDS_NUMBER));
-
-            currentPage = req.getParameter(CURRENT_PAGE) == null ?
-                    DEFAULT_PAGE :
-                    Integer.parseInt(req.getParameter(CURRENT_PAGE));
-
-            offset = limit * (currentPage - 1);
-
-            sorting = req.getParameter(SORTING_TYPE) == null ?
-                    DEFAULT_USER_SORTING :
-                    req.getParameter(SORTING_TYPE);
+            int limit = getLimit(req);
+            int[] pages = getPages(limit, getUserCount());
+            int currentPage = Math.min(getCurrentPage(req), pages.length);
+            int offset = getOffset(limit, currentPage);
+            String sorting = getSortingType(req, User.class);
 
             req.setAttribute(SORTING_TYPE, sorting);
             req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
             req.setAttribute(CURRENT_PAGE, currentPage);
-            req.setAttribute(RECORDS, PaginationUtil.getPages(limit, getUserCount()));
+            req.setAttribute(RECORDS, pages);
 
             return dao
                     .getAll(con, limit, offset, sorting)
                     .stream()
                     .map(this::getUserDTO)
                     .collect(Collectors.toList());
+        } catch (UtilException e) {
+            log.error(e.getMessage(), e);
+            throw new ServiceException(e.getMessage(), e);
         } finally {
             close(con);
         }

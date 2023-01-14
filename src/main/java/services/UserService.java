@@ -19,7 +19,7 @@ public interface UserService {
 
     UserDTO getUserDTO(User user);
 
-    List<UserDTO> getAllUsers(HttpServletRequest req);
+    List<UserDTO> getAllUsers(HttpServletRequest req) throws ServiceException;
 
     long deleteUser(long id) throws ServiceException;
 

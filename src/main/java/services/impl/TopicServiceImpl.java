@@ -47,9 +47,6 @@ public class TopicServiceImpl implements TopicService {
 
             req.setAttribute(SORTING_TYPE, sorting);
             req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
-            log.info(currentPage);
-            log.info(pages.length);
-            log.info(currentPage < pages.length);
             req.setAttribute(CURRENT_PAGE, currentPage);
             req.setAttribute(RECORDS, pages);
 

@@ -35,11 +35,15 @@
                                     <span class="input-group-text">
                                         <fmt:message key="topic"/>
                                     </span>
-                                    <input class="form-control" name="topicName"
-                                           value="${requestScope.course.topicName}"
-                                    ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
-                                           aria-label="topicName"
-                                    />
+                                    <select class="form-select"
+                                            name="currentTopic" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
+                                    >
+                                        <c:forEach var="topic" items="${requestScope.course.topics}">
+                                            <option ${topic.topicId eq requestScope.course.currentTopicId ? 'selected' : ''}>
+                                                    ${topic.topicName}
+                                            </option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -57,27 +61,22 @@
                                 <fmt:message key="about_topic"/>
                             </span>
                             <textarea class="form-control" disabled aria-label="topicDescription"
-                            >${requestScope.course.topicDescription}</textarea>
+                            >${requestScope.course.currentTopicDescription}</textarea>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="input-group">
-                            <span class="input-group-text">
-                                <fmt:message key="teacher"/>
-                            </span>
-                                    <input class="form-control" name="firstName"
-                                           value="${requestScope.course.firstName}"
-                                    ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
-                                           aria-label="teacherName"
-                                    />
+                                    <span class="input-group-text">
+                                        <fmt:message key="teacher"/>
+                                    </span>
+                                    <select class="form-select" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}>
+                                        <c:forEach var="teacher" items="${requestScope.course.teachers}">
+                                            <option ${teacher.userId eq requestScope.course.currentTeacherId ? 'selected="selected"' : ''}>
+                                                    ${teacher.firstName} ${teacher.lastName}
+                                            </option>
+                                        </c:forEach>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="col">
-                                <input class="form-control" name="lastName"
-                                       value="${requestScope.course.lastName}"
-                                ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
-                                       aria-label="lastName"
-                                >
                             </div>
                         </div>
 

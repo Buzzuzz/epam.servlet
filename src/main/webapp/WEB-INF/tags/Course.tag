@@ -11,10 +11,10 @@
         <th scope="row">${value.courseId}</th>
         <td>${value.courseName}</td>
         <td>
-            ${value.topicName}
+            ${value.currentTopicName}
         </td>
         <td>
-            ${value.firstName} ${value.lastName}
+            ${value.currentTeacherName}
         </td>
         <td>
             <button class="btn btn-primary w-100" name="command" type="submit" value="course-details">
