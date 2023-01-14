@@ -12,10 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static model.dao.DataSource.*;
 
@@ -68,13 +65,14 @@ public class TopicDAO implements DAO<Topic> {
     }
 
     @Override
-    public Collection<Topic> getAll(Connection con, int limit, int offset, String sorting) {
+    public Collection<Topic> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters) {
         List<Topic> topics = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
+        // TODO implement filtration
         try {
-            String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.TOPIC_TABLE);
+            String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.TOPIC_TABLE, filters);
             temp = temp.replaceFirst("\\?", sorting);
             statement = con.prepareStatement(temp);
 

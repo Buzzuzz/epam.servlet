@@ -14,6 +14,7 @@ import services.dto.FullCourseDTO;
 import java.sql.Connection;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -49,7 +50,7 @@ public class CourseServiceImpl implements CourseService {
         try {
             con = getConnection();
 
-            List<Course> courseList = (List<Course>) courseDAO.getAll(con, 0, 0, "");
+            List<Course> courseList = (List<Course>) courseDAO.getAll(con, 0, 0, "", new HashMap<>());
             for (Course course : courseList) {
                 getCourseDTO(course).ifPresent(transferList::add);
             }
@@ -103,13 +104,25 @@ public class CourseServiceImpl implements CourseService {
                         });
                 courseDTO.setTopics(
                         topicDAO
-                                .getAll(con, topicService.getTopicCount(), 0, AttributeConstants.TOPIC_ID)
+                                .getAll(
+                                        con,
+                                        topicService.getTopicCount(),
+                                        0,
+                                        AttributeConstants.TOPIC_ID,
+                                        new HashMap<>())
                                 .stream()
                                 .map(topicService::getTopicDTO)
                                 .collect(Collectors.toList()));
                 courseDTO.setTeachers(
                         userDAO
-                                .getAll(con, userService.getUserCount(), 0, AttributeConstants.USER_ID)
+                                .getAll(
+                                        con,
+                                        userService.getUserCount(),
+                                        0,
+                                        AttributeConstants.USER_ID,
+                                        new HashMap<String, String>() {{
+                                            put(AttributeConstants.USER_TYPE_DB, "'" + UserType.TEACHER.name() + "'");
+                                        }})
                                 .stream()
                                 .map(userService::getUserDTO)
                                 .collect(Collectors.toList())

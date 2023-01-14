@@ -10,6 +10,7 @@ import services.TopicService;
 import services.dto.TopicDTO;
 
 import java.sql.Connection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,7 +52,7 @@ public class TopicServiceImpl implements TopicService {
             req.setAttribute(RECORDS, pages);
 
             return dao
-                    .getAll(con, limit, offset, sorting)
+                    .getAll(con, limit, offset, sorting, new HashMap<>())
                     .stream()
                     .map(this::getTopicDTO)
                     .collect(Collectors.toList());

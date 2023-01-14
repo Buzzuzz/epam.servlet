@@ -110,14 +110,6 @@ n
 >src/main/java/controller/commands/impl/user/SignUpCommand.java,d\3\d35f73db6e56680ef25c30001a451c83fac97d33
 V
 &src/main/java/model/entities/User.java,1\e\1e75bd4f7a5b764cf9a86881607c3314587c3b90
-[
-+src/main/java/model/dao/impl/CourseDAO.java,a\1\a13e4ec39bf5bc822ea989ef7a6a7864f463855c
-P
- src/main/java/model/dao/DAO.java,d\4\d4be9dff6130ca62d35aaf96505327a90e80fad6
-`
-0src/main/java/model/dao/impl/TopicCourseDAO.java,c\1\c1b7976f23cbeb3107fa798bf175f602fe533c5b
-_
-/src/main/java/model/dao/impl/UserCourseDAO.java,5\2\520109d990446b91bf20ecc77e9a093eddf1edae
 T
 $src/main/webapp/components/menu.jspf,7\b\7b3498325fd7f8308d3b8c9dee5a7ad985d3dc0e
 I
@@ -132,14 +124,8 @@ X
 (src/main/webapp/components/metadata.jspf,c\9\c9285f2570b0a57313b914bf65baed92ff4549d7
 W
 'src/main/java/utils/RequestBuilder.java,6\8\6824bb3f4e3fedff40c411691d282cc40e6a8525
-a
-1src/main/java/constants/CommandNameConstants.java,8\8\88f8b90005bb2623178e0044c42688b77923a1e6
-Y
-)src/main/java/model/dao/impl/UserDAO.java,c\7\c7218255ff75a853213a9aa0dd388e5e09cb89d4
 r
 Bsrc/main/java/controller/commands/impl/user/CreateUserCommand.java,8\0\802d5049b7c5dff8ecce9ec7ba97305ab40a4017
-_
-/src/main/java/constants/AttributeConstants.java,3\0\302fcba448292e6ca81291a192790400274822ab
 t
 Dsrc/main/java/controller/commands/impl/topic/CreateTopicCommand.java,5\d\5d61aa7f37539d0b2eecbd2ba8b4692b41679e24
 t

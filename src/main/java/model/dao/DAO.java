@@ -2,6 +2,7 @@ package model.dao;
 
 import java.sql.Connection;
 import java.util.Collection;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -25,7 +26,7 @@ public interface DAO<T> {
      * @param con {@link Connection} on which operation to be done
      * @return {@link Collection} of database entries
      */
-    Collection<T> getAll(Connection con, int limit, int offset, String sorting);
+    Collection<T> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters);
 
     /**
      * Update method to update specific database entry

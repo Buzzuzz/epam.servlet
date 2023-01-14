@@ -10,10 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static model.dao.DataSource.close;
 import static model.dao.DataSource.closeAll;
@@ -72,8 +69,9 @@ public class CourseDAO implements DAO<Course> {
         return Optional.ofNullable(course);
     }
 
+    // TODO implement filtration, pagination
     @Override
-    public Collection<Course> getAll(Connection con, int limit, int offset, String sorting) {
+    public Collection<Course> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters) {
         List<Course> courses = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;

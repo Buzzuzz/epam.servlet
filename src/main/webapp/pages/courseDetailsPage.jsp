@@ -18,6 +18,7 @@
                         </h5>
                     </div>
                     <form action="${pageContext.request.contextPath}/controller" class="d-grid gap-2">
+                        <input hidden name="c_id" value="${requestScope.course.courseId}"/>
                         <div class="row">
                             <div class="col-7">
                                 <div class="input-group">
@@ -36,10 +37,11 @@
                                         <fmt:message key="topic"/>
                                     </span>
                                     <select class="form-select"
-                                            name="currentTopic" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
+                                            name="t_id" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                     >
                                         <c:forEach var="topic" items="${requestScope.course.topics}">
-                                            <option ${topic.topicId eq requestScope.course.currentTopicId ? 'selected' : ''}>
+                                            <option ${topic.topicId eq requestScope.course.currentTopicId ? 'selected' : ''}
+                                                    value="${topic.topicId}">
                                                     ${topic.topicName}
                                             </option>
                                         </c:forEach>
@@ -52,7 +54,7 @@
                                 <fmt:message key="description"/>
                             </span>
                             <textarea class="form-control"
-                                      name="courseDescription"
+                                      name="course_description"
                             ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'} aria-label="courseDescription"
                             >${requestScope.course.courseDescription}</textarea>
                         </div>
@@ -69,9 +71,11 @@
                                     <span class="input-group-text">
                                         <fmt:message key="teacher"/>
                                     </span>
-                                    <select class="form-select" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}>
+                                    <select class="form-select"
+                                            name="u_id" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}>
                                         <c:forEach var="teacher" items="${requestScope.course.teachers}">
-                                            <option ${teacher.userId eq requestScope.course.currentTeacherId ? 'selected="selected"' : ''}>
+                                            <option ${teacher.userId eq requestScope.course.currentTeacherId ? 'selected="selected"' : ''}
+                                                    value="${teacher.userId}">
                                                     ${teacher.firstName} ${teacher.lastName}
                                             </option>
                                         </c:forEach>
@@ -87,7 +91,7 @@
                                         <fmt:message key="start_date"/>
                                     </span>
                                     <input class="form-control" aria-label="startDate" type="date"
-                                           name="startDate"
+                                           name="start_date"
                                            value="<d:dateOnly date="${requestScope.course.startDate}"/>"
                                     ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                     />
@@ -99,7 +103,7 @@
                                         <fmt:message key="end_date"/>
                                     </span>
                                     <input class="form-control" aria-label="endDate" type="date"
-                                           name="endDate" value="<d:dateOnly date="${requestScope.course.endDate}"/>"
+                                           name="end_date" value="<d:dateOnly date="${requestScope.course.endDate}"/>"
                                     ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                     />
                                 </div>

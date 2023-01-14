@@ -11,6 +11,8 @@ import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Map;
+import java.util.StringJoiner;
 import java.util.stream.IntStream;
 
 import static constants.AttributeConstants.*;
@@ -84,7 +86,17 @@ public class PaginationUtil {
         }
     }
 
-    public static String getEntityPaginationQuery(String table) {
-        return String.format("select * from %s order by ? limit ? offset ?", table);
+    public static String getEntityPaginationQuery(String table, Map<String, String> filters) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(String.format("select * from %s ", table));
+        if (!filters.isEmpty()) {
+            sb.append("where ");
+            filters.forEach((k, v) -> sb.append(String.format("%s = %s, ", k, v)));
+            sb.deleteCharAt(sb.lastIndexOf(","));
+        }
+        sb.append(" order by ? limit ? offset ?");
+
+        return sb.toString();
     }
 }

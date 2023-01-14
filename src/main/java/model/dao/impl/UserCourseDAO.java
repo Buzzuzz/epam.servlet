@@ -10,10 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static model.dao.DataSource.*;
 
@@ -63,7 +60,7 @@ public class UserCourseDAO implements DAO<UserCourse> {
     }
 
     @Override
-    public Collection<UserCourse> getAll(Connection con, int limit, int offset, String sorting) {
+    public Collection<UserCourse> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters) {
         List<UserCourse> userCourseList = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;

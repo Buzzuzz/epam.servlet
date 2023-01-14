@@ -3,6 +3,7 @@ package controller.commands;
 import controller.commands.impl.*;
 import controller.commands.impl.course.CourseDetailsCommand;
 import controller.commands.impl.course.GetAllCoursesCommand;
+import controller.commands.impl.course.UpdateCourseCommand;
 import controller.commands.impl.topic.CreateTopicCommand;
 import controller.commands.impl.topic.DeleteTopicCommand;
 import controller.commands.impl.topic.GetAllTopicsCommand;
@@ -44,6 +45,7 @@ public class CommandPool {
         COMMANDS_POOL.put(CHANGE_USER_LOCK_STATUS, new ChangeUserLockStatusCommand());
         COMMANDS_POOL.put(CREATE_USER, new CreateUserCommand());
         COMMANDS_POOL.put(DELETE_USER, new DeleteUserCommand());
+        COMMANDS_POOL.put(UPDATE_COURSE, new UpdateCourseCommand());
 
         log.debug("Initialization of CommandPool successful");
     }

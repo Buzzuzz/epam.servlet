@@ -4,6 +4,7 @@ public interface AttributeConstants {
     String COMMAND_ATTR = "command";
     String LOGGED_USER_ATTR = "loggedUser";
     String USER_TYPE_ATTR = "userType";
+    String USER_TYPE_DB = "user_type";
     String EMAIL_ATTR = "email";
     String PASSWORD_ATTR = "password";
     String PASSWORD_REPEAT_ATTR = "password-repeat";

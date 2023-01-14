@@ -9,10 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static model.dao.DataSource.*;
 import static constants.SQLQueries.*;
@@ -27,6 +24,7 @@ public class TopicCourseDAO implements DAO<TopicCourse> {
     private static class Holder {
         private static final TopicCourseDAO dao = new TopicCourseDAO();
     }
+
     @Override
     public Optional<TopicCourse> get(Connection con, long id) {
         PreparedStatement statement = null;
@@ -57,7 +55,7 @@ public class TopicCourseDAO implements DAO<TopicCourse> {
     }
 
     @Override
-    public Collection<TopicCourse> getAll(Connection con, int limit, int offset, String sorting) {
+    public Collection<TopicCourse> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters) {
         List<TopicCourse> topicCourseList = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;

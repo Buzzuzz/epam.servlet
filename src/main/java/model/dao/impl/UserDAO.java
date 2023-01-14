@@ -1,20 +1,19 @@
 package model.dao.impl;
 
+import constants.AttributeConstants;
 import lombok.extern.log4j.Log4j2;
 import model.dao.DAO;
 import exceptions.DAOException;
 import constants.SQLQueries;
 import model.entities.User;
 import model.entities.UserType;
+import utils.PaginationUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static model.dao.DataSource.*;
 
@@ -119,13 +118,15 @@ public class UserDAO implements DAO<User> {
         return Optional.ofNullable(user);
     }
 
+    // TODO implement filtration
     @Override
-    public Collection<User> getAll(Connection con, int limit, int offset, String sorting) {
+    public Collection<User> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters) {
         List<User> users = new ArrayList<>();
         ResultSet resultSet = null;
         PreparedStatement statement = null;
         try {
-            String temp = SQLQueries.FIND_USERS_PAGINATE;
+//            String temp = SQLQueries.FIND_USERS_PAGINATE;
+            String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.USER_TABLE, filters);
             temp = temp.replaceFirst("\\?", sorting);
             statement = con.prepareStatement(temp);
 

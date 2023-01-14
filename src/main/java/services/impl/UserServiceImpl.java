@@ -16,6 +16,7 @@ import utils.PasswordHashUtil;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -146,6 +147,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    // TODO implement filtration
     @Override
     public List<UserDTO> getAllUsers(HttpServletRequest req) throws ServiceException {
         Connection con = null;
@@ -164,7 +166,7 @@ public class UserServiceImpl implements UserService {
             req.setAttribute(RECORDS, pages);
 
             return dao
-                    .getAll(con, limit, offset, sorting)
+                    .getAll(con, limit, offset, sorting, new HashMap<>())
                     .stream()
                     .map(this::getUserDTO)
                     .collect(Collectors.toList());
