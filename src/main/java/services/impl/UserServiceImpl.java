@@ -235,6 +235,7 @@ public class UserServiceImpl implements UserService {
 
             return error;
         } catch (DAOException e) {
+            rollback(con);
             log.error(String.format("Can't create new user, cause: %s", e.getMessage()), e);
             throw new ServiceException("Can't create new user!", e);
         } finally {

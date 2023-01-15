@@ -14,6 +14,13 @@
                 <div class="card-body">
                     <div class="text-center">
                         <h5 class="card-title">
+                            <c:if test="${sessionScope.error.value == 'endDate'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="end_date_error"/>
+                                </div>
+                            </c:if>
                             <fmt:message key="course"/> #${requestScope.course.courseId}
                         </h5>
                     </div>
@@ -54,7 +61,7 @@
                                 <fmt:message key="description"/>
                             </span>
                             <textarea class="form-control"
-                                      name="course_description"
+                                      name="courseDescription"
                             ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'} aria-label="courseDescription"
                             >${requestScope.course.courseDescription}</textarea>
                         </div>
@@ -91,7 +98,7 @@
                                         <fmt:message key="start_date"/>
                                     </span>
                                     <input class="form-control" aria-label="startDate" type="date"
-                                           name="start_date"
+                                           name="startDate"
                                            value="<d:dateOnly date="${requestScope.course.startDate}"/>"
                                     ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                     />
@@ -103,7 +110,7 @@
                                         <fmt:message key="end_date"/>
                                     </span>
                                     <input class="form-control" aria-label="endDate" type="date"
-                                           name="end_date" value="<d:dateOnly date="${requestScope.course.endDate}"/>"
+                                           name="endDate" value="<d:dateOnly date="${requestScope.course.endDate}"/>"
                                     ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                     />
                                 </div>

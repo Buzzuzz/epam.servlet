@@ -13,9 +13,9 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="input-group">
-                            <span class="input-group-text">
-                                <fmt:message key="sort_by"/>
-                            </span>
+                                        <span class="input-group-text">
+                                            <fmt:message key="sort_by"/>
+                                        </span>
                                         <select class="form-select" name="sorting" aria-label="Default select example">
                                             <option value="u_id" ${requestScope.sorting eq 'u_id' ? 'selected="selected"' : ''}>
                                                 <fmt:message key="id"/>
@@ -185,34 +185,36 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <c:if test="${sessionScope.error.value == 'email'}">
-                                <div class="alert bg-danger">
+                            <h5>
+                                <c:if test="${sessionScope.error.value == 'email'}">
+                                    <div class="alert bg-danger">
                                     <span class="closebtn"
                                           onclick="this.parentElement.style.display='none';">&times;</span>
-                                    <fmt:message key="wrong_email"/>
-                                </div>
-                            </c:if>
-                            <c:if test="${sessionScope.error.value == 'password'}">
-                                <div class="alert bg-danger">
+                                        <fmt:message key="wrong_email"/>
+                                    </div>
+                                </c:if>
+                                <c:if test="${sessionScope.error.value == 'password'}">
+                                    <div class="alert bg-danger">
                                     <span class="closebtn"
                                           onclick="this.parentElement.style.display='none';">&times;</span>
-                                    <fmt:message key="wrong_password"/>
-                                </div>
-                            </c:if>
-                            <c:if test="${sessionScope.error.value == 'password-repeat'}">
-                                <div class="alert bg-danger">
+                                        <fmt:message key="wrong_password"/>
+                                    </div>
+                                </c:if>
+                                <c:if test="${sessionScope.error.value == 'password-repeat'}">
+                                    <div class="alert bg-danger">
                                     <span class="closebtn"
                                           onclick="this.parentElement.style.display='none';">&times;</span>
-                                    <fmt:message key="password_not_match"/>
-                                </div>
-                            </c:if>
-                            <c:if test="${sessionScope.error.value == 'phone-number'}">
-                                <div class="alert bg-danger">
+                                        <fmt:message key="password_not_match"/>
+                                    </div>
+                                </c:if>
+                                <c:if test="${sessionScope.error.value == 'phone-number'}">
+                                    <div class="alert bg-danger">
                                     <span class="closebtn"
                                           onclick="this.parentElement.style.display='none';">&times;</span>
-                                    <fmt:message key="wrong_phone"/>
-                                </div>
-                            </c:if>
+                                        <fmt:message key="wrong_phone"/>
+                                    </div>
+                                </c:if>
+                            </h5>
                             <div class="form-outline">
                                 <input type="email" class="form-control" name="email" required/>
                                 <label class="form-label">

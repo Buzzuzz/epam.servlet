@@ -7,6 +7,8 @@ import model.dao.impl.UserDAO;
 import model.entities.User;
 
 import java.sql.Connection;
+import java.sql.Timestamp;
+import java.util.Comparator;
 
 import static constants.RegexConstants.*;
 import static exceptions.ErrorType.*;
@@ -72,5 +74,9 @@ public class ValidationUtil {
 
     public static ErrorType validatePhoneNumber(String phoneNumber) {
         return phoneNumber.matches(PHONE_NUMBER_REGEX) ? NONE : PHONE_NUMBER;
+    }
+
+    public static ErrorType validateEndDate(Timestamp startDate, Timestamp endDate) {
+        return startDate.compareTo(endDate) > 0 ? END_DATE : NONE;
     }
 }

@@ -13,6 +13,7 @@ public enum ErrorType {
     EMAIL (EMAIL_ATTR),
     PASSWORD (PASSWORD_ATTR),
     PASSWORD_REPEAT (PASSWORD_REPEAT_ATTR),
-    PHONE_NUMBER (AttributeConstants.PHONE_NUMBER);
+    PHONE_NUMBER (AttributeConstants.PHONE_NUMBER),
+    END_DATE (COURSE_END_DATE);
     private final String value;
 }

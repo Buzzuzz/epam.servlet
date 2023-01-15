@@ -31,7 +31,7 @@ public class CreateUserCommand implements Command {
                     Boolean.FALSE.toString()
             );
 
-            req.getSession().setAttribute(ERROR, service.createUser(
+            req.getSession().setAttribute(ERROR_ATTR, service.createUser(
                     userDTO,
                     req.getParameter(PASSWORD_ATTR),
                     req.getParameter(PASSWORD_REPEAT_ATTR)));
@@ -44,7 +44,7 @@ public class CreateUserCommand implements Command {
                             SORTING_TYPE,
                             DISPLAY_RECORDS_NUMBER,
                             CURRENT_PAGE,
-                            ERROR));
+                            ERROR_ATTR));
         } catch (ServiceException e) {
             log.error(e.getMessage(), e);
             throw new CommandException(e.getMessage(), e);

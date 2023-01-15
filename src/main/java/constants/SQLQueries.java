@@ -4,6 +4,15 @@ package constants;
  * Interface only for SQL queries in constant Strings (nothing more to see here)
  */
 public interface SQLQueries {
+    // User
+
+    // Topic
+
+    // Course
+
+    // TopicCourse
+
+    // UserCourse
     String FIND_USER_BY_ID = "select * from epam.user where u_id = ?";
     String FIND_USER_BY_EMAIL = "select * from epam.user where email = ?";
     String FIND_ALL_USERS_IDS = "select u_id from epam.user";
@@ -36,7 +45,7 @@ public interface SQLQueries {
     String DELETE_USER_COURSE = "delete from epam.user_course where u_c_id = ? returning u_c_id";
     String CREATE_USER_COURSE = "insert into epam.user_course (u_id, c_id, registration_date, final_mark) values (?, ?, ?, ?)";
     String FIND_TOPIC_COURSE_BY_C_ID = "select * from epam.topic_course where c_id = ?";
-    String UPDATE_TOPIC_COURSE = "update epam.topic_course set t_id = ?, c_id = ? where c_id = ?";
+    String UPDATE_TOPIC_COURSE = "update epam.topic_course set t_id = ? where c_id = ?";
     String DELETE_TOPIC_COURSE = "delete from epam.topic_course where c_id = ? returning c_id";
     String CREATE_TOPIC_COURSE = "insert into epam.topic_course (t_id, c_id) values (?, ?)";
     String COUNT_RECORDS = "select count(?) from ?";

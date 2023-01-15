@@ -25,11 +25,11 @@ public class LogInCommand implements Command {
                     req.getParameter(PASSWORD_ATTR));
             req.getSession().setAttribute(LOGGED_USER_ATTR, user);
             req.getSession().setAttribute(USER_TYPE_ATTR, user.getUser_type());
-            req.getSession().removeAttribute(ERROR);
+            req.getSession().removeAttribute(ERROR_ATTR);
             return CABINET_PAGE;
         } catch (ServiceException e) {
             log.error("Authorization failed, cause: " + e.getMessage());
-            req.getSession().setAttribute(ERROR, e.getMessage().equals(EMAIL.getValue()) ? EMAIL : PASSWORD);
+            req.getSession().setAttribute(ERROR_ATTR, e.getMessage().equals(EMAIL.getValue()) ? EMAIL : PASSWORD);
             return LOGIN_PAGE;
         }
     }

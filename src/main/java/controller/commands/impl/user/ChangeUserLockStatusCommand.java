@@ -27,7 +27,7 @@ public class ChangeUserLockStatusCommand implements Command {
                             SORTING_TYPE,
                             DISPLAY_RECORDS_NUMBER,
                             CURRENT_PAGE,
-                            ERROR));
+                            ERROR_ATTR));
         } catch (ServiceException e) {
             log.error("Can't change user(id) status: " + req.getParameter(USER_ID), e);
             throw new CommandException("Can't change user(id) status: " + req.getParameter(USER_ID), e);

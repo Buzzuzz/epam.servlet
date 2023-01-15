@@ -36,7 +36,7 @@ public class SignUpCommand implements Command {
             if (error.equals(NONE)) {
                 return LOGIN_PAGE;
             }
-            req.getSession().setAttribute(ERROR, error);
+            req.getSession().setAttribute(ERROR_ATTR, error);
             return SIGN_UP_PAGE;
         } catch (ServiceException e) {
             throw new CommandException(e.getMessage(), e);

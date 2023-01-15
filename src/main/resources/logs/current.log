@@ -603,3 +603,492 @@ exceptions.NoSuchCommandException: No such command as null
 2023-01-15 15:01:28.321 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
 2023-01-15 15:01:29.331 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
 2023-01-15 15:01:34.064 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 15:06:15.837 [ ERROR | controller.commands.CommandPool | CommandPool ] - No such command as null
+2023-01-15 15:06:15.837 [ ERROR | controller.FrontControllerServlet | FrontControllerServlet ] - No such command as null
+exceptions.NoSuchCommandException: No such command as null
+	at controller.commands.CommandPool.getCommand(CommandPool.java:67) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:48) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-15 15:06:57.182 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 15:35:36.779 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 15:35:36.837 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 15:35:39.555 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 15:35:44.004 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 15:35:44.005 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 15:35:44.996 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 15:35:49.700 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 15:35:52.681 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 15:36:01.920 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 15:36:01.921 [ INFO | controller.commands.impl.course.UpdateCourseCommand | UpdateCourseCommand ] - 2022-12-30
+2023-01-15 15:36:01.922 [ INFO | controller.commands.impl.course.UpdateCourseCommand | UpdateCourseCommand ] - 2022-12-30
+2023-01-15 15:36:01.923 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:03:53.790 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 16:52:56.472 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 16:52:56.488 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 16:52:57.947 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 16:53:14.115 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 16:53:14.116 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 16:53:14.616 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 16:53:17.641 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 16:53:20.939 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:53:36.668 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 16:53:36.700 [ ERROR | model.dao.impl.TopicCourseDAO | TopicCourseDAO ] - Can't update topic_course (c_id): 4
+org.postgresql.util.PSQLException: No value specified for parameter 3.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:284) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:340) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:152) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:92) ~[classes/:?]
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:17) ~[classes/:?]
+	at services.impl.CourseServiceImpl.updateCourse(CourseServiceImpl.java:167) ~[classes/:?]
+	at controller.commands.impl.course.UpdateCourseCommand.execute(UpdateCourseCommand.java:38) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:48) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-15 16:53:36.714 [ ERROR | services.impl.CourseServiceImpl | CourseServiceImpl ] - Can't update topic_course (c_id): 4
+exceptions.DAOException: Can't update topic_course (c_id): 4
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:95) ~[classes/:?]
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:17) ~[classes/:?]
+	at services.impl.CourseServiceImpl.updateCourse(CourseServiceImpl.java:167) ~[classes/:?]
+	at controller.commands.impl.course.UpdateCourseCommand.execute(UpdateCourseCommand.java:38) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:48) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+Caused by: org.postgresql.util.PSQLException: No value specified for parameter 3.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:284) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:340) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:152) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:92) ~[classes/:?]
+	... 41 more
+2023-01-15 16:53:36.719 [ ERROR | controller.commands.impl.course.UpdateCourseCommand | UpdateCourseCommand ] - Can't update topic_course (c_id): 4
+exceptions.ServiceException: Can't update topic_course (c_id): 4
+	at services.impl.CourseServiceImpl.updateCourse(CourseServiceImpl.java:178) ~[classes/:?]
+	at controller.commands.impl.course.UpdateCourseCommand.execute(UpdateCourseCommand.java:38) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:48) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+Caused by: exceptions.DAOException: Can't update topic_course (c_id): 4
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:95) ~[classes/:?]
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:17) ~[classes/:?]
+	at services.impl.CourseServiceImpl.updateCourse(CourseServiceImpl.java:167) ~[classes/:?]
+	... 39 more
+Caused by: org.postgresql.util.PSQLException: No value specified for parameter 3.
+	at org.postgresql.core.v3.SimpleParameterList.checkAllParametersSet(SimpleParameterList.java:284) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:340) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.5.1.jar:42.5.1]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:152) ~[postgresql-42.5.1.jar:42.5.1]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:?]
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:92) ~[classes/:?]
+	at model.dao.impl.TopicCourseDAO.update(TopicCourseDAO.java:17) ~[classes/:?]
+	at services.impl.CourseServiceImpl.updateCourse(CourseServiceImpl.java:167) ~[classes/:?]
+	... 39 more
+2023-01-15 16:56:08.652 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 16:56:08.666 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 16:56:10.311 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 16:56:38.362 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 16:56:38.365 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 16:56:38.845 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 16:56:40.006 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-15 16:56:41.127 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 16:56:43.274 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:56:47.426 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:56:53.047 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:57:00.529 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 16:57:00.551 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:57:15.002 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 16:57:15.003 [ ERROR | controller.commands.impl.course.UpdateCourseCommand | UpdateCourseCommand ] - Can't convert date-string to Timestamp!
+exceptions.UtilException: Can't convert date-string to Timestamp!
+	at utils.DateFormatterUtil.getTimestamp(DateFormatterUtil.java:30) ~[classes/:?]
+	at controller.commands.impl.course.UpdateCourseCommand.execute(UpdateCourseCommand.java:29) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:48) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+Caused by: java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:67) ~[?:?]
+	at java.lang.Integer.parseInt(Integer.java:675) ~[?:?]
+	at java.lang.Integer.parseInt(Integer.java:781) ~[?:?]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921) ~[?:?]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682) ~[?:?]
+	at utils.DateFormatterUtil.getTimestamp(DateFormatterUtil.java:27) ~[classes/:?]
+	... 39 more
+2023-01-15 16:57:30.613 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 16:57:30.622 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:57:33.701 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 16:57:33.709 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:57:34.702 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 16:57:38.562 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:58:45.717 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 16:58:47.273 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 16:58:48.986 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 16:58:48.990 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:01:02.388 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:01:02.397 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:02:07.282 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 17:02:07.298 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 17:02:10.791 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 17:02:10.792 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 17:02:11.147 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 17:02:12.585 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 17:02:15.116 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:02:15.122 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-01-30 00:00:00.0
+2023-01-15 17:02:15.123 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-01-30 00:00:00.0
+2023-01-15 17:02:59.737 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:02:59.758 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:02:59.765 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-02-15 00:00:00.0
+2023-01-15 17:02:59.765 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-03-02 00:00:00.0
+2023-01-15 17:03:12.773 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:03:12.781 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:03:12.786 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-03-03 00:00:00.0
+2023-01-15 17:03:12.786 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-03-03 00:00:00.0
+2023-01-15 17:04:40.724 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 17:04:40.740 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 17:04:45.205 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 17:04:45.205 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 17:04:45.526 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 17:04:50.828 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-user acquired successful
+2023-01-15 17:04:50.836 [ DEBUG | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com updated successful
+2023-01-15 17:04:54.094 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-15 17:04:55.691 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 17:04:58.467 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:04:58.477 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-01-30 00:00:00.0
+2023-01-15 17:04:58.477 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-01-30 00:00:00.0
+2023-01-15 17:05:14.717 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:05:14.733 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:05:14.738 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-02-01 00:00:00.0
+2023-01-15 17:05:14.738 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-02-08 00:00:00.0
+2023-01-15 17:05:33.508 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:05:33.515 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:05:33.520 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-02-01 00:00:00.0
+2023-01-15 17:05:33.521 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-02-08 00:00:00.0
+2023-01-15 17:05:34.527 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:05:34.532 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:05:34.537 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-01 00:00:00.0
+2023-01-15 17:05:34.538 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-08 00:00:00.0
+2023-01-15 17:05:35.344 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:05:35.346 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:05:35.351 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-01 00:00:00.0
+2023-01-15 17:05:35.351 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-08 00:00:00.0
+2023-01-15 17:05:36.108 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:05:36.115 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:05:36.119 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-01 00:00:00.0
+2023-01-15 17:05:36.120 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-08 00:00:00.0
+2023-01-15 17:05:41.026 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:05:41.027 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:05:41.030 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-01 00:00:00.0
+2023-01-15 17:05:41.030 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-08 00:00:00.0
+2023-01-15 17:06:16.267 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-user acquired successful
+2023-01-15 17:07:03.051 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-user acquired successful
+2023-01-15 17:07:39.040 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-user acquired successful
+2023-01-15 17:10:43.281 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command logout acquired successful
+2023-01-15 17:10:43.291 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 17:10:46.380 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 17:10:46.417 [ DEBUG | services.impl.UserServiceImpl | UserServiceImpl ] - Password doesn't match! admin@gmail.com
+2023-01-15 17:10:46.417 [ ERROR | controller.commands.impl.user.LogInCommand | LogInCommand ] - Authorization failed, cause: password
+2023-01-15 17:11:03.840 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command signup acquired successful
+2023-01-15 17:11:13.442 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 17:11:13.483 [ DEBUG | services.impl.UserServiceImpl | UserServiceImpl ] - Password doesn't match! admin@gmail.com
+2023-01-15 17:11:13.484 [ ERROR | controller.commands.impl.user.LogInCommand | LogInCommand ] - Authorization failed, cause: password
+2023-01-15 17:11:23.829 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command signup acquired successful
+2023-01-15 17:12:11.149 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 17:12:11.200 [ DEBUG | services.impl.UserServiceImpl | UserServiceImpl ] - Password doesn't match! admin@gmail.com
+2023-01-15 17:12:11.200 [ ERROR | controller.commands.impl.user.LogInCommand | LogInCommand ] - Authorization failed, cause: password
+2023-01-15 17:12:17.382 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 17:12:17.416 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 17:12:38.553 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 17:12:39.329 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:12:39.336 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2022-12-30 00:00:00.0
+2023-01-15 17:12:39.336 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2022-12-30 00:00:00.0
+2023-01-15 17:12:42.859 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:12:42.863 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2022-12-30 00:00:00.0
+2023-01-15 17:12:42.863 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2022-12-30 00:00:00.0
+2023-01-15 17:12:44.972 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:12:44.976 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-03-03 00:00:00.0
+2023-01-15 17:12:44.976 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-03-03 00:00:00.0
+2023-01-15 17:12:56.196 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:12:56.197 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:12:56.200 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-03-03 00:00:00.0
+2023-01-15 17:12:56.200 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 3923-03-03 00:00:00.0
+2023-01-15 17:14:16.841 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:14:16.903 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:14:16.906 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-01 00:00:00.0
+2023-01-15 17:14:16.906 [ INFO | controller.commands.impl.course.CourseDetailsCommand | CourseDetailsCommand ] - 2023-01-08 00:00:00.0
+2023-01-15 17:20:38.202 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 17:20:38.221 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 17:20:41.245 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 17:20:41.245 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 17:20:41.748 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 17:20:43.140 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-users acquired successful
+2023-01-15 17:20:44.204 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 17:20:46.624 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:20:46.774 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-1-1
+2023-01-15 17:20:46.774 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-1-8
+2023-01-15 17:24:50.933 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 17:24:50.945 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 17:24:52.704 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 17:24:58.675 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 17:24:58.675 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 17:24:59.172 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 17:25:01.028 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 17:25:02.592 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:25:02.921 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 17:25:02.921 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 17:25:08.046 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 17:25:09.225 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:25:09.238 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 17:25:09.238 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-08
+2023-01-15 17:25:21.416 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:25:21.424 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:25:21.447 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 17:25:21.448 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-08
+2023-01-15 17:25:29.283 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:25:29.295 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:25:29.305 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 17:25:29.306 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-09
+2023-01-15 17:25:31.440 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 17:25:35.023 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:25:35.038 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 17:25:35.039 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-08
+2023-01-15 17:25:43.122 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 17:25:43.125 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:25:43.140 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 17:25:43.140 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-08
+2023-01-15 17:25:44.254 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 17:25:55.267 [ ERROR | controller.commands.CommandPool | CommandPool ] - No such command as null
+2023-01-15 17:25:55.271 [ ERROR | controller.FrontControllerServlet | FrontControllerServlet ] - No such command as null
+exceptions.NoSuchCommandException: No such command as null
+	at controller.commands.CommandPool.getCommand(CommandPool.java:67) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:48) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-15 17:26:04.577 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 17:26:04.590 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 17:26:04.590 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 17:31:14.916 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful

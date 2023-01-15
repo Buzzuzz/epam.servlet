@@ -11,6 +11,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class TopicCourse {
-    private final long t_id;
+    private long t_id;
     private final long c_id;
 }

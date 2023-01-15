@@ -11,28 +11,29 @@
                 <div>
                     <div class="card shadow">
                         <div class="card-body">
-                            <c:if test="${sessionScope.error.value == 'password'}">
-                                <div class="alert bg-danger">
+                            <h5 class="card-title">
+                                <c:if test="${sessionScope.error.value == 'password'}">
+                                    <div class="alert bg-danger">
                                     <span class="closebtn"
                                           onclick="this.parentElement.style.display='none';">&times;</span>
-                                    <fmt:message key="wrong_password"/>
-                                </div>
-                            </c:if>
-                            <c:if test="${sessionScope.error.value == 'password-repeat'}">
-                                <div class="alert bg-danger">
+                                        <fmt:message key="wrong_password"/>
+                                    </div>
+                                </c:if>
+                                <c:if test="${sessionScope.error.value == 'password-repeat'}">
+                                    <div class="alert bg-danger">
                                     <span class="closebtn"
                                           onclick="this.parentElement.style.display='none';">&times;</span>
-                                    <fmt:message key="password_not_match"/>
-                                </div>
-                            </c:if>
-                            <c:if test="${sessionScope.error.value == 'phone-number'}">
-                                <div class="alert bg-danger">
+                                        <fmt:message key="password_not_match"/>
+                                    </div>
+                                </c:if>
+                                <c:if test="${sessionScope.error.value == 'phone-number'}">
+                                    <div class="alert bg-danger">
                                     <span class="closebtn"
                                           onclick="this.parentElement.style.display='none';">&times;</span>
-                                    <fmt:message key="wrong_phone"/>
-                                </div>
-                            </c:if>
-
+                                        <fmt:message key="wrong_phone"/>
+                                    </div>
+                                </c:if>
+                            </h5>
                             <div class="container">
                                 <div class="row mb-2">
                                     <div class="col">

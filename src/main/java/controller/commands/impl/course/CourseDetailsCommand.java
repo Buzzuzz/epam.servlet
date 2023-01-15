@@ -17,9 +17,9 @@ public class CourseDetailsCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            CourseService courseService = CourseServiceImpl.getInstance();
-            Course course = courseService.getCourse(Long.parseLong(req.getParameter(COURSE_ID))).get();
-            req.setAttribute(COURSE_DTO, courseService.getCourseDTO(course).get());
+            CourseService service = CourseServiceImpl.getInstance();
+            Course course = service.getCourse(Long.parseLong(req.getParameter(COURSE_ID))).get();
+            req.setAttribute(COURSE_DTO, service.getCourseDTO(course).get());
             return COURSE_DETAILS_PAGE;
         } catch (Exception e) {
             log.error("Course details can't be acquired", e);

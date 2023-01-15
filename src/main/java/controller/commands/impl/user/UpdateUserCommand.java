@@ -38,7 +38,7 @@ public class UpdateUserCommand implements Command {
                     req.getParameter(PASSWORD_ATTR),
                     req.getParameter(PASSWORD_REPEAT_ATTR));
 
-            req.getSession().setAttribute(ERROR, error);
+            req.getSession().setAttribute(ERROR_ATTR, error);
 
             if (error.equals(NONE)) {
                 req.getSession().setAttribute(LOGGED_USER_ATTR, service.getUser(user.getU_id()).get());

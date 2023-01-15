@@ -9,19 +9,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="user service, commands, validation util, request builder refactor">
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="topic service refactor">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/DateFormatterUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/CreateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/CreateTopicCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/DeleteTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/DeleteTopicCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/GetAllTopicsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/GetAllTopicsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/UpdateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/topic/UpdateTopicCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/GetAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/GetAllUsersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TopicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/TopicServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/CourseDetailsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/CourseDetailsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/UpdateCourseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/UpdateCourseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/ChangeUserLockStatusCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/ChangeUserLockStatusCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/CreateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/CreateUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/LogInCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/LogInCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/SignUpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/SignUpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/UpdateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/user/UpdateUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/ErrorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/ErrorType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/entities/TopicCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/entities/TopicCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/entities/UserCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/entities/UserCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ValidationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/tag_handlers/DateOnlyTagHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/tag_handlers/DateOnlyTagHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/signup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/users.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +51,8 @@
         <option value="Tag Library Descriptor" />
         <option value="Jsp File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -369,14 +385,7 @@
       <workItem from="1673650582156" duration="8946000" />
       <workItem from="1673726368843" duration="1539000" />
       <workItem from="1673728380454" duration="17912000" />
-      <workItem from="1673785466732" duration="2164000" />
-    </task>
-    <task id="LOCAL-00010" summary="created db entities">
-      <created>1669935919680</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1669935919680</updated>
+      <workItem from="1673785466732" duration="10877000" />
     </task>
     <task id="LOCAL-00011" summary="added documentation">
       <created>1669940613253</created>
@@ -714,7 +723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673785889921</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="topic service refactor">
+      <created>1673787751375</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1673787751375</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -735,7 +751,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="moved login | logout logic to service" />
     <MESSAGE value="moved login | logout logic to service, added password hashing" />
     <MESSAGE value="sign up works" />
     <MESSAGE value="authorization filter done, authentification filter done" />
@@ -760,7 +775,8 @@
     <MESSAGE value="course dto rework, started course functionality implementation" />
     <MESSAGE value="pagination util: filters added, implement in future" />
     <MESSAGE value="user service, commands, validation util, request builder refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="user service, commands, validation util, request builder refactor" />
+    <MESSAGE value="topic service refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="topic service refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

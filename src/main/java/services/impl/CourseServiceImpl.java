@@ -1,26 +1,26 @@
 package services.impl;
 
-import constants.AttributeConstants;
-import jakarta.servlet.http.HttpServletRequest;
+import exceptions.*;
+import lombok.extern.log4j.Log4j2;
 import model.dao.DAO;
 import model.dao.DataSource;
 import model.dao.impl.*;
 import model.entities.*;
-import services.CourseService;
-import services.TopicService;
-import services.UserService;
+import services.*;
 import services.dto.FullCourseDTO;
+import utils.ValidationUtil;
 
 import java.sql.Connection;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static model.dao.DataSource.*;
+import static exceptions.ErrorType.*;
+import static utils.PaginationUtil.*;
+import static constants.AttributeConstants.*;
 
+
+@Log4j2
 public class CourseServiceImpl implements CourseService {
     private static final DAO<Course> courseDAO = CourseDAO.getInstance();
     private static final DAO<Topic> topicDAO = TopicDAO.getInstance();
@@ -108,7 +108,7 @@ public class CourseServiceImpl implements CourseService {
                                         con,
                                         topicService.getTopicCount(),
                                         0,
-                                        AttributeConstants.TOPIC_ID,
+                                        TOPIC_ID,
                                         new HashMap<>())
                                 .stream()
                                 .map(topicService::getTopicDTO)
@@ -119,9 +119,9 @@ public class CourseServiceImpl implements CourseService {
                                         con,
                                         userService.getUserCount(),
                                         0,
-                                        AttributeConstants.USER_ID,
+                                        USER_ID,
                                         new HashMap<String, String>() {{
-                                            put(AttributeConstants.USER_TYPE_DB, "'" + UserType.TEACHER.name() + "'");
+                                            put(USER_TYPE_DB, "'" + UserType.TEACHER.name() + "'");
                                         }})
                                 .stream()
                                 .map(userService::getUserDTO)
@@ -138,11 +138,66 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public Course getCourseFromDTO(FullCourseDTO courseDTO) {
+        return new Course(
+                courseDTO.getCourseId(),
+                courseDTO.getCourseName(),
+                courseDTO.getCourseDescription(),
+                courseDTO.getStartDate(),
+                courseDTO.getEndDate()
+        );
+    }
+
+    @Override
+    public ErrorType updateCourse(FullCourseDTO courseDTO) throws ServiceException {
+        Connection con = null;
+        try {
+            con = getConnection();
+            setAutoCommit(con, false);
+
+            ErrorType error = ValidationUtil.validateEndDate(courseDTO.getStartDate(), courseDTO.getEndDate());
+
+            if (error.equals(NONE)) {
+                UserCourse uc = userCourseDAO.get(con, courseDTO.getCourseId()).get();
+                TopicCourse tc = topicCourseDAO.get(con, courseDTO.getCourseId()).get();
+
+                uc.setU_id(courseDTO.getCurrentTeacherId());
+                tc.setT_id(courseDTO.getCurrentTopicId());
+                userCourseDAO.update(con, uc);
+                topicCourseDAO.update(con, tc);
+
+                courseDAO.update(con, getCourseFromDTO(courseDTO));
+                commit(con);
+            }
+
+            setAutoCommit(con, true);
+            return error;
+        } catch (DAOException e) {
+            rollback(con);
+            log.error(e.getMessage(), e);
+            throw new ServiceException(e.getMessage(), e);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
     public Optional<Course> getCourse(long id) {
         Connection con = null;
         try {
             con = getConnection();
             return courseDAO.get(con, id);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public int getCourseCount() {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return getRecordsCount(con, COURSE_ID, COURSE_TABLE);
         } finally {
             close(con);
         }
