@@ -2,6 +2,7 @@ package controller.commands;
 
 import controller.commands.impl.*;
 import controller.commands.impl.course.CourseDetailsCommand;
+import controller.commands.impl.course.CreateCourseCommand;
 import controller.commands.impl.course.GetAllCoursesCommand;
 import controller.commands.impl.course.UpdateCourseCommand;
 import controller.commands.impl.topic.CreateTopicCommand;
@@ -46,6 +47,7 @@ public class CommandPool {
         COMMANDS_POOL.put(CREATE_USER, new CreateUserCommand());
         COMMANDS_POOL.put(DELETE_USER, new DeleteUserCommand());
         COMMANDS_POOL.put(UPDATE_COURSE, new UpdateCourseCommand());
+        COMMANDS_POOL.put(CREATE_COURSE, new CreateCourseCommand());
 
         log.debug("Initialization of CommandPool successful");
     }

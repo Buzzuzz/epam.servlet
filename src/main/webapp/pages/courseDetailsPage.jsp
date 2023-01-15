@@ -1,4 +1,3 @@
-<%@ taglib prefix="d" uri="https://epam.servlet/tag_handlers" %>
 <%@include file="../components/metadata.jspf" %>
 <html>
 <%@include file="../components/head.jspf" %>

@@ -8,7 +8,7 @@ import model.dao.impl.*;
 import model.entities.*;
 import services.*;
 import services.dto.FullCourseDTO;
-import utils.ValidationUtil;
+
 
 import java.sql.Connection;
 import java.util.*;
@@ -18,6 +18,7 @@ import static model.dao.DataSource.*;
 import static exceptions.ErrorType.*;
 import static utils.PaginationUtil.*;
 import static constants.AttributeConstants.*;
+import static utils.ValidationUtil.*;
 
 
 @Log4j2
@@ -155,7 +156,7 @@ public class CourseServiceImpl implements CourseService {
             con = getConnection();
             setAutoCommit(con, false);
 
-            ErrorType error = ValidationUtil.validateEndDate(courseDTO.getStartDate(), courseDTO.getEndDate());
+            ErrorType error = validateEndDate(courseDTO.getStartDate(), courseDTO.getEndDate());
 
             if (error.equals(NONE)) {
                 UserCourse uc = userCourseDAO.get(con, courseDTO.getCourseId()).get();
@@ -167,6 +168,46 @@ public class CourseServiceImpl implements CourseService {
                 topicCourseDAO.update(con, tc);
 
                 courseDAO.update(con, getCourseFromDTO(courseDTO));
+                commit(con);
+            }
+
+            setAutoCommit(con, true);
+            return error;
+        } catch (DAOException e) {
+            rollback(con);
+            log.error(e.getMessage(), e);
+            throw new ServiceException(e.getMessage(), e);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public ErrorType createCourse(FullCourseDTO courseDTO) throws ServiceException {
+        Connection con = null;
+        Course course = getCourseFromDTO(courseDTO);
+
+        try {
+            con = getConnection();
+            setAutoCommit(con, false);
+
+            ErrorType error = validateEndDate(courseDTO.getStartDate(), courseDTO.getEndDate());
+            if (error.equals(NONE)) {
+                long generatedId = courseDAO.save(con, course);
+
+                userCourseDAO.save(con, new UserCourse(
+                        0,
+                        courseDTO.getCurrentTeacherId(),
+                        generatedId,
+                        courseDTO.getStartDate(),
+                        0
+                ));
+
+                topicCourseDAO.save(con, new TopicCourse(
+                        courseDTO.getCurrentTopicId(),
+                        generatedId
+                ));
+
                 commit(con);
             }
 

@@ -14,6 +14,7 @@ public interface CourseService {
     Optional<FullCourseDTO> getCourseDTO(Course course);
     Course getCourseFromDTO (FullCourseDTO courseDTO);
     ErrorType updateCourse(FullCourseDTO courseDTO) throws ServiceException;
+    ErrorType createCourse(FullCourseDTO courseDTO) throws ServiceException;
     Optional<Course> getCourse(long id);
 
     int getCourseCount();
