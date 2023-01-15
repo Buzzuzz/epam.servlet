@@ -18,8 +18,8 @@ public class UpdateTopicCommand implements Command {
             return RequestBuilder.buildCommand(
                     req.getServletPath(),
                     CommandNameConstants.GET_ALL_TOPICS_COMMAND,
-                    RequestBuilder.getParamsMap(
-                            req,
+                    RequestBuilder.getSpecifiedParamsMap(
+                            req.getParameterMap(),
                             SORTING_TYPE,
                             DISPLAY_RECORDS_NUMBER,
                             CURRENT_PAGE

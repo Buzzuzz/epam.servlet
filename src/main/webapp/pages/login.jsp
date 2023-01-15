@@ -8,6 +8,24 @@
         <div class="col w-50 align-self-center">
             <div class="card shadow">
                 <div class="card-body">
+                    <div class="card-title">
+                        <c:if test="${sessionScope.error.value != 'none'}">
+                            <c:if test="${sessionScope.error.value == 'email'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="wrong_email"/>
+                                </div>
+                            </c:if>
+                            <c:if test="${sessionScope.error.value == 'password'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="wrong_password"/>
+                                </div>
+                            </c:if>
+                        </c:if>
+                    </div>
                     <div class="text-center">
                         <h2 class="display-6">
                             <fmt:message key="enter"/>
@@ -19,18 +37,12 @@
                             <input type="email" id="email" class="form-control" name="email" required/>
                             <label class="form-label" for="email">
                                 <fmt:message key="email"/>*
-                                <c:if test="${sessionScope.error == 'email'}">
-                                    <fmt:message key="wrong_email"/>
-                                </c:if>
                             </label>
                         </div>
                         <div class="form-outline">
                             <input type="password" name="password" id="pas" class="form-control" required/>
                             <label class="form-label" for="pas">
                                 <fmt:message key="password"/>*
-                                <c:if test="${sessionScope.error == 'password'}">
-                                    <fmt:message key="wrong_password"/>
-                                </c:if>
                             </label>
                         </div>
                         <div class="text-center mb-4">
@@ -56,6 +68,7 @@
         </div>
     </div>
 </div>
+${sessionScope.remove("error")}
 <%@include file="../components/footer.jspf" %>
 </body>
 </html>

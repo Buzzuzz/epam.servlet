@@ -11,7 +11,7 @@ import services.impl.UserServiceImpl;
 public class LogOutCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        UserServiceImpl.getInstance().logOut(req);
+        req.getSession().invalidate();
         return PageConstants.LOGIN_PAGE;
     }
 }

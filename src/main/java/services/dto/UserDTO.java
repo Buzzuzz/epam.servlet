@@ -10,6 +10,7 @@ public class UserDTO {
     private String email;
     private String firstName;
     private String lastName;
+    private String phoneNumber;
     private String userType;
     private String isBlocked;
     private String sendNotification;

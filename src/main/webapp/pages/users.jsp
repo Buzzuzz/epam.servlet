@@ -146,7 +146,7 @@
                     <li class="page-item">
                         <label for="prev-page" class="page-link">
                             <input id="prev-page" hidden type="submit" name="page" value="1"/>
-                            &raquo;
+                            &laquo;
                         </label>
                     </li>
                     <c:forEach var="record" items="${requestScope.records}">
@@ -185,13 +185,39 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                            <c:if test="${sessionScope.error.value == 'email'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="wrong_email"/>
+                                </div>
+                            </c:if>
+                            <c:if test="${sessionScope.error.value == 'password'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="wrong_password"/>
+                                </div>
+                            </c:if>
+                            <c:if test="${sessionScope.error.value == 'password-repeat'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="password_not_match"/>
+                                </div>
+                            </c:if>
+                            <c:if test="${sessionScope.error.value == 'phone-number'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="wrong_phone"/>
+                                </div>
+                            </c:if>
                             <div class="form-outline">
                                 <input type="email" class="form-control" name="email" required/>
                                 <label class="form-label">
                                     <fmt:message key="email"/>*
-                                    <c:if test="${sessionScope.error == 'email'}">
-                                        <fmt:message key="email_in_use"/>
-                                    </c:if></label>
+                                </label>
                             </div>
                             <div class="row row-cols-2">
                                 <div class="col">
@@ -200,9 +226,6 @@
                                                required/>
                                         <label class="form-label" for="password">
                                             <fmt:message key="password"/>*
-                                            <c:if test="${sessionScope.error == 'password'}">
-                                                <fmt:message key="wrong_password"/>
-                                            </c:if>
                                         </label>
                                     </div>
                                 </div>
@@ -212,9 +235,6 @@
                                                name="password-repeat" required/>
                                         <label class="form-label" for="password-repeat">
                                             <fmt:message key="repeat_password"/>*
-                                            <c:if test="${sessionScope.error == 'password-repeat'}">
-                                                <fmt:message key="password_not_match"/>
-                                            </c:if>
                                         </label>
                                     </div>
                                 </div>
@@ -235,7 +255,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-group mb-2">
+                            <div class="input-group mb-3">
                                 <span class="input-group-text">
                                     <fmt:message key="user_type"/>
                                 </span>
@@ -253,9 +273,6 @@
                             </div>
                             <span>
                             <fmt:message key="phone_title"/>*
-                        <c:if test="${sessionScope.error == 'phone-number'}">
-                            <fmt:message key="wrong_phone"/>
-                        </c:if>
                             </span>
                         </div>
                         <div class="modal-footer border-0">
@@ -279,10 +296,9 @@
             </div>
         </div>
     </div>
-
-
 </div>
-</div>
+
+${sessionScope.remove("error")}
 
 <%@include file="../components/footer.jspf" %>
 </body>

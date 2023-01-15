@@ -9,8 +9,6 @@ import lombok.extern.log4j.Log4j2;
 import services.impl.TopicServiceImpl;
 import utils.RequestBuilder;
 
-import java.util.HashMap;
-
 import static constants.AttributeConstants.*;
 
 @Log4j2
@@ -23,8 +21,8 @@ public class CreateTopicCommand implements Command {
             return RequestBuilder.buildCommand(
                     req.getServletPath(),
                     CommandNameConstants.GET_ALL_TOPICS_COMMAND,
-                    RequestBuilder.getParamsMap(
-                            req,
+                    RequestBuilder.getSpecifiedParamsMap(
+                            req.getParameterMap(),
                             SORTING_TYPE,
                             DISPLAY_RECORDS_NUMBER,
                             CURRENT_PAGE

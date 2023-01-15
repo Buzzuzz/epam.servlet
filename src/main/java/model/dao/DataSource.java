@@ -98,7 +98,7 @@ public class DataSource {
         }
     }
 
-    public static void setCommit(Connection con, boolean type) {
+    public static void setAutoCommit(Connection con, boolean type) {
         try {
             con.setAutoCommit(type);
         } catch (SQLException e) {

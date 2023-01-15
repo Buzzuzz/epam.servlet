@@ -1,6 +1,7 @@
 package constants;
 
 public interface AttributeConstants {
+    String NONE_ATTR = "none";
     String COMMAND_ATTR = "command";
     String LOGGED_USER_ATTR = "loggedUser";
     String USER_TYPE_ATTR = "userType";

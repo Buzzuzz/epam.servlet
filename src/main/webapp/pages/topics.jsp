@@ -149,7 +149,7 @@
                         <li class="page-item">
                             <label for="prev-page" class="page-link">
                                 <input id="prev-page" hidden type="submit" name="page" value="1"/>
-                                &raquo;
+                                &laquo;
                             </label>
                         </li>
                         <c:forEach var="record" items="${requestScope.records}">

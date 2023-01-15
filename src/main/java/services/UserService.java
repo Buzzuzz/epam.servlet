@@ -1,5 +1,6 @@
 package services;
 
+import exceptions.ErrorType;
 import exceptions.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
 import model.entities.User;
@@ -11,15 +12,15 @@ import java.util.Optional;
 public interface UserService {
     User logIn(String email, String password) throws ServiceException;
 
-    void logOut(HttpServletRequest req);
+    ErrorType signUp(UserDTO userDTO, String password, String repeatPassword) throws ServiceException;
 
-    long signUp(HttpServletRequest req) throws ServiceException;
-
-    boolean updateUserData(HttpServletRequest req) throws ServiceException;
+    ErrorType updateUserData(UserDTO userDTO, String oldPassword, String newPassword, String repeatPassword) throws ServiceException;
 
     UserDTO getUserDTO(User user);
 
-    List<UserDTO> getAllUsers(HttpServletRequest req) throws ServiceException;
+    User getUserFromDTO(UserDTO user, String password) throws ServiceException;
+
+    List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting) throws ServiceException;
 
     long deleteUser(long id) throws ServiceException;
 
@@ -27,7 +28,7 @@ public interface UserService {
 
     Optional<User> getUser(long id);
 
-    long createUser(HttpServletRequest req) throws ServiceException;
+    ErrorType createUser(UserDTO userDTO, String password, String repeatPassword) throws ServiceException;
 
     int getUserCount();
 }

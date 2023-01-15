@@ -1,8 +1,7 @@
 package services.impl;
 
+import exceptions.ErrorType;
 import exceptions.ServiceException;
-import exceptions.UtilException;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import exceptions.DAOException;
 import model.dao.DataSource;
@@ -15,7 +14,6 @@ import utils.PaginationUtil;
 import utils.PasswordHashUtil;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +22,7 @@ import java.util.stream.Collectors;
 import static constants.AttributeConstants.*;
 import static model.dao.DataSource.*;
 import static utils.ValidationUtil.*;
-import static utils.PaginationUtil.*;
+import static exceptions.ErrorType.*;
 
 @Log4j2
 public class UserServiceImpl implements UserService {
@@ -67,60 +65,51 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public void logOut(HttpServletRequest req) {
-        User user = (User) req.getSession().getAttribute(LOGGED_USER_ATTR);
-        log.info("User " + user.getEmail() + " logged out");
-        req.getSession().invalidate();
-    }
-
-    public long signUp(HttpServletRequest req) throws ServiceException {
-        if (validateNewUser(req)) {
+    public ErrorType signUp(UserDTO userDTO, String password, String repeatPassword) throws ServiceException {
+        User user = getUserFromDTO(userDTO, password);
+        if (isNewUserValid(user, repeatPassword).equals(NONE)) {
             Connection con = null;
-            long generatedId = 0;
             try {
                 con = DataSource.getConnection();
-                generatedId = dao.save(con, new User(
-                        generatedId,
-                        req.getParameter(EMAIL_ATTR),
-                        PasswordHashUtil.encode(req.getParameter(PASSWORD_ATTR)),
-                        req.getParameter(FIRST_NAME),
-                        req.getParameter(LAST_NAME),
-                        req.getParameter(PHONE_NUMBER),
-                        UserType.STUDENT,
-                        false,
-                        false));
-                log.info("User " + generatedId + " " + req.getParameter(EMAIL_ATTR) + " registered successfully!");
-                return generatedId;
+                dao.save(con, user);
+                log.info(String.format("User %s registered successfully!", user.getEmail()));
+                return NONE;
             } catch (DAOException e) {
-                log.error(e.getMessage());
+                log.error(e.getMessage(), e);
                 throw new ServiceException("Can't register new user", e);
             } finally {
                 close(con);
             }
         }
-        throw new ServiceException("Provided data is not valid!");
+        return isNewUserValid(user, repeatPassword);
     }
 
-    public boolean updateUserData(HttpServletRequest req) throws ServiceException {
+    public ErrorType updateUserData(UserDTO userDTO, String oldPassword, String newPassword, String repeatPassword) throws ServiceException {
         Connection con = null;
-        User user = (User) req.getSession().getAttribute(LOGGED_USER_ATTR);
+        User user = getUserFromDTO(userDTO, newPassword);
         try {
             con = DataSource.getConnection();
-            if (validPassword(req) && validRepeatPassword(req) && validPhoneNumber(req)) {
-                user.setFirst_name(req.getParameter(FIRST_NAME));
-                user.setLast_name(req.getParameter(LAST_NAME));
-                user.setPassword(req.getParameter(PASSWORD_ATTR).equals("") ? user.getPassword() :
-                        PasswordHashUtil.encode(req.getParameter(PASSWORD_ATTR)));
-                user.setPhone(req.getParameter(PHONE_NUMBER));
+            if (validatePassword(newPassword).equals(NONE) &&
+                    validateRepeatPassword(newPassword, repeatPassword).equals(NONE) &&
+                    validatePhoneNumber(user.getPhone()).equals(NONE)) {
+                user.setPassword(user.getPassword().equals("") ? oldPassword :
+                        PasswordHashUtil.encode(user.getPassword()));
                 dao.update(con, user);
-                req.getSession().setAttribute(ERROR, null);
                 log.debug("User " + user.getEmail() + " updated successful");
-                return true;
+                return NONE;
             }
-            return false;
+
+            if (validatePassword(newPassword).equals(NONE)) {
+                if (validateRepeatPassword(newPassword, repeatPassword).equals(NONE)) {
+                    if (validatePhoneNumber(user.getPhone()).equals(NONE)) {
+                        return NONE;
+                    } else return ErrorType.PHONE_NUMBER;
+                } else return PASSWORD_REPEAT;
+            } else return PASSWORD;
+
         } catch (DAOException e) {
-            log.error("Can't update user " + user.getEmail());
-            throw new ServiceException("Can't update user " + user.getEmail());
+            log.error("Can't update user " + user.getEmail(), e);
+            throw new ServiceException("Can't update user " + user.getEmail(), e);
         } finally {
             close(con);
         }
@@ -138,6 +127,7 @@ public class UserServiceImpl implements UserService {
                     user.getEmail(),
                     user.getFirst_name(),
                     user.getLast_name(),
+                    user.getPhone(),
                     user.getUser_type().name(),
                     String.valueOf(user.is_blocked()),
                     String.valueOf(user.isSend_notification())
@@ -147,32 +137,37 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public User getUserFromDTO(UserDTO user, String password) throws ServiceException {
+        try {
+            return new User(
+                    user.getUserId(),
+                    user.getEmail(),
+                    password,
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getPhoneNumber(),
+                    UserType.valueOf(user.getUserType()),
+                    Boolean.parseBoolean(user.getIsBlocked()),
+                    Boolean.parseBoolean(user.getSendNotification())
+            );
+        } catch (Exception e) {
+            log.error("Can't convert userDTO to user!", e);
+            throw new ServiceException("Can't convert userDTO to user!", e);
+        }
+    }
+
     // TODO implement filtration
     @Override
-    public List<UserDTO> getAllUsers(HttpServletRequest req) throws ServiceException {
+    public List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting) throws ServiceException {
         Connection con = null;
-
         try {
             con = getConnection();
-            int limit = getLimit(req);
-            int[] pages = getPages(limit, getUserCount());
-            int currentPage = Math.min(getCurrentPage(req), pages.length);
-            int offset = getOffset(limit, currentPage);
-            String sorting = getSortingType(req, User.class);
-
-            req.setAttribute(SORTING_TYPE, sorting);
-            req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
-            req.setAttribute(CURRENT_PAGE, currentPage);
-            req.setAttribute(RECORDS, pages);
-
             return dao
                     .getAll(con, limit, offset, sorting, new HashMap<>())
                     .stream()
                     .map(this::getUserDTO)
                     .collect(Collectors.toList());
-        } catch (UtilException e) {
-            log.error(e.getMessage(), e);
-            throw new ServiceException(e.getMessage(), e);
         } finally {
             close(con);
         }
@@ -223,23 +218,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public long createUser(HttpServletRequest req) throws ServiceException {
+    public ErrorType createUser(UserDTO userDTO, String password, String repeatPassword) throws ServiceException {
         Connection con = null;
+        User user = getUserFromDTO(userDTO, password);
         try {
             con = getConnection();
-            setCommit(con, false);
+            setAutoCommit(con, false);
 
-            long generatedId = signUp(req);
-            Connection finalCon = con;
-            dao.get(con, generatedId).ifPresent(user -> {
-                user.setUser_type(UserType.valueOf(req.getParameter(USER_TYPE_ATTR)));
-                dao.update(finalCon, user);
-            });
+            ErrorType error = signUp(userDTO, password, repeatPassword);
+            if (error.equals(NONE)) {
+                Connection finalCon = con;
+                dao.getByEmail(con, user.getEmail()).ifPresent(u -> dao.update(finalCon, user));
+                commit(con);
+            }
+            setAutoCommit(con, true);
 
-            commit(con);
-            return generatedId;
+            return error;
         } catch (DAOException e) {
-            log.error("Can't create new user, cause: " + e.getMessage(), e);
+            log.error(String.format("Can't create new user, cause: %s", e.getMessage()), e);
             throw new ServiceException("Can't create new user!", e);
         } finally {
             close(con);

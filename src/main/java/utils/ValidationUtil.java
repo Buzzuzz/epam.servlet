@@ -1,16 +1,15 @@
 package utils;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
+import exceptions.ErrorType;
 import lombok.extern.log4j.Log4j2;
 import model.dao.DataSource;
 import model.dao.impl.UserDAO;
+import model.entities.User;
 
 import java.sql.Connection;
 
-import static constants.AttributeConstants.*;
-import static constants.AttributeConstants.PHONE_NUMBER;
 import static constants.RegexConstants.*;
+import static exceptions.ErrorType.*;
 
 /**
  * Util class created specifically for all types of possible validation of data
@@ -22,98 +21,56 @@ public class ValidationUtil {
     }
 
     /**
-     * Method to validate password for specific regex
-     *
-     * @param password for validation
-     * @return {@link Boolean#TRUE true} if check is passed successful, {@link Boolean#FALSE false} if not
-     */
-    private static boolean validatePassword(String password) {
-        return password.matches(PASSWORD_REGEX);
-    }
-
-    /**
-     * Method to validate phone number for specific regex
-     *
-     * @param phone for validation
-     * @return true if check is passed, false otherwise
-     */
-    private static boolean validatePhoneNumber(String phone) {
-        return phone.matches(PHONE_NUMBER_REGEX);
-    }
-
-    /**
-     * @param pass    Password to compare
-     * @param compare Another input to compare with password for equality
-     * @return {@link Boolean#TRUE true} if check is passed successful, {@link Boolean#FALSE false} if not
-     */
-    private static boolean comparePasswords(String pass, String compare) {
-        return pass.equals(compare);
-    }
-
-    /**
-     * Method to check if email is unique (registered).
+     * Method to check if email is unique (not registered in system).
      *
      * @param email Email to be checked for presence in database
-     * @return true if email isn't registered (is unique), false otherwise
+     * @return "email" error {@link String} if email isn't registered (is unique), "none" error {@link String} otherwise
      */
-    private static boolean checkEmailIsAvailable(String email) {
+    private static ErrorType isEmailUnique(String email) {
         UserDAO dao = UserDAO.getInstance();
         Connection con = null;
         try {
             con = DataSource.getConnection();
             if (dao.getByEmail(con, email).isPresent()) {
-                return false;
+                return EMAIL;
             }
         } finally {
             DataSource.close(con);
         }
-        return true;
+        return ErrorType.NONE;
     }
 
     /**
      * Method to validate new user before adding data to database
      *
-     * @param req from where to get new user data
-     * @return true if all checks are good, false otherwise
+     * @param user           from where to get data for validation
+     * @param repeatPassword repeated password from form to validate
+     * @return {@link ErrorType} constant with info about error (or it absence)
      */
-    public static boolean validateNewUser(HttpServletRequest req) {
-        HttpSession session = req.getSession();
-        log.debug("new user validation");
-        return validEmail(req, session) && validPassword(req) && validRepeatPassword(req) && validPhoneNumber(req);
+    public static ErrorType isNewUserValid(User user, String repeatPassword) {
+        if (isEmailUnique(user.getEmail()).equals(NONE)) {
+            if (validatePassword(user.getPassword()).equals(NONE)) {
+                if (validateRepeatPassword(user.getPassword(), repeatPassword).equals(NONE)) {
+                    if (validatePhoneNumber(user.getPhone()).equals(NONE)) {
+                        return NONE;
+                    } else return ErrorType.PHONE_NUMBER;
+                } else return PASSWORD_REPEAT;
+            } else return PASSWORD;
+        } else return EMAIL;
     }
 
-    public static boolean validEmail(HttpServletRequest req, HttpSession session) {
-        if (!checkEmailIsAvailable(req.getParameter(EMAIL_ATTR))) {
-            session.setAttribute(ERROR, EMAIL_ATTR);
-            return false;
+    public static ErrorType validatePassword(String password) {
+        if (password.equals("")) {
+            return NONE;
         }
-        return true;
+        return password.matches(PASSWORD_REGEX) ? NONE : PASSWORD;
     }
 
-    public static boolean validPassword(HttpServletRequest req) {
-        if (req.getParameter(PASSWORD_ATTR).equals("")) {
-            return true;
-        }
-        if (!validatePassword(req.getParameter(PASSWORD_ATTR))) {
-            req.getSession().setAttribute(ERROR, PASSWORD_ATTR);
-            return false;
-        }
-        return true;
+    public static ErrorType validateRepeatPassword(String password, String toCompare) {
+        return password.equals(toCompare) ? NONE : PASSWORD_REPEAT;
     }
 
-    public static boolean validRepeatPassword(HttpServletRequest req) {
-        if (!comparePasswords(req.getParameter(PASSWORD_REPEAT_ATTR), req.getParameter(PASSWORD_ATTR))) {
-            req.getSession().setAttribute(ERROR, PASSWORD_REPEAT_ATTR);
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean validPhoneNumber(HttpServletRequest req) {
-        if (!validatePhoneNumber(req.getParameter(PHONE_NUMBER))) {
-            req.getSession().setAttribute(ERROR, PHONE_NUMBER);
-            return false;
-        }
-        return true;
+    public static ErrorType validatePhoneNumber(String phoneNumber) {
+        return phoneNumber.matches(PHONE_NUMBER_REGEX) ? NONE : PHONE_NUMBER;
     }
 }

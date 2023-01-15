@@ -8,6 +8,36 @@
         <div class="col w-50 align-self-center">
             <div class="card shadow">
                 <div class="card-body">
+                    <div class="card-title">
+                        <c:if test="${sessionScope.error.value == 'email'}">
+                            <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                <fmt:message key="wrong_email"/>
+                            </div>
+                        </c:if>
+                        <c:if test="${sessionScope.error.value == 'password'}">
+                            <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                <fmt:message key="wrong_password"/>
+                            </div>
+                        </c:if>
+                        <c:if test="${sessionScope.error.value == 'password-repeat'}">
+                            <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                <fmt:message key="password_not_match"/>
+                            </div>
+                        </c:if>
+                        <c:if test="${sessionScope.error.value == 'phone-number'}">
+                            <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                <fmt:message key="wrong_phone"/>
+                            </div>
+                        </c:if>
+                    </div>
                     <div class="text-center">
                         <h2 class="display-6">
                             <fmt:message key="signup_title"/>
@@ -18,9 +48,7 @@
                             <input type="email" class="form-control" name="email" required/>
                             <label class="form-label">
                                 <fmt:message key="email"/>*
-                                <c:if test="${sessionScope.error == 'email'}">
-                                    <fmt:message key="email_in_use"/>
-                                </c:if></label>
+                            </label>
                         </div>
                         <div class="row row-cols-2">
                             <div class="col">
@@ -29,9 +57,6 @@
                                            required/>
                                     <label class="form-label" for="password">
                                         <fmt:message key="password"/>*
-                                        <c:if test="${sessionScope.error == 'password'}">
-                                            <fmt:message key="wrong_password"/>
-                                        </c:if>
                                     </label>
                                 </div>
                             </div>
@@ -41,9 +66,6 @@
                                            name="password-repeat" required/>
                                     <label class="form-label" for="password-repeat">
                                         <fmt:message key="repeat_password"/>*
-                                        <c:if test="${sessionScope.error == 'password-repeat'}">
-                                            <fmt:message key="password_not_match"/>
-                                        </c:if>
                                     </label>
                                 </div>
                             </div>
@@ -72,9 +94,7 @@
                         </div>
                         <span>
                             <fmt:message key="phone_title"/>*
-                        <c:if test="${sessionScope.error == 'phone-number'}">
-                            <fmt:message key="wrong_phone"/>
-                        </c:if> </span>
+                        </span>
                         <div class="text-center mb-3 mt-2">
                             <button type="submit" class="btn btn-primary btn-block w-50" name="command" value="signup">
                                 <fmt:message key="signup"/>

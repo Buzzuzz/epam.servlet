@@ -11,10 +11,9 @@ public class RequestBuilder {
     private RequestBuilder() {
     }
 
-    public static String buildRequest(HttpServletRequest req) {
+    public static String buildRequest(String controller, Map<String, String[]> paramsMap) {
         StringBuilder sb = new StringBuilder();
-        sb.append(req.getServletPath());
-        Map<String, String[]> paramsMap = req.getParameterMap();
+        sb.append(controller);
 
         if (!paramsMap.isEmpty()) {
             sb.append("?");
@@ -51,10 +50,10 @@ public class RequestBuilder {
         return builder.toString();
     }
 
-    public static Map<String, String[]> getParamsMap(HttpServletRequest req, String... paramNames) {
+    public static Map<String, String[]> getSpecifiedParamsMap(Map<String, String[]> generalMap, String... paramNames) {
         Map<String, String[]> paramsMap = new HashMap<>();
         for (String param : paramNames) {
-            paramsMap.put(param, new String[]{req.getParameter(param)});
+            paramsMap.put(param, generalMap.get(param));
         }
         return paramsMap;
     }

@@ -22,11 +22,12 @@ public class ChangeUserLockStatusCommand implements Command {
             return RequestBuilder.buildCommand(
                     req.getServletPath(),
                     CommandNameConstants.GET_ALL_USERS_COMMAND,
-                    RequestBuilder.getParamsMap(
-                            req,
+                    RequestBuilder.getSpecifiedParamsMap(
+                            req.getParameterMap(),
                             SORTING_TYPE,
                             DISPLAY_RECORDS_NUMBER,
-                            CURRENT_PAGE));
+                            CURRENT_PAGE,
+                            ERROR));
         } catch (ServiceException e) {
             log.error("Can't change user(id) status: " + req.getParameter(USER_ID), e);
             throw new CommandException("Can't change user(id) status: " + req.getParameter(USER_ID), e);

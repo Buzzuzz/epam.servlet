@@ -11,6 +11,28 @@
                 <div>
                     <div class="card shadow">
                         <div class="card-body">
+                            <c:if test="${sessionScope.error.value == 'password'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="wrong_password"/>
+                                </div>
+                            </c:if>
+                            <c:if test="${sessionScope.error.value == 'password-repeat'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="password_not_match"/>
+                                </div>
+                            </c:if>
+                            <c:if test="${sessionScope.error.value == 'phone-number'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="wrong_phone"/>
+                                </div>
+                            </c:if>
+
                             <div class="container">
                                 <div class="row mb-2">
                                     <div class="col">
@@ -95,11 +117,6 @@
                                                 name="password"
                                         >
                                     </div>
-                                    <c:if test="${sessionScope.error == 'password'}">
-                                        <span>
-                                            <fmt:message key="wrong_password"/>
-                                        </span>
-                                    </c:if>
                                 </div>
                                 <div class="col mb-2">
                                     <div class="input-group">
@@ -114,11 +131,6 @@
                                                 name="password-repeat"
                                         >
                                     </div>
-                                    <c:if test="${sessionScope.error == 'password-repeat'}">
-                                        <span>
-                                            <fmt:message key="password_not_match"/>
-                                        </span>
-                                    </c:if>
                                 </div>
                                 <div class="col">
                                     <div class="input-group">
@@ -133,9 +145,6 @@
                                                 value="${sessionScope.loggedUser.phone}"
                                                 required>
                                     </div>
-                                    <c:if test="${sessionScope.error == 'phone-number'}">
-                                        <fmt:message key="wrong_phone"/>
-                                    </c:if>
                                 </div>
                             </div>
                         </div>
