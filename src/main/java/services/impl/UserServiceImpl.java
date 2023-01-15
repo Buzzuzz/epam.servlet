@@ -159,7 +159,7 @@ public class UserServiceImpl implements UserService {
 
     // TODO implement filtration
     @Override
-    public List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting) throws ServiceException {
+    public List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting) {
         Connection con = null;
         try {
             con = getConnection();

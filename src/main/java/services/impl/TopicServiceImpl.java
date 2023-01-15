@@ -1,5 +1,6 @@
 package services.impl;
 
+import exceptions.DAOException;
 import exceptions.ServiceException;
 import exceptions.UtilException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,31 +35,16 @@ public class TopicServiceImpl implements TopicService {
         return Holder.service;
     }
 
-    // TODO: refactor getAll method
     @Override
-    public List<TopicDTO> getAllTopics(HttpServletRequest req) throws ServiceException{
+    public List<TopicDTO> getAllTopics(int limit, int[] pages, int currentPage, int offset, String sorting) {
         Connection con = null;
         try {
             con = getConnection();
-            int limit = getLimit(req);
-            int[] pages = getPages(limit, getTopicCount());
-            int currentPage = Math.min(getCurrentPage(req), pages.length);
-            int offset = getOffset(limit, currentPage);
-            String sorting = getSortingType(req, Topic.class);
-
-            req.setAttribute(SORTING_TYPE, sorting);
-            req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
-            req.setAttribute(CURRENT_PAGE, currentPage);
-            req.setAttribute(RECORDS, pages);
-
             return dao
                     .getAll(con, limit, offset, sorting, new HashMap<>())
                     .stream()
                     .map(this::getTopicDTO)
                     .collect(Collectors.toList());
-        } catch (UtilException e) {
-            log.error(e.getMessage(), e);
-            throw new ServiceException(e.getMessage(), e);
         } finally {
             close(con);
         }
@@ -74,16 +60,13 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public long createTopic(HttpServletRequest req) throws ServiceException {
+    public long createTopic(TopicDTO topicDTO) throws ServiceException {
         Connection con = null;
         try {
-            if (req.getParameter(TOPIC_NAME_ATTR) != null && req.getParameter(TOPIC_DESCRIPTION_ATTR) != null) {
+            Topic topic = getTopicFromDTO(topicDTO);
+            if (topic.getName() != null && topic.getDescription() != null) {
                 con = getConnection();
-                return dao.save(con, new Topic(
-                        0,
-                        req.getParameter(TOPIC_NAME_ATTR),
-                        req.getParameter(TOPIC_DESCRIPTION_ATTR)
-                ));
+                return dao.save(con, topic);
             }
             log.error("No required parameters: " +
                     TOPIC_NAME_ATTR + ", " + TOPIC_DESCRIPTION_ATTR);
@@ -94,35 +77,49 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public long updateTopic(HttpServletRequest req) throws ServiceException {
+    public long updateTopic(TopicDTO topicDTO) throws ServiceException {
         Connection con = null;
+        Topic topic = getTopicFromDTO(topicDTO);
         try {
-            con = getConnection();
-            return dao.update(con, new Topic(
-                    Long.parseLong(req.getParameter(TOPIC_ID)),
-                    req.getParameter(TOPIC_NAME_ATTR),
-                    req.getParameter(TOPIC_DESCRIPTION_ATTR)
-            ));
-        } catch (Exception e) {
-            log.error("Can't update topic: " + req.getParameter(TOPIC_ID), e);
-            throw new ServiceException("Can't update topic: " + req.getParameter(TOPIC_ID), e);
+            if (topic.getName() != null && topic.getDescription() != null) {
+                con = getConnection();
+
+                return dao.update(con, new Topic(
+                        topic.getT_id(),
+                        topic.getName(),
+                        topic.getDescription()
+                ));
+            }
+            return -1;
+        } catch (DAOException e) {
+            log.error("Can't update topic: " + topic.getT_id(), e);
+            throw new ServiceException("Can't update topic: " + topic.getT_id(), e);
         } finally {
             close(con);
         }
     }
 
     @Override
-    public long deleteTopic(HttpServletRequest req) throws ServiceException {
+    public long deleteTopic(long id) throws ServiceException {
         Connection con = null;
         try {
             con = getConnection();
-            return dao.delete(con, Long.parseLong(req.getParameter(TOPIC_ID)));
+            return dao.delete(con, id);
         } catch (Exception e) {
-            log.error("Can't delete specified topic: " + req.getParameter(TOPIC_ID));
-            throw new ServiceException("Can't delete specified topic: " + req.getParameter(TOPIC_ID));
+            log.error("Can't delete specified topic: " + id);
+            throw new ServiceException("Can't delete specified topic: " + id);
         } finally {
             close(con);
         }
+    }
+
+    @Override
+    public Topic getTopicFromDTO(TopicDTO topicDTO) {
+        return new Topic(
+                topicDTO.getTopicId(),
+                topicDTO.getTopicName(),
+                topicDTO.getTopicDescription()
+        );
     }
 
     @Override

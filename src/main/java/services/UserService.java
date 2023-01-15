@@ -20,7 +20,7 @@ public interface UserService {
 
     User getUserFromDTO(UserDTO user, String password) throws ServiceException;
 
-    List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting) throws ServiceException;
+    List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting);
 
     long deleteUser(long id) throws ServiceException;
 

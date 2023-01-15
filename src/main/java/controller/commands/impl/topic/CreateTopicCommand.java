@@ -6,6 +6,7 @@ import exceptions.CommandException;
 import exceptions.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
+import services.dto.TopicDTO;
 import services.impl.TopicServiceImpl;
 import utils.RequestBuilder;
 
@@ -16,7 +17,11 @@ public class CreateTopicCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            long generatedId = TopicServiceImpl.getInstance().createTopic(req);
+            long generatedId = TopicServiceImpl.getInstance().createTopic(new TopicDTO(
+                    0,
+                    req.getParameter(TOPIC_NAME_ATTR),
+                    req.getParameter(TOPIC_DESCRIPTION_ATTR)
+                    ));
             log.debug(String.format("Topic with id %s created successfully!", generatedId));
             return RequestBuilder.buildCommand(
                     req.getServletPath(),

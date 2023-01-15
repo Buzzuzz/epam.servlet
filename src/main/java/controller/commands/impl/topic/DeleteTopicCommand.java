@@ -14,7 +14,7 @@ public class DeleteTopicCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            TopicServiceImpl.getInstance().deleteTopic(req);
+            TopicServiceImpl.getInstance().deleteTopic(Long.parseLong(req.getParameter(TOPIC_ID)));
             return RequestBuilder.buildCommand(
                     req.getServletPath(),
                     CommandNameConstants.GET_ALL_TOPICS_COMMAND,
@@ -23,7 +23,7 @@ public class DeleteTopicCommand implements Command {
                             SORTING_TYPE,
                             DISPLAY_RECORDS_NUMBER,
                             CURRENT_PAGE));
-        } catch (ServiceException e) {
+        } catch (Exception e) {
             throw new CommandException("Can't execute delete-topic command", e);
         }
     }

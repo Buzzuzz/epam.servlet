@@ -43,7 +43,7 @@ public class GetAllUsersCommand implements Command {
             req.setAttribute(RECORDS, pages);
 
             return PageConstants.USERS_PAGE;
-        } catch (ServiceException | UtilException e) {
+        } catch (UtilException e) {
             log.error(e.getMessage(), e);
             throw new CommandException(e.getMessage(), e);
         }

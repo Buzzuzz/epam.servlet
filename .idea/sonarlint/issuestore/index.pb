@@ -51,8 +51,6 @@ X
 (src/main/java/model/entities/Course.java,9\1\91bc0d24d35a2ef119006c5b93d86b458766a7f8
 W
 'src/main/java/model/entities/Topic.java,5\6\562f929a6b0cecef87b489129a983cbb25503a91
-b
-2src/main/java/controller/filters/AccessFilter.java,a\0\a0d1e51d76319a88f87449ba17893a20653f6513
 d
 4src/main/java/exceptions/NoSuchCommandException.java,0\2\028e4375e3bf649aa466717dd3fea63258d0d45a
 Y
@@ -71,8 +69,6 @@ Z
 *src/main/java/constants/PageConstants.java,7\9\797d8c143a08e4571c4e04b458ad408a90319448
 T
 $src/main/webapp/components/head.jspf,b\4\b4bbcf6255cf8a7378728c7e7c77f99bbaa1c483
-d
-4src/main/java/controller/filters/EncodingFilter.java,f\f\ffc31786e533b1b9f4914f59cfdb8cfbe8045fcc
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -94,8 +90,6 @@ W
 .src/main/java/exceptions/CommandException.java,7\3\739b5e6886453af23fa43e64cf81bdc7791d643d
 w
 Gsrc/main/java/controller/commands/impl/course/CourseDetailsCommand.java,1\b\1bb090e24a357256a965e96441eae8e1762be203
-X
-(src/main/java/services/dto/TopicDTO.java,8\e\8ef130b0766a45852240b7001d45d2e3d5132eae
 Q
 !src/main/webapp/pages/courses.jsp,c\0\c037d49368456f92c5ff31a285e990af9e805591
 W
@@ -116,23 +110,13 @@ Z
 *src/main/java/model/dao/impl/TopicDAO.java,b\5\b5494ae30f447bde28ec299205591a2719d840bc
 Y
 )src/main/java/model/dao/impl/UserDAO.java,c\7\c7218255ff75a853213a9aa0dd388e5e09cb89d4
-b
-2src/main/java/services/impl/CourseServiceImpl.java,0\1\01999f40909590e9dd554232031ca3314dfa3288
 [
 +src/main/webapp/pages/courseDetailsPage.jsp,e\1\e16dd0acc77b1f31fe59d463753bd6e4ccbca631
 Y
 )src/main/java/utils/PasswordHashUtil.java,a\a\aa6a759da4fd7d9ae40385bed928034014f4af15
 W
 'src/main/java/utils/PaginationUtil.java,1\6\16c97dee899732e485bcb2c1d3c25ed33246a13d
-X
-(src/main/java/services/TopicService.java,6\7\67aefb7b96786d4e4a731a7ea342ed5f13582e97
-Y
-)src/main/java/services/CourseService.java,c\f\cfcdef8353bc8b7dc94b3defcc99e676c903b154
-a
-1src/main/java/services/impl/TopicServiceImpl.java,5\2\52345cffca85ffa3de85f29d5491625206be7f3f
 V
 &src/main/java/model/entities/User.java,1\e\1e75bd4f7a5b764cf9a86881607c3314587c3b90
 a
 1src/main/java/constants/CommandNameConstants.java,8\8\88f8b90005bb2623178e0044c42688b77923a1e6
-b
-2src/main/java/controller/filters/StatusFilter.java,9\a\9aaf66da6657cb3e3f6507bfcd7c7d22318d40ba
