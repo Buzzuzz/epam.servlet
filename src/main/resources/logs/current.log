@@ -1335,3 +1335,79 @@ exceptions.NoSuchCommandException: No such command as delete-course
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
 	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-15 19:03:23.617 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 19:03:24.948 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:03:25.272 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 19:03:25.275 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 19:03:41.630 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 19:03:41.633 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:03:41.644 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 19:03:41.645 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 19:03:42.758 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 19:03:47.875 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:03:47.889 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 19:03:47.890 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-09
+2023-01-15 19:03:49.830 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 19:03:49.836 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:03:49.840 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 19:03:49.840 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-09
+2023-01-15 19:03:50.760 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 19:03:56.119 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:03:56.129 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-15
+2023-01-15 19:03:56.129 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-15
+2023-01-15 19:04:13.728 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 19:04:13.731 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:04:13.742 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-15
+2023-01-15 19:04:13.743 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-15
+2023-01-15 19:04:16.100 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 19:04:21.607 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:04:21.620 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 19:04:21.620 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-05
+2023-01-15 19:04:25.328 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-course acquired successful
+2023-01-15 19:04:25.382 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:04:25.386 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2022-12-30
+2023-01-15 19:04:25.386 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-05
+2023-01-15 19:04:29.241 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 19:06:06.497 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:06:06.516 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 19:06:06.517 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-08
+2023-01-15 19:06:10.449 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 19:06:11.688 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 19:06:11.714 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 19:06:11.715 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-08
+2023-01-15 19:06:13.884 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 21:07:04.149 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 21:07:04.178 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 21:07:06.625 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 21:07:19.492 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 21:07:19.492 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 21:07:20.272 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 21:07:21.731 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 21:07:23.883 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 21:07:24.417 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 21:07:24.418 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-08
+2023-01-15 21:15:43.717 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 21:15:43.748 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-01
+2023-01-15 21:15:43.749 [ INFO | utils.tag_handlers.DateOnlyTagHandler | DateOnlyTagHandler ] - 2023-01-08
+2023-01-15 21:16:22.120 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 21:16:22.141 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 21:16:25.834 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 21:16:25.835 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 21:16:26.602 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 21:16:28.729 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 21:16:32.363 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 21:16:34.559 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-course acquired successful
+2023-01-15 21:16:34.578 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 21:17:05.301 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-15 21:17:05.324 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-15 21:17:05.375 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-15 21:17:05.377 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-15 21:17:15.066 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-15 21:17:15.488 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User admin@gmail.com logged in successful!
+2023-01-15 21:17:17.644 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 21:17:27.363 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 21:17:30.435 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-15 21:17:31.495 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command delete-course acquired successful
+2023-01-15 21:17:31.539 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-15 21:17:33.617 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-topics acquired successful
+2023-01-15 21:17:34.985 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful

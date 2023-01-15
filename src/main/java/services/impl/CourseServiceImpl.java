@@ -223,6 +223,20 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public long deleteCourse(long id) throws ServiceException {
+        Connection con = null;
+        try {
+            con = getConnection();
+            return courseDAO.delete(con, id);
+        } catch (DAOException e) {
+            log.error(e.getMessage(), e);
+            throw new ServiceException(e.getMessage(), e);
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
     public Optional<Course> getCourse(long id) {
         Connection con = null;
         try {

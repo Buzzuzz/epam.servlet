@@ -26,7 +26,6 @@ public class DateOnlyTagHandler extends TagSupport {
             String month = stamp.getMonthValue() < 10 ? "0" + stamp.getMonthValue() : String.valueOf(stamp.getMonthValue());
             String day = stamp.getDayOfMonth() < 10 ? "0" + stamp.getDayOfMonth() : String.valueOf(stamp.getDayOfMonth());
             pageContext.getOut().print(String.format("%s-%s-%s", stamp.getYear(), month, day));
-            log.info(String.format("%s-%s-%s", stamp.getYear(), month, day));
         } catch (IOException e) {
             throw new JspException(e);
         }

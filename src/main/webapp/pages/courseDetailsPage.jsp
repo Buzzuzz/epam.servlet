@@ -3,9 +3,6 @@
 <%@include file="../components/head.jspf" %>
 <body>
 <%@include file="../components/menu.jspf" %>
-<!-- // TODO add topic description,
-         topic selection - dropdown,
-         teacher selection - dropdown -->
 <div class="container min-vh-100">
     <div class="row justify-content-center">
         <div class="col-8">
@@ -31,7 +28,7 @@
                             <span class="input-group-text">
                                 <fmt:message key="course_name"/>
                             </span>
-                                    <input class="form-control" name="courseName"
+                                    <input class="form-control" name="courseName" required
                                            value="${requestScope.course.courseName}"
                                     ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                            aria-label="courseName"/>
@@ -42,7 +39,7 @@
                                     <span class="input-group-text">
                                         <fmt:message key="topic"/>
                                     </span>
-                                    <select class="form-select"
+                                    <select class="form-select" required
                                             name="t_id" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                     >
                                         <c:forEach var="topic" items="${requestScope.course.topics}">
@@ -60,7 +57,7 @@
                                 <fmt:message key="description"/>
                             </span>
                             <textarea class="form-control"
-                                      name="courseDescription"
+                                      name="courseDescription" required
                             ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'} aria-label="courseDescription"
                             >${requestScope.course.courseDescription}</textarea>
                         </div>
@@ -77,7 +74,7 @@
                                     <span class="input-group-text">
                                         <fmt:message key="teacher"/>
                                     </span>
-                                    <select class="form-select"
+                                    <select class="form-select" required
                                             name="u_id" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}>
                                         <c:forEach var="teacher" items="${requestScope.course.teachers}">
                                             <option ${teacher.userId eq requestScope.course.currentTeacherId ? 'selected="selected"' : ''}
@@ -97,7 +94,7 @@
                                         <fmt:message key="start_date"/>
                                     </span>
                                     <input class="form-control" aria-label="startDate" type="date"
-                                           name="startDate"
+                                           name="startDate" required
                                            value="<d:dateOnly date="${requestScope.course.startDate}"/>"
                                     ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                     />
@@ -108,7 +105,7 @@
                                     <span class="input-group-text">
                                         <fmt:message key="end_date"/>
                                     </span>
-                                    <input class="form-control" aria-label="endDate" type="date"
+                                    <input class="form-control" aria-label="endDate" type="date" required
                                            name="endDate" value="<d:dateOnly date="${requestScope.course.endDate}"/>"
                                     ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}
                                     />
