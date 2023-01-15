@@ -16,6 +16,7 @@ import utils.PasswordHashUtil;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -159,12 +160,12 @@ public class UserServiceImpl implements UserService {
 
     // TODO implement filtration
     @Override
-    public List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting) {
+    public List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters) {
         Connection con = null;
         try {
             con = getConnection();
             return dao
-                    .getAll(con, limit, offset, sorting, new HashMap<>())
+                    .getAll(con, limit, offset, sorting, filters)
                     .stream()
                     .map(this::getUserDTO)
                     .collect(Collectors.toList());
@@ -244,11 +245,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int getUserCount() {
+    public int getUserCount(Map<String, String[]> filters) {
         Connection con = null;
         try {
             con = getConnection();
-            return PaginationUtil.getRecordsCount(con, USER_ID, USER_TABLE);
+            return PaginationUtil.getRecordsCount(con, USER_ID, USER_TABLE, filters);
         } finally {
             close(con);
         }

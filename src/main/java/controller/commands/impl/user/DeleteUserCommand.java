@@ -23,7 +23,9 @@ public class DeleteUserCommand implements Command {
                             req.getParameterMap(),
                             SORTING_TYPE,
                             DISPLAY_RECORDS_NUMBER,
-                            CURRENT_PAGE));
+                            CURRENT_PAGE,
+                            ERROR_ATTR,
+                            USER_TYPE_DB));
         } catch (Exception e) {
             log.error("Can't delete user", e);
             throw new CommandException("Can't execute delete-user command", e);

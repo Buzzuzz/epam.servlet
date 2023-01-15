@@ -49,10 +49,6 @@ d
 4src/main/java/exceptions/NoSuchCommandException.java,0\2\028e4375e3bf649aa466717dd3fea63258d0d45a
 Y
 )src/main/webapp/WEB-INF/tlds/dateOnly.tld,0\e\0e7fea0966a9238a08f0000f4f9e6e9fcccef712
-d
-4src/main/java/controller/FrontControllerServlet.java,0\0\00a9046e2ef66bc9f8ba1eeee0429923cf89f37e
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 O
 src/main/webapp/pages/index.jsp,6\d\6d1882855c5a6ca4ae29c49e862e7c6d94997549
 V
@@ -64,8 +60,6 @@ $src/main/webapp/components/head.jspf,b\4\b4bbcf6255cf8a7378728c7e7c77f99bbaa1c
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-O
-src/main/webapp/pages/error.jsp,9\9\99913bd45b22c0fbd30ca43131af12570289d3fc
 T
 $src/main/webapp/components/menu.jspf,7\b\7b3498325fd7f8308d3b8c9dee5a7ad985d3dc0e
 [
@@ -74,10 +68,6 @@ $src/main/webapp/components/menu.jspf,7\b\7b3498325fd7f8308d3b8c9dee5a7ad985d3d
 +src/main/java/constants/PageAccessPool.java,5\4\54695d2c5685c7b81e39305f2b9ec7ebf339a981
 ^
 .src/main/java/exceptions/CommandException.java,7\3\739b5e6886453af23fa43e64cf81bdc7791d643d
-[
-+src/main/java/model/dao/impl/CourseDAO.java,a\1\a13e4ec39bf5bc822ea989ef7a6a7864f463855c
-Z
-*src/main/java/model/dao/impl/TopicDAO.java,b\5\b5494ae30f447bde28ec299205591a2719d840bc
 Y
 )src/main/java/utils/PasswordHashUtil.java,a\a\aa6a759da4fd7d9ae40385bed928034014f4af15
 V

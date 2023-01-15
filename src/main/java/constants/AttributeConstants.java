@@ -51,6 +51,7 @@ public interface AttributeConstants {
     String DISPLAY_RECORDS_NUMBER = "display";
     String CURRENT_PAGE = "page";
     String SORTING_TYPE = "sorting";
+    String FILTER = "filter";
     int DEFAULT_LIMIT = 5;
     int DEFAULT_OFFSET = 0;
     int DEFAULT_PAGE = 1;

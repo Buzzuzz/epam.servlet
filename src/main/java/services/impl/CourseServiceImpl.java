@@ -118,11 +118,11 @@ public class CourseServiceImpl implements CourseService {
                         userDAO
                                 .getAll(
                                         con,
-                                        userService.getUserCount(),
+                                        userService.getUserCount(null),
                                         0,
                                         USER_ID,
-                                        new HashMap<String, String>() {{
-                                            put(USER_TYPE_DB, "'" + UserType.TEACHER.name() + "'");
+                                        new HashMap<String, String[]>() {{
+                                            put(USER_TYPE_DB, new String[]{UserType.TEACHER.name()});
                                         }})
                                 .stream()
                                 .map(userService::getUserDTO)
@@ -248,11 +248,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public int getCourseCount() {
+    public int getCourseCount(Map<String, String[]> filters) {
         Connection con = null;
         try {
             con = getConnection();
-            return getRecordsCount(con, COURSE_ID, COURSE_TABLE);
+            return getRecordsCount(con, COURSE_ID, COURSE_TABLE, null);
         } finally {
             close(con);
         }

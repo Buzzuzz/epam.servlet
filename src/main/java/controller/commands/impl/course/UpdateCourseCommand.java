@@ -14,7 +14,6 @@ import static constants.AttributeConstants.*;
 
 @Log4j2
 public class UpdateCourseCommand implements Command {
-    // TODO implement
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {

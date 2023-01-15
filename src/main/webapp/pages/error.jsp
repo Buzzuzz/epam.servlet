@@ -8,6 +8,11 @@
     <h1 class="display-6 mb-5">
         <fmt:message key="error_message"/>
     </h1>
+
+    <jsp:scriptlet>
+    exception.printStackTrace(response.getWriter())
+    </jsp:scriptlet>
+
     <div class="row row-cols-1 w-100 justify-content-center">
         <div class="col w-75">
             <div class="card shadow mb-3">
@@ -39,16 +44,17 @@
                 </div>
             </div>
         </div>
-        <div class="col d-flex justify-content-center mb-3">
-            <div class="row w-25">
-                <div class="col">
-                    <button class="btn btn-primary w-100">
+        <div class="col mb-3">
+            <div class="row ms-3">
+                <div class="col justify-content-end d-flex">
+                    <button class="btn btn-primary w-25">
                         <a class="nav-link" id="home-button" href="${pageContext.request.contextPath}/pages/index.jsp">
                             <fmt:message key="home_page"/>
-                        </a></button>
+                        </a>
+                    </button>
                 </div>
-                <div class="col">
-                    <form action="${pageContext.request.contextPath}/controller">
+                <div class="col justify-content-start d-flex">
+                    <form action="${pageContext.request.contextPath}/controller" class="w-25">
                         <button class="btn btn-danger w-100" name="command" value="logout">
                             <fmt:message key="logout"/>
                         </button>

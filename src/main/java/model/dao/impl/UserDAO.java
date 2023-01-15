@@ -120,12 +120,11 @@ public class UserDAO implements DAO<User> {
 
     // TODO implement filtration
     @Override
-    public Collection<User> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters) {
+    public Collection<User> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) {
         List<User> users = new ArrayList<>();
         ResultSet resultSet = null;
         PreparedStatement statement = null;
         try {
-//            String temp = SQLQueries.FIND_USERS_PAGINATE;
             String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.USER_TABLE, filters);
             temp = temp.replaceFirst("\\?", sorting);
             statement = con.prepareStatement(temp);

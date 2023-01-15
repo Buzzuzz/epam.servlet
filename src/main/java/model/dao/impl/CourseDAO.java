@@ -71,7 +71,7 @@ public class CourseDAO implements DAO<Course> {
 
     // TODO implement filtration, pagination
     @Override
-    public Collection<Course> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters) {
+    public Collection<Course> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) {
         List<Course> courses = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;

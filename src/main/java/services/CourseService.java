@@ -7,6 +7,7 @@ import model.entities.Course;
 import services.dto.FullCourseDTO;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface CourseService {
@@ -17,5 +18,5 @@ public interface CourseService {
     ErrorType createCourse(FullCourseDTO courseDTO) throws ServiceException;
     long deleteCourse(long id) throws ServiceException;
     Optional<Course> getCourse(long id);
-    int getCourseCount();
+    int getCourseCount(Map<String, String[]> filters);
 }

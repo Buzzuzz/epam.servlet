@@ -60,7 +60,7 @@ public class UserCourseDAO implements DAO<UserCourse> {
     }
 
     @Override
-    public Collection<UserCourse> getAll(Connection con, int limit, int offset, String sorting, Map<String, String> filters) {
+    public Collection<UserCourse> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) {
         List<UserCourse> userCourseList = new ArrayList<>();
         PreparedStatement statement = null;
         ResultSet resultSet = null;

@@ -1,6 +1,7 @@
 package utils;
 
 import constants.AttributeConstants;
+import constants.RegexConstants;
 import constants.SQLQueries;
 import exceptions.DAOException;
 import exceptions.UtilException;
@@ -25,22 +26,24 @@ public class PaginationUtil {
     private PaginationUtil() {
     }
 
-    public static int getRecordsCount(Connection con, String countable, String table) throws DAOException {
+    public static int getRecordsCount(Connection con, String countable, String table, Map<String, String[]> filters) throws DAOException {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
         try {
-            String temp = SQLQueries.COUNT_RECORDS;
-            temp = temp.replaceFirst("\\?", countable);
-            temp = temp.replaceFirst("\\?", table);
-            statement = con.prepareStatement(temp);
+            StringBuilder sb = new StringBuilder(SQLQueries.COUNT_RECORDS);
+            sb.replace(sb.indexOf("?"), sb.indexOf("?") + 1, countable)
+                    .replace(sb.indexOf("?"), sb.indexOf("?") + 1, table).append(" ")
+                    .append(buildFilters(filters));
 
+            statement = con.prepareStatement(sb.toString());
             resultSet = statement.executeQuery();
             resultSet.next();
             return resultSet.getInt(1);
         } catch (Exception e) {
-            log.error("Can't count records in table " + table + " by " + countable + " field", e);
-            throw new DAOException("Can't count records in table " + table + " by " + countable + " field", e);
+            String message = String.format("Can't count records in table %s, by %s field", table, countable);
+            log.error(message, e);
+            throw new DAOException(message, e);
         } finally {
             closeAll(resultSet, statement);
         }
@@ -86,17 +89,37 @@ public class PaginationUtil {
         }
     }
 
-    public static String getEntityPaginationQuery(String table, Map<String, String> filters) {
-        StringBuilder sb = new StringBuilder();
-
-        sb.append(String.format("select * from %s ", table));
-        if (!filters.isEmpty()) {
-            sb.append("where ");
-            filters.forEach((k, v) -> sb.append(String.format("%s = %s, ", k, v)));
-            sb.deleteCharAt(sb.lastIndexOf(","));
+    public static String getFilter(HttpServletRequest req, String filterName) {
+        if (req.getParameter(filterName) != null) {
+            return req.getParameter(filterName).equals(NONE_ATTR) ? NONE_ATTR : req.getParameter(filterName);
         }
-        sb.append(" order by ? limit ? offset ?");
+        return NONE_ATTR;
+    }
 
-        return sb.toString();
+    public static String getEntityPaginationQuery(String table, Map<String, String[]> filters) {
+        return String.format("select * from %s ", table) +
+                buildFilters(filters) +
+                "order by ? limit ? offset ?";
+    }
+
+    private static String buildFilters(Map<String, String[]> filters) {
+        String builded = "";
+        if (filters != null && !filters.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("where ");
+
+            for (Map.Entry<String, String[]> entry : filters.entrySet()) {
+                if (entry.getValue() == null) continue;
+                for (String stringValue : entry.getValue()) {
+                    String filter = stringValue.matches(RegexConstants.IS_A_NUMBER) ?
+                            String.format(String.format("%s = %s, ", entry.getKey(), stringValue)) :
+                            String.format("%s = '%s', ", entry.getKey(), stringValue);
+                    sb.append(filter);
+                }
+            }
+            sb.deleteCharAt(sb.lastIndexOf(","));
+            builded = sb.toString();
+        }
+        return builded;
     }
 }

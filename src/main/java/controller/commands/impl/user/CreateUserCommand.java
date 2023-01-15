@@ -44,7 +44,8 @@ public class CreateUserCommand implements Command {
                             SORTING_TYPE,
                             DISPLAY_RECORDS_NUMBER,
                             CURRENT_PAGE,
-                            ERROR_ATTR));
+                            ERROR_ATTR,
+                            USER_TYPE_DB));
         } catch (ServiceException e) {
             log.error(e.getMessage(), e);
             throw new CommandException(e.getMessage(), e);

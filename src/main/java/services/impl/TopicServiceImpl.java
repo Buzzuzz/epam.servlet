@@ -127,7 +127,7 @@ public class TopicServiceImpl implements TopicService {
         Connection con = null;
         try {
             con = getConnection();
-            return getRecordsCount(con, TOPIC_ID, TOPIC_TABLE);
+            return getRecordsCount(con, TOPIC_ID, TOPIC_TABLE, null);
         } finally {
             close(con);
         }

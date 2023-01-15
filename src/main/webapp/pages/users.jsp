@@ -6,36 +6,68 @@
 <div class="container min-vh-100">
     <div class="row g-3">
         <div class="d-flex justify-content-center">
-            <div style="width: 75%">
+            <div class="w-100">
                 <form action="${pageContext.request.contextPath}/controller">
                     <div class="card shadow">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col">
                                     <div class="input-group">
                                         <span class="input-group-text">
                                             <fmt:message key="sort_by"/>
                                         </span>
                                         <select class="form-select" name="sorting" aria-label="Default select example">
                                             <option value="u_id" ${requestScope.sorting eq 'u_id' ? 'selected="selected"' : ''}>
-                                                <fmt:message key="id"/>
+                                                <fmt:message key="id"/> <fmt:message key="asc"/>
+                                            </option>
+                                            <option value="u_id desc" ${requestScope.sorting eq 'u_id desc' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="id"/> <fmt:message key="desc"/>
                                             </option>
                                             <option value="email"
                                             ${requestScope.sorting eq 'email' ? 'selected="selected"' : ''}>
-                                                <fmt:message key="email"/>
+                                                <fmt:message key="email"/> <fmt:message key="a_z"/>
+                                            </option>
+                                            <option value="email desc"
+                                            ${requestScope.sorting eq 'email desc' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="email"/> <fmt:message key="z_a"/>
                                             </option>
                                             <option value="first_name"
                                             ${requestScope.sorting eq 'first_name' ? 'selected="selected"' : ''}>
-                                                <fmt:message key="first_name"/>
+                                                <fmt:message key="first_name"/> <fmt:message key="a_z"/>
+                                            </option>
+                                            <option value="first_name desc"
+                                            ${requestScope.sorting eq 'first_name desc' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="first_name"/> <fmt:message key="z_a"/>
                                             </option>
                                             <option value="user_type"
                                             ${requestScope.sorting eq 'user_type' ? 'selected="selected"' : ''}>
-                                                <fmt:message key="user_type"/>
+                                                <fmt:message key="user_type"/> <fmt:message key="a_z"/>
+                                            </option>
+                                            <option value="user_type desc"
+                                            ${requestScope.sorting eq 'user_type desc' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="user_type"/> <fmt:message key="z_a"/>
                                             </option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <fmt:message key="user_type"/>
+                                        </span>
+                                        <select class="form-select" name="user_type">
+                                            <option value="none">
+                                                <fmt:message key="filter_all"/>
+                                            </option>
+                                            <c:forEach var="type" items="${requestScope.types}">
+                                                <option value="${type}"
+                                                ${requestScope.user_type eq type ? 'selected="selected"' : ''}
+                                                >${type}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-1">
                                     <input class="form-control" type="number" name="display" min="1"
                                            value="${requestScope.display != null ? requestScope.display : 5}"
                                            oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1"/>
@@ -89,6 +121,7 @@
                             <input hidden name="sorting" value="${requestScope.sorting}"/>
                             <input hidden name="page" value="${requestScope.page}">
                             <input hidden name="display" value="${requestScope.display}">
+                            <input hidden name="user_type" value="${requestScope.user_type}">
 
                             <tr>
                                 <th scope="row">
@@ -140,6 +173,7 @@
             <input hidden name="sorting" value="${requestScope.sorting}"/>
             <input hidden name="display" value="${requestScope.display}">
             <input hidden name="command" value="get-all-users"/>
+            <input hidden name="user_type" value="${requestScope.user_type}">
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
@@ -176,6 +210,7 @@
                     <input hidden name="sorting" value="${requestScope.sorting}"/>
                     <input hidden name="page" value="${requestScope.page}">
                     <input hidden name="display" value="${requestScope.display}">
+                    <input hidden name="user_type" value="${requestScope.user_type}">
 
                     <div class="modal-content">
                         <div class="modal-header border-0">

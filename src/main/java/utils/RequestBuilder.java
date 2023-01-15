@@ -42,11 +42,12 @@ public class RequestBuilder {
                 .append(command)
                 .append("&");
 
-        params.forEach((k, v) -> {
-            for (String s : v) {
-                builder.append(k).append("=").append(s).append("&");
+        for (Map.Entry<String, String[]> entry : params.entrySet()) {
+            if (entry.getValue() == null) continue;
+            for (String stringValue : entry.getValue()) {
+                builder.append(entry.getKey()).append("=").append(stringValue).append("&");
             }
-        });
+        }
         return builder.toString();
     }
 

@@ -20,10 +20,16 @@
                                     </span>
                                         <select class="form-select" aria-label="sorting" name="sorting">
                                             <option value="t_id" ${requestScope.sorting eq 't_id' ? 'selected="selected"' : ''}>
-                                                <fmt:message key="id"/>
+                                                <fmt:message key="id"/> <fmt:message key="asc"/>
+                                            </option>
+                                            <option value="t_id desc" ${requestScope.sorting eq 't_id desc' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="id"/> <fmt:message key="desc"/>
                                             </option>
                                             <option value="name" ${requestScope.sorting eq 'name' ? 'selected="selected"' : ''}>
-                                                <fmt:message key="topic_name"/>
+                                                <fmt:message key="topic_name"/> <fmt:message key="a_z"/>
+                                            </option>
+                                            <option value="name desc" ${requestScope.sorting eq 'name desc' ? 'selected="selected"' : ''}>
+                                                <fmt:message key="topic_name"/> <fmt:message key="z_a"/>
                                             </option>
                                         </select>
                                     </div>
