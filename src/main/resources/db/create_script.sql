@@ -18,7 +18,8 @@ CREATE TABLE "epam"."course" (
   "name" varchar(300) UNIQUE NOT NULL,
   "description" text NOT NULL,
   "start_date" date DEFAULT (now()),
-  "end_date" date DEFAULT (now())
+  "end_date" date DEFAULT (now()),
+  "duration" INT DEFAULT (0)
 );
 
 CREATE TABLE "epam"."topic" (

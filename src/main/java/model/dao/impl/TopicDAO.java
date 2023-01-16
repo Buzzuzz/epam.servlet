@@ -70,7 +70,6 @@ public class TopicDAO implements DAO<Topic> {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
-        // TODO implement filtration
         try {
             String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.TOPIC_TABLE, filters);
             temp = temp.replaceFirst("\\?", sorting);

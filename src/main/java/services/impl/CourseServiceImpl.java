@@ -14,11 +14,15 @@ import services.dto.UserDTO;
 
 
 import java.sql.Connection;
+import java.sql.Timestamp;
+import java.time.Duration;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import static model.dao.DataSource.*;
 import static exceptions.ErrorType.*;
+import static utils.FullCourseUtil.*;
 import static utils.PaginationUtil.*;
 import static constants.AttributeConstants.*;
 import static utils.ValidationUtil.*;
@@ -46,7 +50,6 @@ public class CourseServiceImpl implements CourseService {
         private static final CourseService service = new CourseServiceImpl();
     }
 
-    // TODO: refactor getAll method
     @Override
     public List<FullCourseDTO> getAllCourses(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters) {
         Connection con = null;
@@ -69,8 +72,8 @@ public class CourseServiceImpl implements CourseService {
 
         try {
             con = getConnection();
-            Topic currentTopic = getCurrentTopic(con, course.getC_id());
-            User currentTeacher = getCurrentTeacher(con, course.getC_id());
+            Topic currentTopic = getCurrentTopic(con, course.getC_id(), topicCourseDAO, topicDAO);
+            User currentTeacher = getCurrentTeacher(con, course.getC_id(), userCourseDAO, userDAO);
 
             FullCourseDTO courseDTO = new FullCourseDTO(
                     course.getC_id(),
@@ -80,10 +83,11 @@ public class CourseServiceImpl implements CourseService {
                     course.getDescription(),
                     course.getStart_date(),
                     course.getEnd_date(),
-                    getTopicsList(con),
+                    getDuration(course.getStart_date(), course.getEnd_date()),
+                    getTopicsList(con, topicDAO, topicService),
                     currentTopic.getName(),
                     currentTopic.getDescription(),
-                    getTeachersList(con),
+                    getTeachersList(con, userDAO, userService),
                     String.format("%s %s", currentTeacher.getFirst_name(), currentTeacher.getLast_name())
             );
             return Optional.of(courseDTO);
@@ -102,7 +106,8 @@ public class CourseServiceImpl implements CourseService {
                 courseDTO.getCourseName(),
                 courseDTO.getCourseDescription(),
                 courseDTO.getStartDate(),
-                courseDTO.getEndDate()
+                courseDTO.getEndDate(),
+                courseDTO.getDuration()
         );
     }
 
@@ -216,49 +221,5 @@ public class CourseServiceImpl implements CourseService {
         } finally {
             close(con);
         }
-    }
-
-    private Topic getCurrentTopic(Connection con, long courseId) throws DAOException {
-        Optional<TopicCourse> tco = topicCourseDAO.get(con, courseId);
-        if (tco.isPresent()) {
-            return topicDAO.get(con, tco.get().getT_id()).orElseThrow(() -> new DAOException("No such topic!"));
-        }
-        throw new DAOException("No such topic!");
-    }
-
-    private User getCurrentTeacher(Connection con, long courseId) throws DAOException {
-        Optional<UserCourse> uco = userCourseDAO.get(con, courseId);
-        if (uco.isPresent()) {
-            return userDAO.get(con, uco.get().getU_id()).orElseThrow(() ->
-                    new DAOException(String.format("No teacher-course relation (c_id): %s", courseId)));
-        }
-        throw new DAOException(String.format("No teacher-course relation (c_id): %s", courseId));
-    }
-
-    private List<UserDTO> getTeachersList(Connection con) {
-        return userDAO.getAll(
-                        con,
-                        userService.getUserCount(null),
-                        0,
-                        USER_ID,
-                        new HashMap<String, String[]>() {{
-                            put(USER_TYPE_DB, new String[]{UserType.TEACHER.name()});
-                        }})
-                .stream()
-                .map(userService::getUserDTO)
-                .collect(Collectors.toList());
-    }
-
-    private List<TopicDTO> getTopicsList(Connection con) {
-        return topicDAO
-                .getAll(
-                        con,
-                        topicService.getTopicCount(),
-                        0,
-                        TOPIC_ID,
-                        null)
-                .stream()
-                .map(topicService::getTopicDTO)
-                .collect(Collectors.toList());
     }
 }

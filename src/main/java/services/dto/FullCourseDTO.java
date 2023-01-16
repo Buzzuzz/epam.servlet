@@ -18,6 +18,7 @@ public class FullCourseDTO {
     private String courseDescription;
     private Timestamp startDate;
     private Timestamp endDate;
+    private long duration;
 
     // Topic data
     private List<TopicDTO> topics;

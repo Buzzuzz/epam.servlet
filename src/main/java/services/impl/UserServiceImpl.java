@@ -158,7 +158,6 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    // TODO implement filtration
     @Override
     public List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters) {
         Connection con = null;

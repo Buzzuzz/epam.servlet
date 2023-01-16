@@ -16,4 +16,5 @@ public class Course {
     private String description;
     private Timestamp start_date;
     private Timestamp end_date;
+    private long duration;
 }

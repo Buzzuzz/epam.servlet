@@ -59,7 +59,8 @@ public class CourseDAO implements DAO<Course> {
                         resultSet.getString("name"),
                         resultSet.getString("description"),
                         resultSet.getTimestamp("start_date"),
-                        resultSet.getTimestamp("end_date"));
+                        resultSet.getTimestamp("end_date"),
+                        resultSet.getLong("duration"));
             }
         } catch (Exception e) {
             log.error("Can't get course from database", e);
@@ -71,7 +72,6 @@ public class CourseDAO implements DAO<Course> {
         return Optional.ofNullable(course);
     }
 
-    // TODO implement filtration, pagination
     @Override
     public Collection<Course> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) {
         List<Course> courses = new ArrayList<>();
@@ -111,12 +111,13 @@ public class CourseDAO implements DAO<Course> {
         try {
             statement = con.prepareStatement(SQLQueries.UPDATE_COURSE, Statement.RETURN_GENERATED_KEYS);
 
-            int k = 1;
-            statement.setString(k++, entity.getName());
-            statement.setString(k++, entity.getDescription());
-            statement.setTimestamp(k++, entity.getStart_date());
-            statement.setTimestamp(k++, entity.getEnd_date());
-            statement.setLong(k, entity.getC_id());
+            int k = 0;
+            statement.setString(++k, entity.getName());
+            statement.setString(++k, entity.getDescription());
+            statement.setTimestamp(++k, entity.getStart_date());
+            statement.setTimestamp(++k, entity.getEnd_date());
+            statement.setLong(++k, entity.getDuration());
+            statement.setLong(++k, entity.getC_id());
 
             affectedRows = statement.executeUpdate();
         } catch (Exception e) {
@@ -161,11 +162,12 @@ public class CourseDAO implements DAO<Course> {
         try {
             statement = con.prepareStatement(SQLQueries.CREATE_COURSE, Statement.RETURN_GENERATED_KEYS);
 
-            int k = 1;
-            statement.setString(k++, entity.getName());
-            statement.setString(k++, entity.getDescription());
-            statement.setTimestamp(k++, entity.getStart_date());
-            statement.setTimestamp(k, entity.getEnd_date());
+            int k = 0;
+            statement.setString(++k, entity.getName());
+            statement.setString(++k, entity.getDescription());
+            statement.setTimestamp(++k, entity.getStart_date());
+            statement.setTimestamp(++k, entity.getEnd_date());
+            statement.setLong(++k, entity.getDuration());
 
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();

@@ -68,21 +68,32 @@
                             <textarea class="form-control" disabled aria-label="topicDescription"
                             >${requestScope.course.currentTopicDescription}</textarea>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="input-group">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="input-group">
                                     <span class="input-group-text">
                                         <fmt:message key="teacher"/>
                                     </span>
-                                    <select class="form-select" required
-                                            name="u_id" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}>
-                                        <c:forEach var="teacher" items="${requestScope.course.teachers}">
-                                            <option ${teacher.userId eq requestScope.course.currentTeacherId ? 'selected="selected"' : ''}
-                                                    value="${teacher.userId}">
-                                                    ${teacher.firstName} ${teacher.lastName}
-                                            </option>
-                                        </c:forEach>
-                                    </select>
+                                        <select class="form-select" required
+                                                name="u_id" ${sessionScope.userType eq 'ADMINISTRATOR' ? '' : 'disabled'}>
+                                            <c:forEach var="teacher" items="${requestScope.course.teachers}">
+                                                <option ${teacher.userId eq requestScope.course.currentTeacherId ? 'selected="selected"' : ''}
+                                                        value="${teacher.userId}">
+                                                        ${teacher.firstName} ${teacher.lastName}
+                                                </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <fmt:message key="course_duration"/>
+                                        </span>
+                                        <input class="form-control d-inline" disabled value="${requestScope.course.duration}">
+                                        <input class="form-control d-inline" disabled value="<fmt:message key="days"/>">
+                                    </div>
                                 </div>
                             </div>
                         </div>

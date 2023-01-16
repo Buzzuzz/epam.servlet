@@ -12,7 +12,10 @@ import services.CourseService;
 import services.dto.FullCourseDTO;
 import services.impl.CourseServiceImpl;
 import utils.DateFormatterUtil;
+import utils.FullCourseUtil;
 import utils.RequestBuilder;
+
+import java.sql.Timestamp;
 
 import static constants.CommandNameConstants.*;
 import static constants.AttributeConstants.*;
@@ -23,14 +26,16 @@ public class CreateCourseCommand implements Command {
     public String execute(HttpServletRequest req) throws CommandException {
         try {
             CourseService service = CourseServiceImpl.getInstance();
+            Timestamp start = DateFormatterUtil.getTimestamp(req.getParameter(COURSE_START_DATE));
+            Timestamp end = DateFormatterUtil.getTimestamp(req.getParameter(COURSE_END_DATE));
             FullCourseDTO courseDTO = new FullCourseDTO(
                     0,
                     Long.parseLong(req.getParameter(TOPIC_ID)),
                     Long.parseLong(req.getParameter(USER_ID)),
                     req.getParameter(COURSE_NAME),
                     req.getParameter(COURSE_DESCRIPTION),
-                    DateFormatterUtil.getTimestamp(req.getParameter(COURSE_START_DATE)),
-                    DateFormatterUtil.getTimestamp(req.getParameter(COURSE_END_DATE)),
+                    start, end,
+                    FullCourseUtil.getDuration(start, end),
                     null,
                     null,
                     null,

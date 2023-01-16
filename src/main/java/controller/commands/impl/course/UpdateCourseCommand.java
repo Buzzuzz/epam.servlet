@@ -10,7 +10,10 @@ import services.dto.FullCourseDTO;
 import services.impl.CourseServiceImpl;
 import utils.*;
 
+import java.sql.Timestamp;
+
 import static constants.AttributeConstants.*;
+import static utils.DateFormatterUtil.*;
 
 @Log4j2
 public class UpdateCourseCommand implements Command {
@@ -18,6 +21,8 @@ public class UpdateCourseCommand implements Command {
     public String execute(HttpServletRequest req) throws CommandException {
         try {
             CourseService service = CourseServiceImpl.getInstance();
+            Timestamp start = getTimestamp(req.getParameter(COURSE_START_DATE));
+            Timestamp end = getTimestamp(req.getParameter(COURSE_END_DATE));
 
             FullCourseDTO courseDTO = new FullCourseDTO(
                     Long.parseLong(req.getParameter(COURSE_ID)),
@@ -25,8 +30,8 @@ public class UpdateCourseCommand implements Command {
                     Long.parseLong(req.getParameter(USER_ID)),
                     req.getParameter(COURSE_NAME),
                     req.getParameter(COURSE_DESCRIPTION),
-                    DateFormatterUtil.getTimestamp(req.getParameter(COURSE_START_DATE)),
-                    DateFormatterUtil.getTimestamp(req.getParameter(COURSE_END_DATE)),
+                    start, end,
+                    FullCourseUtil.getDuration(start, end),
                     null,
                     null,
                     null,

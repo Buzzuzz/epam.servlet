@@ -21,12 +21,6 @@ y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/databas
 ‡.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/information_schema.FNRwLQ.meta,e/b/eb0c262b312d92b2618358953f9ec5df1056bf40
 ¯
 .idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/pg_catalog.0S1ZNQ.meta,9/a/9a44a08d064027682d74748ac6631a7d8f8baf0a
-j
-:.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml,3\d\3d85f972207e950affbb1f88c95863214abdd32d
-¤
-t.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta,4\2\424c97d7601bfa7487487c22d92c60c9c1984b3e
-¦
-v.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta,e\b\eb641fe5cb933ef0ff5b768296a673fc24ee2525
 ]
 -.idea/artifacts/epam_servlet_war_exploded.xml,3\a\3ad6d356b7a42a0b4e7530b1623775202a584b38
 ^
@@ -41,8 +35,6 @@ o
 .src/main/java/exceptions/ServiceException.java,b\4\b4ca330aa5049a6825071c4acb6c5365ed7b5379
 Z
 *src/main/java/exceptions/DAOException.java,e\7\e7d66eba7cc963d1fe73334e26d2464f639dda2f
-X
-(src/main/java/model/entities/Course.java,9\1\91bc0d24d35a2ef119006c5b93d86b458766a7f8
 W
 'src/main/java/model/entities/Topic.java,5\6\562f929a6b0cecef87b489129a983cbb25503a91
 d
