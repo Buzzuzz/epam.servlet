@@ -1,10 +1,12 @@
 package model.dao.impl;
 
+import constants.AttributeConstants;
 import lombok.extern.log4j.Log4j2;
 import model.dao.DAO;
 import exceptions.DAOException;
 import constants.SQLQueries;
 import model.entities.Course;
+import utils.PaginationUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -77,11 +79,19 @@ public class CourseDAO implements DAO<Course> {
         ResultSet resultSet = null;
 
         try {
-            statement = con.prepareStatement(SQLQueries.FIND_ALL_COURSES_IDS);
+            String temp = PaginationUtil.getEntityPaginationQuery(SQLQueries.JOIN_COURSE_TOPIC_USER_TABLE, filters);
+            temp = temp.replaceFirst("\\?", sorting);
+
+            statement = con.prepareStatement(temp);
+
+            int k = 0;
+            statement.setInt(++k, limit);
+            statement.setInt(++k, offset);
+            log.info("course dao query " + statement);
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                get(con, resultSet.getLong("c_id")).ifPresent(courses::add);
+                get(con, resultSet.getLong(AttributeConstants.COURSE_ID)).ifPresent(courses::add);
             }
         } catch (Exception e) {
             log.error("Can't get all courses", e);

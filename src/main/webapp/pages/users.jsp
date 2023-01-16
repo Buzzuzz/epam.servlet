@@ -10,7 +10,7 @@
                 <form action="${pageContext.request.contextPath}/controller">
                     <div class="card shadow">
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row w-100">
                                 <div class="col">
                                     <div class="input-group">
                                         <span class="input-group-text">

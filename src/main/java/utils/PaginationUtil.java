@@ -13,7 +13,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Map;
-import java.util.StringJoiner;
 import java.util.stream.IntStream;
 
 import static constants.AttributeConstants.*;
@@ -112,12 +111,12 @@ public class PaginationUtil {
                 if (entry.getValue() == null) continue;
                 for (String stringValue : entry.getValue()) {
                     String filter = stringValue.matches(RegexConstants.IS_A_NUMBER) ?
-                            String.format(String.format("%s = %s, ", entry.getKey(), stringValue)) :
-                            String.format("%s = '%s', ", entry.getKey(), stringValue);
+                            String.format(String.format("%s = %s and ", entry.getKey(), stringValue)) :
+                            String.format("%s = '%s' and ", entry.getKey(), stringValue);
                     sb.append(filter);
                 }
             }
-            sb.deleteCharAt(sb.lastIndexOf(","));
+            sb.delete(sb.lastIndexOf("and"), sb.length());
             builded = sb.toString();
         }
         return builded;

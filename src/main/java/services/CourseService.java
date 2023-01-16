@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface CourseService {
-    List<FullCourseDTO> getAllCourses();
+    List<FullCourseDTO> getAllCourses(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters);
     Optional<FullCourseDTO> getCourseDTO(Course course);
     Course getCourseFromDTO (FullCourseDTO courseDTO);
     ErrorType updateCourse(FullCourseDTO courseDTO) throws ServiceException;

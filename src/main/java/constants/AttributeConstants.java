@@ -56,6 +56,10 @@ public interface AttributeConstants {
     int DEFAULT_OFFSET = 0;
     int DEFAULT_PAGE = 1;
 
+    // SQL
+    String USER_COURSE_TABLE = "epam.user_course";
+    String TOPIC_COURSE_TABLE = "epam.topic_course";
+
     // Sorting
     // If sorting field is not used, it doesn't mean it won't be
     // Please don't touch them

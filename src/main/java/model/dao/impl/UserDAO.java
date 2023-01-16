@@ -118,7 +118,6 @@ public class UserDAO implements DAO<User> {
         return Optional.ofNullable(user);
     }
 
-    // TODO implement filtration
     @Override
     public Collection<User> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) {
         List<User> users = new ArrayList<>();
@@ -135,18 +134,7 @@ public class UserDAO implements DAO<User> {
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                k = 0;
-                users.add(new User(
-                        resultSet.getLong(++k),
-                        resultSet.getString(++k),
-                        resultSet.getString(++k),
-                        resultSet.getString(++k),
-                        resultSet.getString(++k),
-                        resultSet.getString(++k),
-                        UserType.valueOf(resultSet.getString(++k)),
-                        resultSet.getBoolean(++k),
-                        resultSet.getBoolean(++k)
-                ));
+                get(con, resultSet.getLong(AttributeConstants.USER_ID)).ifPresent(users::add);
             }
             return users;
         } catch (Exception e) {

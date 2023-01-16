@@ -9,7 +9,7 @@ public interface SQLQueries {
     // Topic
 
     // Course
-
+    String JOIN_COURSE_TOPIC_USER_TABLE = "(epam.user_course natural join epam.course natural join epam.topic_course)";
     // TopicCourse
 
     // UserCourse
