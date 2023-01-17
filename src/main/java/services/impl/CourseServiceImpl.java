@@ -84,6 +84,9 @@ public class CourseServiceImpl implements CourseService {
                     course.getStart_date(),
                     course.getEnd_date(),
                     getDuration(course.getStart_date(), course.getEnd_date()),
+                    getCourseCount(new HashMap<String, String[]>() {{
+                        put(COURSE_ID, new String[]{String.valueOf(course.getC_id())});
+                    }}),
                     getTopicsList(con, topicDAO, topicService),
                     currentTopic.getName(),
                     currentTopic.getDescription(),
@@ -162,7 +165,7 @@ public class CourseServiceImpl implements CourseService {
                         courseDTO.getCurrentTeacherId(),
                         generatedId,
                         courseDTO.getStartDate(),
-                        0
+                        -1
                 ));
 
                 topicCourseDAO.save(con, new TopicCourse(

@@ -36,6 +36,7 @@ public class CreateCourseCommand implements Command {
                     req.getParameter(COURSE_DESCRIPTION),
                     start, end,
                     FullCourseUtil.getDuration(start, end),
+                    0,
                     null,
                     null,
                     null,

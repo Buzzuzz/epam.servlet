@@ -10,10 +10,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import model.entities.Course;
 import services.CourseService;
+import services.dto.FullCourseDTO;
 import services.impl.CourseServiceImpl;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static constants.AttributeConstants.*;
 import static utils.PaginationUtil.*;
@@ -36,6 +37,7 @@ public class GetAllCoursesCommand implements Command {
             if (!topicFilter.equals(NONE_ATTR)) {
                 filters.put(String.format("%s.%s", TOPIC_COURSE_TABLE, TOPIC_ID), new String[]{topicFilter});
             }
+            filters.put(String.format("%s.%s", USER_COURSE_TABLE, FINAL_MARK), new String[]{"-1"});
 
             int[] pages = getPages(limit, service.getCourseCount(filters));
             int currentPage = Math.min(getCurrentPage(req), pages.length);
@@ -48,7 +50,25 @@ public class GetAllCoursesCommand implements Command {
             req.setAttribute(TOPIC_ID, topicFilter);
             req.setAttribute(USER_ID, teacherFilter);
 
-            req.setAttribute(COURSES_ATTR, service.getAllCourses(limit, pages, currentPage, offset, sorting, filters));
+            List<FullCourseDTO> temp = service.getAllCourses(limit, pages, currentPage, offset, COURSE_ID, filters);
+            switch (sorting) {
+                case ENROLLED_ASC_SORTING:
+                    req.setAttribute(COURSES_ATTR, temp
+                            .stream()
+                            .sorted(Comparator.comparingLong(FullCourseDTO::getEnrolled))
+                            .collect(Collectors.toList()));
+                    break;
+                case ENROLLED_DESC_SORTING:
+                    req.setAttribute(COURSES_ATTR, temp
+                            .stream()
+                            .sorted(Comparator.comparingLong(FullCourseDTO::getEnrolled).reversed())
+                            .collect(Collectors.toList()));
+                    break;
+                default:
+                    req.setAttribute(COURSES_ATTR, service.getAllCourses(limit, pages, currentPage, offset, sorting, filters));
+                    break;
+            }
+
             return PageConstants.COURSES_PAGE;
         } catch (UtilException e) {
             log.error(e.getMessage(), e);

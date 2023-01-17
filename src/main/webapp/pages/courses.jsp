@@ -34,10 +34,10 @@
                                 <option value="duration desc" ${requestScope.sorting eq 'duration desc' ? 'selected="selected"' : ''}>
                                     <fmt:message key="course_duration"/> <fmt:message key="desc"/>
                                 </option>
-                                <option value="" ${requestScope.sorting eq '' ? 'selected="selected"' : ''}>
+                                <option value="enroll-asc" ${requestScope.sorting eq 'enroll-asc' ? 'selected="selected"' : ''}>
                                     <fmt:message key="enrolled_students"/> <fmt:message key="asc"/>
                                 </option>
-                                <option value="" ${requestScope.sorting eq '' ? 'selected="selected"' : ''}>
+                                <option value="enroll-desc" ${requestScope.sorting eq 'enroll-desc' ? 'selected="selected"' : ''}>
                                     <fmt:message key="enrolled_students"/> <fmt:message key="desc"/>
                                 </option>
                             </select>
@@ -134,6 +134,9 @@
                             </th>
                             <th style="width: 10%">
                                 <fmt:message key="course_duration"/> / <fmt:message key="days"/>
+                            </th>
+                            <th style="width: 10%">
+                                <fmt:message key="enrolled_students"/>
                             </th>
                             <th scope="colgroup" colspan="3" style="width:17%">
                                 <fmt:message key="actions"/>

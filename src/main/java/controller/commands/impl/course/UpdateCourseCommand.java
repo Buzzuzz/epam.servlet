@@ -11,6 +11,7 @@ import services.impl.CourseServiceImpl;
 import utils.*;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 
 import static constants.AttributeConstants.*;
 import static utils.DateFormatterUtil.*;
@@ -32,6 +33,9 @@ public class UpdateCourseCommand implements Command {
                     req.getParameter(COURSE_DESCRIPTION),
                     start, end,
                     FullCourseUtil.getDuration(start, end),
+                    service.getCourseCount(new HashMap<String, String[]>() {{
+                        put(COURSE_ID, new String[]{req.getParameter(COURSE_ID)});
+                    }}),
                     null,
                     null,
                     null,

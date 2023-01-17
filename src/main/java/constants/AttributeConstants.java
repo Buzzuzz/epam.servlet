@@ -45,7 +45,9 @@ public interface AttributeConstants {
     String COURSE_DTO = "course";
     String COURSE_START_DATE = "startDate";
     String COURSE_END_DATE = "endDate";
-    String COURSE_DURATION = "duration";
+    String ENROLLED_ASC_SORTING = "enroll-asc";
+    String ENROLLED_DESC_SORTING = "enroll-desc";
+    String FINAL_MARK = "final_mark";
 
     // Pagination
     String RECORDS = "records";

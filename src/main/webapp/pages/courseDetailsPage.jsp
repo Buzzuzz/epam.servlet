@@ -17,10 +17,17 @@
                                     <fmt:message key="end_date_error"/>
                                 </div>
                             </c:if>
-                            <fmt:message key="course"/> #${requestScope.course.courseId}
+                            <div class="row text-start">
+                                <div class="col">
+                                    <fmt:message key="course"/> #${requestScope.course.courseId}
+                                </div>
+                                <div class="col">
+                                    <fmt:message key="enrolled_students"/>: ${requestScope.course.enrolled eq 0 ? 0 : requestScope.course.enrolled - 1}
+                                </div>
+                            </div>
                         </h5>
                     </div>
-                    <form action="${pageContext.request.contextPath}/controller" class="d-grid gap-2">
+                    <form action="${pageContext.request.contextPath}/controller" class="d-grid gap-3">
                         <input hidden name="c_id" value="${requestScope.course.courseId}"/>
                         <div class="row">
                             <div class="col-7">
@@ -91,7 +98,8 @@
                                         <span class="input-group-text">
                                             <fmt:message key="course_duration"/>
                                         </span>
-                                        <input class="form-control d-inline" disabled value="${requestScope.course.duration}">
+                                        <input class="form-control d-inline" disabled
+                                               value="${requestScope.course.duration}">
                                         <input class="form-control d-inline" disabled value="<fmt:message key="days"/>">
                                     </div>
                                 </div>
@@ -123,13 +131,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row justify-content-center">
                             <c:if test="${sessionScope.userType eq 'STUDENT'}">
-                                <div class="col">
-                                    <button class="btn btn-info w-100" name="command" value="enroll">
-                                        <fmt:message key="enroll"/>
-                                    </button>
-                                </div>
+                                <button class="btn btn-info w-50" name="command" value="enroll">
+                                    <fmt:message key="enroll"/>
+                                </button>
+
                             </c:if>
                             <c:if test="${sessionScope.userType eq 'ADMINISTRATOR'}">
                                 <div class="col">

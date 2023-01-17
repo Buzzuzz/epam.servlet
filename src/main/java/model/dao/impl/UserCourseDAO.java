@@ -32,6 +32,7 @@ public class UserCourseDAO implements DAO<UserCourse> {
         try {
             statement = con.prepareStatement(SQLQueries.FIND_USER_COURSE_BY_C_ID);
             statement.setLong(1, id);
+            statement.setLong(2, -1);
             resultSet = statement.executeQuery();
 
             int k = 0;
