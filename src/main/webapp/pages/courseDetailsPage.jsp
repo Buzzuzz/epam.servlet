@@ -17,12 +17,27 @@
                                     <fmt:message key="end_date_error"/>
                                 </div>
                             </c:if>
+                            <c:if test="${sessionScope.error.value eq 'none'}">
+                                <div class="alert bg-success">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="success"/>
+                                </div>
+                            </c:if>
+                            <c:if test="${sessionScope.error.value eq 'db-error'}">
+                                <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="db_error"/>
+                                </div>
+                            </c:if>
                             <div class="row text-start">
                                 <div class="col">
                                     <fmt:message key="course"/> #${requestScope.course.courseId}
                                 </div>
                                 <div class="col">
-                                    <fmt:message key="enrolled_students"/>: ${requestScope.course.enrolled eq 0 ? 0 : requestScope.course.enrolled - 1}
+                                    <fmt:message
+                                            key="enrolled_students"/>: ${requestScope.course.enrolled eq 0 ? 0 : requestScope.course.enrolled - 1}
                                 </div>
                             </div>
                         </h5>
@@ -159,6 +174,7 @@
         </div>
     </div>
 </div>
+${sessionScope.remove("error")}
 <%@include file="../components/footer.jspf" %>
 </body>
 </html>

@@ -14,6 +14,7 @@ public enum ErrorType {
     PASSWORD (PASSWORD_ATTR),
     PASSWORD_REPEAT (PASSWORD_REPEAT_ATTR),
     PHONE_NUMBER (AttributeConstants.PHONE_NUMBER),
-    END_DATE (COURSE_END_DATE);
+    END_DATE (COURSE_END_DATE),
+    DB_ERROR (AttributeConstants.DB_ERROR);
     private final String value;
 }

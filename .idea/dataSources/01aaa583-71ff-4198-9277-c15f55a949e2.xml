@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1313</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1342</IntrospectionStateNumber>
       <ServerVersion>15.1</ServerVersion>
       <StartupTime>1673728326</StartupTime>
       <TimeZones>true ACDT
@@ -799,7 +799,7 @@ false Zulu
 13183||10|C|G
 13183||-9223372036854775808|U|G
 13183||10|U|G</Grants>
-      <IntrospectionStateNumber>1313</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1342</IntrospectionStateNumber>
       <ObjectId>16398</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4209,7 +4209,7 @@ false Zulu
       <ValidatorSchema>pg_catalog</ValidatorSchema>
     </language>
     <schema id="261" parent="2" name="epam">
-      <IntrospectionStateNumber>1313</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1342</IntrospectionStateNumber>
       <ObjectId>16400</ObjectId>
       <StateNumber>739</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4228,7 +4228,7 @@ false Zulu
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1313</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1342</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4654,12 +4654,27 @@ pg_catalog</CollationParentNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="318" parent="273" name="user_course_pkey">
+    <index id="318" parent="273" name="user_course_u_id_c_id_key">
+      <ColNames>u_id
+c_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16541</ObjectId>
+      <StateNumber>1341</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="319" parent="273" name="user_course_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16444</ObjectId>
       <Primary>1</Primary>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16443</UnderlyingIndexId>
+    </key>
+    <key id="320" parent="273" name="user_course_u_id_c_id_key">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16542</ObjectId>
+      <StateNumber>1341</StateNumber>
+      <UnderlyingIndexId>16541</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

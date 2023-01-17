@@ -33,7 +33,8 @@ CREATE TABLE "epam"."user_course" (
   "u_id" int,
   "c_id" int,
   "registration_date" date NOT NULL DEFAULT (now()),
-  "final_mark" decimal
+  "final_mark" decimal,
+  UNIQUE (u_id, c_id)
 );
 
 CREATE TABLE "epam"."topic_course" (

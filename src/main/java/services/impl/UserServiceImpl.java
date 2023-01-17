@@ -5,8 +5,10 @@ import exceptions.ServiceException;
 import lombok.extern.log4j.Log4j2;
 import exceptions.DAOException;
 import model.dao.DataSource;
+import model.dao.impl.UserCourseDAO;
 import model.dao.impl.UserDAO;
 import model.entities.User;
+import model.entities.UserCourse;
 import model.entities.UserType;
 import services.UserService;
 import services.dto.UserDTO;
@@ -14,7 +16,7 @@ import utils.PaginationUtil;
 import utils.PasswordHashUtil;
 
 import java.sql.Connection;
-import java.util.HashMap;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -27,7 +29,8 @@ import static exceptions.ErrorType.*;
 
 @Log4j2
 public class UserServiceImpl implements UserService {
-    private static final UserDAO dao = UserDAO.getInstance();
+    private static final UserDAO userDAO = UserDAO.getInstance();
+    private static final UserCourseDAO userCourseDAO = UserCourseDAO.getInstance();
 
     private static class Holder {
         private static final UserService service = new UserServiceImpl();
@@ -44,7 +47,7 @@ public class UserServiceImpl implements UserService {
     public User logIn(String email, String password) throws ServiceException {
         try {
             Connection con = DataSource.getConnection();
-            Optional<User> daoResult = dao.getByEmail(con, email);
+            Optional<User> daoResult = userDAO.getByEmail(con, email);
             close(con);
 
             if (daoResult.isPresent()) {
@@ -72,7 +75,7 @@ public class UserServiceImpl implements UserService {
             Connection con = null;
             try {
                 con = DataSource.getConnection();
-                dao.save(con, user);
+                userDAO.save(con, user);
                 log.info(String.format("User %s registered successfully!", user.getEmail()));
                 return NONE;
             } catch (DAOException e) {
@@ -95,7 +98,7 @@ public class UserServiceImpl implements UserService {
                     validatePhoneNumber(user.getPhone()).equals(NONE)) {
                 user.setPassword(user.getPassword().equals("") ? oldPassword :
                         PasswordHashUtil.encode(user.getPassword()));
-                dao.update(con, user);
+                userDAO.update(con, user);
                 log.debug("User " + user.getEmail() + " updated successful");
                 return NONE;
             }
@@ -163,7 +166,7 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
         try {
             con = getConnection();
-            return dao
+            return userDAO
                     .getAll(con, limit, offset, sorting, filters)
                     .stream()
                     .map(this::getUserDTO)
@@ -178,7 +181,7 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
         try {
             con = getConnection();
-            return dao.delete(con, id);
+            return userDAO.delete(con, id);
         } catch (DAOException e) {
             throw new ServiceException(e);
         } finally {
@@ -193,9 +196,9 @@ public class UserServiceImpl implements UserService {
         try {
             con = getConnection();
             Connection finalCon = con;
-            dao.get(con, id).ifPresent(user -> {
+            userDAO.get(con, id).ifPresent(user -> {
                 user.set_blocked(status);
-                generated[0] = dao.update(finalCon, user);
+                generated[0] = userDAO.update(finalCon, user);
             });
         } catch (Exception e) {
             log.error("Can't lock user: " + id, e);
@@ -211,7 +214,7 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
         try {
             con = getConnection();
-            return dao.get(con, id);
+            return userDAO.get(con, id);
         } finally {
             close(con);
         }
@@ -228,7 +231,7 @@ public class UserServiceImpl implements UserService {
             ErrorType error = signUp(userDTO, password, repeatPassword);
             if (error.equals(NONE)) {
                 Connection finalCon = con;
-                dao.getByEmail(con, user.getEmail()).ifPresent(u -> dao.update(finalCon, user));
+                userDAO.getByEmail(con, user.getEmail()).ifPresent(u -> userDAO.update(finalCon, user));
                 commit(con);
             }
             setAutoCommit(con, true);

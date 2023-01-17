@@ -10,6 +10,7 @@ public interface AttributeConstants {
     String LOCALE_EN = "en";
     String ENCODING_ATTR = "encoding";
     String ENCODING_UTF_8 = "UTF-8";
+    String DB_ERROR = "db-error";
 
     // Forms from View layer
     String FIRST_NAME = "f-name";

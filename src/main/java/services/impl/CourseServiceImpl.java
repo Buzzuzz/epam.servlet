@@ -202,6 +202,21 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public ErrorType enrollUser(long userId, long courseId) {
+        Connection con = null;
+        try {
+            con = getConnection();
+            userCourseDAO.save(con, new UserCourse(0, userId, courseId, new Timestamp(System.currentTimeMillis()), 0));
+            return NONE;
+        } catch (DAOException e) {
+            log.error(e.getMessage(), e);
+            return ErrorType.DB_ERROR;
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
     public Optional<Course> getCourse(long id) {
         Connection con = null;
         try {
