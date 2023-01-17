@@ -9,23 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="implemented enrolled students count, filtration">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/EnrollUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="enroll student command">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/exceptions/ErrorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/exceptions/ErrorType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/EnrollUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/EnrollUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/GetAllCoursesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/GetAllCoursesCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -365,14 +359,7 @@
       <workItem from="1673650582156" duration="8946000" />
       <workItem from="1673726368843" duration="1539000" />
       <workItem from="1673728380454" duration="17912000" />
-      <workItem from="1673785466732" duration="56937000" />
-    </task>
-    <task id="LOCAL-00018" summary="test commit from linux">
-      <created>1671223763538</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1671223763538</updated>
+      <workItem from="1673785466732" duration="64276000" />
     </task>
     <task id="LOCAL-00019" summary="created course dao">
       <created>1671278194659</created>
@@ -710,7 +697,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673917645743</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="enroll student command">
+      <created>1673959946891</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1673959946891</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -731,7 +725,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implementing courses, bug fix of locale change" />
     <MESSAGE value="custom tags (.tld and tag file) added, started courses page implementation" />
     <MESSAGE value="new command to get detailed info about course, user_course DAO implementation" />
     <MESSAGE value="excluded logs, topic_course DAO implementation" />
@@ -756,7 +749,8 @@
     <MESSAGE value="filtration done, courses pagination, jsp changes" />
     <MESSAGE value="course duration added" />
     <MESSAGE value="implemented enrolled students count, filtration" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented enrolled students count, filtration" />
+    <MESSAGE value="enroll student command" />
+    <option name="LAST_COMMIT_MESSAGE" value="enroll student command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -784,5 +778,6 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/epam_servlet$Tomcat_10_0_27.ic" NAME="Tomcat 10.0.27 Coverage Results" MODIFIED="1673966359880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

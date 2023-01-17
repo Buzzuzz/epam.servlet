@@ -9,7 +9,6 @@
         <div class="card shadow mb-3">
             <div class="card-body">
                 <div class="row justify-items-center">
-                    <!-- // TODO sorting options-->
                     <div class="col">
                         <div class="input-group">
                             <span class="input-group-text">
@@ -54,7 +53,7 @@
                                 </option>
                                 <c:forEach var="teacher" items="${requestScope.courses[0].teachers}">
                                     <option value="${teacher.userId}"
-                                    ${requestScope.u_id == 'none' ? '' : requestScope.u_id == teacher.userId ? 'selected="selected"' : ''}>
+                                        ${requestScope.u_id == 'none' ? '' : requestScope.u_id == teacher.userId ? 'selected="selected"' : ''}>
                                             ${teacher.firstName} ${teacher.lastName}
                                     </option>
                                 </c:forEach>
@@ -72,7 +71,7 @@
                                 </option>
                                 <c:forEach var="topic" items="${requestScope.courses[0].topics}">
                                     <option value="${topic.topicId}"
-                                    ${requestScope.t_id eq 'none' ? '' : requestScope.t_id eq topic.topicId ? 'selected="selected"' : ''}>
+                                        ${requestScope.t_id eq 'none' ? '' : requestScope.t_id eq topic.topicId ? 'selected="selected"' : ''}>
                                             ${topic.topicName}
                                     </option>
                                 </c:forEach>
@@ -81,8 +80,8 @@
                     </div>
                     <div class="col-2">
                         <input class="form-control" type="number" name="display" min="1"
-                                value="${requestScope.display != null ? requestScope.display : 5}"
-                                oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1"/>
+                               value="${requestScope.display != null ? requestScope.display : 5}"
+                               oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1"/>
                     </div>
                 </div>
             </div>
@@ -105,6 +104,21 @@
                                     <fmt:message key="new_course"/>
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
+                            </div>
+                        </c:if>
+                        <c:if test="${sessionScope.userType != 'ADMINISTRATOR'}">
+                            <div class="col">
+                                <div class="btn-primary w-100 rounded d-flex justify-content-center">
+                                    <div class="form-check form-switch pt-2" style="height: 36px">
+                                        <input class="form-check-input me-3" type="checkbox" role="switch"
+                                               id="flexSwitchCheckDefault" style="transform: scale(1.3)"
+                                               name="switch"
+                                            ${requestScope.get("switch") == 'on' ? 'checked' : ''}>
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">
+                                            <fmt:message key="my_courses"/>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </c:if>
                     </div>

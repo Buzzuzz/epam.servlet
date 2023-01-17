@@ -11,6 +11,7 @@ public interface AttributeConstants {
     String ENCODING_ATTR = "encoding";
     String ENCODING_UTF_8 = "UTF-8";
     String DB_ERROR = "db-error";
+    String SWITCH = "switch";
 
     // Forms from View layer
     String FIRST_NAME = "f-name";
@@ -49,6 +50,7 @@ public interface AttributeConstants {
     String ENROLLED_ASC_SORTING = "enroll-asc";
     String ENROLLED_DESC_SORTING = "enroll-desc";
     String FINAL_MARK = "final_mark";
+    String USER_COURSES_ONLY = "user-courses-only";
 
     // Pagination
     String RECORDS = "records";

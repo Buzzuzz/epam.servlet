@@ -7,8 +7,11 @@ import exceptions.CommandException;
 import exceptions.ServiceException;
 import exceptions.UtilException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.log4j.Log4j2;
 import model.entities.Course;
+import model.entities.User;
+import model.entities.UserType;
 import services.CourseService;
 import services.dto.FullCourseDTO;
 import services.impl.CourseServiceImpl;
@@ -25,6 +28,7 @@ public class GetAllCoursesCommand implements Command {
     public String execute(HttpServletRequest req) throws CommandException {
         try {
             CourseService service = CourseServiceImpl.getInstance();
+            User currentUser = (User) req.getSession().getAttribute(LOGGED_USER_ATTR);
             int limit = getLimit(req);
             String sorting = getSortingType(req, Course.class);
             String teacherFilter = getFilter(req, USER_ID);
@@ -37,12 +41,24 @@ public class GetAllCoursesCommand implements Command {
             if (!topicFilter.equals(NONE_ATTR)) {
                 filters.put(String.format("%s.%s", TOPIC_COURSE_TABLE, TOPIC_ID), new String[]{topicFilter});
             }
-            filters.put(String.format("%s.%s", USER_COURSE_TABLE, FINAL_MARK), new String[]{"-1"});
+
+            String switchPosition = getFilter(req, SWITCH);
+            if (!switchPosition.equals(NONE_ATTR)) {
+                String[] userIdFilter = filters.get(USER_ID) == null ? new String[0] : filters.get(USER_ID);
+                userIdFilter = Arrays.copyOf(userIdFilter, userIdFilter.length + 1);
+                userIdFilter[userIdFilter.length - 1] = String.valueOf(currentUser.getU_id());
+                filters.put(String.format("%s.%s", USER_COURSE_TABLE, USER_ID), userIdFilter);
+            } else {
+                filters.put(String.format("%s.%s", USER_COURSE_TABLE, FINAL_MARK), new String[]{"-1"});
+            }
+
+            log.info(req.getParameter(SWITCH));
 
             int[] pages = getPages(limit, service.getCourseCount(filters));
             int currentPage = Math.min(getCurrentPage(req), pages.length);
             int offset = getOffset(limit, currentPage);
 
+            req.setAttribute(SWITCH, switchPosition);
             req.setAttribute(SORTING_TYPE, sorting);
             req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
             req.setAttribute(CURRENT_PAGE, currentPage);

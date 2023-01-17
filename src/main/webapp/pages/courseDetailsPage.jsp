@@ -31,18 +31,27 @@
                                     <fmt:message key="db_error"/>
                                 </div>
                             </c:if>
-                            <div class="row text-start">
+                            <div class="row mb-3">
                                 <div class="col">
-                                    <fmt:message key="course"/> #${requestScope.course.courseId}
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <fmt:message key="course"/>
+                                        </span>
+                                        <input disabled class="form-control" value="#${requestScope.course.courseId}">
+                                    </div>
                                 </div>
                                 <div class="col">
-                                    <fmt:message
-                                            key="enrolled_students"/>: ${requestScope.course.enrolled eq 0 ? 0 : requestScope.course.enrolled - 1}
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <fmt:message key="enrolled_students"/>:
+                                        </span>
+                                        <input disabled class="form-control" value="${requestScope.course.enrolled eq 0 ? 0 : requestScope.course.enrolled - 1}">
+                                    </div>
                                 </div>
                             </div>
                         </h5>
                     </div>
-                    <form action="${pageContext.request.contextPath}/controller" class="d-grid gap-3">
+                    <form action="${pageContext.request.contextPath}/controller" class="d-grid gap-3" method="post">
                         <input hidden name="c_id" value="${requestScope.course.courseId}"/>
                         <div class="row">
                             <div class="col-7">
@@ -148,7 +157,11 @@
                         </div>
                         <div class="row justify-content-center">
                             <c:if test="${sessionScope.userType eq 'STUDENT'}">
-                                <button class="btn btn-info w-50" name="command" value="enroll">
+                                <jsp:useBean id="today" class="java.util.Date" />
+                                <button class="btn btn-info w-50" name="command" value="enroll"
+                                <c:if test="${today.time gt requestScope.course.startDate.time}">
+                                    disabled
+                                </c:if>>
                                     <fmt:message key="enroll"/>
                                 </button>
 

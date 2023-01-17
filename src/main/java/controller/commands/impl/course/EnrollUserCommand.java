@@ -1,18 +1,13 @@
 package controller.commands.impl.course;
 
 import constants.AttributeConstants;
-import constants.CommandNameConstants;
 import controller.commands.Command;
 import exceptions.CommandException;
 import exceptions.ErrorType;
 import jakarta.servlet.http.HttpServletRequest;
 import model.entities.User;
-import services.UserService;
 import services.impl.CourseServiceImpl;
-import services.impl.UserServiceImpl;
 import utils.RequestBuilder;
-
-import java.util.HashMap;
 
 import static constants.AttributeConstants.*;
 import static constants.CommandNameConstants.*;

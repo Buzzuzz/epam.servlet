@@ -20,7 +20,7 @@
             ${value.duration}
         </td>
         <td>
-            ${value.enrolled}
+            ${value.enrolled - 1}
         </td>
         <td>
             <button class="btn btn-primary w-100" name="command" type="submit" value="course-details">
