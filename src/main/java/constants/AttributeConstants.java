@@ -50,14 +50,17 @@ public interface AttributeConstants {
     String ENROLLED_ASC_SORTING = "enroll-asc";
     String ENROLLED_DESC_SORTING = "enroll-desc";
     String FINAL_MARK = "final_mark";
-    String USER_COURSES_ONLY = "user-courses-only";
+
+    // TeacherCourse
+    String TEACHER_ID = "tch_id";
+    String TEACHER_COURSE_TABLE = "epam.teacher_course";
+    String TEACHERS_ATTR = "teachers";
 
     // Pagination
     String RECORDS = "records";
     String DISPLAY_RECORDS_NUMBER = "display";
     String CURRENT_PAGE = "page";
     String SORTING_TYPE = "sorting";
-    String FILTER = "filter";
     int DEFAULT_LIMIT = 5;
     int DEFAULT_OFFSET = 0;
     int DEFAULT_PAGE = 1;

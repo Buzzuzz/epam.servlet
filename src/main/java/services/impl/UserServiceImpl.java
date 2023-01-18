@@ -17,6 +17,7 @@ import utils.PasswordHashUtil;
 
 import java.sql.Connection;
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -174,6 +175,19 @@ public class UserServiceImpl implements UserService {
         } finally {
             close(con);
         }
+    }
+
+    @Override
+    public List<UserDTO> getAllUsers(UserType type) {
+        return getAllUsers(
+                getUserCount(null),
+                new int[0],
+                0,
+                0,
+                DEFAULT_USER_SORTING,
+                new HashMap<String, String[]>() {{
+                    put(USER_TYPE_DB, new String[]{type.name()});
+                }});
     }
 
     @Override

@@ -46,7 +46,8 @@ public class CommandPool {
         COMMANDS_POOL.put(UPDATE_COURSE, new UpdateCourseCommand());
         COMMANDS_POOL.put(CREATE_COURSE, new CreateCourseCommand());
         COMMANDS_POOL.put(DELETE_COURSE, new DeleteCourseCommand());
-        COMMANDS_POOL.put(ENROLL_COMMAND, new EnrollUserCommand());
+        COMMANDS_POOL.put(ENROLL_COMMAND, new EnrollStudentCommand());
+        COMMANDS_POOL.put(WITHDRAW_COMMAND, new WithdrawStudentCommand());
 
         log.debug("Initialization of CommandPool successful");
     }

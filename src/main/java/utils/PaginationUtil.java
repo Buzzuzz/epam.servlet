@@ -114,6 +114,7 @@ public class PaginationUtil {
                             String.format(String.format("%s = %s and ", entry.getKey(), stringValue)) :
                             String.format("%s = '%s' and ", entry.getKey(), stringValue);
                     sb.append(filter);
+
                 }
             }
             sb.delete(sb.lastIndexOf("and"), sb.length());

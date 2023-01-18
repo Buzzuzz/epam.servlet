@@ -2,7 +2,6 @@ package services;
 
 import exceptions.ErrorType;
 import exceptions.ServiceException;
-import jakarta.servlet.http.HttpServletRequest;
 import model.entities.Course;
 import services.dto.FullCourseDTO;
 
@@ -23,7 +22,8 @@ public interface CourseService {
 
     long deleteCourse(long id) throws ServiceException;
 
-    ErrorType enrollUser(long userId, long courseId);
+    ErrorType enrollStudent(long userId, long courseId);
+    ErrorType withdrawStudent(long userId, long courseId);
 
     Optional<Course> getCourse(long id);
 

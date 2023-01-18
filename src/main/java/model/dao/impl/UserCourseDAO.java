@@ -23,19 +23,35 @@ public class UserCourseDAO implements DAO<UserCourse> {
     private static class Holder {
         private static final UserCourseDAO dao = new UserCourseDAO();
     }
+
+    /**
+     * Don't use this one, use overridden version with two ids required
+     * @param con {@link Connection} on which operation to be done
+     * @param id  Field by which will be committed search in database table.
+     * @return Especially this one - nothing, throws {@link UnsupportedOperationException}
+     * @deprecated
+     * @since 0.01
+     */
     @Override
+    @Deprecated
     public Optional<UserCourse> get(Connection con, long id) {
+        throw new UnsupportedOperationException("USE OVERRIDDEN GET METHOD!");
+    }
+
+    public Optional<UserCourse> get(Connection con, long courseId, long userId) {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         UserCourse userCourse = null;
 
         try {
             statement = con.prepareStatement(SQLQueries.FIND_USER_COURSE_BY_C_ID);
-            statement.setLong(1, id);
-            statement.setLong(2, -1);
-            resultSet = statement.executeQuery();
 
             int k = 0;
+            statement.setLong(++k, courseId);
+            statement.setLong(++k, userId);
+            resultSet = statement.executeQuery();
+
+            k = 0;
             while (resultSet.next()) {
                 userCourse = new UserCourse(
                         // u_c_id

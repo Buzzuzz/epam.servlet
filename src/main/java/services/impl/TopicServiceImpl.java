@@ -41,13 +41,18 @@ public class TopicServiceImpl implements TopicService {
         try {
             con = getConnection();
             return dao
-                    .getAll(con, limit, offset, sorting, new HashMap<>())
+                    .getAll(con, limit, offset, sorting, null)
                     .stream()
                     .map(this::getTopicDTO)
                     .collect(Collectors.toList());
         } finally {
             close(con);
         }
+    }
+
+    @Override
+    public List<TopicDTO> getAllTopics() {
+        return getAllTopics(getTopicCount(), new int[0], 0, 0, DEFAULT_TOPIC_SORTING);
     }
 
     @Override

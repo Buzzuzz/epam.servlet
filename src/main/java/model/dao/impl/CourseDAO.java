@@ -79,7 +79,7 @@ public class CourseDAO implements DAO<Course> {
         ResultSet resultSet = null;
 
         try {
-            String temp = PaginationUtil.getEntityPaginationQuery(SQLQueries.JOIN_COURSE_TOPIC_USER_TABLE, filters);
+            String temp = PaginationUtil.getEntityPaginationQuery(SQLQueries.JOIN_COURSE_TOPIC_USER_TEACHER_TABLE, filters);
             temp = temp.replaceFirst("\\?", sorting);
 
             statement = con.prepareStatement(temp);

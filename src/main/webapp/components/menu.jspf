@@ -26,15 +26,6 @@
                                                     </label>
                                                 </div>
                                             </c:if>
-                                            <c:if test="${sessionScope.userType eq 'STUDENT'}">
-                                                <div class="col">
-                                                    <label for="user-courses" class="nav-link">
-                                                        <input type="submit" hidden name="command" value="user-courses"
-                                                               id="user-courses">
-                                                        <fmt:message key="my_courses"/>
-                                                    </label>
-                                                </div>
-                                            </c:if>
                                             <c:if test="${sessionScope.userType eq 'ADMINISTRATOR'}">
                                                 <div class="col">
                                                     <label for="get-all-topics" class="nav-link">

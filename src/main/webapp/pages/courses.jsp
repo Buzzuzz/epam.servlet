@@ -47,11 +47,12 @@
                             <span class="input-group-text">
                                 <fmt:message key="teacher"/>
                             </span>
-                            <select class="form-select" name="u_id">
+                            <select class="form-select"
+                                    name="u_id" ${sessionScope.userType eq 'TEACHER' and requestScope.get("switch") == 'on' ? 'disabled' : ''}>
                                 <option value="none">
                                     <fmt:message key="filter_all"/>
                                 </option>
-                                <c:forEach var="teacher" items="${requestScope.courses[0].teachers}">
+                                <c:forEach var="teacher" items="${requestScope.teachers}">
                                     <option value="${teacher.userId}"
                                         ${requestScope.u_id == 'none' ? '' : requestScope.u_id == teacher.userId ? 'selected="selected"' : ''}>
                                             ${teacher.firstName} ${teacher.lastName}
@@ -69,7 +70,7 @@
                                 <option value="none">
                                     <fmt:message key="filter_all"/>
                                 </option>
-                                <c:forEach var="topic" items="${requestScope.courses[0].topics}">
+                                <c:forEach var="topic" items="${requestScope.topics}">
                                     <option value="${topic.topicId}"
                                         ${requestScope.t_id eq 'none' ? '' : requestScope.t_id eq topic.topicId ? 'selected="selected"' : ''}>
                                             ${topic.topicName}
@@ -127,6 +128,16 @@
         </div>
     </form>
 
+    <div class="mb-3">
+        <c:if test="${requestScope.error.value == 'db-error'}">
+            <div class="alert bg-danger">
+                <span class="closebtn"
+                      onclick="this.parentElement.style.display='none';">&times;</span>
+                <fmt:message key="not_registred_for_course"/>
+            </div>
+        </c:if>
+    </div>
+
     <!-- Main table -->
     <div class="row mb-3">
         <div class="col">
@@ -152,7 +163,7 @@
                             <th style="width: 10%">
                                 <fmt:message key="enrolled_students"/>
                             </th>
-                            <th scope="colgroup" colspan="3" style="width:17%">
+                            <th scope="colgroup" colspan="3">
                                 <fmt:message key="actions"/>
                             </th>
                         </tr>
@@ -245,7 +256,7 @@
                                             <fmt:message key="topic"/>
                                         </span>
                                             <select class="form-select" name="t_id" required>
-                                                <c:forEach var="topic" items="${requestScope.courses[0].topics}">
+                                                <c:forEach var="topic" items="${requestScope.topics}">
                                                     <option ${topic.topicId eq requestScope.course.currentTopicId ? 'selected' : ''}
                                                             value="${topic.topicId}">
                                                             ${topic.topicName}
@@ -260,7 +271,7 @@
                                             <fmt:message key="teacher"/>
                                         </span>
                                             <select class="form-select" name="u_id" required>
-                                                <c:forEach var="teacher" items="${requestScope.courses[0].teachers}">
+                                                <c:forEach var="teacher" items="${requestScope.teachers}">
                                                     <option value="${teacher.userId}">
                                                             ${teacher.firstName} ${teacher.lastName}
                                                     </option>

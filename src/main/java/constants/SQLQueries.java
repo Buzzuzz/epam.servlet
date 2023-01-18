@@ -9,7 +9,7 @@ public interface SQLQueries {
     // Topic
 
     // Course
-    String JOIN_COURSE_TOPIC_USER_TABLE = "(epam.user_course natural join epam.course natural join epam.topic_course)";
+    String JOIN_COURSE_TOPIC_USER_TEACHER_TABLE = "(epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course)";
     // TopicCourse
 
     // UserCourse
@@ -40,7 +40,7 @@ public interface SQLQueries {
     String UPDATE_COURSE = "update epam.course set name = ?, description = ?, start_date = ?, end_date = ?, duration = ? where c_id = ?";
     String DELETE_COURSE = "delete from epam.course where c_id = ? returning c_id";
     String CREATE_COURSE = "insert into epam.course (name, description, start_date, end_date, duration) values (?, ?, ?, ?, ?)";
-    String FIND_USER_COURSE_BY_C_ID = "select * from epam.user_course where c_id = ? and final_mark = ?";
+    String FIND_USER_COURSE_BY_C_ID = "select * from epam.user_course where c_id = ? and u_id = ?";
     String UPDATE_USER_COURSE = "update epam.user_course set u_id = ?, c_id = ?, registration_date = ?, final_mark = ? where u_c_id = ?";
     String DELETE_USER_COURSE = "delete from epam.user_course where u_c_id = ? returning u_c_id";
     String CREATE_USER_COURSE = "insert into epam.user_course (u_id, c_id, registration_date, final_mark) values (?, ?, ?, ?)";
@@ -49,4 +49,8 @@ public interface SQLQueries {
     String DELETE_TOPIC_COURSE = "delete from epam.topic_course where c_id = ? returning c_id";
     String CREATE_TOPIC_COURSE = "insert into epam.topic_course (t_id, c_id) values (?, ?)";
     String COUNT_RECORDS = "select count(?) from ?";
+    String FIND_TEACHER_COURSE_BY_ID = "select * from epam.teacher_course where c_id = ?";
+    String UPDATE_TEACHER_COURSE = "update epam.teacher_course set tch_id = ? where c_id = ?";
+    String DELETE_TEACHER_COURSE = "delete from epam.teacher_course where c_id = ? returning c_id";
+    String CREATE_TEACHER_COURSE = "insert into epam.teacher_course (tch_id, c_id) values (?, ?)";
 }

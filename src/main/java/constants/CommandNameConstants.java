@@ -12,6 +12,7 @@ public interface CommandNameConstants {
     String CREATE_COURSE = "add-course";
     String DELETE_COURSE = "delete-course";
     String ENROLL_COMMAND = "enroll";
+    String WITHDRAW_COMMAND = "withdraw";
     String GET_ALL_TOPICS_COMMAND = "get-all-topics";
     String GET_ALL_USERS_COMMAND = "get-all-users";
     String UPDATE_TOPIC = "update-topic";

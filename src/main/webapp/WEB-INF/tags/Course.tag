@@ -28,5 +28,19 @@
                 <i class="fa-solid fa-square-info"></i>
             </button>
         </td>
+        <c:if test="${sessionScope.userType eq 'STUDENT'}">
+            <td>
+                <button class="btn bg-danger w-100" name="command" value="withdraw">
+                    <fmt:message key="quit"/>
+                </button>
+            </td>
+        </c:if>
+        <c:if test="${requestScope.get('switch') eq 'on' and value.currentTeacherId eq sessionScope.loggedUser.u_id}">
+            <td>
+                <button class="btn btn-info w-100">
+                    <fmt:message key="marks"/>
+                </button>
+            </td>
+        </c:if>
     </tr>
 </form>

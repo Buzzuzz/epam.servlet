@@ -35,6 +35,7 @@ public class CourseServiceImpl implements CourseService {
     private static final DAO<User> userDAO = UserDAO.getInstance();
     private static final DAO<TopicCourse> topicCourseDAO = TopicCourseDAO.getInstance();
     private static final DAO<UserCourse> userCourseDAO = UserCourseDAO.getInstance();
+    private static final DAO<TeacherCourse> teacherCourseDAO = TeacherCourseDAO.getInstance();
     private static final TopicService topicService = TopicServiceImpl.getInstance();
     private static final UserService userService = UserServiceImpl.getInstance();
 
@@ -73,7 +74,7 @@ public class CourseServiceImpl implements CourseService {
         try {
             con = getConnection();
             Topic currentTopic = getCurrentTopic(con, course.getC_id(), topicCourseDAO, topicDAO);
-            User currentTeacher = getCurrentTeacher(con, course.getC_id(), userCourseDAO, userDAO);
+            User currentTeacher = getCurrentTeacher(con, course.getC_id(), teacherCourseDAO, userDAO);
 
             FullCourseDTO courseDTO = new FullCourseDTO(
                     course.getC_id(),
@@ -87,10 +88,10 @@ public class CourseServiceImpl implements CourseService {
                     getCourseCount(new HashMap<String, String[]>() {{
                         put(COURSE_ID, new String[]{String.valueOf(course.getC_id())});
                     }}),
-                    getTopicsList(con, topicDAO, topicService),
+                    topicService.getAllTopics(),
                     currentTopic.getName(),
                     currentTopic.getDescription(),
-                    getTeachersList(con, userDAO, userService),
+                    userService.getAllUsers(UserType.TEACHER),
                     String.format("%s %s", currentTeacher.getFirst_name(), currentTeacher.getLast_name())
             );
             return Optional.of(courseDTO);
@@ -164,8 +165,13 @@ public class CourseServiceImpl implements CourseService {
                         0,
                         courseDTO.getCurrentTeacherId(),
                         generatedId,
-                        courseDTO.getStartDate(),
+                        new Timestamp(System.currentTimeMillis()),
                         -1
+                ));
+
+                teacherCourseDAO.save(con, new TeacherCourse(
+                        courseDTO.getCurrentTeacherId(),
+                        generatedId
                 ));
 
                 topicCourseDAO.save(con, new TopicCourse(
@@ -202,12 +208,32 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public ErrorType enrollUser(long userId, long courseId) {
+    public ErrorType enrollStudent(long userId, long courseId) {
         Connection con = null;
         try {
             con = getConnection();
             userCourseDAO.save(con, new UserCourse(0, userId, courseId, new Timestamp(System.currentTimeMillis()), 0));
             return NONE;
+        } catch (DAOException e) {
+            log.error(e.getMessage(), e);
+            return ErrorType.DB_ERROR;
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public ErrorType withdrawStudent(long userId, long courseId) {
+        Connection con = null;
+        try {
+            con = getConnection();
+            UserCourseDAO dao = (UserCourseDAO) userCourseDAO;
+            Optional<UserCourse> uc = dao.get(con, courseId, userId);
+            if (uc.isPresent()) {
+                userCourseDAO.delete(con, uc.get().getU_c_id());
+                return NONE;
+            }
+            return ErrorType.DB_ERROR;
         } catch (DAOException e) {
             log.error(e.getMessage(), e);
             return ErrorType.DB_ERROR;
@@ -235,7 +261,7 @@ public class CourseServiceImpl implements CourseService {
             return getRecordsCount(
                     con,
                     String.format("%s.%s", COURSE_TABLE, COURSE_ID),
-                    SQLQueries.JOIN_COURSE_TOPIC_USER_TABLE, filters);
+                    SQLQueries.JOIN_COURSE_TOPIC_USER_TEACHER_TABLE, filters);
         } finally {
             close(con);
         }

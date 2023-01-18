@@ -1,0 +1,27 @@
+package controller.commands.impl.course;
+
+import constants.AttributeConstants;
+import controller.commands.Command;
+import exceptions.CommandException;
+import exceptions.ErrorType;
+import jakarta.servlet.http.HttpServletRequest;
+import model.entities.User;
+import services.impl.CourseServiceImpl;
+import utils.RequestBuilder;
+
+import static constants.AttributeConstants.*;
+import static constants.CommandNameConstants.*;
+
+public class EnrollStudentCommand implements Command {
+    @Override
+    public String execute(HttpServletRequest req) throws CommandException {
+        User currentUser = (User) req.getSession().getAttribute(LOGGED_USER_ATTR);
+        ErrorType error = CourseServiceImpl.getInstance().enrollStudent(
+                currentUser.getU_id(),
+                Long.parseLong(req.getParameter(COURSE_ID)));
+
+        req.getSession().setAttribute(AttributeConstants.ERROR_ATTR, error);
+        return RequestBuilder.buildCommand(req.getServletPath(), COURSE_DETAILS_COMMAND,
+                RequestBuilder.getSpecifiedParamsMap(req.getParameterMap(), COURSE_ID));
+    }
+}

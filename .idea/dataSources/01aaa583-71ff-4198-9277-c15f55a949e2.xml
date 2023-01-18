@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1342</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1369</IntrospectionStateNumber>
       <ServerVersion>15.1</ServerVersion>
       <StartupTime>1673728326</StartupTime>
       <TimeZones>true ACDT
@@ -799,7 +799,7 @@ false Zulu
 13183||10|C|G
 13183||-9223372036854775808|U|G
 13183||10|U|G</Grants>
-      <IntrospectionStateNumber>1342</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1369</IntrospectionStateNumber>
       <ObjectId>16398</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4209,7 +4209,7 @@ false Zulu
       <ValidatorSchema>pg_catalog</ValidatorSchema>
     </language>
     <schema id="261" parent="2" name="epam">
-      <IntrospectionStateNumber>1342</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1369</IntrospectionStateNumber>
       <ObjectId>16400</ObjectId>
       <StateNumber>739</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -4228,7 +4228,7 @@ false Zulu
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1342</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1362</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4239,55 +4239,67 @@ false Zulu
       <StateNumber>739</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="266" parent="261" name="topic_t_id_seq">
+    <sequence id="266" parent="261" name="teacher-course_t_c_id_seq">
+      <DasType>integer|0s</DasType>
+      <ObjectId>16543</ObjectId>
+      <StateNumber>1357</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="267" parent="261" name="topic_t_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16426</ObjectId>
       <StateNumber>739</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="267" parent="261" name="user_course_u_c_id_seq">
+    <sequence id="268" parent="261" name="user_course_u_c_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16436</ObjectId>
       <StateNumber>739</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="268" parent="261" name="user_u_id_seq">
+    <sequence id="269" parent="261" name="user_u_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>16401</ObjectId>
       <StateNumber>739</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="269" parent="261" name="course">
+    <table id="270" parent="261" name="course">
       <ObjectId>16415</ObjectId>
       <StateNumber>1312</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="270" parent="261" name="topic">
+    <table id="271" parent="261" name="teacher_course">
+      <ObjectId>16544</ObjectId>
+      <StateNumber>1368</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="272" parent="261" name="topic">
       <ObjectId>16427</ObjectId>
       <StateNumber>739</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="271" parent="261" name="topic_course">
+    <table id="273" parent="261" name="topic_course">
       <ObjectId>16445</ObjectId>
       <StateNumber>739</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="272" parent="261" name="user">
+    <table id="274" parent="261" name="user">
       <ObjectId>16402</ObjectId>
       <StateNumber>742</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="273" parent="261" name="user_course">
+    <table id="275" parent="261" name="user_course">
       <ObjectId>16437</ObjectId>
       <StateNumber>739</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="274" parent="269" name="c_id">
+    <column id="276" parent="270" name="c_id">
       <DasType>integer|0s</DasType>
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
@@ -4296,42 +4308,42 @@ false Zulu
       <SequenceId>16414</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="275" parent="269" name="name">
+    <column id="277" parent="270" name="name">
       <DasType>varchar(300)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="276" parent="269" name="description">
+    <column id="278" parent="270" name="description">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>739</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="277" parent="269" name="start_date">
+    <column id="279" parent="270" name="start_date">
       <DasType>date|0s</DasType>
       <DefaultExpression>now()</DefaultExpression>
       <Position>4</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="278" parent="269" name="end_date">
+    <column id="280" parent="270" name="end_date">
       <DasType>date|0s</DasType>
       <DefaultExpression>now()</DefaultExpression>
       <Position>5</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="279" parent="269" name="duration">
+    <column id="281" parent="270" name="duration">
       <DasType>integer|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <Position>6</Position>
       <StateNumber>1312</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="280" parent="269" name="course_pkey">
+    <index id="282" parent="270" name="course_pkey">
       <ColNames>c_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16422</ObjectId>
@@ -4340,7 +4352,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="281" parent="269" name="course_name_key">
+    <index id="283" parent="270" name="course_name_key">
       <ColNames>name</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16424</ObjectId>
@@ -4351,20 +4363,94 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="282" parent="269" name="course_pkey">
+    <key id="284" parent="270" name="course_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16423</ObjectId>
       <Primary>1</Primary>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16422</UnderlyingIndexId>
     </key>
-    <key id="283" parent="269" name="course_name_key">
+    <key id="285" parent="270" name="course_name_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16425</ObjectId>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16424</UnderlyingIndexId>
     </key>
-    <column id="284" parent="270" name="t_id">
+    <column id="286" parent="271" name="t_c_id">
+      <DasType>integer|0s</DasType>
+      <IdentityKind>by-default</IdentityKind>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>1357</StateNumber>
+      <SequenceId>16543</SequenceId>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="287" parent="271" name="tch_id">
+      <DasType>integer|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>1357</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="288" parent="271" name="c_id">
+      <DasType>integer|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>1357</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="289" parent="271" name="teacher-course_tch_id_fkey">
+      <ColNames>tch_id</ColNames>
+      <ObjectId>16551</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>u_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>1359</StateNumber>
+      <RefTableId>16402</RefTableId>
+      <RefTableName>user</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="290" parent="271" name="teacher-course_c_id_fkey">
+      <ColNames>c_id</ColNames>
+      <ObjectId>16556</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+      <RefColNames>c_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>1361</StateNumber>
+      <RefTableId>16415</RefTableId>
+      <RefTableName>course</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="291" parent="271" name="teacher-course_pkey">
+      <ColNames>t_c_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16547</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1357</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="292" parent="271" name="teacher-course_tch_id_c_id_key">
+      <ColNames>tch_id
+c_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16549</ObjectId>
+      <StateNumber>1357</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="293" parent="271" name="teacher-course_pkey">
+      <ObjectId>16548</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>1357</StateNumber>
+      <UnderlyingIndexId>16547</UnderlyingIndexId>
+    </key>
+    <key id="294" parent="271" name="teacher-course_tch_id_c_id_key">
+      <ObjectId>16550</ObjectId>
+      <StateNumber>1357</StateNumber>
+      <UnderlyingIndexId>16549</UnderlyingIndexId>
+    </key>
+    <column id="295" parent="272" name="t_id">
       <DasType>integer|0s</DasType>
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
@@ -4373,21 +4459,21 @@ false Zulu
       <SequenceId>16426</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="285" parent="270" name="name">
+    <column id="296" parent="272" name="name">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="286" parent="270" name="description">
+    <column id="297" parent="272" name="description">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>739</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <index id="287" parent="270" name="topic_pkey">
+    <index id="298" parent="272" name="topic_pkey">
       <ColNames>t_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16432</ObjectId>
@@ -4396,7 +4482,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="288" parent="270" name="topic_name_key">
+    <index id="299" parent="272" name="topic_name_key">
       <ColNames>name</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16434</ObjectId>
@@ -4407,32 +4493,32 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="289" parent="270" name="topic_pkey">
+    <key id="300" parent="272" name="topic_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16433</ObjectId>
       <Primary>1</Primary>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16432</UnderlyingIndexId>
     </key>
-    <key id="290" parent="270" name="topic_name_key">
+    <key id="301" parent="272" name="topic_name_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16435</ObjectId>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16434</UnderlyingIndexId>
     </key>
-    <column id="291" parent="271" name="t_id">
+    <column id="302" parent="273" name="t_id">
       <DasType>integer|0s</DasType>
       <Position>1</Position>
       <StateNumber>739</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="292" parent="271" name="c_id">
+    <column id="303" parent="273" name="c_id">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>739</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="293" parent="271" name="topic_course_t_id_fkey">
+    <foreign-key id="304" parent="273" name="topic_course_t_id_fkey">
       <ColNames>t_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16458</ObjectId>
@@ -4445,7 +4531,7 @@ false Zulu
       <RefTableName>topic</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="294" parent="271" name="topic_course_c_id_fkey">
+    <foreign-key id="305" parent="273" name="topic_course_c_id_fkey">
       <ColNames>c_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16463</ObjectId>
@@ -4458,7 +4544,7 @@ false Zulu
       <RefTableName>course</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <column id="295" parent="272" name="u_id">
+    <column id="306" parent="274" name="u_id">
       <DasType>integer|0s</DasType>
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
@@ -4467,42 +4553,42 @@ false Zulu
       <SequenceId>16401</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="296" parent="272" name="email">
+    <column id="307" parent="274" name="email">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="297" parent="272" name="password">
+    <column id="308" parent="274" name="password">
       <DasType>varchar(1024)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>742</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="298" parent="272" name="first_name">
+    <column id="309" parent="274" name="first_name">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="299" parent="272" name="last_name">
+    <column id="310" parent="274" name="last_name">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="300" parent="272" name="phone">
+    <column id="311" parent="274" name="phone">
       <DasType>varchar(13)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="301" parent="272" name="user_type">
+    <column id="312" parent="274" name="user_type">
       <DasType>varchar(100)|0s</DasType>
       <DefaultExpression>&apos;STUDENT&apos;::character varying</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4510,7 +4596,7 @@ false Zulu
       <StateNumber>739</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="302" parent="272" name="is_blocked">
+    <column id="313" parent="274" name="is_blocked">
       <DasType>boolean|0s</DasType>
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4518,7 +4604,7 @@ false Zulu
       <StateNumber>739</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="303" parent="272" name="send_notification">
+    <column id="314" parent="274" name="send_notification">
       <DasType>boolean|0s</DasType>
       <DefaultExpression>false</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4526,7 +4612,7 @@ false Zulu
       <StateNumber>739</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="304" parent="272" name="user_pkey">
+    <index id="315" parent="274" name="user_pkey">
       <ColNames>u_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16408</ObjectId>
@@ -4535,7 +4621,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="305" parent="272" name="user_email_password_phone_key">
+    <index id="316" parent="274" name="user_email_password_phone_key">
       <ColNames>email
 password
 phone</ColNames>
@@ -4554,7 +4640,7 @@ pg_catalog</CollationParentNames>
 100
 100</CollationIds>
     </index>
-    <index id="306" parent="272" name="user_email_key">
+    <index id="317" parent="274" name="user_email_key">
       <ColNames>email</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16410</ObjectId>
@@ -4565,26 +4651,26 @@ pg_catalog</CollationParentNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="307" parent="272" name="user_pkey">
+    <key id="318" parent="274" name="user_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16409</ObjectId>
       <Primary>1</Primary>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16408</UnderlyingIndexId>
     </key>
-    <key id="308" parent="272" name="user_email_password_phone_key">
+    <key id="319" parent="274" name="user_email_password_phone_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16537</ObjectId>
       <StateNumber>742</StateNumber>
       <UnderlyingIndexId>16536</UnderlyingIndexId>
     </key>
-    <key id="309" parent="272" name="user_email_key">
+    <key id="320" parent="274" name="user_email_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16411</ObjectId>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16410</UnderlyingIndexId>
     </key>
-    <column id="310" parent="273" name="u_c_id">
+    <column id="321" parent="275" name="u_c_id">
       <DasType>integer|0s</DasType>
       <IdentityKind>by-default</IdentityKind>
       <NotNull>1</NotNull>
@@ -4593,19 +4679,19 @@ pg_catalog</CollationParentNames>
       <SequenceId>16436</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="311" parent="273" name="u_id">
+    <column id="322" parent="275" name="u_id">
       <DasType>integer|0s</DasType>
       <Position>2</Position>
       <StateNumber>739</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="312" parent="273" name="c_id">
+    <column id="323" parent="275" name="c_id">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>739</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="313" parent="273" name="registration_date">
+    <column id="324" parent="275" name="registration_date">
       <DasType>date|0s</DasType>
       <DefaultExpression>now()</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4613,13 +4699,13 @@ pg_catalog</CollationParentNames>
       <StateNumber>739</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="314" parent="273" name="final_mark">
+    <column id="325" parent="275" name="final_mark">
       <DasType>numeric|0s</DasType>
       <Position>5</Position>
       <StateNumber>739</StateNumber>
       <TypeId>1700</TypeId>
     </column>
-    <foreign-key id="315" parent="273" name="user_course_u_id_fkey">
+    <foreign-key id="326" parent="275" name="user_course_u_id_fkey">
       <ColNames>u_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16448</ObjectId>
@@ -4632,7 +4718,7 @@ pg_catalog</CollationParentNames>
       <RefTableName>user</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="316" parent="273" name="user_course_c_id_fkey">
+    <foreign-key id="327" parent="275" name="user_course_c_id_fkey">
       <ColNames>c_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16453</ObjectId>
@@ -4645,7 +4731,7 @@ pg_catalog</CollationParentNames>
       <RefTableName>course</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="317" parent="273" name="user_course_pkey">
+    <index id="328" parent="275" name="user_course_pkey">
       <ColNames>u_c_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16443</ObjectId>
@@ -4654,7 +4740,7 @@ pg_catalog</CollationParentNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="318" parent="273" name="user_course_u_id_c_id_key">
+    <index id="329" parent="275" name="user_course_u_id_c_id_key">
       <ColNames>u_id
 c_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -4663,14 +4749,14 @@ c_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="319" parent="273" name="user_course_pkey">
+    <key id="330" parent="275" name="user_course_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16444</ObjectId>
       <Primary>1</Primary>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16443</UnderlyingIndexId>
     </key>
-    <key id="320" parent="273" name="user_course_u_id_c_id_key">
+    <key id="331" parent="275" name="user_course_u_id_c_id_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16542</ObjectId>
       <StateNumber>1341</StateNumber>

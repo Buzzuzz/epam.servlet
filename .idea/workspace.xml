@@ -9,16 +9,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="enroll student command">
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="my courses toggler on courses page (works for teacher and student)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/WithdrawStudentCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/TeacherCourseDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/entities/TeacherCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/AttributeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/EnrollUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/EnrollUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/CommandNameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/CommandNameConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/SQLQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/CommandPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/EnrollUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/EnrollStudentCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/GetAllCoursesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/commands/impl/course/GetAllCoursesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/CourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/dao/impl/UserCourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/TopicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/TopicServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/FullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/FullCourseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/PaginationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/PaginationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/create_script.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/locale_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_en.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/locale_ua.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courseDetailsPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/components/menu.jspf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/components/menu.jspf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,32 +81,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Documents/IdeaProjects/epam.servlet/src/main/resources/db&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "database.data.extractors.current.id": "SQL Inserts",
+    "last_opened_file_path": "C:/Users/admin/Documents/IdeaProjects/epam.servlet/src/main/resources/db",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\resources\db" />
@@ -359,14 +382,7 @@
       <workItem from="1673650582156" duration="8946000" />
       <workItem from="1673726368843" duration="1539000" />
       <workItem from="1673728380454" duration="17912000" />
-      <workItem from="1673785466732" duration="64276000" />
-    </task>
-    <task id="LOCAL-00019" summary="created course dao">
-      <created>1671278194659</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1671278194659</updated>
+      <workItem from="1673785466732" duration="84685000" />
     </task>
     <task id="LOCAL-00020" summary="added courseDao tests">
       <created>1671283075230</created>
@@ -704,7 +720,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673959946891</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="my courses toggler on courses page (works for teacher and student)">
+      <created>1673967480833</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1673967480833</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -725,8 +748,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="custom tags (.tld and tag file) added, started courses page implementation" />
-    <MESSAGE value="new command to get detailed info about course, user_course DAO implementation" />
     <MESSAGE value="excluded logs, topic_course DAO implementation" />
     <MESSAGE value="full course data in DTO object" />
     <MESSAGE value="jsp layout changes, two new commands (GetAllTopicsCommand - in process, GetAllUsersCommand - implemented)," />
@@ -750,7 +771,9 @@
     <MESSAGE value="course duration added" />
     <MESSAGE value="implemented enrolled students count, filtration" />
     <MESSAGE value="enroll student command" />
-    <option name="LAST_COMMIT_MESSAGE" value="enroll student command" />
+    <MESSAGE value="my courses toggle on courses page (works for teacher and student)" />
+    <MESSAGE value="my courses toggler on courses page (works for teacher and student)" />
+    <option name="LAST_COMMIT_MESSAGE" value="my courses toggler on courses page (works for teacher and student)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

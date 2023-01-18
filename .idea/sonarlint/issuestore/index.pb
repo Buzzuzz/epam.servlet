@@ -33,8 +33,6 @@ o
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 ^
 .src/main/java/exceptions/ServiceException.java,b\4\b4ca330aa5049a6825071c4acb6c5365ed7b5379
-Z
-*src/main/java/exceptions/DAOException.java,e\7\e7d66eba7cc963d1fe73334e26d2464f639dda2f
 W
 'src/main/java/model/entities/Topic.java,5\6\562f929a6b0cecef87b489129a983cbb25503a91
 d
@@ -52,8 +50,6 @@ $src/main/webapp/components/head.jspf,b\4\b4bbcf6255cf8a7378728c7e7c77f99bbaa1c
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-T
-$src/main/webapp/components/menu.jspf,7\b\7b3498325fd7f8308d3b8c9dee5a7ad985d3dc0e
 [
 +src/main/java/exceptions/UtilException.java,a\b\ab1f4a1671922d4485d3b2babb61a265eb737ac0
 [
