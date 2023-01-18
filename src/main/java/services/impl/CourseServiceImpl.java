@@ -4,20 +4,14 @@ import constants.SQLQueries;
 import exceptions.*;
 import lombok.extern.log4j.Log4j2;
 import model.dao.DAO;
-import model.dao.DataSource;
 import model.dao.impl.*;
 import model.entities.*;
 import services.*;
 import services.dto.FullCourseDTO;
-import services.dto.TopicDTO;
-import services.dto.UserDTO;
-
 
 import java.sql.Connection;
 import java.sql.Timestamp;
-import java.time.Duration;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import static model.dao.DataSource.*;
@@ -28,6 +22,7 @@ import static constants.AttributeConstants.*;
 import static utils.ValidationUtil.*;
 
 
+// TODO : on topic | teacher delete do something with courses (delete them, update, idk)
 @Log4j2
 public class CourseServiceImpl implements CourseService {
     private static final DAO<Course> courseDAO = CourseDAO.getInstance();
@@ -127,10 +122,13 @@ public class CourseServiceImpl implements CourseService {
             if (error.equals(NONE)) {
                 UserCourse uc = userCourseDAO.get(con, courseDTO.getCourseId()).get();
                 TopicCourse tc = topicCourseDAO.get(con, courseDTO.getCourseId()).get();
+                TeacherCourse tchC = teacherCourseDAO.get(con, courseDTO.getCourseId()).get();
 
                 uc.setU_id(courseDTO.getCurrentTeacherId());
                 tc.setT_id(courseDTO.getCurrentTopicId());
+                tchC.setTch_id(courseDTO.getCurrentTeacherId());
                 userCourseDAO.update(con, uc);
+                teacherCourseDAO.update(con, tchC);
                 topicCourseDAO.update(con, tc);
 
                 courseDAO.update(con, getCourseFromDTO(courseDTO));

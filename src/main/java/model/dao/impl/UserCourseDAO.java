@@ -24,18 +24,43 @@ public class UserCourseDAO implements DAO<UserCourse> {
         private static final UserCourseDAO dao = new UserCourseDAO();
     }
 
-    /**
-     * Don't use this one, use overridden version with two ids required
-     * @param con {@link Connection} on which operation to be done
-     * @param id  Field by which will be committed search in database table.
-     * @return Especially this one - nothing, throws {@link UnsupportedOperationException}
-     * @deprecated
-     * @since 0.01
-     */
     @Override
-    @Deprecated
     public Optional<UserCourse> get(Connection con, long id) {
-        throw new UnsupportedOperationException("USE OVERRIDDEN GET METHOD!");
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        UserCourse userCourse = null;
+
+        try {
+            statement = con.prepareStatement(SQLQueries.FIND_USER_COURSE_BY_C_ID_FINAL_MARK);
+
+            int k = 0;
+            statement.setLong(++k, id);
+            statement.setLong(++k, -1);
+            resultSet = statement.executeQuery();
+
+            k = 0;
+            while (resultSet.next()) {
+                userCourse = new UserCourse(
+                        // u_c_id
+                        resultSet.getLong(++k),
+                        // u_id
+                        resultSet.getLong(++k),
+                        // c_id
+                        resultSet.getLong(++k),
+                        // registration_date
+                        resultSet.getTimestamp(++k),
+                        // final_mark
+                        resultSet.getDouble(++k)
+                );
+            }
+        } catch (Exception e) {
+            log.error("Can't get join table user-course", e);
+            throw new DAOException("Can't get join table user-course", e);
+        } finally {
+            closeAll(resultSet, statement);
+        }
+
+        return Optional.ofNullable(userCourse);
     }
 
     public Optional<UserCourse> get(Connection con, long courseId, long userId) {

@@ -28,7 +28,7 @@
                 <i class="fa-solid fa-square-info"></i>
             </button>
         </td>
-        <c:if test="${sessionScope.userType eq 'STUDENT'}">
+        <c:if test="${sessionScope.userType eq 'STUDENT' and requestScope.get('switch') eq 'on'}">
             <td>
                 <button class="btn bg-danger w-100" name="command" value="withdraw">
                     <fmt:message key="quit"/>
