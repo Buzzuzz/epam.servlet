@@ -197,8 +197,7 @@ public class UserServiceImpl implements UserService {
             setAutoCommit(con, false);
 
             List<UserCourse> userCourseList = (List<UserCourse>) userCourseDAO.getAll(con,
-                    getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters),
-                    0, USER_ID, null);
+                    getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters), 0, USER_ID, filters);
 
             for (UserCourse uc : userCourseList) {
                 Optional<User> user = getUser(uc.getU_id());
@@ -219,6 +218,7 @@ public class UserServiceImpl implements UserService {
             setAutoCommit(con, true);
             close(con);
         }
+        log.info(users);
         return users;
     }
 

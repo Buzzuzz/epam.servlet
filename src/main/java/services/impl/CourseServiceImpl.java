@@ -241,6 +241,26 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public double getStudentMark(long courseId, long userId) {
+        Connection con = null;
+        try {
+            con = getConnection();
+
+            UserCourseDAO ucDao = (UserCourseDAO) userCourseDAO;
+            Optional<UserCourse> uc = ucDao.get(con, courseId, userId);
+            if (uc.isPresent()) {
+                return uc.get().getFinal_mark();
+            }
+            throw new DAOException();
+        } catch (DAOException e) {
+            log.error(String.format("No such user-course relation (c_id), (u_id): %s, %s", courseId, userId));
+            return 0;
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
     public ErrorType updateStudentMark(UserCourse userCourse, double newMark) {
         Connection con = null;
         try {

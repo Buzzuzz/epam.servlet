@@ -87,42 +87,75 @@
                 </div>
             </div>
         </div>
-        <div class="container d-flex justify-content-center">
-            <div class="card shadow mb-3 w-50">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col">
-                            <button class="btn btn-info w-100" name="command" value="get-all-courses">
-                                <fmt:message key="search"/>
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </button>
-                        </div>
-                        <c:if test="${sessionScope.userType eq 'ADMINISTRATOR'}">
-                            <!-- Button trigger modal -->
-                            <div class="col">
-                                <button type="button" class="btn btn-success w-100" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                    <fmt:message key="new_course"/>
-                                    <i class="fa-solid fa-plus"></i>
-                                </button>
-                            </div>
-                        </c:if>
-                        <c:if test="${sessionScope.userType != 'ADMINISTRATOR'}">
-                            <div class="col">
-                                <div class="btn-primary w-100 rounded d-flex justify-content-center">
-                                    <div class="form-check form-switch pt-2" style="height: 36px">
-                                        <input class="form-check-input me-3" type="checkbox" role="switch"
-                                               id="flexSwitchCheckDefault" style="transform: scale(1.3)"
-                                               name="switch"
-                                            ${requestScope.get("switch") == 'on' ? 'checked' : ''}>
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">
-                                            <fmt:message key="my_courses"/>
-                                        </label>
+        <div class="container justify-content-center">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col">
+                    <div class="card shadow mb-3">
+                        <div class="card-body">
+                            <div class="row w-100 justify-content-center">
+                                <div class="col">
+                                    <button class="btn btn-info w-100" name="command" value="get-all-courses">
+                                        <fmt:message key="search"/>
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </div>
+                                <c:if test="${sessionScope.userType eq 'ADMINISTRATOR'}">
+                                    <!-- Button trigger modal -->
+                                    <div class="col">
+                                        <button type="button" class="btn btn-success w-100 ms-4" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                            <fmt:message key="new_course"/>
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
                                     </div>
+                                </c:if>
+                                <c:if test="${sessionScope.userType != 'ADMINISTRATOR'}">
+                                    <div class="col">
+                                        <div class="btn-primary w-100 rounded d-flex justify-content-center ms-4">
+                                            <div class="form-check form-switch pt-2" style="height: 36px">
+                                                <input class="form-check-input me-3" type="checkbox" role="switch"
+                                                       id="flexSwitchCheckDefault" style="transform: scale(1.3)"
+                                                       name="switch"
+                                                    ${requestScope.get("switch") == 'on' ? 'checked' : ''}>
+                                                <label class="form-check-label" for="flexSwitchCheckDefault">
+                                                    <fmt:message key="my_courses"/>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <c:if test="${sessionScope.userType != 'ADMINISTRATOR'}">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <fmt:message key="course"/>
+                                    </span>
+                                    <select class="form-select" name="endDate_filter">
+                                        <option value="none">
+                                            <fmt:message key="filter_all"/>
+                                        </option>
+                                        <!-- TODO : filtration by date-->
+                                        <option value="not-started" ${requestScope.endDate_filter eq 'not-started' ? 'selected="selected"' : ''}>
+                                            <fmt:message key="not_started"/>
+                                        </option>
+                                        <option value="in-progress" ${requestScope.endDate_filter eq 'in-progress' ? 'selected="selected"' : ''}>
+                                            <fmt:message key="in_progress"/>
+                                        </option>
+                                        <option value="ended" ${requestScope.endDate_filter eq 'ended' ? 'selected="selected"' : ''}>
+                                            <fmt:message key="ended"/>
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
-                        </c:if>
-                    </div>
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>

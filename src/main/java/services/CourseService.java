@@ -27,6 +27,7 @@ public interface CourseService {
 
     ErrorType withdrawStudent(long userId, long courseId);
 
+    double getStudentMark (long courseId, long userId);
     ErrorType updateStudentMark (UserCourse userCourse, double newMark);
 
     Optional<Course> getCourse(long id);

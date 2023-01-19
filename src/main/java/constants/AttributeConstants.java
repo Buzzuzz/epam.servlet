@@ -50,6 +50,10 @@ public interface AttributeConstants {
     String COURSE_END_DATE = "endDate";
     String ENROLLED_ASC_SORTING = "enroll-asc";
     String ENROLLED_DESC_SORTING = "enroll-desc";
+    String COURSE_NOT_STARTED = "not-started";
+    String COURSE_IN_PROGRESS = "in-progress";
+    String COURSE_ENDED = "ended";
+    String END_DATE_FILTER = "endDate_filter";
     String FINAL_MARK = "final_mark";
 
     // TeacherCourse

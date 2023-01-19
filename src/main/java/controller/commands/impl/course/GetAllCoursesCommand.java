@@ -1,13 +1,10 @@
 package controller.commands.impl.course;
 
-import constants.CommandNameConstants;
 import constants.PageConstants;
 import controller.commands.Command;
 import exceptions.CommandException;
-import exceptions.ServiceException;
 import exceptions.UtilException;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import lombok.extern.log4j.Log4j2;
 import model.entities.Course;
 import model.entities.User;
@@ -17,8 +14,8 @@ import services.dto.FullCourseDTO;
 import services.impl.CourseServiceImpl;
 import services.impl.TopicServiceImpl;
 import services.impl.UserServiceImpl;
-import utils.FullCourseUtil;
 
+import java.sql.Timestamp;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -37,6 +34,7 @@ public class GetAllCoursesCommand implements Command {
             String sorting = getSortingType(req, Course.class);
             String teacherFilter = getFilter(req, USER_ID);
             String topicFilter = getFilter(req, TOPIC_ID);
+            String endDateFilter = getFilter(req, END_DATE_FILTER);
             String switchPosition = getFilter(req, SWITCH);
             Map<String, String[]> filters = new HashMap<>();
 
@@ -66,29 +64,53 @@ public class GetAllCoursesCommand implements Command {
             req.setAttribute(RECORDS, pages);
             req.setAttribute(TOPIC_ID, topicFilter);
             req.setAttribute(USER_ID, teacherFilter);
+            req.setAttribute(END_DATE_FILTER, endDateFilter);
             req.setAttribute(TOPICS_ATTR, TopicServiceImpl.getInstance().getAllTopics());
             req.setAttribute(TEACHERS_ATTR, UserServiceImpl.getInstance().getAllUsers(UserType.TEACHER));
             req.setAttribute(ERROR_ATTR, req.getAttribute(ERROR_ATTR));
 
             List<FullCourseDTO> temp = service.getAllCourses(limit, offset, sorting, filters);
             log.fatal(temp);
+
             switch (sorting) {
                 case ENROLLED_ASC_SORTING:
-                    req.setAttribute(COURSES_ATTR, temp
+                    temp = temp
                             .stream()
                             .sorted(Comparator.comparingLong(FullCourseDTO::getEnrolled))
-                            .collect(Collectors.toList()));
+                            .collect(Collectors.toList());
                     break;
                 case ENROLLED_DESC_SORTING:
-                    req.setAttribute(COURSES_ATTR, temp
+                    temp = temp
                             .stream()
                             .sorted(Comparator.comparingLong(FullCourseDTO::getEnrolled).reversed())
-                            .collect(Collectors.toList()));
-                    break;
-                default:
-                    req.setAttribute(COURSES_ATTR, temp);
+                            .collect(Collectors.toList());
                     break;
             }
+
+            Timestamp currentDate = new Timestamp(System.currentTimeMillis());
+            switch (endDateFilter) {
+                case COURSE_NOT_STARTED:
+                    temp = temp
+                            .stream()
+                            .filter(dto -> dto.getStartDate().getTime() > currentDate.getTime())
+                            .collect(Collectors.toList());
+                    break;
+                case COURSE_IN_PROGRESS:
+                    temp = temp
+                            .stream()
+                            .filter(dto -> dto.getStartDate().getTime() < currentDate.getTime())
+                            .filter(dto -> dto.getEndDate().getTime() > currentDate.getTime())
+                            .collect(Collectors.toList());
+                    break;
+                case COURSE_ENDED:
+                    temp = temp
+                            .stream()
+                            .filter(dto -> dto.getEndDate().getTime() < new Timestamp(System.currentTimeMillis()).getTime())
+                            .collect(Collectors.toList());
+                    break;
+            }
+
+            req.setAttribute(COURSES_ATTR, temp);
 
             return PageConstants.COURSES_PAGE;
         } catch (UtilException e) {

@@ -1,4 +1,4 @@
-package controller.commands.impl.user;
+package controller.commands.impl.course;
 
 import constants.PageConstants;
 import controller.commands.Command;
@@ -31,12 +31,8 @@ public class GetCourseMarksCommand implements Command {
 
         req.setAttribute(COURSE_ID, req.getParameter(COURSE_ID));
         req.setAttribute(COURSE_END_DATE, courseService.getCourseDTO(courseService.getCourse(courseId).get()).get().getEndDate());
+        req.setAttribute(USERS_ATTR, userService.getEnrolledStudents(courseId));
 
-        if (req.getParameter(USERS_ATTR) == null) {
-            req.setAttribute(USERS_ATTR, userService.getEnrolledStudents(courseId));
-        } else {
-            req.setAttribute(USERS_ATTR, req.getParameter(USERS_ATTR));
-        }
         return PageConstants.MARKS_PAGE;
     }
 }

@@ -5,6 +5,7 @@
 <%@include file="../components/menu.jspf" %>
 <div class="container min-vh-100">
     <div class="row justify-content-center">
+        <div class="col-2"></div>
         <div class="col-8">
             <div class="card shadow mb-4">
                 <div class="card-body">
@@ -45,7 +46,8 @@
                                         <span class="input-group-text">
                                             <fmt:message key="enrolled_students"/>:
                                         </span>
-                                        <input disabled class="form-control" value="${requestScope.course.enrolled eq 0 ? 0 : requestScope.course.enrolled - 1}">
+                                        <input disabled class="form-control"
+                                               value="${requestScope.course.enrolled eq 0 ? 0 : requestScope.course.enrolled - 1}">
                                     </div>
                                 </div>
                             </div>
@@ -157,11 +159,11 @@
                         </div>
                         <div class="row justify-content-center">
                             <c:if test="${sessionScope.userType eq 'STUDENT'}">
-                                <jsp:useBean id="today" class="java.util.Date" />
+                                <jsp:useBean id="today" class="java.util.Date"/>
                                 <button class="btn btn-info w-50" name="command" value="enroll"
-                                <c:if test="${today.time gt requestScope.course.startDate.time}">
-                                    disabled
-                                </c:if>>
+                                        <c:if test="${today.time gt requestScope.course.startDate.time}">
+                                            disabled
+                                        </c:if>>
                                     <fmt:message key="enroll"/>
                                 </button>
 
@@ -184,6 +186,22 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-2">
+            <c:if test="${requestScope.final_mark > 0}">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="card-title text-center">
+                            <h5 class="display-6">
+                                <fmt:message key="mark"/>
+                            </h5>
+                            <h2>
+                                    ${requestScope.final_mark}
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </c:if>
         </div>
     </div>
 </div>

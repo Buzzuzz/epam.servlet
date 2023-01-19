@@ -47,9 +47,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <c:if test="${requestScope.users != null}">
-                                    <c:forEach var="dto" items="${requestScope.users}">
+                            <c:if test="${requestScope.users != null}">
+                                <c:forEach var="dto" items="${requestScope.users}">
+                                    <tr>
                                         <th scope="row">
                                                 ${dto.user.userId}
                                         </th>
@@ -60,16 +60,17 @@
                                                 ${dto.user.email}
                                         </td>
                                         <td style="width: 15%">
-                                            <input class="form-control" type="number" min="1" max="100"
+                                            <input class="form-control" type="number" min="1.0" max="100.0"
                                                    aria-label="mark"
-                                                   oninput="this.value = !!this.value && Math.abs(this.value) >= 1 && Math.abs(this.value) <= 100 ? Math.abs(this.value) : 1"
+                                                   step="0.1"
+                                                   oninput="this.value = !!this.value && Math.abs(this.value) >= 1.0 && Math.abs(this.value) <= 100.0 ? Math.abs(this.value) : 1.0"
                                                    name="${dto.user.userId}"
-                                                   value="${dto.finalMark eq 0 ? 1 : dto.finalMark}"
+                                                   value="${dto.finalMark eq 0 ? 1.0 : dto.finalMark}"
                                             />
                                         </td>
-                                    </c:forEach>
-                                </c:if>
-                            </tr>
+                                    </tr>
+                                </c:forEach>
+                            </c:if>
                             </tbody>
                         </table>
                     </div>
