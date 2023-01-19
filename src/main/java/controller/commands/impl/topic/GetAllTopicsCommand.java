@@ -27,7 +27,7 @@ public class GetAllTopicsCommand implements Command {
             int offset = getOffset(limit, currentPage);
             String sorting = getSortingType(req, Topic.class);
 
-            req.setAttribute(TOPICS_ATTR, service.getAllTopics(limit, pages, currentPage, offset, sorting));
+            req.setAttribute(TOPICS_ATTR, service.getAllTopics(limit, offset, sorting));
             req.setAttribute(SORTING_TYPE, sorting);
             req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
             req.setAttribute(CURRENT_PAGE, currentPage);

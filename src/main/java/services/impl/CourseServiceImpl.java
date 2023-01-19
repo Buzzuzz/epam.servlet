@@ -47,7 +47,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public List<FullCourseDTO> getAllCourses(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters) {
+    public List<FullCourseDTO> getAllCourses(int limit, int offset, String sorting, Map<String, String[]> filters) {
         Connection con = null;
         try {
             con = getConnection();
@@ -232,6 +232,24 @@ public class CourseServiceImpl implements CourseService {
                 return NONE;
             }
             return ErrorType.DB_ERROR;
+        } catch (DAOException e) {
+            log.error(e.getMessage(), e);
+            return ErrorType.DB_ERROR;
+        } finally {
+            close(con);
+        }
+    }
+
+    @Override
+    public ErrorType updateStudentMark(UserCourse userCourse, double newMark) {
+        Connection con = null;
+        try {
+            con = getConnection();
+
+            userCourse.setFinal_mark(newMark);
+            userCourseDAO.update(con, userCourse);
+
+            return NONE;
         } catch (DAOException e) {
             log.error(e.getMessage(), e);
             return ErrorType.DB_ERROR;

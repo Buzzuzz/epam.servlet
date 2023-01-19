@@ -7,7 +7,6 @@
     <form action="${pageContext.request.contextPath}/controller" method="post">
 
         <input hidden name="c_id" value="${requestScope.c_id}">
-        <input hidden name="users" value="${requestScope.users}">
         <input hidden name="endDate" value="${requestScope.endDate}">
 
         <div class="card">
@@ -25,6 +24,9 @@
                                 <fmt:message key="course_not_ended"/>
                             </div>
                         </h5>
+                    </c:if>
+                    <c:if test="${requestScope.error.value == 'db-error'}">
+                        k
                     </c:if>
                 </div>
                 <div class="d-grid gap-3">
@@ -47,22 +49,22 @@
                             <tbody>
                             <tr>
                                 <c:if test="${requestScope.users != null}">
-                                    <c:forEach var="user" items="${requestScope.users}">
-                                        <input hidden name="${user.userId}" value="${user.userId}"/>
+                                    <c:forEach var="dto" items="${requestScope.users}">
                                         <th scope="row">
-                                                ${user.userId}
+                                                ${dto.user.userId}
                                         </th>
                                         <td>
-                                                ${user.firstName} ${user.lastName}
+                                                ${dto.user.firstName} ${dto.user.lastName}
                                         </td>
                                         <td>
-                                                ${user.email}
+                                                ${dto.user.email}
                                         </td>
                                         <td style="width: 15%">
                                             <input class="form-control" type="number" min="1" max="100"
                                                    aria-label="mark"
                                                    oninput="this.value = !!this.value && Math.abs(this.value) >= 1 && Math.abs(this.value) <= 100 ? Math.abs(this.value) : 1"
-                                                   value="1"
+                                                   name="${dto.user.userId}"
+                                                   value="${dto.finalMark eq 0 ? 1 : dto.finalMark}"
                                             />
                                         </td>
                                     </c:forEach>

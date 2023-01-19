@@ -22,4 +22,5 @@ public interface CommandNameConstants {
     String DELETE_USER = "delete-user";
     String CREATE_USER = "add-user";
     String COURSE_MARKS = "marks";
+    String UPDATE_COURSE_MARKS = "update-marks";
 }

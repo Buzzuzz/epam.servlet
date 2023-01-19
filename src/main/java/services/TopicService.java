@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TopicService {
-    List<TopicDTO> getAllTopics(int limit, int[] pages, int currentPage, int offset, String sorting);
+    List<TopicDTO> getAllTopics(int limit, int offset, String sorting);
     List<TopicDTO> getAllTopics();
 
     long createTopic(TopicDTO topicDTO) throws ServiceException;

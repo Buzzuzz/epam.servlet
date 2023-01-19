@@ -36,7 +36,7 @@ public class TopicServiceImpl implements TopicService {
     }
 
     @Override
-    public List<TopicDTO> getAllTopics(int limit, int[] pages, int currentPage, int offset, String sorting) {
+    public List<TopicDTO> getAllTopics(int limit, int offset, String sorting) {
         Connection con = null;
         try {
             con = getConnection();
@@ -52,7 +52,7 @@ public class TopicServiceImpl implements TopicService {
 
     @Override
     public List<TopicDTO> getAllTopics() {
-        return getAllTopics(getTopicCount(), new int[0], 0, 0, DEFAULT_TOPIC_SORTING);
+        return getAllTopics(getTopicCount(), 0, DEFAULT_TOPIC_SORTING);
     }
 
     @Override

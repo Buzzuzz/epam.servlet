@@ -5,6 +5,7 @@ import exceptions.ServiceException;
 import jakarta.servlet.http.HttpServletRequest;
 import model.entities.User;
 import model.entities.UserType;
+import services.dto.UserCourseDTO;
 import services.dto.UserDTO;
 
 import java.util.List;
@@ -22,11 +23,12 @@ public interface UserService {
 
     User getUserFromDTO(UserDTO user, String password) throws ServiceException;
 
-    List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters);
+    List<UserDTO> getAllUsers(int limit, int offset, String sorting, Map<String, String[]> filters);
 
     List<UserDTO> getAllUsers(UserType type);
 
-    List<UserDTO> getEnrolledStudents(long courseId);
+    List<UserCourseDTO> getEnrolledStudents(long courseId);
+
     long deleteUser(long id) throws ServiceException;
 
     long changeUserLockStatus(long id, boolean status) throws ServiceException;

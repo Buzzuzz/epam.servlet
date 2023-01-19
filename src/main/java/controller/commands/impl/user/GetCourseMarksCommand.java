@@ -17,7 +17,7 @@ import java.util.Map;
 import static constants.AttributeConstants.*;
 
 @Log4j2
-public class CourseMarksCommand implements Command {
+public class GetCourseMarksCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         long courseId = Long.parseLong(req.getParameter(COURSE_ID));

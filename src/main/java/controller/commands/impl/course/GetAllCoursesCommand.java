@@ -70,7 +70,7 @@ public class GetAllCoursesCommand implements Command {
             req.setAttribute(TEACHERS_ATTR, UserServiceImpl.getInstance().getAllUsers(UserType.TEACHER));
             req.setAttribute(ERROR_ATTR, req.getAttribute(ERROR_ATTR));
 
-            List<FullCourseDTO> temp = service.getAllCourses(limit, pages, currentPage, offset, sorting, filters);
+            List<FullCourseDTO> temp = service.getAllCourses(limit, offset, sorting, filters);
             log.fatal(temp);
             switch (sorting) {
                 case ENROLLED_ASC_SORTING:

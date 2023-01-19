@@ -3,6 +3,7 @@ package services;
 import exceptions.ErrorType;
 import exceptions.ServiceException;
 import model.entities.Course;
+import model.entities.UserCourse;
 import services.dto.FullCourseDTO;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface CourseService {
-    List<FullCourseDTO> getAllCourses(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters);
+    List<FullCourseDTO> getAllCourses(int limit, int offset, String sorting, Map<String, String[]> filters);
 
     Optional<FullCourseDTO> getCourseDTO(Course course);
 
@@ -23,7 +24,10 @@ public interface CourseService {
     long deleteCourse(long id) throws ServiceException;
 
     ErrorType enrollStudent(long userId, long courseId);
+
     ErrorType withdrawStudent(long userId, long courseId);
+
+    ErrorType updateStudentMark (UserCourse userCourse, double newMark);
 
     Optional<Course> getCourse(long id);
 

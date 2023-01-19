@@ -11,12 +11,12 @@ import model.entities.User;
 import model.entities.UserCourse;
 import model.entities.UserType;
 import services.UserService;
+import services.dto.UserCourseDTO;
 import services.dto.UserDTO;
 import utils.PaginationUtil;
 import utils.PasswordHashUtil;
 
 import java.sql.Connection;
-import java.sql.Timestamp;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -24,6 +24,7 @@ import static constants.AttributeConstants.*;
 import static model.dao.DataSource.*;
 import static utils.ValidationUtil.*;
 import static exceptions.ErrorType.*;
+import static utils.PaginationUtil.*;
 
 @Log4j2
 public class UserServiceImpl implements UserService {
@@ -160,7 +161,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters) {
+    public List<UserDTO> getAllUsers(int limit, int offset, String sorting, Map<String, String[]> filters) {
         Connection con = null;
         try {
             con = getConnection();
@@ -177,20 +178,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDTO> getAllUsers(UserType type) {
         return getAllUsers(
-                getUserCount(null),
-                new int[0],
-                0,
-                0,
-                DEFAULT_USER_SORTING,
+                getUserCount(null), 0, DEFAULT_USER_SORTING,
                 new HashMap<String, String[]>() {{
                     put(USER_TYPE_DB, new String[]{type.name()});
                 }});
     }
 
     @Override
-    public List<UserDTO> getEnrolledStudents(long courseId) {
+    public List<UserCourseDTO> getEnrolledStudents(long courseId) {
         Connection con = null;
-        List<UserDTO> users = new ArrayList<>();
+        List<UserCourseDTO> users = new ArrayList<>();
 
         Map<String, String[]> filters = new HashMap<>();
         filters.put(COURSE_ID, new String[]{String.valueOf(courseId)});
@@ -199,19 +196,20 @@ public class UserServiceImpl implements UserService {
             con = getConnection();
             setAutoCommit(con, false);
 
-            List<Long> usersIdList = userCourseDAO.getAll(
-                    con,
-                    PaginationUtil.getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters),
-                    0,
-                    USER_ID,
-                    null).stream().map(UserCourse::getU_id).collect(Collectors.toList());
+            List<UserCourse> userCourseList = (List<UserCourse>) userCourseDAO.getAll(con,
+                    getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters),
+                    0, USER_ID, null);
 
-            users = usersIdList
-                    .stream()
-                    .map(id -> UserServiceImpl.getInstance().getUser(id))
-                    .filter(Optional::isPresent)
-                    .map(user -> getUserDTO(user.get()))
-                    .collect(Collectors.toList());
+            for (UserCourse uc : userCourseList) {
+                Optional<User> user = getUser(uc.getU_id());
+                user.ifPresent(value -> users.add(new UserCourseDTO(
+                        getUserDTO(value),
+                        uc.getU_c_id(),
+                        uc.getU_id(),
+                        uc.getC_id(),
+                        uc.getRegistration_date(),
+                        uc.getFinal_mark())));
+            }
 
             commit(con);
         } catch (DAOException e) {

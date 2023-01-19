@@ -100,7 +100,9 @@ public class DataSource {
 
     public static void setAutoCommit(Connection con, boolean type) {
         try {
-            con.setAutoCommit(type);
+            if (con != null) {
+                con.setAutoCommit(type);
+            }
         } catch (SQLException e) {
             log.error("Can't set connection commit type to " + type, e);
             throw new DAOException("Can't set connection commit type to " + type, e);

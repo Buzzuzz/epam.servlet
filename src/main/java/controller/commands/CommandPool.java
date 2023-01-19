@@ -34,7 +34,7 @@ public class CommandPool {
         COMMANDS_POOL.put(UPDATE_USER_COMMAND, new UpdateUserCommand());
         COMMANDS_POOL.put(GET_ALL_COURSES_COMMAND, new GetAllCoursesCommand());
         COMMANDS_POOL.put(CHANGE_LOCALE_COMMAND, new ChangeLocaleCommand());
-        COMMANDS_POOL.put(COURSE_DETAILS_COMMAND, new CourseDetailsCommand());
+        COMMANDS_POOL.put(COURSE_DETAILS_COMMAND, new GetCourseDetailsCommand());
         COMMANDS_POOL.put(GET_ALL_TOPICS_COMMAND, new GetAllTopicsCommand());
         COMMANDS_POOL.put(GET_ALL_USERS_COMMAND,new GetAllUsersCommand());
         COMMANDS_POOL.put(CREATE_TOPIC, new CreateTopicCommand());
@@ -48,8 +48,8 @@ public class CommandPool {
         COMMANDS_POOL.put(DELETE_COURSE, new DeleteCourseCommand());
         COMMANDS_POOL.put(ENROLL_COMMAND, new EnrollStudentCommand());
         COMMANDS_POOL.put(WITHDRAW_COMMAND, new WithdrawStudentCommand());
-        COMMANDS_POOL.put(COURSE_MARKS, new CourseMarksCommand());
-
+        COMMANDS_POOL.put(COURSE_MARKS, new GetCourseMarksCommand());
+        COMMANDS_POOL.put(UPDATE_COURSE_MARKS, new UpdateCourseMarks());
         log.debug("Initialization of CommandPool successful");
     }
 

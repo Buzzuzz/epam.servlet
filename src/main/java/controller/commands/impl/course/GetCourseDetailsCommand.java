@@ -13,7 +13,7 @@ import static constants.AttributeConstants.COURSE_ID;
 import static constants.PageConstants.COURSE_DETAILS_PAGE;
 
 @Log4j2
-public class CourseDetailsCommand implements Command {
+public class GetCourseDetailsCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {

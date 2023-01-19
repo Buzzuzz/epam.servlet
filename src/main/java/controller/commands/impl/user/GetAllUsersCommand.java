@@ -31,23 +31,17 @@ public class GetAllUsersCommand implements Command {
             String filter = getFilter(req, USER_TYPE_DB);
             Map<String, String[]> filters = filter.equals(NONE_ATTR)
                     ? new HashMap<>()
-                    : new HashMap<String, String[]>() {{put(USER_TYPE_DB, new String[]{filter});}};
+                    : new HashMap<String, String[]>() {{
+                put(USER_TYPE_DB, new String[]{filter});
+            }};
             int[] pages = getPages(limit, service.getUserCount(filters));
             int currentPage = Math.min(getCurrentPage(req), pages.length);
             int offset = getOffset(limit, currentPage);
 
-            req.setAttribute(USERS_ATTR,
-                    service.getAllUsers(
-                            limit,
-                            pages,
-                            currentPage,
-                            offset,
-                            sorting,
-                            filters));
+            req.setAttribute(USERS_ATTR, service.getAllUsers(limit, offset, sorting, filters));
 
             req.setAttribute(USER_TYPES,
-                    Arrays
-                            .stream(UserType.values())
+                    Arrays.stream(UserType.values())
                             .map(Enum::name)
                             .collect(Collectors.toList()));
 

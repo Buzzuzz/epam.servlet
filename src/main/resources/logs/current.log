@@ -286,9 +286,9 @@ exceptions.NoSuchCommandException: No such command as marks
 2023-01-19 13:27:54.953 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@1120386357 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where epam.user_course.u_id = 10 order by c_id limit 5 offset 0
 2023-01-19 13:27:54.959 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-19 00:00:00.0, endDate=2023-01-25 00:00:00.0, duration=7, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
 2023-01-19 13:27:55.605 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
-2023-01-19 13:27:55.605 [ INFO | controller.commands.impl.user.CourseMarksCommand | CourseMarksCommand ] - null
+2023-01-19 13:27:55.605 [ INFO | controller.commands.impl.user.GetCourseMarksCommand | CourseMarksCommand ] - null
 2023-01-19 13:27:56.672 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
-2023-01-19 13:27:56.672 [ INFO | controller.commands.impl.user.CourseMarksCommand | CourseMarksCommand ] - test1
+2023-01-19 13:27:56.672 [ INFO | controller.commands.impl.user.GetCourseMarksCommand | CourseMarksCommand ] - test1
 2023-01-19 13:45:07.317 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
 2023-01-19 13:45:07.323 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@2132271247 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) order by c_id limit 5 offset 0
 2023-01-19 13:45:07.340 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=18, currentTopicId=28, currentTeacherId=34, courseName=course one, courseDescription=c, startDate=2023-01-11 00:00:00.0, endDate=2023-01-31 00:00:00.0, duration=21, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=another, currentTopicDescription=edit, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=peppa nein), FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-19 00:00:00.0, endDate=2023-01-25 00:00:00.0, duration=7, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
@@ -681,7 +681,7 @@ org.postgresql.util.PSQLException: Cannot commit when autoCommit is enabled.
 	at com.zaxxer.hikari.pool.HikariProxyConnection.commit(HikariProxyConnection.java) ~[HikariCP-5.0.1.jar:?]
 	at model.dao.DataSource.commit(DataSource.java:94) ~[classes/:?]
 	at services.impl.UserServiceImpl.getEnrolledStudents(UserServiceImpl.java:216) ~[classes/:?]
-	at controller.commands.impl.user.CourseMarksCommand.execute(CourseMarksCommand.java:36) ~[classes/:?]
+	at controller.commands.impl.user.GetCourseMarksCommand.execute(CourseMarksCommand.java:36) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
 	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
@@ -732,7 +732,7 @@ org.postgresql.util.PSQLException: Cannot commit when autoCommit is enabled.
 	at com.zaxxer.hikari.pool.HikariProxyConnection.commit(HikariProxyConnection.java) ~[HikariCP-5.0.1.jar:?]
 	at model.dao.DataSource.commit(DataSource.java:94) ~[classes/:?]
 	at services.impl.UserServiceImpl.getEnrolledStudents(UserServiceImpl.java:216) ~[classes/:?]
-	at controller.commands.impl.user.CourseMarksCommand.execute(CourseMarksCommand.java:36) ~[classes/:?]
+	at controller.commands.impl.user.GetCourseMarksCommand.execute(CourseMarksCommand.java:36) ~[classes/:?]
 	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
 	at controller.FrontControllerServlet.doGet(FrontControllerServlet.java:25) ~[classes/:?]
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:683) ~[servlet-api.jar:5.0.0]
@@ -1040,3 +1040,395 @@ org.postgresql.util.PSQLException: Cannot commit when autoCommit is enabled.
 2023-01-19 19:40:00.221 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
 2023-01-19 19:40:00.222 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
 2023-01-19 19:40:00.223 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 19:59:41.860 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 19:59:41.864 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 19:59:41.872 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 19:59:41.875 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 19:59:41.875 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:01:15.107 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-19 20:01:15.121 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-19 20:01:19.712 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-19 20:01:19.712 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-19 20:01:20.045 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User test@test.com logged in successful!
+2023-01-19 20:01:20.967 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 20:01:20.985 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 20:01:20.993 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:01:20.996 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 20:01:20.997 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@171437635 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where final_mark = '-1' order by c_id limit 5 offset 0
+2023-01-19 20:01:21.012 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 18 and 
+2023-01-19 20:01:21.016 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:01:21.019 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:01:21.021 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:01:21.023 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=18, currentTopicId=28, currentTeacherId=34, courseName=course one, courseDescription=c, startDate=2023-01-11 00:00:00.0, endDate=2023-01-31 00:00:00.0, duration=21, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=another, currentTopicDescription=edit, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=peppa nein), FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 20:01:22.756 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 20:01:22.757 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 20:01:22.760 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:01:22.763 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 20:01:22.763 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@632306176 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where epam.user_course.u_id = 10 order by c_id limit 5 offset 0
+2023-01-19 20:01:22.766 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:01:22.768 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:01:22.769 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 20:01:23.477 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:01:23.480 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:01:23.482 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:01:23.484 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:01:23.484 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:02:03.214 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:02:03.217 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:02:03.221 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:02:03.224 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:02:03.224 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:02:04.146 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:02:04.150 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:02:04.154 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:02:04.157 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:02:04.157 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:02:06.553 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 20:02:06.554 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 20:02:06.559 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:02:06.561 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 20:02:06.561 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@1257567820 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where final_mark = '-1' order by c_id limit 5 offset 0
+2023-01-19 20:02:06.565 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 18 and 
+2023-01-19 20:02:06.567 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:02:06.572 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:02:06.575 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:02:06.577 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=18, currentTopicId=28, currentTeacherId=34, courseName=course one, courseDescription=c, startDate=2023-01-11 00:00:00.0, endDate=2023-01-31 00:00:00.0, duration=21, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=another, currentTopicDescription=edit, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=peppa nein), FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 20:02:09.080 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 20:02:09.081 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 20:02:09.084 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:02:09.085 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 20:02:09.085 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@2058826921 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where epam.user_course.u_id = 10 order by c_id limit 5 offset 0
+2023-01-19 20:02:09.090 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:02:09.093 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:02:09.094 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 20:02:09.851 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:02:09.853 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:02:09.857 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:02:09.858 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:02:09.858 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:02:20.272 [ ERROR | controller.commands.CommandPool | CommandPool ] - No such command as update-marks
+2023-01-19 20:02:20.272 [ ERROR | controller.FrontControllerServlet | FrontControllerServlet ] - No such command as update-marks
+exceptions.NoSuchCommandException: No such command as update-marks
+	at controller.commands.CommandPool.getCommand(CommandPool.java:70) ~[classes/:?]
+	at controller.FrontControllerServlet.process(FrontControllerServlet.java:36) ~[classes/:?]
+	at controller.FrontControllerServlet.doPost(FrontControllerServlet.java:31) ~[classes/:?]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:709) ~[servlet-api.jar:5.0.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:792) ~[servlet-api.jar:5.0.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-websocket.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.AccessFilter.doFilter(AccessFilter.java:22) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.StatusFilter.doFilter(StatusFilter.java:29) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.LocaleFilter.doFilter(LocaleFilter.java:48) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at controller.filters.EncodingFilter.doFilter(EncodingFilter.java:25) ~[classes/:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[catalina.jar:10.0.27]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:356) ~[catalina.jar:10.0.27]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:870) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1762) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-coyote.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-util.jar:10.0.27]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-util.jar:10.0.27]
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?]
+2023-01-19 20:03:59.068 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:03:59.070 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:03:59.072 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:03:59.073 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:03:59.074 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:04:08.009 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:04:08.011 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:04:08.013 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:04:08.014 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:04:08.014 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:04:10.999 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:04:11.001 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:04:11.003 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:04:11.006 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:04:11.006 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:04:11.800 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:04:11.804 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:04:11.806 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:04:11.807 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:04:11.808 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:04:12.360 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:04:12.362 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:04:12.363 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:04:12.364 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:04:12.364 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:14:54.244 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:14:54.248 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:14:54.251 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:14:54.253 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:14:54.254 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:23:23.602 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:23:23.605 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:23:23.606 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:23:23.611 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:23:23.612 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 20:23:50.377 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-19 20:23:50.395 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-19 20:23:52.100 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-19 20:25:38.982 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-19 20:25:38.983 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-19 20:25:39.455 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User test@test.com logged in successful!
+2023-01-19 20:25:41.439 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 20:25:41.458 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 20:25:41.467 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:25:41.471 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 20:25:41.474 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@425877354 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where final_mark = '-1' order by c_id limit 5 offset 0
+2023-01-19 20:25:41.494 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 18 and 
+2023-01-19 20:25:41.500 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:25:41.504 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:25:41.506 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:25:41.508 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=18, currentTopicId=28, currentTeacherId=34, courseName=course one, courseDescription=c, startDate=2023-01-11 00:00:00.0, endDate=2023-01-31 00:00:00.0, duration=21, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=another, currentTopicDescription=edit, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=peppa nein), FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 20:25:43.315 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 20:25:43.316 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 20:25:43.319 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:25:43.321 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 20:25:43.322 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@2089593732 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where epam.user_course.u_id = 10 order by c_id limit 5 offset 0
+2023-01-19 20:25:43.325 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:25:43.327 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:25:43.331 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 20:25:44.122 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 20:25:44.125 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 20:25:44.128 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 20:25:44.133 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 20:25:44.133 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:05:34.748 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-19 21:05:34.769 [ DEBUG | constants.PageAccessPool | PageAccessPool ] - Access commands initialized successful
+2023-01-19 21:05:36.531 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-19 21:05:41.898 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Initialization of CommandPool successful
+2023-01-19 21:05:41.900 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command login acquired successful
+2023-01-19 21:05:43.146 [ INFO | services.impl.UserServiceImpl | UserServiceImpl ] - User test@test.com logged in successful!
+2023-01-19 21:05:44.828 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 21:05:44.871 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 21:05:44.892 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:05:44.903 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 21:05:44.914 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@793070416 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where final_mark = '-1' order by c_id limit 5 offset 0
+2023-01-19 21:05:44.958 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 18 and 
+2023-01-19 21:05:44.969 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:05:44.974 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:05:44.977 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:05:44.982 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=18, currentTopicId=28, currentTeacherId=34, courseName=course one, courseDescription=c, startDate=2023-01-11 00:00:00.0, endDate=2023-01-31 00:00:00.0, duration=21, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=another, currentTopicDescription=edit, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=peppa nein), FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 21:05:48.292 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 21:05:48.293 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 21:05:48.297 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:05:48.301 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 21:05:48.302 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@755692325 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where epam.user_course.u_id = 10 order by c_id limit 5 offset 0
+2023-01-19 21:05:48.309 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:05:48.313 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:05:48.316 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 21:05:49.248 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:05:49.256 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:05:49.260 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:05:49.265 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:05:49.265 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:05:51.015 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-marks acquired successful
+2023-01-19 21:05:51.015 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:05:51.016 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:05:51.076 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:05:51.082 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:05:51.088 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:05:51.092 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:05:51.093 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:00.199 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-marks acquired successful
+2023-01-19 21:06:00.200 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:00.200 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:00.273 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:00.277 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:00.279 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:00.282 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:00.282 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:02.312 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 21:06:02.313 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 21:06:02.317 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:02.321 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 21:06:02.321 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@1576619910 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where final_mark = '-1' order by c_id limit 5 offset 0
+2023-01-19 21:06:02.328 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 18 and 
+2023-01-19 21:06:02.332 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:02.336 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:02.341 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:02.346 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=18, currentTopicId=28, currentTeacherId=34, courseName=course one, courseDescription=c, startDate=2023-01-11 00:00:00.0, endDate=2023-01-31 00:00:00.0, duration=21, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=another, currentTopicDescription=edit, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=peppa nein), FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 21:06:06.900 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 21:06:06.901 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 21:06:06.905 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:06.910 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 21:06:06.911 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@221683307 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where epam.user_course.u_id = 10 order by c_id limit 5 offset 0
+2023-01-19 21:06:06.917 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:06.920 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:06.923 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 21:06:07.932 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:07.936 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:07.939 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:07.943 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:07.944 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:23.161 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-marks acquired successful
+2023-01-19 21:06:23.162 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:23.163 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:23.191 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:23.197 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:23.205 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:23.208 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:23.208 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:25.176 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:25.178 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:25.181 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:25.183 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:25.183 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:25.783 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:25.788 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:25.792 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:25.795 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:25.796 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:26.229 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:26.236 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:26.240 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:26.243 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:26.244 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:26.679 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:26.684 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:26.686 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:26.688 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:26.689 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:27.101 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:27.106 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:27.110 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:27.112 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:27.113 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:27.500 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:27.505 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:27.508 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:27.511 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:27.511 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:27.876 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:27.880 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:27.886 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:27.889 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:27.889 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:06:28.197 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:06:28.201 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:06:28.206 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:06:28.208 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:06:28.208 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:07:40.363 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:07:40.367 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:07:40.370 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:40.372 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:07:40.372 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:07:41.993 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:07:41.997 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:07:41.999 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:42.001 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:07:42.001 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:07:49.644 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:07:49.648 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:07:49.651 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:49.652 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:07:49.653 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:07:50.344 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:07:50.349 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:07:50.353 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:50.356 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:07:50.357 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:07:51.810 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 21:07:51.811 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 21:07:51.816 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:51.819 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 21:07:51.820 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@1411576000 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where final_mark = '-1' order by c_id limit 5 offset 0
+2023-01-19 21:07:51.828 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 18 and 
+2023-01-19 21:07:51.831 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:51.838 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:07:51.841 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:51.843 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=18, currentTopicId=28, currentTeacherId=34, courseName=course one, courseDescription=c, startDate=2023-01-11 00:00:00.0, endDate=2023-01-31 00:00:00.0, duration=21, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=another, currentTopicDescription=edit, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=peppa nein), FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 21:07:53.928 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-user acquired successful
+2023-01-19 21:07:53.937 [ DEBUG | services.impl.UserServiceImpl | UserServiceImpl ] - User test@test.com updated successful
+2023-01-19 21:07:54.645 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 21:07:54.645 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 21:07:54.650 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:54.652 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark = '-1' and 
+2023-01-19 21:07:54.652 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@1600983556 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where final_mark = '-1' order by c_id limit 5 offset 0
+2023-01-19 21:07:54.658 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 18 and 
+2023-01-19 21:07:54.660 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:54.664 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:07:54.668 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:54.670 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=18, currentTopicId=28, currentTeacherId=34, courseName=course one, courseDescription=c, startDate=2023-01-11 00:00:00.0, endDate=2023-01-31 00:00:00.0, duration=21, enrolled=1, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=another, currentTopicDescription=edit, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=peppa nein), FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 21:07:56.030 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command get-all-courses acquired successful
+2023-01-19 21:07:56.030 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 21:07:56.038 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:56.040 [ INFO | utils.PaginationUtil | PaginationUtil ] - where epam.user_course.u_id = 10 and 
+2023-01-19 21:07:56.040 [ INFO | model.dao.impl.CourseDAO | CourseDAO ] - course dao query HikariProxyPreparedStatement@1019903689 wrapping select * from (epam.user_course natural join epam.course natural join epam.topic_course natural join epam.teacher_course) where epam.user_course.u_id = 10 order by c_id limit 5 offset 0
+2023-01-19 21:07:56.044 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:07:56.046 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:56.048 [ FATAL | controller.commands.impl.course.GetAllCoursesCommand | GetAllCoursesCommand ] - [FullCourseDTO(courseId=19, currentTopicId=1, currentTeacherId=10, courseName=course double, courseDescription=c, startDate=2023-01-18 00:00:00.0, endDate=2023-01-18 00:00:00.0, duration=1, enrolled=2, topics=[TopicDTO(topicId=1, topicName=topic1, topicDescription=desc to topic 1), TopicDTO(topicId=28, topicName=another, topicDescription=edit), TopicDTO(topicId=34, topicName=topic 3, topicDescription=цікавий опис)], currentTopicName=topic1, currentTopicDescription=desc to topic 1, teachers=[UserDTO(userId=10, email=test@test.com, firstName=teacher, lastName=kudasai, phoneNumber=989896096, userType=TEACHER, isBlocked=false, sendNotification=false), UserDTO(userId=34, email=peppa_mail@gm.com, firstName=peppa, lastName=nein, phoneNumber=989896123, userType=TEACHER, isBlocked=false, sendNotification=false)], currentTeacherName=teacher kudasai)]
+2023-01-19 21:07:56.950 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:07:56.953 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:07:56.955 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:07:56.957 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:07:56.958 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:08:00.282 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-marks acquired successful
+2023-01-19 21:08:00.283 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:08:00.283 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:08:00.393 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:08:00.395 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:08:00.397 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:08:00.398 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:08:00.399 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:08:07.251 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-marks acquired successful
+2023-01-19 21:08:07.252 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:08:07.252 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:08:07.356 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:08:07.360 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:08:07.363 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:08:07.365 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:08:07.366 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:09:37.865 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:09:37.868 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:09:37.870 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:09:37.872 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:09:37.873 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:09:42.403 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-marks acquired successful
+2023-01-19 21:09:42.403 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:09:42.404 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:09:42.484 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:09:42.487 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:09:42.492 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:09:42.494 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:09:42.495 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:09:44.404 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-marks acquired successful
+2023-01-19 21:09:44.405 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:09:44.405 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:09:44.464 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:09:44.467 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:09:44.471 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:09:44.473 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:09:44.474 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:09:49.255 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command update-marks acquired successful
+2023-01-19 21:09:49.255 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:09:49.255 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:09:49.333 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command marks acquired successful
+2023-01-19 21:09:49.338 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:09:49.342 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
+2023-01-19 21:09:49.346 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and 
+2023-01-19 21:09:49.347 [ INFO | utils.PaginationUtil | PaginationUtil ] - where final_mark > -1 and c_id = 19 and 
+2023-01-19 21:10:00.098 [ DEBUG | controller.filters.LocaleFilter | LocaleFilter ] - Locale filter init locale
+2023-01-19 21:10:00.098 [ DEBUG | controller.commands.CommandPool | CommandPool ] - Command course-details acquired successful
+2023-01-19 21:10:00.101 [ INFO | utils.PaginationUtil | PaginationUtil ] - where c_id = 19 and 
+2023-01-19 21:10:00.102 [ INFO | utils.PaginationUtil | PaginationUtil ] - where user_type = 'TEACHER' and 
