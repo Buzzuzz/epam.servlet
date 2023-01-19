@@ -17,10 +17,7 @@ import utils.PasswordHashUtil;
 
 import java.sql.Connection;
 import java.sql.Timestamp;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static constants.AttributeConstants.*;
@@ -188,6 +185,43 @@ public class UserServiceImpl implements UserService {
                 new HashMap<String, String[]>() {{
                     put(USER_TYPE_DB, new String[]{type.name()});
                 }});
+    }
+
+    @Override
+    public List<UserDTO> getEnrolledStudents(long courseId) {
+        Connection con = null;
+        List<UserDTO> users = new ArrayList<>();
+
+        Map<String, String[]> filters = new HashMap<>();
+        filters.put(COURSE_ID, new String[]{String.valueOf(courseId)});
+        filters.put(QUERY, new String[]{String.format("%s > %s", FINAL_MARK, -1)});
+        try {
+            con = getConnection();
+            setAutoCommit(con, false);
+
+            List<Long> usersIdList = userCourseDAO.getAll(
+                    con,
+                    PaginationUtil.getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters),
+                    0,
+                    USER_ID,
+                    null).stream().map(UserCourse::getU_id).collect(Collectors.toList());
+
+            users = usersIdList
+                    .stream()
+                    .map(id -> UserServiceImpl.getInstance().getUser(id))
+                    .filter(Optional::isPresent)
+                    .map(user -> getUserDTO(user.get()))
+                    .collect(Collectors.toList());
+
+            commit(con);
+        } catch (DAOException e) {
+            rollback(con);
+            log.error(e.getMessage(), e);
+        } finally {
+            setAutoCommit(con, true);
+            close(con);
+        }
+        return users;
     }
 
     @Override

@@ -51,6 +51,8 @@ public class GetAllCoursesCommand implements Command {
             }
             if (!switchPosition.equals(NONE_ATTR)) {
                 filters.put(userFilterString, new String[]{String.valueOf(currentUser.getU_id())});
+            } else {
+                filters.put(FINAL_MARK, new String[]{"-1"});
             }
 
             int[] pages = getPages(limit, service.getCourseCount(filters));

@@ -21,4 +21,5 @@ public interface CommandNameConstants {
     String CHANGE_USER_LOCK_STATUS = "change-lock";
     String DELETE_USER = "delete-user";
     String CREATE_USER = "add-user";
+    String COURSE_MARKS = "marks";
 }

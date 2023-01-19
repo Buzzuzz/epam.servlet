@@ -47,6 +47,7 @@ public class PageAccessPool {
         // teacher pages
         TEACHER_PAGES.addAll(BASE_PAGES);
         TEACHER_PAGES.addAll(LOGGED_IN_PAGES);
+        TEACHER_PAGES.add(MARKS_PAGE);
 
         // admin pages
         ADMIN_PAGES.addAll(BASE_PAGES);

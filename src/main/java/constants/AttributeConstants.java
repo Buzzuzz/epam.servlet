@@ -12,6 +12,7 @@ public interface AttributeConstants {
     String ENCODING_UTF_8 = "UTF-8";
     String DB_ERROR = "db-error";
     String SWITCH = "switch";
+    String QUERY = "query";
 
     // Forms from View layer
     String FIRST_NAME = "f-name";

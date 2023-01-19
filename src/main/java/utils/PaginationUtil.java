@@ -110,11 +110,15 @@ public class PaginationUtil {
             for (Map.Entry<String, String[]> entry : filters.entrySet()) {
                 if (entry.getValue() == null) continue;
                 for (String stringValue : entry.getValue()) {
-                    String filter = stringValue.matches(RegexConstants.IS_A_NUMBER) ?
-                            String.format(String.format("%s = %s and ", entry.getKey(), stringValue)) :
-                            String.format("%s = '%s' and ", entry.getKey(), stringValue);
-                    sb.append(filter);
-
+                    if (entry.getKey().equals(QUERY)) {
+                        sb.append(String.format("%s and ", stringValue));
+                    } else {
+                        String filter = stringValue.matches(RegexConstants.IS_A_NUMBER) ?
+                                String.format(String.format("%s = %s and ", entry.getKey(), stringValue)) :
+                                String.format("%s = '%s' and ", entry.getKey(), stringValue);
+                        sb.append(filter);
+                    }
+                    log.info(sb.toString());
                 }
             }
             sb.delete(sb.lastIndexOf("and"), sb.length());

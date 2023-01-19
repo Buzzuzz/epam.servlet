@@ -1,10 +1,12 @@
 package model.dao.impl;
 
+import constants.AttributeConstants;
 import constants.SQLQueries;
 import exceptions.DAOException;
 import lombok.extern.log4j.Log4j2;
 import model.dao.DAO;
 import model.entities.UserCourse;
+import utils.PaginationUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +15,7 @@ import java.sql.Statement;
 import java.util.*;
 
 import static model.dao.DataSource.*;
+import static constants.AttributeConstants.*;
 
 @Log4j2
 public class UserCourseDAO implements DAO<UserCourse> {
@@ -108,11 +111,24 @@ public class UserCourseDAO implements DAO<UserCourse> {
         ResultSet resultSet = null;
 
         try {
-            statement = con.prepareStatement(SQLQueries.FIND_ALL_COURSES_IDS);
+            String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.USER_COURSE_TABLE, filters);
+            temp = temp.replaceFirst("\\?", sorting);
+            statement = con.prepareStatement(temp);
+
+            int k = 0;
+            statement.setInt(++k, limit);
+            statement.setInt(++k, offset);
             resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
-                get(con, resultSet.getLong(1)).ifPresent(userCourseList::add);
+                k = 0;
+                userCourseList.add(new UserCourse(
+                        resultSet.getLong(++k),
+                        resultSet.getLong(++k),
+                        resultSet.getLong(++k),
+                        resultSet.getTimestamp(++k),
+                        resultSet.getLong(++k)
+                ));
             }
         } catch (Exception e) {
             log.error("Can't get all user_courses from database", e);

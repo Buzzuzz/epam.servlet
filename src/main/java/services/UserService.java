@@ -25,6 +25,8 @@ public interface UserService {
     List<UserDTO> getAllUsers(int limit, int[] pages, int currentPage, int offset, String sorting, Map<String, String[]> filters);
 
     List<UserDTO> getAllUsers(UserType type);
+
+    List<UserDTO> getEnrolledStudents(long courseId);
     long deleteUser(long id) throws ServiceException;
 
     long changeUserLockStatus(long id, boolean status) throws ServiceException;

@@ -12,4 +12,5 @@ public interface PageConstants {
     String COURSE_DETAILS_PAGE = "/pages/courseDetailsPage.jsp";
     String TOPICS_PAGE = "/pages/topics.jsp";
     String USERS_PAGE = "/pages/users.jsp";
+    String MARKS_PAGE = "/pages/marks.jsp";
 }

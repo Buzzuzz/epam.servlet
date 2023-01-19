@@ -37,7 +37,7 @@
         </c:if>
         <c:if test="${requestScope.get('switch') eq 'on' and value.currentTeacherId eq sessionScope.loggedUser.u_id}">
             <td>
-                <button class="btn btn-info w-100">
+                <button class="btn btn-info w-100" name="command" value="marks">
                     <fmt:message key="marks"/>
                 </button>
             </td>
