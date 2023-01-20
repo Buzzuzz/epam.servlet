@@ -34,7 +34,7 @@ public interface UserService {
 
     Optional<User> getUser(long id);
 
-    ValidationError createUser(UserDTO userDTO, String password, String repeatPassword) throws ServiceException;
+    ValidationError createUser(UserDTO userDTO, String password, String repeatPassword, String type) throws ServiceException;
 
     int getUserCount(Map<String, String[]> filters);
 }

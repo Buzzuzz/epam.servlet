@@ -30,8 +30,6 @@ y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/databas
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 I
 src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 j
 :.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml,3\d\3d85f972207e950affbb1f88c95863214abdd32d
 ¤

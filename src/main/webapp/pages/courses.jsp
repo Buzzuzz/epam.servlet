@@ -217,6 +217,8 @@
         <input hidden name="command" value="get-all-courses"/>
         <input hidden name="t_id" value="${requestScope.t_id}">
         <input hidden name="u_id" value="${requestScope.u_id}">
+        <input hidden name="switch" value="${requestScope.get("switch")}">
+        <input hidden name="endDate_filter" value="${requestScope.endDate_filter}">
 
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">

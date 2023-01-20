@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 
 import static com.my.project.utils.PaginationUtil.*;
 import static com.my.project.constants.AttributeConstants.*;
+import static com.my.project.constants.SQLQueries.*;
 
 // TODO : refactor this piece of ... code
 @Log4j2
@@ -36,6 +37,9 @@ public class GetAllCoursesCommand implements Command {
             String topicFilter = getFilter(req, TOPIC_ID);
             String endDateFilter = getFilter(req, END_DATE_FILTER);
             String switchPosition = getFilter(req, SWITCH);
+
+            Timestamp currentDate = new Timestamp(System.currentTimeMillis());
+
             Map<String, String[]> filters = new HashMap<>();
 
             String teacherFilterString = String.format("%s.%s", TEACHER_COURSE_TABLE, TEACHER_ID);
@@ -53,11 +57,26 @@ public class GetAllCoursesCommand implements Command {
                 filters.put(FINAL_MARK, new String[]{"-1"});
             }
 
+            switch (endDateFilter) {
+                case COURSE_NOT_STARTED:
+                    filters.put(QUERY, new String[]{String.format("%s > %s", START_DATE_MILLIS, currentDate.getTime())});
+                    break;
+                case COURSE_IN_PROGRESS:
+                    filters.put(QUERY, new String[]{String.format("%s < %s and %s > %s", START_DATE_MILLIS, currentDate.getTime(), END_DATE_MILLIS, currentDate.getTime())});
+                    break;
+                case COURSE_ENDED:
+                    filters.put(QUERY, new String[]{String.format("%s < %s", END_DATE_MILLIS, currentDate.getTime())});
+                    break;
+                default:
+                    // no filtration by date
+                    break;
+            }
+
             int[] pages = getPages(limit, service.getCourseCount(filters));
             int currentPage = Math.min(getCurrentPage(req), pages.length);
             int offset = getOffset(limit, currentPage);
 
-            List<FullCourseDTO> temp = service.getAllCourses(limit, offset, sorting, filters);
+            List<FullCourseDTO> temp = service.getAllCourses(limit, offset, sorting.contains("enroll") ? COURSE_ID : sorting, filters);
             log.fatal(temp);
 
             switch (sorting) {
@@ -71,29 +90,6 @@ public class GetAllCoursesCommand implements Command {
                     temp = temp
                             .stream()
                             .sorted(Comparator.comparingLong(FullCourseDTO::getEnrolled).reversed())
-                            .collect(Collectors.toList());
-                    break;
-            }
-
-            Timestamp currentDate = new Timestamp(System.currentTimeMillis());
-            switch (endDateFilter) {
-                case COURSE_NOT_STARTED:
-                    temp = temp
-                            .stream()
-                            .filter(dto -> dto.getStartDate().getTime() > currentDate.getTime())
-                            .collect(Collectors.toList());
-                    break;
-                case COURSE_IN_PROGRESS:
-                    temp = temp
-                            .stream()
-                            .filter(dto -> dto.getStartDate().getTime() < currentDate.getTime())
-                            .filter(dto -> dto.getEndDate().getTime() > currentDate.getTime())
-                            .collect(Collectors.toList());
-                    break;
-                case COURSE_ENDED:
-                    temp = temp
-                            .stream()
-                            .filter(dto -> dto.getEndDate().getTime() < new Timestamp(System.currentTimeMillis()).getTime())
                             .collect(Collectors.toList());
                     break;
             }

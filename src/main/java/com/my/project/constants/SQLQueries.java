@@ -54,4 +54,6 @@ public interface SQLQueries {
     String UPDATE_TEACHER_COURSE = "update epam.teacher_course set tch_id = ? where c_id = ?";
     String DELETE_TEACHER_COURSE = "delete from epam.teacher_course where c_id = ? returning c_id";
     String CREATE_TEACHER_COURSE = "insert into epam.teacher_course (tch_id, c_id) values (?, ?)";
+    String START_DATE_MILLIS = "extract(epoch from start_date) * 1000";
+    String END_DATE_MILLIS = "extract(epoch from end_date) * 1000";
 }

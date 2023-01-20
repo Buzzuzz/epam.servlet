@@ -22,6 +22,8 @@ import java.sql.Connection;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.my.project.model.dao.DataSource.*;
+
 @Log4j2
 public class UserServiceImpl implements UserService {
     private static final UserDAO userDAO = UserDAO.getInstance();
@@ -70,7 +72,7 @@ public class UserServiceImpl implements UserService {
             user.setPassword(PasswordHashUtil.encode(user.getPassword()));
             Connection con = null;
             try {
-                con = DataSource.getConnection();
+                con = getConnection();
                 userDAO.save(con, user);
                 log.info(String.format("User %s registered successfully!", user.getEmail()));
                 return ValidationError.NONE;
@@ -78,7 +80,7 @@ public class UserServiceImpl implements UserService {
                 log.error(e.getMessage(), e);
                 throw new ServiceException("Can't register new user", e);
             } finally {
-                DataSource.close(con);
+                close(con);
             }
         }
         return ValidationUtil.isNewUserValid(user, repeatPassword);
@@ -265,27 +267,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ValidationError createUser(UserDTO userDTO, String password, String repeatPassword) throws ServiceException {
+    public ValidationError createUser(UserDTO userDTO, String password, String repeatPassword, String type) throws ServiceException {
         Connection con = null;
         User user = getUserFromDTO(userDTO, password);
         try {
             con = DataSource.getConnection();
-            DataSource.setAutoCommit(con, false);
+            setAutoCommit(con, false);
 
             ValidationError error = signUp(userDTO, password, repeatPassword);
             if (error.equals(ValidationError.NONE)) {
                 Connection finalCon = con;
-                userDAO.getByEmail(con, user.getEmail()).ifPresent(u -> userDAO.update(finalCon, user));
-                DataSource.commit(con);
+                userDAO.getByEmail(con, user.getEmail()).ifPresent(u -> {
+                    u.setUser_type(UserType.valueOf(type));
+                    userDAO.update(finalCon, u);
+                });
+                commit(con);
             }
-            DataSource.setAutoCommit(con, true);
-
             return error;
         } catch (DAOException e) {
-            DataSource.rollback(con);
+            rollback(con);
             log.error(String.format("Can't create new user, cause: %s", e.getMessage()), e);
             throw new ServiceException("Can't create new user!", e);
+        } catch (IllegalArgumentException e) {
+            log.error("Wrong userType passed!", e);
+            throw new ServiceException("Can't update user! Wrong userType!", e);
         } finally {
+            DataSource.setAutoCommit(con, true);
             DataSource.close(con);
         }
     }
