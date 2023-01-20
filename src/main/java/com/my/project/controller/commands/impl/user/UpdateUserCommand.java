@@ -1,6 +1,5 @@
 package com.my.project.controller.commands.impl.user;
 
-import com.my.project.constants.AttributeConstants;
 import com.my.project.constants.PageConstants;
 import com.my.project.controller.commands.Command;
 import com.my.project.exceptions.CommandException;

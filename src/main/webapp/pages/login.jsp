@@ -10,6 +10,13 @@
                 <div class="card-body">
                     <div class="card-title">
                         <h5>
+                            <c:if test="${sessionScope.error.value == 'none'}">
+                                <div class="alert bg-success">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="registration_successful"/>
+                                </div>
+                            </c:if>
                             <c:if test="${sessionScope.error.value != 'none'}">
                                 <c:if test="${sessionScope.error.value == 'email'}">
                                     <div class="alert bg-danger">

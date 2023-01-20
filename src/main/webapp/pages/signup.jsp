@@ -38,6 +38,13 @@
                                     <fmt:message key="wrong_phone"/>
                                 </div>
                             </c:if>
+                            <c:if test="${sessionScope.error.value == 'none'}">
+                                <div class="alert bg-success">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                    <fmt:message key="registration_successful"/>
+                                </div>
+                            </c:if>
                         </h5>
                     </div>
                     <div class="text-center">
