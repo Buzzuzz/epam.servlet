@@ -41,7 +41,7 @@ public class UpdateCourseMarks implements Command {
         req.setAttribute(AttributeConstants.COURSE_END_DATE, req.getParameter(AttributeConstants.COURSE_END_DATE));
         req.setAttribute(AttributeConstants.COURSE_ID, req.getParameter(AttributeConstants.COURSE_ID));
         req.setAttribute(AttributeConstants.USERS_ATTR, userCourseList);
-        req.setAttribute(AttributeConstants.ERROR_ATTR, error);
+        req.getSession().setAttribute(AttributeConstants.ERROR_ATTR, error);
 
         return RequestBuilder.buildCommand(
                 req.getServletPath(),

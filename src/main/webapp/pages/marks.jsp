@@ -4,7 +4,7 @@
 <body>
 <%@include file="../components/menu.jspf" %>
 <div class="container min-vh-100">
-    <form action="${pageContext.request.contextPath}/controller" method="post">
+    <form action="${applicationScope.controller}" method="post">
 
         <input hidden name="c_id" value="${requestScope.c_id}">
         <input hidden name="endDate" value="${requestScope.endDate}">
@@ -25,8 +25,23 @@
                             </div>
                         </h5>
                     </c:if>
-                    <c:if test="${requestScope.error.value == 'db-error'}">
-                        k
+                    <c:if test="${sessionScope.error.value == 'db-error'}">
+                        <h5>
+                            <div class="alert bg-danger">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                <fmt:message key="something_went_wrong"/>
+                            </div>
+                        </h5>
+                    </c:if>
+                    <c:if test="${sessionScope.error.value == 'none'}">
+                        <h5>
+                            <div class="alert bg-success">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                <fmt:message key="success"/>
+                            </div>
+                        </h5>
                     </c:if>
                 </div>
                 <div class="d-grid gap-3">
@@ -86,6 +101,7 @@
 
     </form>
 </div>
+${sessionScope.remove("error")}
 <%@include file="../components/footer.jspf" %>
 </body>
 </html>

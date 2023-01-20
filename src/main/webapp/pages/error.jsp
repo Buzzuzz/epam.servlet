@@ -10,7 +10,9 @@
     </h1>
 
     <jsp:scriptlet>
-    exception.printStackTrace(response.getWriter())
+
+            exception.printStackTrace(response.getWriter())
+
     </jsp:scriptlet>
 
     <div class="row row-cols-1 w-100 justify-content-center">
@@ -54,7 +56,7 @@
                     </button>
                 </div>
                 <div class="col justify-content-start d-flex">
-                    <form action="${pageContext.request.contextPath}/controller" class="w-25">
+                    <form action="${applicationScope.controller}" class="w-25">
                         <button class="btn btn-danger w-100" name="command" value="logout">
                             <fmt:message key="logout"/>
                         </button>

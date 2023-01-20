@@ -67,6 +67,7 @@ public class UserServiceImpl implements UserService {
     public ValidationError signUp(UserDTO userDTO, String password, String repeatPassword) throws ServiceException {
         User user = getUserFromDTO(userDTO, password);
         if (ValidationUtil.isNewUserValid(user, repeatPassword).equals(ValidationError.NONE)) {
+            user.setPassword(PasswordHashUtil.encode(user.getPassword()));
             Connection con = null;
             try {
                 con = DataSource.getConnection();

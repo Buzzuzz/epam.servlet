@@ -7,7 +7,7 @@
     <div class="row g-3">
         <div class="d-flex justify-content-center">
             <div class="w-100">
-                <form action="${pageContext.request.contextPath}/controller">
+                <form action="${applicationScope.controller}">
                     <div class="card shadow">
                         <div class="card-body">
                             <div class="row w-100">
@@ -114,7 +114,7 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${requestScope.users}" var="user">
-                        <form action="${pageContext.request.contextPath}/controller" method="post">
+                        <form action="${applicationScope.controller}" method="post">
                             <input hidden name="u_id" value="${user.userId}"/>
                             <input hidden name="user-status" value="${user.isBlocked}"/>
 
@@ -168,7 +168,7 @@
             </div>
         </div>
         <!-- Pagination -->
-        <form action="${pageContext.request.contextPath}/controller">
+        <form action="${applicationScope.controller}">
 
             <input hidden name="sorting" value="${requestScope.sorting}"/>
             <input hidden name="display" value="${requestScope.display}">
@@ -205,7 +205,7 @@
         <!-- Modal create user -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <form action="${pageContext.request.contextPath}/controller" method="post">
+                <form action="${applicationScope.controller}" method="post">
 
                     <input hidden name="sorting" value="${requestScope.sorting}"/>
                     <input hidden name="page" value="${requestScope.page}">

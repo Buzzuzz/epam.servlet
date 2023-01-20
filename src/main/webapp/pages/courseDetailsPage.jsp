@@ -53,7 +53,7 @@
                             </div>
                         </h5>
                     </div>
-                    <form action="${pageContext.request.contextPath}/controller" class="d-grid gap-3" method="post">
+                    <form action="${applicationScope.controller}" class="d-grid gap-3" method="post">
                         <input hidden name="c_id" value="${requestScope.course.courseId}"/>
                         <div class="row">
                             <div class="col-7">

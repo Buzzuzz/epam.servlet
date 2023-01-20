@@ -23,29 +23,13 @@ y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/databas
 .idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/pg_catalog.0S1ZNQ.meta,9/a/9a44a08d064027682d74748ac6631a7d8f8baf0a
 ]
 -.idea/artifacts/epam_servlet_war_exploded.xml,3\a\3ad6d356b7a42a0b4e7530b1623775202a584b38
-Q
-!src/main/webapp/pages/restore.jsp,d\c\dcd64f48ab77e701c27768b7badae1723b2ca46c
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-O
-src/main/webapp/pages/index.jsp,6\d\6d1882855c5a6ca4ae29c49e862e7c6d94997549
-V
-&src/main/webapp/components/footer.jspf,2\6\26b3095d40a790d372e975ab3eb689d92183dd77
-T
-$src/main/webapp/components/head.jspf,b\4\b4bbcf6255cf8a7378728c7e7c77f99bbaa1c483
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 I
 src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
-P
- src/main/webapp/pages/signup.jsp,a\3\a32edbb6e370eacb2cd8b15a1db73a70fc4d2b74
-X
-(src/main/webapp/components/metadata.jspf,c\9\c9285f2570b0a57313b914bf65baed92ff4549d7
-O
-src/main/webapp/pages/error.jsp,9\9\99913bd45b22c0fbd30ca43131af12570289d3fc
-P
- src/main/webapp/pages/topics.jsp,6\6\66f53da9f58c0a4237f3c46f47cfe3a88c7d2929
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 j
@@ -54,11 +38,3 @@ j
 t.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta,4\2\424c97d7601bfa7487487c22d92c60c9c1984b3e
 ¦
 v.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta,e\b\eb641fe5cb933ef0ff5b768296a673fc24ee2525
-T
-$src/main/webapp/components/menu.jspf,7\b\7b3498325fd7f8308d3b8c9dee5a7ad985d3dc0e
-O
-src/main/webapp/pages/users.jsp,9\2\92522604fe0b3dbcf72e0e58c1ecac7e547ca59b
-[
-+src/main/webapp/pages/courseDetailsPage.jsp,e\1\e16dd0acc77b1f31fe59d463753bd6e4ccbca631
-O
-src/main/webapp/pages/marks.jsp,f\4\f4f2c5aa5edcd5e954686ad91158bbba342b9c99

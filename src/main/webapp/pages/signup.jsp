@@ -45,7 +45,7 @@
                             <fmt:message key="signup_title"/>
                         </h2>
                     </div>
-                    <form action="${pageContext.request.contextPath}/controller" method="post">
+                    <form action="${applicationScope.controller}" method="post">
                         <div class="form-outline">
                             <input type="email" class="form-control" name="email" required/>
                             <label class="form-label">

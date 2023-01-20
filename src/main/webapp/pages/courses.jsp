@@ -210,7 +210,7 @@
     </div>
 
     <!-- Pagination -->
-    <form action="${pageContext.request.contextPath}/controller">
+    <form action="${applicationScope.controller}">
 
         <input hidden name="sorting" value="${requestScope.sorting}"/>
         <input hidden name="display" value="${requestScope.display}">
@@ -247,7 +247,7 @@
     </form>
 
     <!-- Modal -->
-    <form action="${pageContext.request.contextPath}/controller" method="post">
+    <form action="${applicationScope.controller}" method="post">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-lg">

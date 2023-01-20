@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-center">
                 <div class="card shadow mb-3" style="width: 75%">
                     <div class="card-body">
-                        <form action="${pageContext.request.contextPath}/controller">
+                        <form action="${applicationScope.controller}">
                             <input hidden name="page" value="${requestScope.page}">
 
                             <div class="row">
@@ -68,7 +68,7 @@
                         </thead>
                         <tbody>
                         <c:forEach var="topic" items="${requestScope.topics}">
-                            <form action="${pageContext.request.contextPath}/controller" method="post">
+                            <form action="${applicationScope.controller}" method="post">
 
                                 <input hidden name="sorting" value="${requestScope.sorting}"/>
                                 <input hidden name="page" value="${requestScope.page}">
@@ -110,7 +110,7 @@
                                 </tr>
                             </form>
                         </c:forEach>
-                        <form action="${pageContext.request.contextPath}/controller" method="post">
+                        <form action="${applicationScope.controller}" method="post">
 
                             <input hidden name="sorting" value="${requestScope.sorting}"/>
                             <input hidden name="page" value="${requestScope.page}">
@@ -144,7 +144,7 @@
             </div>
 
             <!-- Pagination -->
-            <form action="${pageContext.request.contextPath}/controller">
+            <form action="${applicationScope.controller}">
 
                 <input hidden name="sorting" value="${requestScope.sorting}"/>
                 <input hidden name="display" value="${requestScope.display}">
