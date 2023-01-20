@@ -7,13 +7,10 @@ import com.my.project.exceptions.UtilException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import com.my.project.model.entities.User;
-import com.my.project.model.entities.UserType;
 import com.my.project.services.UserService;
 import com.my.project.services.impl.UserServiceImpl;
 
-import java.util.Arrays;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static com.my.project.utils.SqlUtil.*;
 import static com.my.project.constants.AttributeConstants.*;
