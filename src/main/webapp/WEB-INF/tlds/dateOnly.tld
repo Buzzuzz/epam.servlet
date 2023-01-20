@@ -11,7 +11,7 @@
 
     <tag>
         <name>dateOnly</name>
-        <tag-class>utils.tag_handlers.DateOnlyTagHandler</tag-class>
+        <tag-class>com.my.project.utils.tag_handlers.DateOnlyTagHandler</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>date</name>

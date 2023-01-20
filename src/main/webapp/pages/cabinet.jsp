@@ -1,5 +1,5 @@
 <%@include file="../components/metadata.jspf" %>
-<%@page import="model.entities.UserType" %>
+<%@page import="com.my.project.model.entities.UserType" %>
 <html lang="${sessionScope.locale}">
 <%@include file="../components/head.jspf" %>
 <body>

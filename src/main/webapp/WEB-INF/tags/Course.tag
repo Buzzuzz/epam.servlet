@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ attribute name="value" type="services.dto.FullCourseDTO" required="true" %>
+<%@ attribute name="value" type="com.my.project.services.dto.FullCourseDTO" required="true" %>
 <fmt:setLocale value="${sessionScope.locale}"/>
 <fmt:setBundle basename="locale"/>
 

@@ -33,7 +33,7 @@
                             <fmt:message key="enter"/>
                         </h2>
                     </div>
-                    <form action="${pageContext.request.contextPath}/controller" method="post">
+                    <form action="${applicationScope.controller}" method="post">
                         <input type="hidden" name="command" value="login"/>
                         <div class="form-outline">
                             <input type="email" id="email" class="form-control" name="email" required/>

@@ -130,32 +130,29 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <c:if test="${sessionScope.userType != 'ADMINISTRATOR'}">
-                        <div class="card shadow">
-                            <div class="card-body">
-                                <div class="input-group">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="input-group">
                                     <span class="input-group-text">
                                         <fmt:message key="course"/>
                                     </span>
-                                    <select class="form-select" name="endDate_filter">
-                                        <option value="none">
-                                            <fmt:message key="filter_all"/>
-                                        </option>
-                                        <!-- TODO : filtration by date-->
-                                        <option value="not-started" ${requestScope.endDate_filter eq 'not-started' ? 'selected="selected"' : ''}>
-                                            <fmt:message key="not_started"/>
-                                        </option>
-                                        <option value="in-progress" ${requestScope.endDate_filter eq 'in-progress' ? 'selected="selected"' : ''}>
-                                            <fmt:message key="in_progress"/>
-                                        </option>
-                                        <option value="ended" ${requestScope.endDate_filter eq 'ended' ? 'selected="selected"' : ''}>
-                                            <fmt:message key="ended"/>
-                                        </option>
-                                    </select>
-                                </div>
+                                <select class="form-select" name="endDate_filter">
+                                    <option value="none">
+                                        <fmt:message key="filter_all"/>
+                                    </option>
+                                    <option value="not-started" ${requestScope.endDate_filter eq 'not-started' ? 'selected="selected"' : ''}>
+                                        <fmt:message key="not_started"/>
+                                    </option>
+                                    <option value="in-progress" ${requestScope.endDate_filter eq 'in-progress' ? 'selected="selected"' : ''}>
+                                        <fmt:message key="in_progress"/>
+                                    </option>
+                                    <option value="ended" ${requestScope.endDate_filter eq 'ended' ? 'selected="selected"' : ''}>
+                                        <fmt:message key="ended"/>
+                                    </option>
+                                </select>
                             </div>
                         </div>
-                    </c:if>
+                    </div>
                 </div>
             </div>
         </div>

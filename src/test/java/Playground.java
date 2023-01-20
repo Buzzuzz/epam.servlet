@@ -1,8 +1,7 @@
 import lombok.extern.log4j.Log4j2;
-import model.dao.DataSource;
-import model.dao.impl.CourseDAO;
-import model.entities.Course;
-import org.postgresql.jdbc.TimestampUtils;
+import com.my.project.model.dao.DataSource;
+import com.my.project.model.dao.impl.CourseDAO;
+import com.my.project.model.entities.Course;
 
 import java.sql.Connection;
 import java.sql.Timestamp;
