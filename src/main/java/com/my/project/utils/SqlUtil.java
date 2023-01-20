@@ -13,14 +13,21 @@ import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import static com.my.project.constants.AttributeConstants.*;
+import static com.my.project.constants.AttributeConstants.QUERY;
+import static com.my.project.constants.SQLQueries.*;
+
 @Log4j2
-public class PaginationUtil {
+public class SqlUtil {
 
     // Suppress constructor
-    private PaginationUtil() {
+    private SqlUtil() {
     }
 
     public static int getRecordsCount(Connection con, String countable, String table, Map<String, String[]> filters) throws DAOException {
@@ -93,12 +100,53 @@ public class PaginationUtil {
         return AttributeConstants.NONE_ATTR;
     }
 
-    public static String getEntityPaginationQuery(String table, Map<String, String[]> filters) {
-        return String.format("select * from %s ", table) +
-                buildFilters(filters) +
-                "order by ? limit ? offset ?";
+    public static Map<String, String[]> getFilters(HttpServletRequest req, String... filterNames) {
+        Map<String, String[]> resultFiltersMap = new HashMap<>();
+
+        Arrays.stream(filterNames).forEach(filter -> {
+            String currentFilter = getFilter(req, filter);
+            if (!currentFilter.equals(AttributeConstants.NONE_ATTR)) {
+                resultFiltersMap.put(filter, new String[]{currentFilter});
+            }
+        });
+
+        return resultFiltersMap;
     }
 
+    public static void getEndDateFilter(String endDateFilter, Map<String, String[]> filters) {
+        Timestamp currentDate = new Timestamp(System.currentTimeMillis());
+
+        switch (endDateFilter) {
+            case COURSE_NOT_STARTED:
+                filters.put(QUERY, new String[]{String.format("%s > %s", START_DATE_MILLIS, currentDate.getTime())});
+                break;
+            case COURSE_IN_PROGRESS:
+                filters.put(QUERY, new String[]{String.format("%s < %s and %s > %s", START_DATE_MILLIS, currentDate.getTime(), END_DATE_MILLIS, currentDate.getTime())});
+                break;
+            case COURSE_ENDED:
+                filters.put(QUERY, new String[]{String.format("%s < %s", END_DATE_MILLIS, currentDate.getTime())});
+                break;
+            default:
+                // no filtration by date
+                break;
+        }
+    }
+
+    public static void getMyCourseFilter(HttpServletRequest req, long id, Map<String, String[]> filters) {
+        String userFilterString = String.format(FULL_COLUMN_NAME, USER_COURSE_TABLE, USER_ID);
+        String switchPosition = getFilter(req, SWITCH);
+        if (!switchPosition.equals(NONE_ATTR)) {
+            filters.put(userFilterString, new String[]{String.valueOf(id)});
+        } else {
+            filters.put(FINAL_MARK, new String[]{"-1"});
+        }
+    }
+
+    public static String getEntityPaginationQuery(String table, Map<String, String[]> filters) {
+        return String.format("%s %s ", SELECT_EVERYTHING_FROM_PART, table) + buildFilters(filters) + PAGINATION_LIMIT_OFFSET_QUERY_PART;
+    }
+
+    // TODO : refactor filter building
     private static String buildFilters(Map<String, String[]> filters) {
         String builded = "";
         if (filters != null && !filters.isEmpty()) {

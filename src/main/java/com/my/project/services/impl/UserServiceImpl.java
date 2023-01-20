@@ -13,7 +13,7 @@ import com.my.project.model.entities.UserType;
 import com.my.project.services.UserService;
 import com.my.project.services.dto.UserCourseDTO;
 import com.my.project.services.dto.UserDTO;
-import com.my.project.utils.PaginationUtil;
+import com.my.project.utils.SqlUtil;
 import com.my.project.utils.PasswordHashUtil;
 import com.my.project.utils.ValidationUtil;
 import lombok.extern.log4j.Log4j2;
@@ -119,24 +119,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getUserDTO(User user) {
-        Connection con = null;
-
-        try {
-            con = DataSource.getConnection();
-
-            return new UserDTO(
-                    user.getU_id(),
-                    user.getEmail(),
-                    user.getFirst_name(),
-                    user.getLast_name(),
-                    user.getPhone(),
-                    user.getUser_type().name(),
-                    String.valueOf(user.is_blocked()),
-                    String.valueOf(user.isSend_notification())
-            );
-        } finally {
-            DataSource.close(con);
-        }
+        return new UserDTO(
+                user.getU_id(),
+                user.getEmail(),
+                user.getFirst_name(),
+                user.getLast_name(),
+                user.getPhone(),
+                user.getUser_type().name(),
+                String.valueOf(user.is_blocked()),
+                String.valueOf(user.isSend_notification())
+        );
     }
 
     @Override
@@ -196,7 +188,7 @@ public class UserServiceImpl implements UserService {
             DataSource.setAutoCommit(con, false);
 
             List<UserCourse> userCourseList = (List<UserCourse>) userCourseDAO.getAll(con,
-                    PaginationUtil.getRecordsCount(con, AttributeConstants.USER_ID, AttributeConstants.USER_COURSE_TABLE, filters), 0, AttributeConstants.USER_ID, filters);
+                    SqlUtil.getRecordsCount(con, AttributeConstants.USER_ID, AttributeConstants.USER_COURSE_TABLE, filters), 0, AttributeConstants.USER_ID, filters);
 
             for (UserCourse uc : userCourseList) {
                 Optional<User> user = getUser(uc.getU_id());
@@ -302,9 +294,14 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
         try {
             con = DataSource.getConnection();
-            return PaginationUtil.getRecordsCount(con, AttributeConstants.USER_ID, AttributeConstants.USER_TABLE, filters);
+            return SqlUtil.getRecordsCount(con, AttributeConstants.USER_ID, AttributeConstants.USER_TABLE, filters);
         } finally {
             DataSource.close(con);
         }
+    }
+
+    @Override
+    public List<String> getAllUserTypes() {
+        return Arrays.stream(UserType.values()).map(Enum::name).collect(Collectors.toList());
     }
 }

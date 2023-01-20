@@ -14,6 +14,7 @@ public interface AttributeConstants {
     String DB_ERROR = "db-error";
     String SWITCH = "switch";
     String QUERY = "query";
+    String FULL_COLUMN_NAME = "%s.%s";
 
     // Forms from View layer
     String FIRST_NAME = "f-name";

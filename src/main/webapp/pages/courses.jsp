@@ -5,7 +5,7 @@
 <%@include file="../components/menu.jspf" %>
 <div class="container min-vh-100">
     <!-- Pagination bar (and sorting, filters) -->
-    <form action="${pageContext.request.contextPath}/controller">
+    <form action="${applicationScope.controller}">
         <div class="card shadow mb-3">
             <div class="card-body">
                 <div class="row justify-items-center">

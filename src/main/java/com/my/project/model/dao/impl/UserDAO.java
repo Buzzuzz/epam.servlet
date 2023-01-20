@@ -8,7 +8,7 @@ import com.my.project.model.dao.DataSource;
 import com.my.project.model.entities.User;
 import com.my.project.model.entities.UserType;
 import lombok.extern.log4j.Log4j2;
-import com.my.project.utils.PaginationUtil;
+import com.my.project.utils.SqlUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -123,7 +123,7 @@ public class UserDAO implements DAO<User> {
         ResultSet resultSet = null;
         PreparedStatement statement = null;
         try {
-            String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.USER_TABLE, filters);
+            String temp = SqlUtil.getEntityPaginationQuery(AttributeConstants.USER_TABLE, filters);
             temp = temp.replaceFirst("\\?", sorting);
             statement = con.prepareStatement(temp);
 

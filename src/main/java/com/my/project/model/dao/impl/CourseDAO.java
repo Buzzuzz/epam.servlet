@@ -5,9 +5,9 @@ import com.my.project.constants.SQLQueries;
 import com.my.project.exceptions.DAOException;
 import com.my.project.model.dao.DataSource;
 import com.my.project.model.entities.Course;
+import com.my.project.utils.SqlUtil;
 import lombok.extern.log4j.Log4j2;
 import com.my.project.model.dao.DAO;
-import com.my.project.utils.PaginationUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -77,7 +77,7 @@ public class CourseDAO implements DAO<Course> {
         ResultSet resultSet = null;
 
         try {
-            String temp = PaginationUtil.getEntityPaginationQuery(SQLQueries.JOIN_COURSE_TOPIC_USER_TEACHER_TABLE, filters);
+            String temp = SqlUtil.getEntityPaginationQuery(SQLQueries.JOIN_COURSE_TOPIC_USER_TEACHER_TABLE, filters);
             temp = temp.replaceFirst("\\?", sorting);
 
             statement = con.prepareStatement(temp);

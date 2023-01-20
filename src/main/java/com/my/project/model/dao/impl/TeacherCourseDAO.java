@@ -3,10 +3,10 @@ package com.my.project.model.dao.impl;
 import com.my.project.constants.AttributeConstants;
 import com.my.project.constants.SQLQueries;
 import com.my.project.exceptions.DAOException;
+import com.my.project.utils.SqlUtil;
 import lombok.extern.log4j.Log4j2;
 import com.my.project.model.dao.DAO;
 import com.my.project.model.entities.TeacherCourse;
-import com.my.project.utils.PaginationUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -64,7 +64,7 @@ public class TeacherCourseDAO implements DAO<TeacherCourse> {
         ResultSet resultSet = null;
 
         try {
-            String temp = PaginationUtil.getEntityPaginationQuery(AttributeConstants.TEACHER_COURSE_TABLE, filters);
+            String temp = SqlUtil.getEntityPaginationQuery(AttributeConstants.TEACHER_COURSE_TABLE, filters);
             temp = temp.replaceFirst("\\?", sorting);
             statement = con.prepareStatement(temp);
 

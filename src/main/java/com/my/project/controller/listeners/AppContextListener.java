@@ -1,6 +1,5 @@
 package com.my.project.controller.listeners;
 
-import com.my.project.constants.AttributeConstants;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
@@ -8,6 +7,7 @@ import jakarta.servlet.annotation.WebListener;
 import lombok.extern.log4j.Log4j2;
 
 import static com.my.project.constants.PageConstants.*;
+import static com.my.project.constants.AttributeConstants.*;
 
 
 /**
@@ -24,7 +24,7 @@ public class AppContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
-        context.setAttribute(AttributeConstants.CONTROLLER_ATTR, String.format("%s%s", context.getContextPath(), CONTROLLER_MAPPING));
+        context.setAttribute(CONTROLLER_ATTR, String.format("%s%s", context.getContextPath(), CONTROLLER_MAPPING));
         log.debug("Controller path in applicationContext set successful!");
     }
 
@@ -35,7 +35,7 @@ public class AppContextListener implements ServletContextListener {
      */
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        sce.getServletContext().removeAttribute(AttributeConstants.CONTROLLER_ATTR);
+        sce.getServletContext().removeAttribute(CONTROLLER_ATTR);
     }
 
 }

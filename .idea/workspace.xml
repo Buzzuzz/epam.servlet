@@ -9,14 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="jsp forms change">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="create user command fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/constants/AttributeConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/constants/SQLQueries.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetAllCoursesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetAllCoursesCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/CreateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/CreateUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/GetAllTopicsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/GetAllTopicsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/GetAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/GetAllUsersCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/listeners/AppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/listeners/AppContextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/CourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TeacherCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TeacherCourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TopicDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserCourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/TopicServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/FullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/utils/FullCourseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/PaginationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/utils/SqlUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" afterDir="false" />
     </list>
@@ -362,14 +373,7 @@
       <workItem from="1673728380454" duration="17912000" />
       <workItem from="1673785466732" duration="117905000" />
       <workItem from="1674172239704" duration="1046000" />
-      <workItem from="1674173306506" duration="15433000" />
-    </task>
-    <task id="LOCAL-00027" summary="started filter implementation">
-      <created>1671916445485</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1671916445485</updated>
+      <workItem from="1674173306506" duration="22219000" />
     </task>
     <task id="LOCAL-00028" summary="test from yet another system">
       <created>1672024748408</created>
@@ -707,7 +711,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674212618922</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="create user command fix">
+      <created>1674249921635</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1674249921635</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -728,7 +739,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create new user (any type) implemented, small changes in signup command" />
     <MESSAGE value="deleted tests, started pagination implementation in dao" />
     <MESSAGE value="user pagination done" />
     <MESSAGE value="topic pagination done, pagination utils done" />
@@ -753,7 +763,8 @@
     <MESSAGE value="fixed teacher marks display bug, added, user mark display" />
     <MESSAGE value="moved everything to new package, added context listener" />
     <MESSAGE value="jsp forms change" />
-    <option name="LAST_COMMIT_MESSAGE" value="jsp forms change" />
+    <MESSAGE value="create user command fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="create user command fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -770,15 +781,6 @@
           <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/my/project/services/impl/UserServiceImpl.java</url>
-          <line>269</line>
-          <properties class="com.my.project.services.impl.UserServiceImpl" method="createUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

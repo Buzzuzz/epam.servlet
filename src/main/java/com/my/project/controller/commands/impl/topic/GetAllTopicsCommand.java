@@ -11,7 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import com.my.project.model.entities.Topic;
 import com.my.project.services.TopicService;
 
-import static com.my.project.utils.PaginationUtil.*;
+import static com.my.project.utils.SqlUtil.*;
 
 @Log4j2
 public class GetAllTopicsCommand implements Command {

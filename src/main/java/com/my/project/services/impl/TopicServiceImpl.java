@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.my.project.model.dao.DataSource.*;
-import static com.my.project.utils.PaginationUtil.*;
+import static com.my.project.utils.SqlUtil.*;
 
 @Log4j2
 public class TopicServiceImpl implements TopicService {

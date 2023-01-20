@@ -12,6 +12,13 @@
                     <div class="card shadow">
                         <div class="card-body">
                             <h5 class="card-title">
+                                <c:if test="${sessionScope.error.value == 'none'}">
+                                    <div class="alert bg-success">
+                                    <span class="closebtn"
+                                          onclick="this.parentElement.style.display='none';">&times;</span>
+                                        <fmt:message key="success"/>
+                                    </div>
+                                </c:if>
                                 <c:if test="${sessionScope.error.value == 'password'}">
                                     <div class="alert bg-danger">
                                     <span class="closebtn"

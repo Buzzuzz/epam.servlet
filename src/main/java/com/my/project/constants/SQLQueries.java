@@ -56,4 +56,6 @@ public interface SQLQueries {
     String CREATE_TEACHER_COURSE = "insert into epam.teacher_course (tch_id, c_id) values (?, ?)";
     String START_DATE_MILLIS = "extract(epoch from start_date) * 1000";
     String END_DATE_MILLIS = "extract(epoch from end_date) * 1000";
+    String PAGINATION_LIMIT_OFFSET_QUERY_PART = "order by ? limit ? offset ?";
+    String SELECT_EVERYTHING_FROM_PART = "select * from";
 }
