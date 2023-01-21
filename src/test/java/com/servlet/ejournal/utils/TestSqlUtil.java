@@ -1,4 +1,4 @@
-package utils;
+package com.servlet.ejournal.utils;
 
 import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.exceptions.UtilException;
@@ -7,6 +7,7 @@ import com.servlet.ejournal.model.entities.Course;
 import com.servlet.ejournal.model.entities.Topic;
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -21,7 +22,8 @@ import static com.servlet.ejournal.constants.SQLQueries.*;
 public class TestSqlUtil {
     private static final HttpServletRequest reqMock = mock(HttpServletRequest.class);
 
-    static class TestGetPages {
+    @Nested
+    class TestGetPages {
         @Test
         void testGetPagesLimitZero() {
             assertEquals(1, getPages(0, 10).length);
@@ -45,7 +47,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetLimit {
+    @Nested
+    class TestGetLimit {
         @Test
         void testGetDefaultLimit() {
             when(reqMock.getParameter(DISPLAY_RECORDS_NUMBER)).thenReturn(null);
@@ -65,7 +68,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetCurrentPage {
+    @Nested
+    class TestGetCurrentPage {
         @Test
         void testGetDefaultPage() {
             when(reqMock.getParameter(CURRENT_PAGE)).thenReturn(null);
@@ -85,7 +89,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetOffset {
+    @Nested
+    class TestGetOffset {
         @Test
         void testGetDefaultOffset() {
             assertEquals(DEFAULT_OFFSET, getOffset(5, 0));
@@ -97,7 +102,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetSortingType {
+    @Nested
+    class TestGetSortingType {
         @Test
         void testNoDefaultSorting() {
             when(reqMock.getParameter(SORTING_TYPE)).thenReturn(null);
@@ -117,7 +123,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetFilter {
+    @Nested
+    class TestGetFilter {
         @Test
         void testGetNoneFilterNullParameter() {
             when(reqMock.getParameter(SWITCH)).thenReturn(null);
@@ -133,7 +140,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetFilters {
+    @Nested
+    class TestGetFilters {
         private Map<String, String[]> filters;
 
         @BeforeEach
@@ -173,7 +181,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetEndDateFilter {
+    @Nested
+    class TestGetEndDateFilter {
         private Map<String, String[]> filters;
 
         @BeforeEach
@@ -214,7 +223,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetMyCourseFilter {
+    @Nested
+    class TestGetMyCourseFilter {
         Map<String, String[]> filters;
         String userFilterString = String.format(AttributeConstants.FULL_COLUMN_NAME, AttributeConstants.USER_COURSE_TABLE, AttributeConstants.USER_ID);
 
@@ -252,7 +262,8 @@ public class TestSqlUtil {
         }
     }
 
-    static class TestGetEntityPaginationQuery {
+    @Nested
+    class TestGetEntityPaginationQuery {
         Map<String, String[]> filters;
         String selectPart = String.format("%s %s ", SELECT_EVERYTHING_FROM_PART, TOPIC_TABLE);
 

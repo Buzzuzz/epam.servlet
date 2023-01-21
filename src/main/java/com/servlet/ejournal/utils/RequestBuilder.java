@@ -51,6 +51,7 @@ public class RequestBuilder {
 
     public static Map<String, String[]> getSpecifiedParamsMap(Map<String, String[]> generalMap, String... paramNames) {
         Map<String, String[]> paramsMap = new HashMap<>();
+        if (generalMap == null) return paramsMap;
         for (String param : paramNames) {
             paramsMap.put(param, generalMap.get(param));
         }

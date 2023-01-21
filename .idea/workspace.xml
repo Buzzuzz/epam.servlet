@@ -9,16 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="accessFilter logic change, renamed main package, added CommandAccessPool">
-      <change afterPath="$PROJECT_DIR$/src/test/java/utils/TestSqlUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/utils/TestValidationUtil.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="test classes for validation (not fully done) and sqlUtil">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestPasswordHashUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestRequestBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/RequestBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Playground.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/TestSqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestSqlUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/utils/TestValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestValidationUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,34 +61,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Documents/IdeaProjects/epam.servlet/src/test&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "database.data.extractors.current.id": "SQL Inserts",
+    "last_opened_file_path": "C:/Users/admin/Documents/IdeaProjects/epam.servlet/src/test",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\resources\db" />
@@ -126,65 +125,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryOneFilterString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestPasswordHashUtil.testComparePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="utils.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="utils.TestSqlUtil" />
-      <option name="MAIN_CLASS_NAME" value="utils.TestSqlUtil$TestGetEntityPaginationQuery" />
-      <option name="METHOD_NAME" value="testGetQueryOneFilterString" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestPasswordHashUtil" />
+      <option name="METHOD_NAME" value="testComparePassword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryTwoFilters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestPasswordHashUtil.testEncodePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="utils.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="utils.TestSqlUtil" />
-      <option name="MAIN_CLASS_NAME" value="utils.TestSqlUtil$TestGetEntityPaginationQuery" />
-      <option name="METHOD_NAME" value="testGetQueryTwoFilters" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestPasswordHashUtil" />
+      <option name="METHOD_NAME" value="testEncodePassword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithFilterAndSubquery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRequestBuilder$TestGetSpecifiedParamsMap" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="utils.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="utils.TestSqlUtil" />
-      <option name="MAIN_CLASS_NAME" value="utils.TestSqlUtil$TestGetEntityPaginationQuery" />
-      <option name="METHOD_NAME" value="testGetQueryWithFilterAndSubquery" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestRequestBuilder" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestRequestBuilder$TestGetSpecifiedParamsMap" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithSubquery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRequestBuilder$TestGetSpecifiedParamsMap.testGetSpecifiedParamsMapGeneralMapIsEmpty" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="utils.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="utils.TestSqlUtil" />
-      <option name="MAIN_CLASS_NAME" value="utils.TestSqlUtil$TestGetEntityPaginationQuery" />
-      <option name="METHOD_NAME" value="testGetQueryWithSubquery" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestRequestBuilder" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestRequestBuilder$TestGetSpecifiedParamsMap" />
+      <option name="METHOD_NAME" value="testGetSpecifiedParamsMapGeneralMapIsEmpty" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -281,20 +279,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryOneFilterString" />
-      <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryTwoFilters" />
-      <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithFilterAndSubquery" />
-      <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithSubquery" />
+      <item itemvalue="JUnit.TestPasswordHashUtil.testComparePassword" />
+      <item itemvalue="JUnit.TestPasswordHashUtil.testEncodePassword" />
+      <item itemvalue="JUnit.TestRequestBuilder$TestGetSpecifiedParamsMap" />
+      <item itemvalue="JUnit.TestRequestBuilder$TestGetSpecifiedParamsMap.testGetSpecifiedParamsMapGeneralMapIsEmpty" />
       <item itemvalue="JUnit.All in epam.servlet" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in epam.servlet" />
-        <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithFilterAndSubquery" />
-        <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithSubquery" />
-        <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryTwoFilters" />
-        <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryOneFilterString" />
+        <item itemvalue="JUnit.TestPasswordHashUtil.testComparePassword" />
+        <item itemvalue="JUnit.TestPasswordHashUtil.testEncodePassword" />
+        <item itemvalue="JUnit.TestRequestBuilder$TestGetSpecifiedParamsMap" />
+        <item itemvalue="JUnit.TestRequestBuilder$TestGetSpecifiedParamsMap.testGetSpecifiedParamsMapGeneralMapIsEmpty" />
       </list>
     </recent_temporary>
   </component>
@@ -371,14 +369,7 @@
       <workItem from="1673785466732" duration="117905000" />
       <workItem from="1674172239704" duration="1046000" />
       <workItem from="1674173306506" duration="46181000" />
-      <workItem from="1674330918514" duration="1767000" />
-    </task>
-    <task id="LOCAL-00035" summary="moved login | logout logic to service, added password hashing">
-      <created>1672186762800</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1672186762800</updated>
+      <workItem from="1674330918514" duration="7021000" />
     </task>
     <task id="LOCAL-00036" summary="sign up works">
       <created>1672195278359</created>
@@ -716,7 +707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674291982594</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="test classes for validation (not fully done) and sqlUtil">
+      <created>1674333058067</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1674333058068</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -737,7 +735,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented add-course command" />
     <MESSAGE value="delete-course command implementation" />
     <MESSAGE value="pagination util refactor, jsp changes, filtration implementation (not fully done)" />
     <MESSAGE value="filtration done, courses pagination, jsp changes" />
@@ -762,7 +759,8 @@
     <MESSAGE value="courseDetails, courseMarks, updateCourseMarks refactor" />
     <MESSAGE value="createCourse, deleteCourse, enrollStudent commands refactor" />
     <MESSAGE value="accessFilter logic change, renamed main package, added CommandAccessPool" />
-    <option name="LAST_COMMIT_MESSAGE" value="accessFilter logic change, renamed main package, added CommandAccessPool" />
+    <MESSAGE value="test classes for validation (not fully done) and sqlUtil" />
+    <option name="LAST_COMMIT_MESSAGE" value="test classes for validation (not fully done) and sqlUtil" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -793,7 +791,7 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674330105785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674332785082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestValidationUtil.ic" NAME="TestValidationUtil Coverage Results" MODIFIED="1674293691128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>utils.*</FILTER>
     </SUITE>

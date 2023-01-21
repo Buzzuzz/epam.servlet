@@ -1,12 +1,8 @@
-package utils;
+package com.servlet.ejournal.utils;
 
-import com.servlet.ejournal.model.dao.DataSource;
-import com.servlet.ejournal.model.dao.impl.UserDAO;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.sql.Connection;
 import java.sql.Timestamp;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +11,8 @@ import static com.servlet.ejournal.utils.ValidationUtil.*;
 
 // TODO : isNewUserValid, isEmailUnique tests
 class TestValidationUtil {
-    static class TestValidatePassword {
+    @Nested
+    class TestValidatePassword {
         @Test
         void testNoPasswordUpdate() {
             assertEquals(NONE, validatePassword(""));
@@ -35,7 +32,8 @@ class TestValidationUtil {
         }
     }
 
-    static class TestValidateRepeatPassword {
+    @Nested
+    class TestValidateRepeatPassword {
         @Test
         void testPasswordsAreTheSame() {
             assertEquals(NONE, validateRepeatPassword("", ""));
@@ -49,7 +47,8 @@ class TestValidationUtil {
         }
     }
 
-    static class TestValidatePhoneNumber {
+    @Nested
+    class TestValidatePhoneNumber {
         @Test
         void testValidPhoneNumber() {
             assertEquals(NONE, validatePhoneNumber("123456789"));
@@ -63,14 +62,11 @@ class TestValidationUtil {
         }
     }
 
-    static class TestValidateEndDate {
-        static Timestamp endDate;
-        static Timestamp startDate;
-        @BeforeAll
-        static void setup() {
-            endDate = new Timestamp(System.currentTimeMillis() + 1000);
-            startDate = new Timestamp(endDate.getTime() - 1000);
-        }
+    @Nested
+    class TestValidateEndDate {
+        Timestamp endDate = new Timestamp(System.currentTimeMillis() + 1000);
+        Timestamp startDate = new Timestamp(endDate.getTime() - 1000);
+
         @Test
         void testValidEndDate() {
             assertEquals(NONE, validateEndDate(startDate, endDate));
