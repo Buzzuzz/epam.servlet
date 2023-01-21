@@ -26,7 +26,7 @@ public class ValidationUtil {
      * @param email Email to be checked for presence in database
      * @return "email" error {@link String} if email isn't registered (is unique), "none" error {@link String} otherwise
      */
-    private static ValidationError isEmailUnique(String email) {
+    public static ValidationError isEmailUnique(String email) {
         UserDAO dao = UserDAO.getInstance();
         Connection con = null;
         try {

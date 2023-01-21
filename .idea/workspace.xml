@@ -9,94 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="createCourse, deleteCourse, enrollStudent commands refactor">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/pools/CommandAccessPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/pools/Pool.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="accessFilter logic change, renamed main package, added CommandAccessPool">
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/TestSqlUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utils/TestValidationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/AttributeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/CommandNameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/CommandNameConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/PageAccessPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/pools/PageAccessPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/PageConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/PageConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/RegexConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/RegexConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/SQLQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/FrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/FrontControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/CommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/CommandPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/ChangeLocaleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/ChangeLocaleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/CreateCourseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/CreateCourseCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/DeleteCourseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/DeleteCourseCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/EnrollStudentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/EnrollStudentCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetAllCoursesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetAllCoursesCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetCourseDetailsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetCourseDetailsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetCourseMarksCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetCourseMarksCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/UpdateCourseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/UpdateCourseCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/UpdateCourseMarks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/UpdateCourseMarks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/WithdrawStudentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/WithdrawStudentCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/CreateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/CreateTopicCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/DeleteTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/DeleteTopicCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/GetAllTopicsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/GetAllTopicsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/UpdateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/UpdateTopicCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/ChangeUserLockStatusCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/ChangeUserLockStatusCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/CreateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/CreateUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/DeleteUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/DeleteUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/GetAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/GetAllUsersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/LogInCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/LogInCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/LogOutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/LogOutCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/SignUpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/SignUpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/UpdateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/UpdateUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/filters/AccessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/filters/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/EncodingFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/filters/LocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/filters/StatusFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/listeners/AppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/CommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/CommandException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/DAOException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/NoSuchCommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/NoSuchCommandException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/ServiceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/UtilException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/UtilException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/ValidationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/ValidationError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/DataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TeacherCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TeacherCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TopicCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/TeacherCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/TeacherCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/Topic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/TopicCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/TopicCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/UserCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/UserCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/UserType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/TopicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/dto/FullCourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/dto/FullCourseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/dto/TopicDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/dto/TopicDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/dto/UserCourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/dto/UserCourseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/TopicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/DateFormatterUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/DateFormatterUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/FullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/FullCourseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/PasswordHashUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/PasswordHashUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/RequestBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/SqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/ValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/tag_handlers/DateOnlyTagHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/tag_handlers/DateOnlyTagHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tlds/dateOnly.tld" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tlds/dateOnly.tld" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Playground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Playground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Playground.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="0" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -132,34 +62,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "database.data.extractors.current.export.id": "SQL Inserts",
-    "database.data.extractors.current.id": "SQL Inserts",
-    "last_opened_file_path": "C:/Users/admin/Documents/IdeaProjects/epam.servlet/src/main/resources/db",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;database.data.extractors.current.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Documents/IdeaProjects/epam.servlet/src/test&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\resources\db" />
@@ -187,71 +117,75 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.0.27">
-    <configuration name="Playground" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Playground" />
+  <component name="RunManager" selected="JUnit.All in epam.servlet">
+    <configuration name="All in epam.servlet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestCourseDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testDAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testDAO" />
-      <option name="MAIN_CLASS_NAME" value="testDAO.TestCourseDAO" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUserDAO.testSuccessfulDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testDAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testDAO" />
-      <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
-      <option name="METHOD_NAME" value="testSuccessfulDeleteUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUserDAO.testSuccessfulInsertUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testDAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testDAO" />
-      <option name="MAIN_CLASS_NAME" value="testDAO.TestUserDAO" />
-      <option name="METHOD_NAME" value="testSuccessfulInsertUser" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="testDAO in epam.servlet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testDAO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="testDAO" />
+      <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryOneFilterString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="utils.TestSqlUtil" />
+      <option name="MAIN_CLASS_NAME" value="utils.TestSqlUtil$TestGetEntityPaginationQuery" />
+      <option name="METHOD_NAME" value="testGetQueryOneFilterString" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryTwoFilters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="utils.TestSqlUtil" />
+      <option name="MAIN_CLASS_NAME" value="utils.TestSqlUtil$TestGetEntityPaginationQuery" />
+      <option name="METHOD_NAME" value="testGetQueryTwoFilters" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithFilterAndSubquery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="utils.TestSqlUtil" />
+      <option name="MAIN_CLASS_NAME" value="utils.TestSqlUtil$TestGetEntityPaginationQuery" />
+      <option name="METHOD_NAME" value="testGetQueryWithFilterAndSubquery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithSubquery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="utils.TestSqlUtil" />
+      <option name="MAIN_CLASS_NAME" value="utils.TestSqlUtil$TestGetEntityPaginationQuery" />
+      <option name="METHOD_NAME" value="testGetQueryWithSubquery" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -347,20 +281,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Playground" />
-      <item itemvalue="JUnit.TestCourseDAO" />
-      <item itemvalue="JUnit.TestUserDAO.testSuccessfulDeleteUser" />
-      <item itemvalue="JUnit.TestUserDAO.testSuccessfulInsertUser" />
-      <item itemvalue="JUnit.testDAO in epam.servlet" />
+      <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryOneFilterString" />
+      <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryTwoFilters" />
+      <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithFilterAndSubquery" />
+      <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithSubquery" />
+      <item itemvalue="JUnit.All in epam.servlet" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Playground" />
-        <item itemvalue="JUnit.TestCourseDAO" />
-        <item itemvalue="JUnit.testDAO in epam.servlet" />
-        <item itemvalue="JUnit.TestUserDAO.testSuccessfulDeleteUser" />
-        <item itemvalue="JUnit.TestUserDAO.testSuccessfulInsertUser" />
+        <item itemvalue="JUnit.All in epam.servlet" />
+        <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithFilterAndSubquery" />
+        <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryWithSubquery" />
+        <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryTwoFilters" />
+        <item itemvalue="JUnit.TestSqlUtil$TestGetEntityPaginationQuery.testGetQueryOneFilterString" />
       </list>
     </recent_temporary>
   </component>
@@ -436,14 +370,8 @@
       <workItem from="1673728380454" duration="17912000" />
       <workItem from="1673785466732" duration="117905000" />
       <workItem from="1674172239704" duration="1046000" />
-      <workItem from="1674173306506" duration="34498000" />
-    </task>
-    <task id="LOCAL-00034" summary="started services creation, registration">
-      <created>1672182844362</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1672182844362</updated>
+      <workItem from="1674173306506" duration="46181000" />
+      <workItem from="1674330918514" duration="1767000" />
     </task>
     <task id="LOCAL-00035" summary="moved login | logout logic to service, added password hashing">
       <created>1672186762800</created>
@@ -781,7 +709,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674259216867</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="accessFilter logic change, renamed main package, added CommandAccessPool">
+      <created>1674291982594</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1674291982594</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -802,7 +737,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update course command implemented, date formatter (for course DTO) added, small ui changes in .jsp" />
     <MESSAGE value="implemented add-course command" />
     <MESSAGE value="delete-course command implementation" />
     <MESSAGE value="pagination util refactor, jsp changes, filtration implementation (not fully done)" />
@@ -827,7 +761,8 @@
     <MESSAGE value="course commands refactor" />
     <MESSAGE value="courseDetails, courseMarks, updateCourseMarks refactor" />
     <MESSAGE value="createCourse, deleteCourse, enrollStudent commands refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="createCourse, deleteCourse, enrollStudent commands refactor" />
+    <MESSAGE value="accessFilter logic change, renamed main package, added CommandAccessPool" />
+    <option name="LAST_COMMIT_MESSAGE" value="accessFilter logic change, renamed main package, added CommandAccessPool" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -852,9 +787,19 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/epam_servlet$TestSqlUtil_TestGetCurrentPage.ic" NAME="TestSqlUtil$TestGetCurrentPage Coverage Results" MODIFIED="1674314862893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>utils.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674330105785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$TestValidationUtil.ic" NAME="TestValidationUtil Coverage Results" MODIFIED="1674293691128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>utils.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/epam_servlet$Tomcat_10_0_27.ic" NAME="Tomcat 10.0.27 Coverage Results" MODIFIED="1673966359880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$TestValidationUtil_TestValidateEndDate.ic" NAME="TestValidationUtil$TestValidateEndDate Coverage Results" MODIFIED="1674294676310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>utils.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -50,6 +50,7 @@ public class SqlUtil {
     }
 
     public static int[] getPages(int limit, int recordsCount) {
+        if (recordsCount == 0 || limit == 0) return new int[]{1};
         int maxPages = recordsCount % limit == 0 ? recordsCount / limit : recordsCount / limit + 1;
         return IntStream.range(1, maxPages + 1).toArray();
     }
@@ -144,7 +145,7 @@ public class SqlUtil {
 
     // TODO : refactor filter building
     private static String buildFilters(Map<String, String[]> filters) {
-        String builded = "";
+        String built = "";
         if (filters != null && !filters.isEmpty()) {
             StringBuilder sb = new StringBuilder();
             sb.append("where ");
@@ -164,8 +165,8 @@ public class SqlUtil {
                 }
             }
             sb.delete(sb.lastIndexOf("and"), sb.length());
-            builded = sb.toString();
+            built = sb.toString();
         }
-        return builded;
+        return built;
     }
 }
