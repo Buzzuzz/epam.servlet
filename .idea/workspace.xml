@@ -9,27 +9,89 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="create user command fix">
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="createCourse, deleteCourse, enrollStudent commands refactor">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/pools/CommandAccessPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/pools/Pool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/constants/AttributeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/constants/SQLQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetAllCoursesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetAllCoursesCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/GetAllTopicsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/GetAllTopicsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/GetAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/GetAllUsersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/listeners/AppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/controller/listeners/AppContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TeacherCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TeacherCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/TopicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/FullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/utils/FullCourseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/PaginationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/project/utils/SqlUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/AttributeConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/CommandNameConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/CommandNameConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/PageAccessPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/pools/PageAccessPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/PageConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/PageConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/RegexConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/RegexConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/SQLQueries.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/FrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/FrontControllerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/CommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/CommandPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/ChangeLocaleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/ChangeLocaleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/CreateCourseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/CreateCourseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/DeleteCourseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/DeleteCourseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/EnrollStudentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/EnrollStudentCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetAllCoursesCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetAllCoursesCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetCourseDetailsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetCourseDetailsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/GetCourseMarksCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetCourseMarksCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/UpdateCourseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/UpdateCourseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/UpdateCourseMarks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/UpdateCourseMarks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/course/WithdrawStudentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/course/WithdrawStudentCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/CreateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/CreateTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/DeleteTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/DeleteTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/GetAllTopicsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/GetAllTopicsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/topic/UpdateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/UpdateTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/ChangeUserLockStatusCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/ChangeUserLockStatusCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/CreateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/CreateUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/DeleteUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/DeleteUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/GetAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/GetAllUsersCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/LogInCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/LogInCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/LogOutCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/LogOutCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/SignUpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/SignUpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/commands/impl/user/UpdateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/UpdateUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/filters/AccessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/filters/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/EncodingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/filters/LocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/filters/StatusFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/controller/listeners/AppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/CommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/CommandException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/DAOException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/DAOException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/NoSuchCommandException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/NoSuchCommandException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/ServiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/ServiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/UtilException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/UtilException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/exceptions/ValidationError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/ValidationError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/DataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TeacherCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TeacherCourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TopicCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicCourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserCourseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/TeacherCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/TeacherCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/Topic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/Topic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/TopicCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/TopicCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/UserCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/UserCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/model/entities/UserType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/UserType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/CourseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/TopicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/TopicService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/dto/FullCourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/dto/FullCourseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/dto/TopicDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/dto/TopicDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/dto/UserCourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/dto/UserCourseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/TopicServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/DateFormatterUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/DateFormatterUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/FullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/FullCourseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/PasswordHashUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/PasswordHashUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/RequestBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/SqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/ValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/project/utils/tag_handlers/DateOnlyTagHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/tag_handlers/DateOnlyTagHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/courses.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tlds/dateOnly.tld" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tlds/dateOnly.tld" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/cabinet.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Playground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Playground.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +103,9 @@
       <list>
         <option value="CSS File" />
         <option value="Tag Library Descriptor" />
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Jsp File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -114,6 +176,7 @@
       <recent name="C:\Users\admin\Documents\IdeaProjects\epam.servlet\src\main\webapp\pages\login-required" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.servlet.ejournal.pools" />
       <recent name="" />
     </key>
   </component>
@@ -373,49 +436,7 @@
       <workItem from="1673728380454" duration="17912000" />
       <workItem from="1673785466732" duration="117905000" />
       <workItem from="1674172239704" duration="1046000" />
-      <workItem from="1674173306506" duration="22219000" />
-    </task>
-    <task id="LOCAL-00028" summary="test from yet another system">
-      <created>1672024748408</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1672024748408</updated>
-    </task>
-    <task id="LOCAL-00029" summary="test from yet another system">
-      <created>1672024808104</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1672024808104</updated>
-    </task>
-    <task id="LOCAL-00030" summary="test from yet another system">
-      <created>1672024957479</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1672024957479</updated>
-    </task>
-    <task id="LOCAL-00031" summary="test from yet another system">
-      <created>1672155126364</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1672155126364</updated>
-    </task>
-    <task id="LOCAL-00032" summary="file rearrangement, started commands implementation">
-      <created>1672164125891</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1672164125891</updated>
-    </task>
-    <task id="LOCAL-00033" summary="login | logout commands implemented">
-      <created>1672168887315</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1672168887315</updated>
+      <workItem from="1674173306506" duration="34498000" />
     </task>
     <task id="LOCAL-00034" summary="started services creation, registration">
       <created>1672182844362</created>
@@ -718,7 +739,49 @@
       <option name="project" value="LOCAL" />
       <updated>1674249921635</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="commands refactor (getAllCourses, getAllUsers, updateUser)">
+      <created>1674256704254</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1674256704254</updated>
+    </task>
+    <task id="LOCAL-00078" summary="signup success page message">
+      <created>1674257009454</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1674257009454</updated>
+    </task>
+    <task id="LOCAL-00079" summary="user commands refactor">
+      <created>1674257331103</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1674257331103</updated>
+    </task>
+    <task id="LOCAL-00080" summary="course commands refactor">
+      <created>1674257745980</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1674257745980</updated>
+    </task>
+    <task id="LOCAL-00081" summary="courseDetails, courseMarks, updateCourseMarks refactor">
+      <created>1674258955971</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1674258955971</updated>
+    </task>
+    <task id="LOCAL-00082" summary="createCourse, deleteCourse, enrollStudent commands refactor">
+      <created>1674259216867</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1674259216867</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -739,13 +802,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted tests, started pagination implementation in dao" />
-    <MESSAGE value="user pagination done" />
-    <MESSAGE value="topic pagination done, pagination utils done" />
-    <MESSAGE value="course dto rework, started course functionality implementation" />
-    <MESSAGE value="pagination util: filters added, implement in future" />
-    <MESSAGE value="user service, commands, validation util, request builder refactor" />
-    <MESSAGE value="topic service refactor" />
     <MESSAGE value="update course command implemented, date formatter (for course DTO) added, small ui changes in .jsp" />
     <MESSAGE value="implemented add-course command" />
     <MESSAGE value="delete-course command implementation" />
@@ -764,7 +820,14 @@
     <MESSAGE value="moved everything to new package, added context listener" />
     <MESSAGE value="jsp forms change" />
     <MESSAGE value="create user command fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="create user command fix" />
+    <MESSAGE value="commands refactor (getAllCourses, getAllUsers, updateUser)" />
+    <MESSAGE value="signup page message" />
+    <MESSAGE value="signup success page message" />
+    <MESSAGE value="user commands refactor" />
+    <MESSAGE value="course commands refactor" />
+    <MESSAGE value="courseDetails, courseMarks, updateCourseMarks refactor" />
+    <MESSAGE value="createCourse, deleteCourse, enrollStudent commands refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="createCourse, deleteCourse, enrollStudent commands refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

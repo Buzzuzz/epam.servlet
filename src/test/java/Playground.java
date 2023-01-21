@@ -1,7 +1,7 @@
 import lombok.extern.log4j.Log4j2;
-import com.my.project.model.dao.DataSource;
-import com.my.project.model.dao.impl.CourseDAO;
-import com.my.project.model.entities.Course;
+import com.servlet.ejournal.model.dao.DataSource;
+import com.servlet.ejournal.model.dao.impl.CourseDAO;
+import com.servlet.ejournal.model.entities.Course;
 
 import java.sql.Connection;
 import java.sql.Timestamp;
