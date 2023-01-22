@@ -88,8 +88,6 @@ W
 'src/main/webapp/WEB-INF/tags/Course.tag,0\1\01b76a9389d95a4d65579a6bbd207491a2471941
 n
 >src/main/java/com/servlet/ejournal/services/CourseService.java,d\9\d90cd03d3fe83238264c7afc426b778ac24ef6ee
-w
-Gsrc/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java,0\f\0f487b27ca0748ae7d8bf891dbb9171e9cb4d2d5
 ‹
 [src/main/java/com/servlet/ejournal/controller/commands/impl/course/CreateCourseCommand.java,c\6\c67eb2d07508ec72b484b0e2340a04544a042996
 ‰
@@ -102,8 +100,6 @@ o
 ?src/main/java/com/servlet/ejournal/exceptions/DAOException.java,2\4\240a808b1446a5754a785825e981349841324830
 l
 <src/main/java/com/servlet/ejournal/model/dao/DataSource.java,1\4\1489434fd54ecb6abaa5ae66efd840505c3cbeed
-o
-?src/main/java/com/servlet/ejournal/utils/DateFormatterUtil.java,3\8\38b520bd9aafc6ca7d0ff09a9f87c0cfcafbe4d7
 Y
 )src/main/webapp/WEB-INF/tlds/dateOnly.tld,0\e\0e7fea0966a9238a08f0000f4f9e6e9fcccef712
 }
@@ -122,8 +118,6 @@ y
 Isrc/main/java/com/servlet/ejournal/controller/FrontControllerServlet.java,6\e\6ef9c0978f2d205c5b2b63976171e3c75b7473a4
 r
 Bsrc/main/java/com/servlet/ejournal/services/dto/FullCourseDTO.java,a\d\ad9a82328a3286aa0b35d32f6f8eba2c1c1d7046
-l
-<src/main/java/com/servlet/ejournal/utils/FullCourseUtil.java,a\c\acb84f1364e372e167cf65c583bd14771654a966
 Œ
 \src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetAllCoursesCommand.java,1\9\198525c9b4afb77ab39376ee02004a29b38a77dc
 Š
@@ -160,8 +154,6 @@ w
 Gsrc/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java,b\8\b871d2143ee3266ca450f0b838c8b113d024fb73
 t
 Dsrc/main/java/com/servlet/ejournal/model/entities/TeacherCourse.java,f\e\fe867a55a71927e8818c9ee19cdd296a68ce3266
-w
-Gsrc/main/java/com/servlet/ejournal/model/dao/impl/TeacherCourseDAO.java,2\1\21a9db906dd26bcc5ba26d64b3e76fec18b436be
 l
 <src/main/java/com/servlet/ejournal/model/entities/Topic.java,8\1\810ab01aaf2ed88b381efe4620a34156162e283b
 r

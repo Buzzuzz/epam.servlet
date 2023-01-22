@@ -2,6 +2,7 @@ package com.servlet.ejournal.services.impl;
 
 import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.exceptions.UtilException;
 import com.servlet.ejournal.exceptions.ValidationError;
 import com.servlet.ejournal.exceptions.ServiceException;
 import com.servlet.ejournal.constants.SQLQueries;
@@ -93,7 +94,7 @@ public class CourseServiceImpl implements CourseService {
                     String.format("%s %s", currentTeacher.getFirst_name(), currentTeacher.getLast_name())
             );
             return Optional.of(courseDTO);
-        } catch (DAOException e) {
+        } catch (DAOException | UtilException e) {
             log.error(e.getMessage(), e);
             return Optional.empty();
         } finally {
