@@ -132,8 +132,6 @@ Rsrc/main/java/com/servlet/ejournal/controller/commands/impl/user/LogInCommand.j
 Ssrc/main/java/com/servlet/ejournal/controller/commands/impl/user/LogOutCommand.java,a\2\a2e16c9222956ff5589661e24cd5db672e77fd64
 y
 Isrc/main/java/com/servlet/ejournal/exceptions/NoSuchCommandException.java,2\4\24fff400d1afd1209abf4806c36b53890a7569b2
-l
-<src/main/java/com/servlet/ejournal/pools/PageAccessPool.java,5\b\5bf746949704df0d62672a33700f438049e39bae
 o
 ?src/main/java/com/servlet/ejournal/constants/PageConstants.java,a\2\a267bffc5cafe8cafa1b855a265f0ff38798ac4e
 b
@@ -148,8 +146,6 @@ l
 <src/main/java/com/servlet/ejournal/constants/SQLQueries.java,b\0\b0c6037ae09e5ccd8c44f2548e03b6497a0ec067
 w
 Gsrc/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java,b\8\b871d2143ee3266ca450f0b838c8b113d024fb73
-t
-Dsrc/main/java/com/servlet/ejournal/model/entities/TeacherCourse.java,f\e\fe867a55a71927e8818c9ee19cdd296a68ce3266
 l
 <src/main/java/com/servlet/ejournal/model/entities/Topic.java,8\1\810ab01aaf2ed88b381efe4620a34156162e283b
 r
@@ -192,8 +188,6 @@ Bsrc/main/java/com/servlet/ejournal/exceptions/ValidationError.java,a\2\a29ec46
 ^src/main/java/com/servlet/ejournal/controller/commands/impl/course/WithdrawStudentCommand.java,5\3\53baa764e5c06d8b3e3fae4a2d867e061e3273ba
 w
 Gsrc/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java,b\3\b33f06db83d8912244d66aec7a64b0da280d5fe0
-o
-?src/main/java/com/servlet/ejournal/pools/CommandAccessPool.java,f\4\f47b7d7371ee57aeffa9ceca07023d3d74736f89
 p
 @src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java,3\7\37885727c886d0a0a7c9d7eb27dae7a66a6113f8
 o

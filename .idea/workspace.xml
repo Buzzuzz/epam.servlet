@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="DateFormatterUtil tests, FullCourseUtil tests">
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="refactored ValidationUtil, added more test cases">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/pools/TestCommandAccessPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/pools/TestPageAccessPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/FullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/FullCourseUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestValidationUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +128,68 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestCommandAccessPool" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.pools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.pools" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.pools.TestCommandAccessPool" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestCommandAccessPool.testGetAllowedInstancesUserTypeIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.pools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.pools" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.pools.TestCommandAccessPool" />
+      <option name="METHOD_NAME" value="testGetAllowedInstancesUserTypeIsNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestPageAccessPool" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.pools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.pools" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.pools.TestPageAccessPool" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestPageAccessPool.testGetAllowedPagesUserTypeIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.pools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.pools" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.pools.TestPageAccessPool" />
+      <option name="METHOD_NAME" value="testGetAllowedPagesUserTypeIsNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestValidationUtil$TestIsEmailUnique" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
@@ -141,69 +201,6 @@
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestValidationUtil" />
       <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestValidationUtil$TestIsEmailUnique" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestValidationUtil$TestIsNewUserValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestValidationUtil" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestValidationUtil$TestIsNewUserValid" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestValidationUtil$TestIsNewUserValid.testUserInvalidEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestValidationUtil" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestValidationUtil$TestIsNewUserValid" />
-      <option name="METHOD_NAME" value="testUserInvalidEmail" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestValidationUtil$TestIsNewUserValid.testUserInvalidPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestValidationUtil" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestValidationUtil$TestIsNewUserValid" />
-      <option name="METHOD_NAME" value="testUserInvalidPassword" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestValidationUtil$TestIsNewUserValid.testUserInvalidPasswordRepeat" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestValidationUtil" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestValidationUtil$TestIsNewUserValid" />
-      <option name="METHOD_NAME" value="testUserInvalidPasswordRepeat" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -300,20 +297,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in epam.servlet" />
+      <item itemvalue="JUnit.TestCommandAccessPool" />
+      <item itemvalue="JUnit.TestCommandAccessPool.testGetAllowedInstancesUserTypeIsNull" />
+      <item itemvalue="JUnit.TestPageAccessPool" />
+      <item itemvalue="JUnit.TestPageAccessPool.testGetAllowedPagesUserTypeIsNull" />
       <item itemvalue="JUnit.TestValidationUtil$TestIsEmailUnique" />
-      <item itemvalue="JUnit.TestValidationUtil$TestIsNewUserValid" />
-      <item itemvalue="JUnit.TestValidationUtil$TestIsNewUserValid.testUserInvalidEmail" />
-      <item itemvalue="JUnit.TestValidationUtil$TestIsNewUserValid.testUserInvalidPassword" />
-      <item itemvalue="JUnit.TestValidationUtil$TestIsNewUserValid.testUserInvalidPasswordRepeat" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestPageAccessPool.testGetAllowedPagesUserTypeIsNull" />
+        <item itemvalue="JUnit.TestCommandAccessPool.testGetAllowedInstancesUserTypeIsNull" />
+        <item itemvalue="JUnit.TestPageAccessPool" />
+        <item itemvalue="JUnit.TestCommandAccessPool" />
         <item itemvalue="JUnit.TestValidationUtil$TestIsEmailUnique" />
-        <item itemvalue="JUnit.TestValidationUtil$TestIsNewUserValid" />
-        <item itemvalue="JUnit.TestValidationUtil$TestIsNewUserValid.testUserInvalidPasswordRepeat" />
-        <item itemvalue="JUnit.TestValidationUtil$TestIsNewUserValid.testUserInvalidEmail" />
-        <item itemvalue="JUnit.TestValidationUtil$TestIsNewUserValid.testUserInvalidPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -390,14 +387,7 @@
       <workItem from="1673785466732" duration="117905000" />
       <workItem from="1674172239704" duration="1046000" />
       <workItem from="1674173306506" duration="46181000" />
-      <workItem from="1674330918514" duration="17719000" />
-    </task>
-    <task id="LOCAL-00038" summary="user cabinet data update done">
-      <created>1672265812284</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1672265812284</updated>
+      <workItem from="1674330918514" duration="19548000" />
     </task>
     <task id="LOCAL-00039" summary="locale filter works">
       <created>1672363426020</created>
@@ -735,7 +725,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674348240524</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="refactored ValidationUtil, added more test cases">
+      <created>1674353290437</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1674353290437</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +753,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="filtration done, courses pagination, jsp changes" />
     <MESSAGE value="course duration added" />
     <MESSAGE value="implemented enrolled students count, filtration" />
     <MESSAGE value="enroll student command" />
@@ -781,7 +777,8 @@
     <MESSAGE value="test classes for validation (not fully done) and sqlUtil" />
     <MESSAGE value="tests for passwordHashUtil, requestBuilder" />
     <MESSAGE value="DateFormatterUtil tests, FullCourseUtil tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="DateFormatterUtil tests, FullCourseUtil tests" />
+    <MESSAGE value="refactored ValidationUtil, added more test cases" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored ValidationUtil, added more test cases" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -815,7 +812,7 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674348164222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674353026640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestValidationUtil.ic" NAME="TestValidationUtil Coverage Results" MODIFIED="1674293691128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>utils.*</FILTER>
     </SUITE>
