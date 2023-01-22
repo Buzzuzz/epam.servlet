@@ -2,6 +2,7 @@ package com.servlet.ejournal.services.impl;
 
 import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.exceptions.UtilException;
 import com.servlet.ejournal.exceptions.ValidationError;
 import com.servlet.ejournal.exceptions.ServiceException;
 import com.servlet.ejournal.model.dao.DataSource;
@@ -66,22 +67,23 @@ public class UserServiceImpl implements UserService {
 
     public ValidationError signUp(UserDTO userDTO, String password, String repeatPassword) throws ServiceException {
         User user = getUserFromDTO(userDTO, password);
-        if (ValidationUtil.isNewUserValid(user, repeatPassword).equals(ValidationError.NONE)) {
-            user.setPassword(PasswordHashUtil.encode(user.getPassword()));
-            Connection con = null;
-            try {
-                con = DataSource.getConnection();
+        Connection con = null;
+
+        try {
+            con = DataSource.getConnection();
+            if (ValidationUtil.getInstance().isNewUserValid(con, user, repeatPassword).equals(ValidationError.NONE)) {
+                user.setPassword(PasswordHashUtil.encode(user.getPassword()));
                 userDAO.save(con, user);
                 log.info(String.format("User %s registered successfully!", user.getEmail()));
                 return ValidationError.NONE;
-            } catch (DAOException e) {
-                log.error(e.getMessage(), e);
-                throw new ServiceException("Can't register new user", e);
-            } finally {
-                DataSource.close(con);
             }
+            return ValidationUtil.getInstance().isNewUserValid(con, user, repeatPassword);
+        } catch (DAOException | UtilException e) {
+            log.error(e.getMessage(), e);
+            throw new ServiceException("Can't register new user", e);
+        } finally {
+            DataSource.close(con);
         }
-        return ValidationUtil.isNewUserValid(user, repeatPassword);
     }
 
     public ValidationError updateUserData(UserDTO userDTO, String oldPassword, String newPassword, String repeatPassword) throws ServiceException {

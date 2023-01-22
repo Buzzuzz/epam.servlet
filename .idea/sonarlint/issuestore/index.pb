@@ -98,12 +98,8 @@ e
 5src/main/java/com/servlet/ejournal/model/dao/DAO.java,4\6\467f09bcc13d2429ca8642d9e5596c0655f5e0c3
 o
 ?src/main/java/com/servlet/ejournal/exceptions/DAOException.java,2\4\240a808b1446a5754a785825e981349841324830
-l
-<src/main/java/com/servlet/ejournal/model/dao/DataSource.java,1\4\1489434fd54ecb6abaa5ae66efd840505c3cbeed
 Y
 )src/main/webapp/WEB-INF/tlds/dateOnly.tld,0\e\0e7fea0966a9238a08f0000f4f9e6e9fcccef712
-}
-Msrc/main/java/com/servlet/ejournal/utils/tag_handlers/DateOnlyTagHandler.java,6\9\6955a1cad29d7218e613c5497bb92cd1943a046d
 ‹
 [src/main/java/com/servlet/ejournal/controller/commands/impl/course/DeleteCourseCommand.java,e\f\efc5952f06a2759aa732b0b2b221ffba5e47f2cd
 ‰
@@ -182,14 +178,10 @@ t
 Dsrc/main/java/com/servlet/ejournal/model/dao/impl/UserCourseDAO.java,5\6\56253a0a0f55fca53bc96e4b628a179d5e0ca762
 r
 Bsrc/main/java/com/servlet/ejournal/services/dto/UserCourseDTO.java,7\2\72a9e9f0e83ece7857cf649e63ec5f9be4bf1473
-n
->src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java,6\9\69b420fc4e8a96058576e199c2004e1cbb735877
 l
 <src/main/java/com/servlet/ejournal/services/dto/UserDTO.java,2\7\274586df3aff69b6ccceef5028c518b42796d031
 l
 <src/main/java/com/servlet/ejournal/services/UserService.java,2\4\24fc67ae6d6d54eff50b81c5399ab31e47211f36
-u
-Esrc/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java,2\e\2e59f14e5f9d83206399e694a26dda06ef93f09d
 o
 ?src/main/java/com/servlet/ejournal/model/entities/UserType.java,b\a\ba9b8944d376c09a523500d2f9bb04af8484afdc
 p
