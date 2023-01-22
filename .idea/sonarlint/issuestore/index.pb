@@ -64,8 +64,6 @@ O
 src/main/webapp/pages/login.jsp,f\9\f917108e3aedac2a9c4cc5dfd98f70b815e92372
 O
 src/main/webapp/pages/marks.jsp,f\4\f4f2c5aa5edcd5e954686ad91158bbba342b9c99
-
-Osrc/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java,6\f\6fa581565da50395ae1af37eececf41699659ce5
 t
 Dsrc/main/java/com/servlet/ejournal/constants/AttributeConstants.java,1\f\1f72a7628723c5af26c000bc87c852fe305e864e
 Q
@@ -106,8 +104,6 @@ Y
 Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/DeleteTopicCommand.java,3\4\34f9d785f27f7171d3760e0f3d0075613098f1bb
 á
 Wsrc/main/java/com/servlet/ejournal/controller/commands/impl/user/DeleteUserCommand.java,2\7\27e40bee64c216ff3ea07fd4589fe1a60cc3cd20
-y
-Isrc/main/java/com/servlet/ejournal/controller/filters/EncodingFilter.java,c\e\ce438b66657a4bbde57dcafe243536435d3695d2
 å
 \src/main/java/com/servlet/ejournal/controller/commands/impl/course/EnrollStudentCommand.java,c\b\cb6b962aa0a0ed734b61d5f97f94c52489547763
 r
@@ -122,8 +118,6 @@ Xsrc/main/java/com/servlet/ejournal/controller/commands/impl/user/GetAllUsersCom
 _src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetCourseDetailsCommand.java,1\2\1264ac8b5fc9d5594e1e2f97f2eff6f654d196f9
 ç
 ]src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetCourseMarksCommand.java,1\c\1c9e7e59df7ca74206e27eaa4a24d0c88bb612cd
-w
-Gsrc/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java,c\4\c47b746a7e418a100737a2462808350a984ad767
 Ç
 Rsrc/main/java/com/servlet/ejournal/controller/commands/impl/user/LogInCommand.java,3\0\303f623a72ab8cdd8d3b2a8dde57661e2c4bd5ed
 É
@@ -142,8 +136,6 @@ Csrc/main/java/com/servlet/ejournal/exceptions/ServiceException.java,8\7\8749fd
 Ssrc/main/java/com/servlet/ejournal/controller/commands/impl/user/SignUpCommand.java,4\7\4778e76b7e08f8d49b9d5ce9848becb9c738b415
 l
 <src/main/java/com/servlet/ejournal/constants/SQLQueries.java,b\0\b0c6037ae09e5ccd8c44f2548e03b6497a0ec067
-w
-Gsrc/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java,b\8\b871d2143ee3266ca450f0b838c8b113d024fb73
 l
 <src/main/java/com/servlet/ejournal/model/entities/Topic.java,8\1\810ab01aaf2ed88b381efe4620a34156162e283b
 r

@@ -9,12 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="test for access pools">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/TestFrontControllerServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestAccessFilter.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="AccessFilter tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestEncodingFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestLocaleFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestStatusFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/EncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/EncodingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +141,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestAccessFilter.testAccessToChangeLocaleOnly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLocaleFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -148,14 +150,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestAccessFilter" />
-      <option name="METHOD_NAME" value="testAccessToChangeLocaleOnly" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestLocaleFilter" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLocaleFilter.testChangeLocaleChangeLocaleCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.filters.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestLocaleFilter" />
+      <option name="METHOD_NAME" value="testChangeLocaleChangeLocaleCommand" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestAccessFilter.testAccessToEverything" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLocaleFilter.testChangeLocaleNoChangeLocaleCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -164,14 +181,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestAccessFilter" />
-      <option name="METHOD_NAME" value="testAccessToEverything" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestLocaleFilter" />
+      <option name="METHOD_NAME" value="testChangeLocaleNoChangeLocaleCommand" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestAccessFilter.testAccessToPageCommandIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLocaleFilter.testInitConfig" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -180,14 +197,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestAccessFilter" />
-      <option name="METHOD_NAME" value="testAccessToPageCommandIsNull" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestLocaleFilter" />
+      <option name="METHOD_NAME" value="testInitConfig" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestAccessFilter.testAccessToPageNoAccessToCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLocaleFilter.testNoDefaultLocaleInSession" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -196,24 +213,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestAccessFilter" />
-      <option name="METHOD_NAME" value="testAccessToPageNoAccessToCommand" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestAccessFilter.testNoAccessToPageCommandIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.filters.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestAccessFilter" />
-      <option name="METHOD_NAME" value="testNoAccessToPageCommandIsNull" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestLocaleFilter" />
+      <option name="METHOD_NAME" value="testNoDefaultLocaleInSession" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -311,20 +312,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in epam.servlet" />
-      <item itemvalue="JUnit.TestAccessFilter.testAccessToChangeLocaleOnly" />
-      <item itemvalue="JUnit.TestAccessFilter.testAccessToEverything" />
-      <item itemvalue="JUnit.TestAccessFilter.testAccessToPageCommandIsNull" />
-      <item itemvalue="JUnit.TestAccessFilter.testAccessToPageNoAccessToCommand" />
-      <item itemvalue="JUnit.TestAccessFilter.testNoAccessToPageCommandIsNull" />
+      <item itemvalue="JUnit.TestLocaleFilter" />
+      <item itemvalue="JUnit.TestLocaleFilter.testChangeLocaleChangeLocaleCommand" />
+      <item itemvalue="JUnit.TestLocaleFilter.testChangeLocaleNoChangeLocaleCommand" />
+      <item itemvalue="JUnit.TestLocaleFilter.testInitConfig" />
+      <item itemvalue="JUnit.TestLocaleFilter.testNoDefaultLocaleInSession" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestAccessFilter.testAccessToPageCommandIsNull" />
-        <item itemvalue="JUnit.TestAccessFilter.testNoAccessToPageCommandIsNull" />
-        <item itemvalue="JUnit.TestAccessFilter.testAccessToChangeLocaleOnly" />
-        <item itemvalue="JUnit.TestAccessFilter.testAccessToEverything" />
-        <item itemvalue="JUnit.TestAccessFilter.testAccessToPageNoAccessToCommand" />
+        <item itemvalue="JUnit.TestLocaleFilter" />
+        <item itemvalue="JUnit.TestLocaleFilter.testChangeLocaleNoChangeLocaleCommand" />
+        <item itemvalue="JUnit.TestLocaleFilter.testChangeLocaleChangeLocaleCommand" />
+        <item itemvalue="JUnit.TestLocaleFilter.testNoDefaultLocaleInSession" />
+        <item itemvalue="JUnit.TestLocaleFilter.testInitConfig" />
       </list>
     </recent_temporary>
   </component>
@@ -401,14 +402,7 @@
       <workItem from="1673785466732" duration="117905000" />
       <workItem from="1674172239704" duration="1046000" />
       <workItem from="1674173306506" duration="46181000" />
-      <workItem from="1674330918514" duration="26009000" />
-    </task>
-    <task id="LOCAL-00040" summary="localization of .jsp pages">
-      <created>1672421463737</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1672421463737</updated>
+      <workItem from="1674330918514" duration="32912000" />
     </task>
     <task id="LOCAL-00041" summary="minor changes in jsp (head and metadata), started courses implementation">
       <created>1672436293909</created>
@@ -746,7 +740,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674378470867</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="AccessFilter tests">
+      <created>1674390761873</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1674390761873</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -767,7 +768,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented enrolled students count, filtration" />
     <MESSAGE value="enroll student command" />
     <MESSAGE value="my courses toggle on courses page (works for teacher and student)" />
     <MESSAGE value="my courses toggler on courses page (works for teacher and student)" />
@@ -792,7 +792,8 @@
     <MESSAGE value="DateFormatterUtil tests, FullCourseUtil tests" />
     <MESSAGE value="refactored ValidationUtil, added more test cases" />
     <MESSAGE value="test for access pools" />
-    <option name="LAST_COMMIT_MESSAGE" value="test for access pools" />
+    <MESSAGE value="AccessFilter tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="AccessFilter tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -826,13 +827,19 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674378386344" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674417240863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$TestEncodingFilter.ic" NAME="TestEncodingFilter Coverage Results" MODIFIED="1674392402801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.servlet.ejournal.controller.filters.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/epam_servlet$TestValidationUtil.ic" NAME="TestValidationUtil Coverage Results" MODIFIED="1674293691128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>utils.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/epam_servlet$Tomcat_10_0_27.ic" NAME="Tomcat 10.0.27 Coverage Results" MODIFIED="1673966359880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestValidationUtil_TestValidateEndDate.ic" NAME="TestValidationUtil$TestValidateEndDate Coverage Results" MODIFIED="1674294676310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>utils.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/epam_servlet$TestLocaleFilter.ic" NAME="TestLocaleFilter Coverage Results" MODIFIED="1674417213076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.servlet.ejournal.controller.filters.*</FILTER>
     </SUITE>
   </component>
 </project>
