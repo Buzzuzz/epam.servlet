@@ -110,8 +110,6 @@ y
 Isrc/main/java/com/servlet/ejournal/controller/filters/EncodingFilter.java,c\e\ce438b66657a4bbde57dcafe243536435d3695d2
 Œ
 \src/main/java/com/servlet/ejournal/controller/commands/impl/course/EnrollStudentCommand.java,c\b\cb6b962aa0a0ed734b61d5f97f94c52489547763
-y
-Isrc/main/java/com/servlet/ejournal/controller/FrontControllerServlet.java,6\e\6ef9c0978f2d205c5b2b63976171e3c75b7473a4
 r
 Bsrc/main/java/com/servlet/ejournal/services/dto/FullCourseDTO.java,a\d\ad9a82328a3286aa0b35d32f6f8eba2c1c1d7046
 Œ
@@ -186,8 +184,6 @@ r
 Bsrc/main/java/com/servlet/ejournal/exceptions/ValidationError.java,a\2\a29ec46a12dc5992a96edbe1709c30e7c42feb6f
 Ž
 ^src/main/java/com/servlet/ejournal/controller/commands/impl/course/WithdrawStudentCommand.java,5\3\53baa764e5c06d8b3e3fae4a2d867e061e3273ba
-w
-Gsrc/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java,b\3\b33f06db83d8912244d66aec7a64b0da280d5fe0
 p
 @src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java,3\7\37885727c886d0a0a7c9d7eb27dae7a66a6113f8
 o

@@ -1,6 +1,5 @@
 package com.servlet.ejournal.controller.filters;
 
-import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.CommandNameConstants;
 import com.servlet.ejournal.pools.CommandAccessPool;
 import com.servlet.ejournal.pools.PageAccessPool;
@@ -42,7 +41,7 @@ public class AccessFilter implements Filter {
                         } else {
                             String commandCause = String.format("Unauthorized access to command %s by %s", command, userErrorString);
                             log.error(commandCause);
-                            throw new CommandException(pageCause);
+                            throw new CommandException(commandCause);
                         }
                     }
                 }
