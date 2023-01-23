@@ -1,6 +1,5 @@
 package com.servlet.ejournal.controller.filters;
 
-import com.servlet.ejournal.constants.CommandNameConstants;
 import com.servlet.ejournal.pools.CommandAccessPool;
 import com.servlet.ejournal.pools.PageAccessPool;
 import com.servlet.ejournal.exceptions.CommandException;
@@ -28,30 +27,23 @@ public class AccessFilter implements Filter {
         String pageCause = String.format("Unauthorized access to page %s by %s", req.getServletPath(), userErrorString);
 
         if (PageAccessPool.getInstance().getAllowedInstances(user).contains(req.getServletPath())) {
-            log.debug("Access to page granted");
+            log.trace("Access to page granted");
             if (commands != null) {
                 for (String command : commands) {
-                    if (commands.length == 1 && commands[0].equals(CommandNameConstants.CHANGE_LOCALE_COMMAND)) {
-                        chain.doFilter(req, servletResponse);
-                        break;
+                    if (CommandAccessPool.getInstance().getAllowedInstances(user).contains(command)) {
+                        log.trace(String.format("Access to command: %s granted", command));
                     } else {
-                        if (CommandAccessPool.getInstance().getAllowedInstances(user).contains(command)) {
-                            log.debug("Access to command granted");
-                            chain.doFilter(req, servletResponse);
-                        } else {
-                            String commandCause = String.format("Unauthorized access to command %s by %s", command, userErrorString);
-                            log.error(commandCause);
-                            throw new CommandException(commandCause);
-                        }
+                        String commandCause = String.format("Unauthorized access to command %s by %s", command, userErrorString);
+                        log.error(commandCause);
+                        throw new CommandException(commandCause);
                     }
+
                 }
-            } else {
-                log.debug("Command is null");
-                chain.doFilter(req, servletResponse);
             }
         } else {
             log.error(pageCause);
             throw new CommandException(pageCause);
         }
+        chain.doFilter(req, servletResponse);
     }
 }

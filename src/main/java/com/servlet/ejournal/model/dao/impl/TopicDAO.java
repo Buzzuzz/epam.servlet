@@ -1,20 +1,18 @@
 package com.servlet.ejournal.model.dao.impl;
 
-import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
-import com.servlet.ejournal.model.dao.DAO;
-import com.servlet.ejournal.model.dao.DataSource;
+import com.servlet.ejournal.model.dao.interfaces.DAO;
 import com.servlet.ejournal.model.entities.Topic;
 import com.servlet.ejournal.utils.SqlUtil;
 import lombok.extern.log4j.Log4j2;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
 
+import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.constants.SQLQueries.*;
+import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
 
 /**
  * TopicDAO class is implementation of {@link DAO} interface for Topic table.
@@ -40,134 +38,92 @@ public class TopicDAO implements DAO<Topic> {
     }
 
     @Override
-    public Optional<Topic> get(Connection con, long id) {
-        PreparedStatement statement = null;
+    public Optional<Topic> get(Connection con, long id) throws DAOException {
         ResultSet resultSet = null;
-        Topic topic = null;
 
-        try {
-            statement = con.prepareStatement(SQLQueries.FIND_TOPIC_BY_ID);
+        try (PreparedStatement statement = con.prepareStatement(FIND_TOPIC_BY_ID)) {
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                topic = new Topic(resultSet.getLong("t_id"), resultSet.getString("name"), resultSet.getString("description"));
+            if (resultSet.next()) {
+                return Optional.of(createTopicObject(resultSet));
             }
-        } catch (Exception e) {
-            log.error("Can't get topic from database");
-            throw new DAOException("Can't get topic from database", e);
+            return Optional.empty();
+        } catch (SQLException e) {
+            String message = String.format("%s %s", "Can't get topic from database, id:", id);
+            log.error(message, e);
+            throw new DAOException(message, e);
         } finally {
-            DataSource.closeAll(resultSet, statement);
+            close(resultSet);
         }
-
-        return Optional.ofNullable(topic);
     }
 
     @Override
-    public Collection<Topic> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) {
+    public Collection<Topic> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) throws DAOException {
         List<Topic> topics = new ArrayList<>();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
+        String query = SqlUtil.getAllEntitiesQuery(TOPIC_TABLE, limit, offset, sorting, filters);
 
-        try {
-            String temp = SqlUtil.getEntityPaginationQuery(AttributeConstants.TOPIC_TABLE, filters);
-            temp = temp.replaceFirst("\\?", sorting);
-            statement = con.prepareStatement(temp);
-
-            int k = 0;
-            statement.setInt(++k, limit);
-            statement.setInt(++k, offset);
-            resultSet = statement.executeQuery();
-
+        try (PreparedStatement statement = con.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                k = 0;
-                topics.add(new Topic(
-                        resultSet.getLong(++k),
-                        resultSet.getString(++k),
-                        resultSet.getString(++k)
-                ));
+                topics.add(createTopicObject(resultSet));
             }
+
             return topics;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             log.error("Can't get all topics from database", e);
             throw new DAOException("Can't get all topics from database", e);
-        } finally {
-            DataSource.closeAll(resultSet, statement);
         }
     }
 
     @Override
-    public long update(Connection con, Topic topic) {
-        PreparedStatement statement = null;
-        long affectedRows;
+    public long update(Connection con, Topic topic) throws DAOException {
+        try (PreparedStatement statement = con.prepareStatement(UPDATE_TOPIC, Statement.RETURN_GENERATED_KEYS)) {
+            int k = 0;
+            statement.setString(++k, topic.getName());
+            statement.setString(++k, topic.getDescription());
+            statement.setLong(++k, topic.getT_id());
 
-        try {
-            statement = con.prepareStatement(SQLQueries.UPDATE_TOPIC, Statement.RETURN_GENERATED_KEYS);
-
-            int k = 1;
-            statement.setString(k++, topic.getName());
-            statement.setString(k++, topic.getDescription());
-            statement.setLong(k, topic.getT_id());
-
-            affectedRows = statement.executeUpdate();
+            return statement.executeUpdate();
         } catch (Exception e) {
-            log.error("Can't update topic");
-            throw new DAOException("Can't update topic", e);
-        } finally {
-            DataSource.close(statement);
+            log.error("Can't update topic " + topic.getT_id(), e);
+            throw new DAOException("Can't update topic " + topic.getT_id(), e);
         }
-
-        return affectedRows;
     }
 
     @Override
-    public long delete(Connection con, long id) {
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        long affectedRows;
-
-        try {
-            statement = con.prepareStatement(SQLQueries.DELETE_TOPIC, Statement.RETURN_GENERATED_KEYS);
-
+    public long delete(Connection con, long id) throws DAOException {
+        try (PreparedStatement statement = con.prepareStatement(DELETE_TOPIC)) {
             statement.setLong(1, id);
-            statement.executeUpdate();
-            resultSet = statement.getGeneratedKeys();
-            resultSet.next();
-            affectedRows = resultSet.getLong(1);
+            return statement.executeUpdate();
         } catch (Exception e) {
-            log.error("Can't delete specified topic" + id, e);
-            throw new DAOException("Can't delete specified topic", e);
-        } finally {
-            DataSource.closeAll(resultSet, statement);
+            log.error("Can't delete specified topic, id: " + id, e);
+            throw new DAOException("Can't delete specified topic, id: " + id, e);
         }
 
-        return affectedRows;
     }
 
     @Override
-    public long save(Connection con, Topic topic) {
-        PreparedStatement statement = null;
+    public long save(Connection con, Topic topic) throws DAOException {
         ResultSet resultSet = null;
-        long generatedId;
 
-        try {
-            statement = con.prepareStatement(SQLQueries.CREATE_TOPIC, Statement.RETURN_GENERATED_KEYS);
-
-            int k = 1;
-            statement.setString(k++, topic.getName());
-            statement.setString(k, topic.getDescription());
-
+        try (PreparedStatement statement = con.prepareStatement(SQLQueries.CREATE_TOPIC, Statement.RETURN_GENERATED_KEYS)) {
+            int k = 0;
+            statement.setString(++k, topic.getName());
+            statement.setString(++k, topic.getDescription());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
             resultSet.next();
-            generatedId = resultSet.getLong(1);
+
+            return resultSet.getLong(1);
         } catch (Exception e) {
             log.error("Can't add topic to database", e);
             throw new DAOException("Can't add topic to database", e);
         } finally {
-            DataSource.closeAll(resultSet, statement);
+            close(resultSet);
         }
+    }
 
-        return generatedId;
+    private Topic createTopicObject(ResultSet resultSet) throws SQLException {
+        int k = 0;
+        return new Topic(resultSet.getLong(++k), resultSet.getString(++k), resultSet.getString(++k));
     }
 }

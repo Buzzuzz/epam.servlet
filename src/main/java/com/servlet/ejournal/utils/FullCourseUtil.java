@@ -2,7 +2,7 @@ package com.servlet.ejournal.utils;
 
 import com.servlet.ejournal.exceptions.DAOException;
 import com.servlet.ejournal.exceptions.UtilException;
-import com.servlet.ejournal.model.dao.DAO;
+import com.servlet.ejournal.model.dao.interfaces.DAO;
 import com.servlet.ejournal.model.entities.TeacherCourse;
 import com.servlet.ejournal.model.entities.Topic;
 import com.servlet.ejournal.model.entities.TopicCourse;

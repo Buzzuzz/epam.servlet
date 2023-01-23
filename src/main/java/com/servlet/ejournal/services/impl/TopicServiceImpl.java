@@ -1,8 +1,7 @@
 package com.servlet.ejournal.services.impl;
 
-import com.servlet.ejournal.constants.AttributeConstants;
-import com.servlet.ejournal.exceptions.DAOException;
-import com.servlet.ejournal.exceptions.ServiceException;
+import com.servlet.ejournal.exceptions.*;
+import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.model.dao.impl.TopicDAO;
 import com.servlet.ejournal.model.entities.Topic;
@@ -13,12 +12,14 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.servlet.ejournal.model.dao.DataSource.*;
+import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
+import static com.servlet.ejournal.constants.AttributeConstants.*;
 
 @Log4j2
+@Getter
 public class TopicServiceImpl implements TopicService {
-    private static final TopicDAO dao = TopicDAO.getInstance();
+    private TopicDAO dao = TopicDAO.getInstance();
 
     // Suppress constructor
     private TopicServiceImpl() {
@@ -49,7 +50,7 @@ public class TopicServiceImpl implements TopicService {
 
     @Override
     public List<TopicDTO> getAllTopics() {
-        return getAllTopics(getTopicCount(), 0, AttributeConstants.DEFAULT_TOPIC_SORTING);
+        return getAllTopics(getTopicCount(), 0, DEFAULT_TOPIC_SORTING);
     }
 
     @Override
@@ -71,7 +72,7 @@ public class TopicServiceImpl implements TopicService {
                 return dao.save(con, topic);
             }
             log.error("No required parameters: " +
-                    AttributeConstants.TOPIC_NAME_ATTR + ", " + AttributeConstants.TOPIC_DESCRIPTION_ATTR);
+                    TOPIC_NAME_ATTR + ", " + TOPIC_DESCRIPTION_ATTR);
             throw new ServiceException("No required parameters for command!");
         } finally {
             close(con);
@@ -129,7 +130,7 @@ public class TopicServiceImpl implements TopicService {
         Connection con = null;
         try {
             con = getConnection();
-            return getRecordsCount(con, AttributeConstants.TOPIC_ID, AttributeConstants.TOPIC_TABLE, null);
+            return getRecordsCount(con, TOPIC_ID, TOPIC_TABLE, null);
         } finally {
             close(con);
         }

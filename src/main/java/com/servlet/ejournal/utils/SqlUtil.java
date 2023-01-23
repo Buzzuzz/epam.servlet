@@ -4,16 +4,13 @@ import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
 import com.servlet.ejournal.exceptions.UtilException;
-import com.servlet.ejournal.model.dao.DataSource;
+import com.servlet.ejournal.model.dao.HikariConnectionPool;
 import com.servlet.ejournal.constants.RegexConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 
 import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +42,7 @@ public class SqlUtil {
             log.error(message, e);
             throw new DAOException(message, e);
         } finally {
-            DataSource.closeAll(resultSet, statement);
+            HikariConnectionPool.closeAll(resultSet, statement);
         }
     }
 
@@ -139,9 +136,26 @@ public class SqlUtil {
         }
     }
 
-    public static String getEntityPaginationQuery(String table, Map<String, String[]> filters) {
-        return String.format("%s %s ", SQLQueries.SELECT_EVERYTHING_FROM_PART, table) + buildFilters(filters) + SQLQueries.PAGINATION_LIMIT_OFFSET_QUERY_PART;
+//    public static String getEntityPaginationQuery(String table, Map<String, String[]> filters) {
+//        return String.format("%s %s ", SQLQueries.SELECT_EVERYTHING_FROM_PART, table) +
+//                buildFilters(filters) +
+//                SQLQueries.PAGINATION_LIMIT_OFFSET_QUERY_PART;
+//    }
+
+    public static String getAllEntitiesQuery(String table, int limit, int offset, String sorting, Map<String, String[]> filters) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%s %s ", SQLQueries.SELECT_EVERYTHING_FROM_PART, table))
+                .append(buildFilters(filters))
+                .append(SQLQueries.PAGINATION_LIMIT_OFFSET_QUERY_PART);
+
+        sb.replace(sb.indexOf("?"), sb.indexOf("?") + 1, sorting)
+                .replace(sb.indexOf("?"), sb.indexOf("?") + 1, String.valueOf(limit))
+                .replace(sb.indexOf("?"), sb.indexOf("?") + 1, String.valueOf(offset))
+                .toString();
+
+        return sb.toString();
     }
+
 
     // TODO : refactor filter building
     private static String buildFilters(Map<String, String[]> filters) {

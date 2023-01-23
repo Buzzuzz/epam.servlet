@@ -5,7 +5,6 @@ import com.servlet.ejournal.exceptions.DAOException;
 import com.servlet.ejournal.exceptions.UtilException;
 import com.servlet.ejournal.exceptions.ValidationError;
 import com.servlet.ejournal.exceptions.ServiceException;
-import com.servlet.ejournal.model.dao.DataSource;
 import com.servlet.ejournal.model.dao.impl.UserCourseDAO;
 import com.servlet.ejournal.model.dao.impl.UserDAO;
 import com.servlet.ejournal.model.entities.User;
@@ -17,16 +16,20 @@ import com.servlet.ejournal.services.dto.UserDTO;
 import com.servlet.ejournal.utils.SqlUtil;
 import com.servlet.ejournal.utils.PasswordHashUtil;
 import com.servlet.ejournal.utils.ValidationUtil;
+import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
 import java.sql.Connection;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
+
 @Log4j2
+@Getter
 public class UserServiceImpl implements UserService {
-    private static final UserDAO userDAO = UserDAO.getInstance();
-    private static final UserCourseDAO userCourseDAO = UserCourseDAO.getInstance();
+    private UserDAO userDAO = UserDAO.getInstance();
+    private UserCourseDAO userCourseDAO = UserCourseDAO.getInstance();
 
     private static class Holder {
         private static final UserService service = new UserServiceImpl();
@@ -42,9 +45,9 @@ public class UserServiceImpl implements UserService {
 
     public User logIn(String email, String password) throws ServiceException {
         try {
-            Connection con = DataSource.getConnection();
+            Connection con = getConnection();
             Optional<User> daoResult = userDAO.getByEmail(con, email);
-            DataSource.close(con);
+            close(con);
 
             if (daoResult.isPresent()) {
                 User user = daoResult.get();
@@ -70,7 +73,7 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
 
         try {
-            con = DataSource.getConnection();
+            con = getConnection();
             if (ValidationUtil.getInstance().isNewUserValid(con, user, repeatPassword).equals(ValidationError.NONE)) {
                 user.setPassword(PasswordHashUtil.encode(user.getPassword()));
                 userDAO.save(con, user);
@@ -82,15 +85,16 @@ public class UserServiceImpl implements UserService {
             log.error(e.getMessage(), e);
             throw new ServiceException("Can't register new user", e);
         } finally {
-            DataSource.close(con);
+            close(con);
         }
     }
 
     public ValidationError updateUserData(UserDTO userDTO, String oldPassword, String newPassword, String repeatPassword) throws ServiceException {
         Connection con = null;
         User user = getUserFromDTO(userDTO, newPassword);
+        log.info(user);
         try {
-            con = DataSource.getConnection();
+            con = getConnection();
             if (ValidationUtil.validatePassword(newPassword).equals(ValidationError.NONE) &&
                     ValidationUtil.validateRepeatPassword(newPassword, repeatPassword).equals(ValidationError.NONE) &&
                     ValidationUtil.validatePhoneNumber(user.getPhone()).equals(ValidationError.NONE)) {
@@ -113,7 +117,7 @@ public class UserServiceImpl implements UserService {
             log.error("Can't update user " + user.getEmail(), e);
             throw new ServiceException("Can't update user " + user.getEmail(), e);
         } finally {
-            DataSource.close(con);
+            close(con);
         }
     }
 
@@ -155,14 +159,14 @@ public class UserServiceImpl implements UserService {
     public List<UserDTO> getAllUsers(int limit, int offset, String sorting, Map<String, String[]> filters) {
         Connection con = null;
         try {
-            con = DataSource.getConnection();
+            con = getConnection();
             return userDAO
                     .getAll(con, limit, offset, sorting, filters)
                     .stream()
                     .map(this::getUserDTO)
                     .collect(Collectors.toList());
         } finally {
-            DataSource.close(con);
+            close(con);
         }
     }
 
@@ -184,8 +188,8 @@ public class UserServiceImpl implements UserService {
         filters.put(AttributeConstants.COURSE_ID, new String[]{String.valueOf(courseId)});
         filters.put(AttributeConstants.QUERY, new String[]{String.format("%s > %s", AttributeConstants.FINAL_MARK, -1)});
         try {
-            con = DataSource.getConnection();
-            DataSource.setAutoCommit(con, false);
+            con = getConnection();
+            setAutoCommit(con, false);
 
             List<UserCourse> userCourseList = (List<UserCourse>) userCourseDAO.getAll(con,
                     SqlUtil.getRecordsCount(con, AttributeConstants.USER_ID, AttributeConstants.USER_COURSE_TABLE, filters), 0, AttributeConstants.USER_ID, filters);
@@ -202,13 +206,13 @@ public class UserServiceImpl implements UserService {
                         uc.getFinal_mark())));
             }
 
-            DataSource.commit(con);
+            commit(con);
         } catch (DAOException e) {
-            DataSource.rollback(con);
+            rollback(con);
             log.error(e.getMessage(), e);
         } finally {
-            DataSource.setAutoCommit(con, true);
-            DataSource.close(con);
+            setAutoCommit(con, true);
+            close(con);
         }
         log.info(users);
         return users;
@@ -218,12 +222,12 @@ public class UserServiceImpl implements UserService {
     public long deleteUser(long id) throws ServiceException {
         Connection con = null;
         try {
-            con = DataSource.getConnection();
+            con = getConnection();
             return userDAO.delete(con, id);
         } catch (DAOException e) {
             throw new ServiceException(e);
         } finally {
-            DataSource.close(con);
+            close(con);
         }
     }
 
@@ -232,7 +236,7 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
         long[] generated = new long[1];
         try {
-            con = DataSource.getConnection();
+            con = getConnection();
             Connection finalCon = con;
             userDAO.get(con, id).ifPresent(user -> {
                 user.set_blocked(status);
@@ -242,7 +246,7 @@ public class UserServiceImpl implements UserService {
             log.error("Can't lock user: " + id, e);
             throw new ServiceException("Can't lock user: " + id, e);
         } finally {
-            DataSource.close(con);
+            close(con);
         }
         return generated[0];
     }
@@ -251,10 +255,10 @@ public class UserServiceImpl implements UserService {
     public Optional<User> getUser(long id) {
         Connection con = null;
         try {
-            con = DataSource.getConnection();
+            con = getConnection();
             return userDAO.get(con, id);
         } finally {
-            DataSource.close(con);
+            close(con);
         }
     }
 
@@ -263,8 +267,8 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
         User user = getUserFromDTO(userDTO, password);
         try {
-            con = DataSource.getConnection();
-            DataSource.setAutoCommit(con, false);
+            con = getConnection();
+            setAutoCommit(con, false);
 
             ValidationError error = signUp(userDTO, password, repeatPassword);
             if (error.equals(ValidationError.NONE)) {
@@ -273,19 +277,19 @@ public class UserServiceImpl implements UserService {
                     u.setUser_type(UserType.valueOf(type));
                     userDAO.update(finalCon, u);
                 });
-                DataSource.commit(con);
+                commit(con);
             }
             return error;
         } catch (DAOException e) {
-            DataSource.rollback(con);
+            rollback(con);
             log.error(String.format("Can't create new user, cause: %s", e.getMessage()), e);
             throw new ServiceException("Can't create new user!", e);
         } catch (IllegalArgumentException e) {
             log.error("Wrong userType passed!", e);
             throw new ServiceException("Can't update user! Wrong userType!", e);
         } finally {
-            DataSource.setAutoCommit(con, true);
-            DataSource.close(con);
+            setAutoCommit(con, true);
+            close(con);
         }
     }
 
@@ -293,10 +297,10 @@ public class UserServiceImpl implements UserService {
     public int getUserCount(Map<String, String[]> filters) {
         Connection con = null;
         try {
-            con = DataSource.getConnection();
+            con = getConnection();
             return SqlUtil.getRecordsCount(con, AttributeConstants.USER_ID, AttributeConstants.USER_TABLE, filters);
         } finally {
-            DataSource.close(con);
+            close(con);
         }
     }
 

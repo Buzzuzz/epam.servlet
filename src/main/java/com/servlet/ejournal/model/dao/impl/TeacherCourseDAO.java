@@ -1,165 +1,138 @@
 package com.servlet.ejournal.model.dao.impl;
 
-import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
-import com.servlet.ejournal.utils.SqlUtil;
+import com.servlet.ejournal.model.dao.interfaces.IntermediateTable;
 import lombok.extern.log4j.Log4j2;
-import com.servlet.ejournal.model.dao.DAO;
+import com.servlet.ejournal.model.dao.interfaces.DAO;
 import com.servlet.ejournal.model.entities.TeacherCourse;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
 
-import static com.servlet.ejournal.model.dao.DataSource.close;
-import static com.servlet.ejournal.model.dao.DataSource.closeAll;
+import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
+import static com.servlet.ejournal.utils.SqlUtil.*;
+import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.constants.SQLQueries.*;
 
 @Log4j2
-public class TeacherCourseDAO implements DAO<TeacherCourse> {
+public class TeacherCourseDAO implements DAO<TeacherCourse>, IntermediateTable<TeacherCourse> {
     // Suppress constructor
-    private TeacherCourseDAO() {}
+    private TeacherCourseDAO() {
+    }
 
     private static class Holder {
-        private static TeacherCourseDAO dao = new TeacherCourseDAO();
+        private static final TeacherCourseDAO dao = new TeacherCourseDAO();
     }
 
     public static TeacherCourseDAO getInstance() {
         return Holder.dao;
     }
-    @Override
-    public Optional<TeacherCourse> get(Connection con, long id) {
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        TeacherCourse tc = null;
 
-        try {
-            statement = con.prepareStatement(SQLQueries.FIND_TEACHER_COURSE_BY_ID);
+    @Override
+    public Optional<TeacherCourse> get(Connection con, long id) throws DAOException {
+        ResultSet resultSet = null;
+
+        try (PreparedStatement statement = con.prepareStatement(SQLQueries.FIND_TEACHER_COURSE_BY_ID)) {
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-
-            while (resultSet.next()) {
-                // Skip primary key
-                int k = 1;
-                tc = new TeacherCourse(
-                        resultSet.getLong(++k),
-                        resultSet.getLong(++k));
+            if (resultSet.next()) {
+                return Optional.of(createTeacherCourseObject(resultSet));
             }
-        } catch (Exception e) {
-            log.error("Can't get teacher_course from database");
-            throw new DAOException("Can't get teacher_course from database", e);
+            return Optional.empty();
+        } catch (SQLException e) {
+            log.error("Can't get teacher_course from database, course id: " + id, e);
+            throw new DAOException("Can't get teacher_course from database, course id: " + id, e);
         } finally {
-            closeAll(resultSet, statement);
+            close(resultSet);
         }
-
-        return Optional.ofNullable(tc);
     }
 
     @Override
-    public Collection<TeacherCourse> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) {
-        List<TeacherCourse> teacherCourses = new ArrayList<>();
-        PreparedStatement statement = null;
+    public Optional<TeacherCourse> get(Connection con, long teacherId, long courseId) throws DAOException {
         ResultSet resultSet = null;
 
-        try {
-            String temp = SqlUtil.getEntityPaginationQuery(AttributeConstants.TEACHER_COURSE_TABLE, filters);
-            temp = temp.replaceFirst("\\?", sorting);
-            statement = con.prepareStatement(temp);
-
-            int k = 0;
-            statement.setInt(++k, limit);
-            statement.setInt(++k, offset);
+        try (PreparedStatement statement = con.prepareStatement(FIND_TEACHER_COURSE_BY_TCH_ID_C_ID)) {
+            statement.setLong(1, teacherId);
+            statement.setLong(2, courseId);
             resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return Optional.of(createTeacherCourseObject(resultSet));
+            }
+            return Optional.empty();
+        } catch (SQLException e) {
+            String msg = String.format("Can't get teacher_course from database | course id: %s, teacher id: %s", courseId, teacherId);
+            log.error(msg, e);
+            throw new DAOException(msg, e);
+        } finally {
+            close(resultSet);
+        }
+    }
 
+    @Override
+    public Collection<TeacherCourse> getAll(Connection con, int limit, int offset, String sorting, Map<String, String[]> filters) throws DAOException {
+        List<TeacherCourse> teacherCourses = new ArrayList<>();
+        String query = getAllEntitiesQuery(TEACHER_COURSE_TABLE, limit, offset, sorting, filters);
+
+        try (PreparedStatement statement = con.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                k = 0;
-                teacherCourses.add(new TeacherCourse(
-                        resultSet.getLong(++k),
-                        resultSet.getLong(++k)
-                ));
+                teacherCourses.add(createTeacherCourseObject(resultSet));
             }
             return teacherCourses;
-        } catch (Exception e) {
-            log.error("Can't get all teacher_courses from database", e);
-            throw new DAOException("Can't get all teacher_courses from database", e);
-        } finally {
-            closeAll(resultSet, statement);
+        } catch (SQLException e) {
+            log.error("Can't get all teacher-courses from database", e);
+            throw new DAOException("Can't get all teacher-courses from database", e);
         }
     }
 
     @Override
-    public long update(Connection con, TeacherCourse teacherCourse) {
-        PreparedStatement statement = null;
-        long affectedRows;
-
-        try {
-            statement = con.prepareStatement(SQLQueries.UPDATE_TEACHER_COURSE, Statement.RETURN_GENERATED_KEYS);
-
-            int k = 0;
-            statement.setLong(++k, teacherCourse.getTch_id());
-            statement.setLong(++k, teacherCourse.getC_id());
-
-            affectedRows = statement.executeUpdate();
-        } catch (Exception e) {
+    public long update(Connection con, TeacherCourse teacherCourse) throws DAOException {
+        try (PreparedStatement statement = con.prepareStatement(SQLQueries.UPDATE_TEACHER_COURSE, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setLong(1, teacherCourse.getTch_id());
+            statement.setLong(2, teacherCourse.getC_id());
+            return statement.executeUpdate();
+        } catch (SQLException e) {
             log.error("Can't update teacher_course(tch_id): " + teacherCourse.getTch_id());
             throw new DAOException("Can't update teacher_course(tch_id): " + teacherCourse.getTch_id(), e);
-        } finally {
-            close(statement);
         }
-
-        return affectedRows;
     }
 
     @Override
-    public long delete(Connection con, long id) {
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        long affectedRows;
-
-        try {
-            statement = con.prepareStatement(SQLQueries.DELETE_TEACHER_COURSE, Statement.RETURN_GENERATED_KEYS);
-
+    public long delete(Connection con, long id) throws DAOException {
+        try (PreparedStatement statement = con.prepareStatement(SQLQueries.DELETE_TEACHER_COURSE)) {
             statement.setLong(1, id);
-            statement.executeUpdate();
-            resultSet = statement.getGeneratedKeys();
-            resultSet.next();
-            affectedRows = resultSet.getLong(1);
-        } catch (Exception e) {
+            return statement.executeUpdate();
+        } catch (SQLException e) {
             log.error("Can't delete specified teacher_course" + id, e);
             throw new DAOException("Can't delete specified teacher_course", e);
-        } finally {
-            closeAll(resultSet, statement);
         }
-
-        return affectedRows;
     }
 
     @Override
-    public long save(Connection con, TeacherCourse teacherCourse) {
-        PreparedStatement statement = null;
+    public long save(Connection con, TeacherCourse teacherCourse) throws DAOException {
         ResultSet resultSet = null;
-        long generatedId;
 
-        try {
-            statement = con.prepareStatement(SQLQueries.CREATE_TEACHER_COURSE, Statement.RETURN_GENERATED_KEYS);
-
-            int k = 0;
-            statement.setLong(++k, teacherCourse.getTch_id());
-            statement.setLong(++k, teacherCourse.getC_id());
-
+        try (PreparedStatement statement = con.prepareStatement(SQLQueries.CREATE_TEACHER_COURSE, Statement.RETURN_GENERATED_KEYS)) {
+            statement.setLong(1, teacherCourse.getTch_id());
+            statement.setLong(2, teacherCourse.getC_id());
             statement.executeUpdate();
             resultSet = statement.getGeneratedKeys();
             resultSet.next();
-            generatedId = resultSet.getLong(1);
+
+            return resultSet.getLong(1);
         } catch (Exception e) {
             log.error("Can't add teacher_course to database", e);
             throw new DAOException("Can't add teacher_course to database", e);
         } finally {
-            closeAll(resultSet, statement);
+            close(resultSet);
         }
+    }
 
-        return generatedId;
+    private TeacherCourse createTeacherCourseObject(ResultSet resultSet) throws SQLException {
+        int k = 0;
+        return new TeacherCourse(
+                resultSet.getLong(++k),
+                resultSet.getLong(++k),
+                resultSet.getLong(++k));
     }
 }

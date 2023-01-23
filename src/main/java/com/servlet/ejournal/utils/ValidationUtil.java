@@ -3,7 +3,6 @@ package com.servlet.ejournal.utils;
 import com.servlet.ejournal.exceptions.DAOException;
 import com.servlet.ejournal.exceptions.UtilException;
 import com.servlet.ejournal.exceptions.ValidationError;
-import com.servlet.ejournal.model.dao.DataSource;
 import com.servlet.ejournal.model.dao.impl.UserDAO;
 import com.servlet.ejournal.model.entities.User;
 import lombok.Setter;

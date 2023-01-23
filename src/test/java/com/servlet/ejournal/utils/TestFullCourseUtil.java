@@ -97,7 +97,7 @@ public class TestFullCourseUtil {
                     false,
                     false);
 
-            TeacherCourse tc = new TeacherCourse(teacherId, courseId);
+            TeacherCourse tc = new TeacherCourse(0, teacherId, courseId);
 
             userDAOMock = mock(UserDAO.class);
             teacherCourseDAOMock = mock(TeacherCourseDAO.class);

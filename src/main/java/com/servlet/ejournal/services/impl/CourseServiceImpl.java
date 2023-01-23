@@ -12,7 +12,7 @@ import com.servlet.ejournal.services.CourseService;
 import com.servlet.ejournal.services.TopicService;
 import com.servlet.ejournal.services.UserService;
 import lombok.extern.log4j.Log4j2;
-import com.servlet.ejournal.model.dao.DAO;
+import com.servlet.ejournal.model.dao.interfaces.DAO;
 import com.servlet.ejournal.services.dto.FullCourseDTO;
 
 import java.sql.Connection;
@@ -20,10 +20,10 @@ import java.sql.Timestamp;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.servlet.ejournal.model.dao.DataSource.*;
 import static com.servlet.ejournal.utils.FullCourseUtil.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.utils.ValidationUtil.*;
+import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
 
 
 // TODO : on topic | teacher delete do something with courses (delete them, update, idk)
@@ -171,15 +171,8 @@ public class CourseServiceImpl implements CourseService {
                         -1
                 ));
 
-                teacherCourseDAO.save(con, new TeacherCourse(
-                        courseDTO.getCurrentTeacherId(),
-                        generatedId
-                ));
-
-                topicCourseDAO.save(con, new TopicCourse(
-                        courseDTO.getCurrentTopicId(),
-                        generatedId
-                ));
+                teacherCourseDAO.save(con, new TeacherCourse(0, courseDTO.getCurrentTeacherId(), generatedId));
+                topicCourseDAO.save(con, new TopicCourse(courseDTO.getCurrentTopicId(), generatedId));
 
                 commit(con);
             }

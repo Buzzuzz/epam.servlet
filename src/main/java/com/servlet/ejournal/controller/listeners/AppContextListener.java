@@ -25,7 +25,7 @@ public class AppContextListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         ServletContext context = sce.getServletContext();
         context.setAttribute(CONTROLLER_ATTR, String.format("%s%s", context.getContextPath(), CONTROLLER_MAPPING));
-        log.debug("Controller path in applicationContext set successful!");
+        log.trace("Controller path in applicationContext set successful!");
     }
 
     /**
@@ -36,6 +36,7 @@ public class AppContextListener implements ServletContextListener {
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         sce.getServletContext().removeAttribute(CONTROLLER_ATTR);
+        log.trace("Controller path in applicationContext deleted!");
     }
 
 }

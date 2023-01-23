@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Optional;
 
+// TODO : write tests when userService can be mocked
 @WebFilter(filterName = "StatusFilter", value = "/*")
 public class StatusFilter implements Filter {
     @Override

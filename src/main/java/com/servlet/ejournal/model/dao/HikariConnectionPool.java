@@ -15,24 +15,26 @@ import java.sql.SQLException;
  * For connection pool used HikariCP.
  */
 @Log4j2
-public class DataSource {
+public class HikariConnectionPool {
     private static final HikariConfig config;
-    private static final HikariDataSource ds;
+    private static final javax.sql.DataSource ds;
     private static final String PATH = "/db.properties";
 
     static {
         try {
+            log.trace("Connection pool configuration...");
             config = new HikariConfig(PATH);
             ds = new HikariDataSource(config);
+            log.trace("Connection pool configured successful!");
         } catch (Exception e) {
             e.printStackTrace();
-            log.fatal("Can't config connection pool");
+            log.fatal("Can't configure connection pool!");
             throw new DAOException("Can't config connection pool", e);
         }
     }
 
     // Suppress constructor
-    private DataSource() {
+    private HikariConnectionPool() {
     }
 
     /**
@@ -43,6 +45,7 @@ public class DataSource {
      */
     public static Connection getConnection() throws DAOException {
         try {
+            log.trace("Acquiring connection...");
             return ds.getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,6 +58,7 @@ public class DataSource {
         try {
             if (closeable != null) {
                 closeable.close();
+                log.trace(closeable.getClass().getName() + " closed!");
             }
         } catch (Exception e) {
             log.error("Can't close connection | statement | resultSet", e);
@@ -83,6 +87,7 @@ public class DataSource {
     public static void rollback(Connection con) throws DAOException {
         try {
             con.rollback();
+            log.trace("Transaction rolled back!");
         } catch (Exception e) {
             log.error("Can't rollback transaction");
             throw new DAOException("Can't rollback transaction", e);
@@ -92,6 +97,7 @@ public class DataSource {
     public static void commit(Connection con) {
         try {
             con.commit();
+            log.trace("Transaction committed!");
         } catch (SQLException e) {
             log.error("Cant' commit!", e);
             throw new DAOException("Can't commit!", e);
@@ -102,6 +108,7 @@ public class DataSource {
         try {
             if (con != null) {
                 con.setAutoCommit(type);
+                log.trace("AutoCommit Type changed!");
             }
         } catch (SQLException e) {
             log.error("Can't set connection commit type to " + type, e);
