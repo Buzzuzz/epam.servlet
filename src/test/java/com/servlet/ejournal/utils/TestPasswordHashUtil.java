@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static com.servlet.ejournal.utils.PasswordHashUtil.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestPasswordHashUtil {
+class TestPasswordHashUtil {
     private static final String password = "password";
 
     // Tested before encoded password

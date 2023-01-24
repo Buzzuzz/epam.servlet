@@ -3,12 +3,15 @@
         <div class="row justify-content-center">
             <div class="col text-center d-grid gap-1 m-2">
                 <p class="m-0">EPAM Java Summer 2022</p>
-                <p class="m-0">Developed by Volodymyr Stefunko</p>
+                <p class="m-0">
+                    <fmt:message key="developed_by"/>
+                </p>
                 <div>
                     <a class="nav-link d-inline" href="https://github.com/buzzuzz" target="_blank">
                         <i class="fa-brands fa-square-github fa-xl"></i>
                     </a>
-                    <a class="nav-link d-inline" href="https://www.linkedin.com/in/volodymyr-stefunko-627010253/" target="_blank">
+                    <a class="nav-link d-inline" href="https://www.linkedin.com/in/volodymyr-stefunko-627010253/"
+                       target="_blank">
                         <i class="fa-brands fa-linkedin fa-xl"></i>
                     </a>
                 </div>

@@ -65,6 +65,6 @@ class TestPageAccessPool {
     @Test
     void testGetAllowedPagesUserTypeIsNull() {
         user.setUser_type(null);
-        assertThrows(NullPointerException.class, () -> pages.getAllowedInstances(user).contains(LOGIN_PAGE));
+        assertThrows(NullPointerException.class, () -> pages.getAllowedInstances(user));
     }
 }

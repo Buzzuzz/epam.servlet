@@ -37,7 +37,6 @@ public class AccessFilter implements Filter {
                         log.error(commandCause);
                         throw new CommandException(commandCause);
                     }
-
                 }
             }
         } else {

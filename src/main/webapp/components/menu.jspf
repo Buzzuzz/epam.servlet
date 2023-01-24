@@ -76,10 +76,17 @@
                                                     <input hidden="hidden" name="command" value="change-locale"
                                                            aria-label="change-locale"/>
                                                     <div class="dropdown">
-                                                    <span class="nav-link dropdown-toggle" type="button"
-                                                          data-bs-toggle="dropdown" aria-expanded="false">
-                                                        ${sessionScope.locale}
-                                                    </span>
+                                                        <span class="nav-link dropdown-toggle" type="button"
+                                                              data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <c:choose>
+                                                                <c:when test="${cookie['locale'].value eq 'en'}">
+                                                                    <fmt:message key="en"/>
+                                                                </c:when>
+                                                                <c:when test="${cookie['locale'].value eq 'ua'}">
+                                                                    <fmt:message key="ua"/>
+                                                                </c:when>
+                                                            </c:choose>
+                                                        </span>
                                                         <ul class="dropdown-menu">
                                                             <li>
                                                                 <button type="submit" name="locale" value="en"

@@ -23,7 +23,7 @@ import static com.servlet.ejournal.utils.FullCourseUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static org.mockito.Mockito.*;
 
-public class TestFullCourseUtil {
+class TestFullCourseUtil {
     @Nested
     class TestGetCurrentTopic {
         private TopicDAO topicDAOMock;

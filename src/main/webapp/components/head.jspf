@@ -11,5 +11,5 @@
         <%@ include file="/style.css"%>
     </style>
 </head>
-<fmt:setLocale value="${sessionScope.locale}"/>
+<fmt:setLocale value="${cookie['locale'].value}"/>
 <fmt:setBundle basename="locale"/>

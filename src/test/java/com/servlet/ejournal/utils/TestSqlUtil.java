@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static com.servlet.ejournal.constants.SQLQueries.*;
 
-public class TestSqlUtil {
+class TestSqlUtil {
     private static final HttpServletRequest reqMock = mock(HttpServletRequest.class);
 
     @Nested

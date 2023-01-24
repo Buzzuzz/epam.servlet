@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import static org.junit.jupiter.api.Assertions.*;
 import static com.servlet.ejournal.utils.DateFormatterUtil.*;
 
-public class TestDateFormatterUtil {
+class TestDateFormatterUtil {
     @Test
     void testWrongDateString() {
         assertThrows(UtilException.class, () -> getTimestamp("02.01.2003"));
