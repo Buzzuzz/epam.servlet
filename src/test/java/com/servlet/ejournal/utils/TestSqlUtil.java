@@ -1,15 +1,16 @@
 package com.servlet.ejournal.utils;
 
 import com.servlet.ejournal.constants.AttributeConstants;
-import com.servlet.ejournal.exceptions.UtilException;
-import com.servlet.ejournal.model.dao.impl.UserDAO;
-import com.servlet.ejournal.model.entities.Course;
-import com.servlet.ejournal.model.entities.Topic;
+import com.servlet.ejournal.exceptions.DAOException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,6 +22,49 @@ import static com.servlet.ejournal.constants.SQLQueries.*;
 
 class TestSqlUtil {
     private static final HttpServletRequest reqMock = mock(HttpServletRequest.class);
+
+    @Nested
+    class TestGetRecordsCount {
+        Connection conMock;
+        PreparedStatement statementMock;
+        ResultSet resultSetMock;
+        // Testing without filters (there are tests for building filters in getAllEntitiesQuery)
+        int defaultCount = 10;
+
+        @BeforeEach
+        void setup() throws SQLException {
+            conMock = mock(Connection.class);
+            statementMock = mock(PreparedStatement.class);
+            resultSetMock = mock(ResultSet.class);
+
+            when(conMock.prepareStatement(any(String.class))).thenReturn(statementMock);
+            when(statementMock.executeQuery()).thenReturn(resultSetMock);
+            when(resultSetMock.getInt(1)).thenReturn(defaultCount);
+        }
+
+        @Test
+        void testGetActualRecordsCount() {
+            assertEquals(defaultCount, getRecordsCount(conMock, USER_ID, USER_TABLE, null));
+        }
+
+        @Test
+        void testConnectionInterrupted() throws SQLException {
+            when(conMock.prepareStatement(any(String.class))).thenThrow(SQLException.class);
+            assertThrows(DAOException.class, () -> getRecordsCount(conMock, USER_ID, USER_TABLE, null));
+        }
+
+        @Test
+        void testNoSuitableCountable() throws SQLException {
+            when(statementMock.executeQuery()).thenThrow(SQLException.class);
+            assertThrows(DAOException.class, () -> getRecordsCount(conMock, TOPIC_ID, USER_TABLE, null));
+        }
+
+        @Test
+        void testNoSuitableTable() throws SQLException {
+            when(statementMock.executeQuery()).thenThrow(SQLException.class);
+            assertThrows(DAOException.class, () -> getRecordsCount(conMock, USER_ID, TOPIC_TABLE, null));
+        }
+    }
 
     @Nested
     class TestGetPages {
@@ -62,9 +106,9 @@ class TestSqlUtil {
         }
 
         @Test
-        void testGetExceptionParsingLimit() {
+        void testGetLimitParsingString() {
             when(reqMock.getParameter(DISPLAY_RECORDS_NUMBER)).thenReturn("string");
-            assertThrows(NumberFormatException.class, () -> getLimit(reqMock));
+            assertEquals(DEFAULT_LIMIT, getLimit(reqMock));
         }
     }
 
@@ -85,7 +129,7 @@ class TestSqlUtil {
         @Test
         void testGetExceptionParsingPage() {
             when(reqMock.getParameter(CURRENT_PAGE)).thenReturn("not a number");
-            assertThrows(NumberFormatException.class, () -> getCurrentPage(reqMock));
+            assertEquals(DEFAULT_PAGE, getCurrentPage(reqMock));
         }
     }
 
@@ -107,19 +151,19 @@ class TestSqlUtil {
         @Test
         void testNoDefaultSorting() {
             when(reqMock.getParameter(SORTING_TYPE)).thenReturn(null);
-            assertThrows(UtilException.class, () -> getSortingType(reqMock, UserDAO.class));
+            assertEquals(DEFAULT_USER_SORTING, getSortingType(reqMock, DEFAULT_USER_SORTING));
         }
 
         @Test
-        void testGetDefaultSorting() throws UtilException {
+        void testGetDefaultSorting() {
             when(reqMock.getParameter(SORTING_TYPE)).thenReturn(null);
-            assertEquals(TOPIC_ID, getSortingType(reqMock, Topic.class));
+            assertEquals(TOPIC_ID, getSortingType(reqMock, DEFAULT_TOPIC_SORTING));
         }
 
         @Test
-        void testGetActualSorting() throws UtilException {
+        void testGetActualSorting() {
             when(reqMock.getParameter(SORTING_TYPE)).thenReturn("sorting");
-            assertEquals("sorting", getSortingType(reqMock, Course.class));
+            assertEquals("sorting", getSortingType(reqMock, DEFAULT_COURSE_SORTING));
         }
     }
 

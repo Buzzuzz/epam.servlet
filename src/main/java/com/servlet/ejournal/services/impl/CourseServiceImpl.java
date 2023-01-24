@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 import static com.servlet.ejournal.utils.FullCourseUtil.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.utils.ValidationUtil.*;
-import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
+import static com.servlet.ejournal.model.dao.ConnectionPool.*;
 
 
 // TODO : on topic | teacher delete do something with courses (delete them, update, idk)

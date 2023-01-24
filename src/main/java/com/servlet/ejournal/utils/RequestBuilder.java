@@ -18,8 +18,8 @@ public class RequestBuilder {
         }
 
         paramsMap.forEach((param, values) -> {
-            for (int i = 0; i < values.length; i++) {
-                sb.append(param).append("=").append(values[i]).append("&");
+            for (String value : values) {
+                sb.append(param).append("=").append(value).append("&");
             }
         });
 

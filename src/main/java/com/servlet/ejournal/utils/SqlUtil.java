@@ -4,7 +4,6 @@ import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
 import com.servlet.ejournal.exceptions.UtilException;
-import com.servlet.ejournal.model.dao.HikariConnectionPool;
 import com.servlet.ejournal.constants.RegexConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
@@ -16,6 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import static com.servlet.ejournal.model.dao.ConnectionPool.*;
+import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.constants.SQLQueries.*;
+
 @Log4j2
 public class SqlUtil {
 
@@ -24,25 +27,19 @@ public class SqlUtil {
     }
 
     public static int getRecordsCount(Connection con, String countable, String table, Map<String, String[]> filters) throws DAOException {
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
+        String query = COUNT_RECORDS
+                .replaceFirst("\\?", countable)
+                .replaceFirst("\\?", table)
+                .concat(" ")
+                .concat(buildFilters(filters));
 
-        try {
-            StringBuilder sb = new StringBuilder(SQLQueries.COUNT_RECORDS);
-            sb.replace(sb.indexOf("?"), sb.indexOf("?") + 1, countable)
-                    .replace(sb.indexOf("?"), sb.indexOf("?") + 1, table).append(" ")
-                    .append(buildFilters(filters));
-
-            statement = con.prepareStatement(sb.toString());
-            resultSet = statement.executeQuery();
+        try (PreparedStatement statement = con.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
             resultSet.next();
             return resultSet.getInt(1);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             String message = String.format("Can't count records in table %s, by %s field", table, countable);
             log.error(message, e);
             throw new DAOException(message, e);
-        } finally {
-            HikariConnectionPool.closeAll(resultSet, statement);
         }
     }
 
@@ -53,45 +50,35 @@ public class SqlUtil {
     }
 
     public static int getLimit(HttpServletRequest req) {
-        return req.getParameter(AttributeConstants.DISPLAY_RECORDS_NUMBER) == null ?
-                AttributeConstants.DEFAULT_LIMIT :
-                Integer.parseInt(req.getParameter(AttributeConstants.DISPLAY_RECORDS_NUMBER));
+        try {
+            return req.getParameter(DISPLAY_RECORDS_NUMBER) == null ?
+                    DEFAULT_LIMIT :
+                    Integer.parseInt(req.getParameter(DISPLAY_RECORDS_NUMBER));
+        } catch (NumberFormatException e) {
+            return DEFAULT_LIMIT;
+        }
     }
 
     public static int getCurrentPage(HttpServletRequest req) {
-        return req.getParameter(AttributeConstants.CURRENT_PAGE) == null ?
-                AttributeConstants.DEFAULT_PAGE :
-                Integer.parseInt(req.getParameter(AttributeConstants.CURRENT_PAGE));
+        try {
+            return req.getParameter(CURRENT_PAGE) == null ?
+                    DEFAULT_PAGE :
+                    Integer.parseInt(req.getParameter(CURRENT_PAGE));
+        } catch (NumberFormatException e) {
+            return DEFAULT_PAGE;
+        }
     }
 
     public static int getOffset(int limit, int currentPage) {
-        if (currentPage < 1) {
-            return AttributeConstants.DEFAULT_OFFSET;
-        }
-        return limit * (currentPage - 1);
+        return currentPage < 1 ? DEFAULT_OFFSET : limit * (currentPage - 1);
     }
 
-    public static String getSortingType(HttpServletRequest req, Class c) throws UtilException {
-        try {
-            String className = c.getSimpleName().toUpperCase();
-            Class<AttributeConstants> ac = AttributeConstants.class;
-            Field sortingField = ac.getDeclaredField(String.format("DEFAULT_%s_SORTING", className));
-            return req.getParameter(AttributeConstants.SORTING_TYPE) == null ?
-                    sortingField.get(ac).toString() :
-                    req.getParameter(AttributeConstants.SORTING_TYPE);
-        } catch (Exception e) {
-            String message = String.format("Can't get default sorting for %s in class %s",
-                    c.getName(), AttributeConstants.class);
-            log.error(message, e);
-            throw new UtilException(message, e);
-        }
+    public static String getSortingType(HttpServletRequest req, String defaultSorting) {
+        return req.getParameter(SORTING_TYPE) == null ? defaultSorting : req.getParameter(SORTING_TYPE);
     }
 
     public static String getFilter(HttpServletRequest req, String filterName) {
-        if (req.getParameter(filterName) != null) {
-            return req.getParameter(filterName).equals(AttributeConstants.NONE_ATTR) ? AttributeConstants.NONE_ATTR : req.getParameter(filterName);
-        }
-        return AttributeConstants.NONE_ATTR;
+        return req.getParameter(filterName) == null ? NONE_ATTR : req.getParameter(filterName);
     }
 
     public static Map<String, String[]> getFilters(HttpServletRequest req, String... filterNames) {
@@ -99,7 +86,7 @@ public class SqlUtil {
 
         Arrays.stream(filterNames).forEach(filter -> {
             String currentFilter = getFilter(req, filter);
-            if (!currentFilter.equals(AttributeConstants.NONE_ATTR)) {
+            if (!currentFilter.equals(NONE_ATTR)) {
                 resultFiltersMap.put(filter, new String[]{currentFilter});
             }
         });
@@ -111,14 +98,14 @@ public class SqlUtil {
         Timestamp currentDate = new Timestamp(System.currentTimeMillis());
 
         switch (endDateFilter) {
-            case AttributeConstants.COURSE_NOT_STARTED:
-                filters.put(AttributeConstants.QUERY, new String[]{String.format("%s > %s", SQLQueries.START_DATE_MILLIS, currentDate.getTime())});
+            case COURSE_NOT_STARTED:
+                filters.put(QUERY, new String[]{String.format("%s > %s", START_DATE_MILLIS, currentDate.getTime())});
                 break;
-            case AttributeConstants.COURSE_IN_PROGRESS:
-                filters.put(AttributeConstants.QUERY, new String[]{String.format("%s < %s and %s > %s", SQLQueries.START_DATE_MILLIS, currentDate.getTime(), SQLQueries.END_DATE_MILLIS, currentDate.getTime())});
+            case COURSE_IN_PROGRESS:
+                filters.put(QUERY, new String[]{String.format("%s < %s and %s > %s", START_DATE_MILLIS, currentDate.getTime(), END_DATE_MILLIS, currentDate.getTime())});
                 break;
-            case AttributeConstants.COURSE_ENDED:
-                filters.put(AttributeConstants.QUERY, new String[]{String.format("%s < %s", SQLQueries.END_DATE_MILLIS, currentDate.getTime())});
+            case COURSE_ENDED:
+                filters.put(QUERY, new String[]{String.format("%s < %s", END_DATE_MILLIS, currentDate.getTime())});
                 break;
             default:
                 // no filtration by date
@@ -127,20 +114,20 @@ public class SqlUtil {
     }
 
     public static void getMyCourseFilter(HttpServletRequest req, long id, Map<String, String[]> filters) {
-        String userFilterString = String.format(AttributeConstants.FULL_COLUMN_NAME, AttributeConstants.USER_COURSE_TABLE, AttributeConstants.USER_ID);
-        String switchPosition = getFilter(req, AttributeConstants.SWITCH);
-        if (!switchPosition.equals(AttributeConstants.NONE_ATTR)) {
+        String userFilterString = String.format(FULL_COLUMN_NAME, USER_COURSE_TABLE, USER_ID);
+        String switchPosition = getFilter(req, SWITCH);
+        if (!switchPosition.equals(NONE_ATTR)) {
             filters.put(userFilterString, new String[]{String.valueOf(id)});
         } else {
-            filters.put(AttributeConstants.FINAL_MARK, new String[]{"-1"});
+            filters.put(FINAL_MARK, new String[]{"-1"});
         }
     }
 
     public static String getAllEntitiesQuery(String table, int limit, int offset, String sorting, Map<String, String[]> filters) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s %s ", SQLQueries.SELECT_EVERYTHING_FROM_PART, table))
+        sb.append(String.format("%s %s ", SELECT_EVERYTHING_FROM_PART, table))
                 .append(buildFilters(filters))
-                .append(SQLQueries.PAGINATION_LIMIT_OFFSET_QUERY_PART);
+                .append(PAGINATION_LIMIT_OFFSET_QUERY_PART);
 
         sb.replace(sb.indexOf("?"), sb.indexOf("?") + 1, sorting)
                 .replace(sb.indexOf("?"), sb.indexOf("?") + 1, String.valueOf(limit))
@@ -149,6 +136,7 @@ public class SqlUtil {
         return sb.toString();
     }
 
+    // TODO : refactor
     private static String buildFilters(Map<String, String[]> filters) {
         StringBuilder sb = new StringBuilder();
         if (filters != null && !filters.isEmpty()) {
@@ -156,7 +144,7 @@ public class SqlUtil {
             filters.forEach((filter, values) -> {
                 if (values != null) {
                     for (String concreteValue : values) {
-                        if (filter.equals(AttributeConstants.QUERY)) {
+                        if (filter.equals(QUERY)) {
                             sb.append(String.format("%s and ", concreteValue));
                         } else {
                             sb.append(String.format("%s = %s and ", filter,

@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * For connection pool used HikariCP.
  */
 @Log4j2
-public class HikariConnectionPool {
+public class ConnectionPool {
     private static final HikariConfig config;
     private static final javax.sql.DataSource ds;
     private static final String PATH = "/db.properties";
@@ -34,7 +34,7 @@ public class HikariConnectionPool {
     }
 
     // Suppress constructor
-    private HikariConnectionPool() {
+    private ConnectionPool() {
     }
 
     /**
@@ -63,19 +63,6 @@ public class HikariConnectionPool {
         } catch (Exception e) {
             log.error("Can't close connection | statement | resultSet", e);
             throw new DAOException("Can't close connection | statement | resultSet", e);
-        }
-    }
-
-    /**
-     * Code snippet to close several {@link AutoCloseable statements} in one line of code
-     * (yeah, I definitely love shortening code). Order of arguments in method is important
-     * (the first one passed will be closed also at first).
-     *
-     * @param args Varargs to be closed
-     */
-    public static void closeAll(AutoCloseable... args) throws DAOException {
-        for (AutoCloseable arg : args) {
-            close(arg);
         }
     }
 

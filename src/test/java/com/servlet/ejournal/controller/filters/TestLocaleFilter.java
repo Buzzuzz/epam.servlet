@@ -3,6 +3,7 @@ package com.servlet.ejournal.controller.filters;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -15,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static com.servlet.ejournal.constants.CommandNameConstants.*;
+
+// TODO : changed filter logic from session to cookies, rewrite tests
 
 class TestLocaleFilter {
     private final LocaleFilter filter = new LocaleFilter();
@@ -31,11 +34,12 @@ class TestLocaleFilter {
         respMock = mock(HttpServletResponse.class);
         chainMock = mock(FilterChain.class);
         HttpSession sessionMock = mock(HttpSession.class);
+        Cookie[] cookies = new Cookie[]{new Cookie("not-locale", "definitely")};
 
         when(filter.getConfig().getInitParameter(LOCALE_ATTR)).thenReturn(LOCALE_EN);
         when(reqMock.getParameter(COMMAND_ATTR)).thenReturn(CHANGE_LOCALE_COMMAND);
+        when(reqMock.getCookies()).thenReturn(cookies);
         when(reqMock.getSession()).thenReturn(sessionMock);
-        when(sessionMock.getAttribute(LOCALE_ATTR)).thenReturn(null);
         when(reqMock.getParameter(LOCALE_ATTR)).thenReturn(LOCALE_EN);
     }
 
@@ -48,31 +52,31 @@ class TestLocaleFilter {
     }
 
     @Test
-    void testNoDefaultLocaleInSession() throws ServletException, IOException {
+    void testNoDefaultLocaleInCookies() throws ServletException, IOException {
         when(reqMock.getParameter(COMMAND_ATTR)).thenReturn(null);
         filter.doFilter(reqMock, respMock, chainMock);
-        verify(reqMock, atMostOnce()).getAttribute(LOCALE_ATTR);
-        verify(reqMock, atMostOnce()).setAttribute(LOCALE_ATTR, filter.getConfig().getInitParameter(LOCALE_ATTR));
-        verify(filter.getConfig(), times(2)).getInitParameter(LOCALE_ATTR);
-        verify(chainMock, atMostOnce()).doFilter(reqMock, respMock);
+        verify(respMock, times(1)).addCookie(any(Cookie.class));
+        verify(reqMock, times(1)).getSession();
+        verify(reqMock.getSession(), times(1)).setAttribute(any(), any());
+        verify(chainMock, times(1)).doFilter(reqMock, respMock);
     }
 
     @Test
     void testChangeLocaleChangeLocaleCommand() throws ServletException, IOException {
-        when(reqMock.getSession().getAttribute(LOCALE_ATTR)).thenReturn(LOCALE_EN);
         filter.doFilter(reqMock, respMock, chainMock);
-        verify(reqMock, atMostOnce()).getParameter(COMMAND_ATTR);
-        verify(reqMock, atMostOnce()).getAttribute(LOCALE_ATTR);
-        verify(reqMock, times(3)).getSession();
-
+        verify(reqMock, times(3)).getCookies();
+        verify(reqMock, times(2)).getParameter(any());
+        verify(respMock, times(1)).addCookie(any());
         verify(chainMock, atMostOnce()).doFilter(reqMock, respMock);
     }
 
     @Test
     void testChangeLocaleNoChangeLocaleCommand() throws ServletException, IOException {
-        when(reqMock.getSession().getAttribute(LOCALE_ATTR)).thenReturn(LOCALE_EN);
-        when(reqMock.getParameter(COMMAND_ATTR)).thenReturn(UPDATE_TOPIC);
+        when(reqMock.getParameter(COMMAND_ATTR)).thenReturn(null);
+        when(reqMock.getCookies()).thenReturn(new Cookie[]{new Cookie(LOCALE_ATTR, LOCALE_EN)});
         filter.doFilter(reqMock, respMock, chainMock);
-        verify(reqMock, times(3)).getSession();
+        verify(reqMock, times(1)).getCookies();
+        verify(reqMock, times(1)).getParameter(any());
+        verify(reqMock, times(1)).getSession();
     }
 }

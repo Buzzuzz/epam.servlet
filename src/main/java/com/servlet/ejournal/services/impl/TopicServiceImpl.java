@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
+import static com.servlet.ejournal.model.dao.ConnectionPool.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 

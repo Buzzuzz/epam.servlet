@@ -11,7 +11,7 @@ import com.servlet.ejournal.utils.SqlUtil;
 import java.sql.*;
 import java.util.*;
 
-import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
+import static com.servlet.ejournal.model.dao.ConnectionPool.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 
 

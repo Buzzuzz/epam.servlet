@@ -10,7 +10,7 @@ import com.servlet.ejournal.model.entities.UserCourse;
 import java.sql.*;
 import java.util.*;
 
-import static com.servlet.ejournal.model.dao.HikariConnectionPool.*;
+import static com.servlet.ejournal.model.dao.ConnectionPool.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 

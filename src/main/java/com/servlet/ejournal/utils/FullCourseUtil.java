@@ -36,12 +36,12 @@ public class FullCourseUtil {
     }
 
     public static User getCurrentTeacher(Connection con, long courseId, DAO<TeacherCourse> teacherCourseDAO, DAO<User> userDAO) throws DAOException {
-        DAOException e = new DAOException(String.format("No teacher-course relation (c_id): %s", courseId));
+        DAOException exception = new DAOException(String.format("No teacher-course relation (c_id): %s", courseId));
         Optional<TeacherCourse> tco = teacherCourseDAO.get(con, courseId);
         if (tco.isPresent()) {
-            return userDAO.get(con, tco.get().getTch_id()).orElseThrow(() -> e);
+            return userDAO.get(con, tco.get().getTch_id()).orElseThrow(() -> exception);
         }
-        throw e;
+        throw exception;
     }
 
     public static long getDuration(Timestamp start, Timestamp end) throws UtilException {

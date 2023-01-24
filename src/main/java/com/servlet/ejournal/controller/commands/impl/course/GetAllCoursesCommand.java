@@ -6,9 +6,7 @@ import com.servlet.ejournal.services.dto.FullCourseDTO;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import com.servlet.ejournal.utils.FullCourseUtil;
-import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.CommandNameConstants;
-import com.servlet.ejournal.model.entities.Course;
 import com.servlet.ejournal.model.entities.User;
 import com.servlet.ejournal.model.entities.UserType;
 import com.servlet.ejournal.services.impl.CourseServiceImpl;
@@ -20,6 +18,7 @@ import com.servlet.ejournal.services.impl.UserServiceImpl;
 import java.util.*;
 
 import static com.servlet.ejournal.utils.SqlUtil.*;
+import static com.servlet.ejournal.constants.AttributeConstants.*;
 
 @Log4j2
 public class GetAllCoursesCommand implements Command {
@@ -27,17 +26,17 @@ public class GetAllCoursesCommand implements Command {
     public String execute(HttpServletRequest req) throws CommandException {
         try {
             CourseService service = CourseServiceImpl.getInstance();
-            User currentUser = (User) req.getSession().getAttribute(AttributeConstants.LOGGED_USER_ATTR);
+            User currentUser = (User) req.getSession().getAttribute(LOGGED_USER_ATTR);
             // Pagination setup
             int limit = getLimit(req);
-            String sorting = getSortingType(req, Course.class);
+            String sorting = getSortingType(req, DEFAULT_COURSE_SORTING);
 
             // Filters setup
-            String teacherFilter = getFilter(req, AttributeConstants.USER_ID);
-            String topicFilter = getFilter(req, AttributeConstants.TOPIC_ID);
-            String endDateFilter = getFilter(req, AttributeConstants.END_DATE_FILTER);
-            String switchPosition = getFilter(req, AttributeConstants.SWITCH);
-            Map<String, String[]> filters = getFilters(req, AttributeConstants.USER_ID, AttributeConstants.TOPIC_ID);
+            String teacherFilter = getFilter(req, USER_ID);
+            String topicFilter = getFilter(req, TOPIC_ID);
+            String endDateFilter = getFilter(req, END_DATE_FILTER);
+            String switchPosition = getFilter(req, SWITCH);
+            Map<String, String[]> filters = getFilters(req, USER_ID, TOPIC_ID);
             getEndDateFilter(endDateFilter, filters);
             getMyCourseFilter(req, currentUser.getU_id(), filters);
 
@@ -49,23 +48,23 @@ public class GetAllCoursesCommand implements Command {
             List<FullCourseDTO> courseList = service.getAllCourses(
                     limit,
                     offset,
-                    sorting.contains(CommandNameConstants.ENROLL_COMMAND) ? AttributeConstants.COURSE_ID : sorting,
+                    sorting.contains(CommandNameConstants.ENROLL_COMMAND) ? COURSE_ID : sorting,
                     filters);
 
             courseList = FullCourseUtil.sortByEnrolledStudents(sorting, courseList);
 
-            req.setAttribute(AttributeConstants.SWITCH, switchPosition);
-            req.setAttribute(AttributeConstants.SORTING_TYPE, sorting);
-            req.setAttribute(AttributeConstants.DISPLAY_RECORDS_NUMBER, limit);
-            req.setAttribute(AttributeConstants.CURRENT_PAGE, currentPage);
-            req.setAttribute(AttributeConstants.RECORDS, pages);
-            req.setAttribute(AttributeConstants.TOPIC_ID, topicFilter);
-            req.setAttribute(AttributeConstants.USER_ID, teacherFilter);
-            req.setAttribute(AttributeConstants.END_DATE_FILTER, endDateFilter);
-            req.setAttribute(AttributeConstants.TOPICS_ATTR, TopicServiceImpl.getInstance().getAllTopics());
-            req.setAttribute(AttributeConstants.TEACHERS_ATTR, UserServiceImpl.getInstance().getAllUsers(UserType.TEACHER));
-            req.setAttribute(AttributeConstants.ERROR_ATTR, req.getAttribute(AttributeConstants.ERROR_ATTR));
-            req.setAttribute(AttributeConstants.COURSES_ATTR, courseList);
+            req.setAttribute(SWITCH, switchPosition);
+            req.setAttribute(SORTING_TYPE, sorting);
+            req.setAttribute(DISPLAY_RECORDS_NUMBER, limit);
+            req.setAttribute(CURRENT_PAGE, currentPage);
+            req.setAttribute(RECORDS, pages);
+            req.setAttribute(TOPIC_ID, topicFilter);
+            req.setAttribute(USER_ID, teacherFilter);
+            req.setAttribute(END_DATE_FILTER, endDateFilter);
+            req.setAttribute(TOPICS_ATTR, TopicServiceImpl.getInstance().getAllTopics());
+            req.setAttribute(TEACHERS_ATTR, UserServiceImpl.getInstance().getAllUsers(UserType.TEACHER));
+            req.setAttribute(ERROR_ATTR, req.getAttribute(ERROR_ATTR));
+            req.setAttribute(COURSES_ATTR, courseList);
 
             return PageConstants.COURSES_PAGE;
         } catch (Exception e) {

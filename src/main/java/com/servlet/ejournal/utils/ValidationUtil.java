@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.Timestamp;
 
 import static com.servlet.ejournal.constants.RegexConstants.*;
+import static com.servlet.ejournal.exceptions.ValidationError.*;
 
 /**
  * Util class created specifically for all types of possible validation of data
@@ -36,16 +37,14 @@ public class ValidationUtil {
     /**
      * Method to check if email is unique (not registered in system).
      *
+     * @param con   Connection on which to perform check
      * @param email Email to be checked for presence in database
-     * @return "email" error {@link String} if email isn't registered (is unique), "none" error {@link String} otherwise
+     * @return NONE error {@link ValidationError} if email isn't registered (is unique), EMAIL error otherwise
      */
     public ValidationError isEmailUnique(Connection con, String email) throws UtilException {
         try {
             if (con == null || email == null) throw new DAOException("One of parameters is null!");
-            if (dao.getByEmail(con, email).isPresent()) {
-                return ValidationError.EMAIL;
-            }
-            return ValidationError.NONE;
+            return dao.getByEmail(con, email).isPresent() ? EMAIL : NONE;
         } catch (DAOException e) {
             log.error(e.getMessage(), e);
             throw new UtilException(e.getMessage(), e);
@@ -60,33 +59,33 @@ public class ValidationUtil {
      * @return {@link ValidationError} constant with info about error (or it absence)
      */
     public ValidationError isNewUserValid(Connection con, User user, String repeatPassword) throws UtilException {
-        if (isEmailUnique(con, user.getEmail()).equals(ValidationError.NONE)) {
-            if (validatePassword(user.getPassword()).equals(ValidationError.NONE)) {
-                if (validateRepeatPassword(user.getPassword(), repeatPassword).equals(ValidationError.NONE)) {
-                    if (validatePhoneNumber(user.getPhone()).equals(ValidationError.NONE)) {
-                        return ValidationError.NONE;
-                    } else return ValidationError.PHONE_NUMBER;
-                } else return ValidationError.PASSWORD_REPEAT;
-            } else return ValidationError.PASSWORD;
-        } else return ValidationError.EMAIL;
+        if (isEmailUnique(con, user.getEmail()).equals(NONE)) {
+            if (validatePassword(user.getPassword()).equals(NONE)) {
+                if (validateRepeatPassword(user.getPassword(), repeatPassword).equals(NONE)) {
+                    if (validatePhoneNumber(user.getPhone()).equals(NONE)) {
+                        return NONE;
+                    } else return PHONE_NUMBER;
+                } else return PASSWORD_REPEAT;
+            } else return PASSWORD;
+        } else return EMAIL;
     }
 
     public static ValidationError validatePassword(String password) {
         if (password.equals("")) {
-            return ValidationError.NONE;
+            return NONE;
         }
-        return password.matches(PASSWORD_REGEX) ? ValidationError.NONE : ValidationError.PASSWORD;
+        return password.matches(PASSWORD_REGEX) ? NONE : PASSWORD;
     }
 
     public static ValidationError validateRepeatPassword(String password, String toCompare) {
-        return password.equals(toCompare) ? ValidationError.NONE : ValidationError.PASSWORD_REPEAT;
+        return password.equals(toCompare) ? NONE : PASSWORD_REPEAT;
     }
 
     public static ValidationError validatePhoneNumber(String phoneNumber) {
-        return phoneNumber.matches(PHONE_NUMBER_REGEX) ? ValidationError.NONE : ValidationError.PHONE_NUMBER;
+        return phoneNumber.matches(PHONE_NUMBER_REGEX) ? NONE : PHONE_NUMBER;
     }
 
     public static ValidationError validateEndDate(Timestamp startDate, Timestamp endDate) {
-        return startDate.compareTo(endDate) > 0 ? ValidationError.END_DATE : ValidationError.NONE;
+        return startDate.compareTo(endDate) > 0 ? END_DATE : NONE;
     }
 }
