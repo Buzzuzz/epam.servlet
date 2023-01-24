@@ -2,7 +2,6 @@ package com.servlet.ejournal.utils;
 
 import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.exceptions.UtilException;
-import com.servlet.ejournal.model.dao.HikariConnectionPool;
 import com.servlet.ejournal.model.dao.impl.UserDAO;
 import com.servlet.ejournal.model.entities.Course;
 import com.servlet.ejournal.model.entities.Topic;
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -264,69 +262,60 @@ public class TestSqlUtil {
         }
     }
 
-//    @Nested
-//    class TestGetEntityPaginationQuery {
-//        Map<String, String[]> filters;
-//        String selectPart = String.format("%s %s ", SELECT_EVERYTHING_FROM_PART, TOPIC_TABLE);
-//
-//        @BeforeEach
-//        void setup() {
-//            filters = new HashMap<>();
-//        }
-//
-//        @Test
-//        void testGetQueryNoFilters() {
-//            assertEquals(selectPart + PAGINATION_LIMIT_OFFSET_QUERY_PART, getAllEntitiesQuery(TOPIC_TABLE, filters));
-//        }
-//
-//        @Test
-//        void testGetQueryOneFilter() {
-//            filters.put(TOPIC_ID, new String[]{"10"});
-//            assertEquals(selectPart + String.format("where %s = 10 ", TOPIC_ID) + PAGINATION_LIMIT_OFFSET_QUERY_PART,
-//                    getAllEntitiesQuery(TOPIC_TABLE, filters));
-//        }
-//
-//        @Test
-//        void testGetQueryOneFilterString() {
-//            filters.put(TOPIC_ID, new String[]{"not a number"});
-//            assertEquals(selectPart + String.format("where %s = 'not a number' ", TOPIC_ID) + PAGINATION_LIMIT_OFFSET_QUERY_PART,
-//                    getAllEntitiesQuery(TOPIC_TABLE, filters));
-//        }
-//
-//        @Test
-//        void testGetQueryTwoFilters() {
-//            filters.put(TOPIC_ID, new String[]{"4"});
-//            filters.put(COURSE_ID, new String[]{"5"});
-//            assertEquals(selectPart + String.format("where %s = 4 and %s = 5 ", TOPIC_ID, COURSE_ID) + PAGINATION_LIMIT_OFFSET_QUERY_PART,
-//                    getAllEntitiesQuery(TOPIC_TABLE, filters));
-//        }
-//
-//        @Test
-//        void testGetQueryWithSubquery() {
-//            filters.put(QUERY, new String[]{START_DATE_MILLIS + " = 1"});
-//            assertEquals(selectPart + String.format("where %s = 1 ", START_DATE_MILLIS) + PAGINATION_LIMIT_OFFSET_QUERY_PART,
-//                    getAllEntitiesQuery(TOPIC_TABLE, filters));
-//        }
-//
-//        @Test
-//        void testGetQueryWithFilterAndSubquery() {
-//            filters.put(COURSE_ID, new String[]{"-1"});
-//            filters.put(QUERY, new String[]{END_DATE_MILLIS + " = 1"});
-//            assertEquals(selectPart + String.format("where %s = 1 and %s = '-1' ", END_DATE_MILLIS, COURSE_ID) + PAGINATION_LIMIT_OFFSET_QUERY_PART,
-//                    getAllEntitiesQuery(TOPIC_TABLE, filters));
-//
-//        }
-//    }
-//
-//    // TODO : remove playground
-//    @Nested
-//    class testPlayGround {
-//        @Test
-//        void test() throws SQLException {
-//            prepareGetAllQuery(TOPIC_TABLE, HikariConnectionPool.getConnection(), 10, 0, TOPIC_ID, new HashMap<String, String[]>() {{
-//                put(TOPIC_ID, new String[]{"10"});
-//                put(COURSE_ID, new String[]{"10"});
-//            }});
-//        }
-//    }
+    @Nested
+    class TestGetAllEntitiesQuery {
+        Map<String, String[]> filters;
+        String selectPart = String.format("%s %s ", SELECT_EVERYTHING_FROM_PART, TOPIC_TABLE);
+        String limitPart = PAGINATION_LIMIT_OFFSET_QUERY_PART.replaceFirst("\\?", TOPIC_ID).replaceAll("\\?", "5");
+        int defaultLimit = 5;
+        int defaultOffset = 5;
+
+        @BeforeEach
+        void setup() {
+            filters = new HashMap<>();
+        }
+
+        @Test
+        void testGetQueryNoFilters() {
+            assertEquals(selectPart + limitPart, getAllEntitiesQuery(TOPIC_TABLE, defaultLimit, defaultOffset, TOPIC_ID, filters));
+        }
+
+        @Test
+        void testGetQueryOneFilter() {
+            filters.put(TOPIC_ID, new String[]{"10"});
+            assertEquals(selectPart + String.format("where %s = 10 ", TOPIC_ID) + limitPart,
+                    getAllEntitiesQuery(TOPIC_TABLE, defaultLimit, defaultOffset, TOPIC_ID, filters));
+        }
+
+        @Test
+        void testGetQueryOneFilterString() {
+            filters.put(TOPIC_ID, new String[]{"not a number"});
+            assertEquals(selectPart + String.format("where %s = 'not a number' ", TOPIC_ID) + limitPart,
+                    getAllEntitiesQuery(TOPIC_TABLE, defaultLimit, defaultOffset, TOPIC_ID, filters));
+        }
+
+        @Test
+        void testGetQueryTwoFilters() {
+            filters.put(TOPIC_ID, new String[]{"4"});
+            filters.put(COURSE_ID, new String[]{"5"});
+            assertEquals(selectPart + String.format("where %s = 4 and %s = 5 ", TOPIC_ID, COURSE_ID) + limitPart,
+                    getAllEntitiesQuery(TOPIC_TABLE, defaultLimit, defaultOffset, TOPIC_ID, filters));
+        }
+
+        @Test
+        void testGetQueryWithSubquery() {
+            filters.put(QUERY, new String[]{START_DATE_MILLIS + " = 1"});
+            assertEquals(selectPart + String.format("where %s = 1 ", START_DATE_MILLIS) + limitPart,
+                    getAllEntitiesQuery(TOPIC_TABLE, defaultLimit, defaultOffset, TOPIC_ID, filters));
+        }
+
+        @Test
+        void testGetQueryWithFilterAndSubquery() {
+            filters.put(COURSE_ID, new String[]{"-1"});
+            filters.put(QUERY, new String[]{END_DATE_MILLIS + " = 1"});
+            assertEquals(selectPart + String.format("where %s = 1 and %s = -1 ", END_DATE_MILLIS, COURSE_ID) + limitPart,
+                    getAllEntitiesQuery(TOPIC_TABLE, defaultLimit, defaultOffset, TOPIC_ID, filters));
+
+        }
+    }
 }

@@ -12,7 +12,7 @@ import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static com.servlet.ejournal.constants.CommandNameConstants.*;
 import static com.servlet.ejournal.utils.RequestBuilder.*;
 
-public class TestRequestBuilder {
+class TestRequestBuilder {
     private static Map<String, String[]> params;
 
     @Nested

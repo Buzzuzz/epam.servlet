@@ -136,12 +136,6 @@ public class SqlUtil {
         }
     }
 
-//    public static String getEntityPaginationQuery(String table, Map<String, String[]> filters) {
-//        return String.format("%s %s ", SQLQueries.SELECT_EVERYTHING_FROM_PART, table) +
-//                buildFilters(filters) +
-//                SQLQueries.PAGINATION_LIMIT_OFFSET_QUERY_PART;
-//    }
-
     public static String getAllEntitiesQuery(String table, int limit, int offset, String sorting, Map<String, String[]> filters) {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s %s ", SQLQueries.SELECT_EVERYTHING_FROM_PART, table))
@@ -150,37 +144,33 @@ public class SqlUtil {
 
         sb.replace(sb.indexOf("?"), sb.indexOf("?") + 1, sorting)
                 .replace(sb.indexOf("?"), sb.indexOf("?") + 1, String.valueOf(limit))
-                .replace(sb.indexOf("?"), sb.indexOf("?") + 1, String.valueOf(offset))
-                .toString();
+                .replace(sb.indexOf("?"), sb.indexOf("?") + 1, String.valueOf(offset));
 
         return sb.toString();
     }
 
-
-    // TODO : refactor filter building
     private static String buildFilters(Map<String, String[]> filters) {
-        String built = "";
+        StringBuilder sb = new StringBuilder();
         if (filters != null && !filters.isEmpty()) {
-            StringBuilder sb = new StringBuilder();
             sb.append("where ");
-
-            for (Map.Entry<String, String[]> entry : filters.entrySet()) {
-                if (entry.getValue() == null) continue;
-                for (String stringValue : entry.getValue()) {
-                    if (entry.getKey().equals(AttributeConstants.QUERY)) {
-                        sb.append(String.format("%s and ", stringValue));
-                    } else {
-                        String filter = stringValue.matches(RegexConstants.IS_A_NUMBER) ?
-                                String.format(String.format("%s = %s and ", entry.getKey(), stringValue)) :
-                                String.format("%s = '%s' and ", entry.getKey(), stringValue);
-                        sb.append(filter);
+            filters.forEach((filter, values) -> {
+                if (values != null) {
+                    for (String concreteValue : values) {
+                        if (filter.equals(AttributeConstants.QUERY)) {
+                            sb.append(String.format("%s and ", concreteValue));
+                        } else {
+                            sb.append(String.format("%s = %s and ", filter,
+                                    isValidNumber(concreteValue) ? concreteValue : String.format("'%s'", concreteValue)));
+                        }
                     }
-                    log.info(sb.toString());
                 }
-            }
+            });
             sb.delete(sb.lastIndexOf("and"), sb.length());
-            built = sb.toString();
         }
-        return built;
+        return sb.toString();
+    }
+
+    private static boolean isValidNumber(String value) {
+        return value.matches(RegexConstants.IS_A_NUMBER);
     }
 }

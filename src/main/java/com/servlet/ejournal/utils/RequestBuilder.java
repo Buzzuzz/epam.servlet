@@ -19,12 +19,8 @@ public class RequestBuilder {
 
         paramsMap.forEach((param, values) -> {
             for (int i = 0; i < values.length; i++) {
-                sb.append(param).append("=").append(values[i]);
-                if (i != values.length - 1) {
-                    sb.append("&");
-                }
+                sb.append(param).append("=").append(values[i]).append("&");
             }
-            sb.append("&");
         });
 
         return sb.toString().trim();
@@ -32,13 +28,8 @@ public class RequestBuilder {
 
     public static String buildCommand(String controller, String command, Map<String, String[]> params) {
         StringBuilder builder = new StringBuilder();
-        builder
-                .append(controller)
-                .append("?")
-                .append(AttributeConstants.COMMAND_ATTR)
-                .append("=")
-                .append(command)
-                .append("&");
+        builder.append(controller).append("?").append(AttributeConstants.COMMAND_ATTR)
+                .append("=").append(command).append("&");
 
         for (Map.Entry<String, String[]> entry : params.entrySet()) {
             if (entry.getValue() == null) continue;

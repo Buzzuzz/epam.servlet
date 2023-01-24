@@ -9,40 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="more filters tests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/interfaces/IntermediateTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/listeners/TestAppContextListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/services/TestCourseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/services/TestTopicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/services/TestUserService.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="huge dao refactoring (everything seems to work fine)">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/SQLQueries.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/SQLQueries.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/FrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/FrontControllerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/UpdateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/UpdateUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/interfaces/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/HikariConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TeacherCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TeacherCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/TeacherCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/entities/TeacherCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/pools/CommandAccessPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/pools/CommandAccessPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/TopicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/FullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/FullCourseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/RegexConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/RegexConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/RequestBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logs/2022-12-24.log.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/logs/current.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logs/current.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestFullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestFullCourseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestRequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestRequestBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestSqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestSqlUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,6 +76,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "ToolWindowProblems.ShowToolbar": "false",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
@@ -116,7 +92,8 @@
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "settings.editor.splitter.proportion": "0.24691358",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -158,7 +135,7 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.0.27">
+  <component name="RunManager" selected="JUnit.TestSqlUtil">
     <configuration name="All in epam.servlet" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="epam.servlet" />
       <option name="PACKAGE_NAME" value="" />
@@ -167,69 +144,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestAppContextListener" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestRequestBuilder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.listeners.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.listeners" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.listeners.TestAppContextListener" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestRequestBuilder" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestAppContextListener.testAppContextCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.listeners.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.listeners" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.listeners.TestAppContextListener" />
-      <option name="METHOD_NAME" value="testAppContextCreation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestAppContextListener.testAppContextDestroyed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.listeners.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.listeners" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.listeners.TestAppContextListener" />
-      <option name="METHOD_NAME" value="testAppContextDestroyed" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestLocaleFilter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.filters.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestLocaleFilter" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestSqlUtil$testPlayGround.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSqlUtil$TestGetAllEntitiesQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -238,9 +168,55 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestSqlUtil" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestSqlUtil$testPlayGround" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestSqlUtil$TestGetAllEntitiesQuery" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSqlUtil$TestGetAllEntitiesQuery.testGetQueryNoFilters" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestSqlUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestSqlUtil$TestGetAllEntitiesQuery" />
+      <option name="METHOD_NAME" value="testGetQueryNoFilters" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSqlUtil$TestGetAllEntitiesQuery.testGetQueryWithFilterAndSubquery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestSqlUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestSqlUtil$TestGetAllEntitiesQuery" />
+      <option name="METHOD_NAME" value="testGetQueryWithFilterAndSubquery" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSqlUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestSqlUtil" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -337,20 +313,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in epam.servlet" />
-      <item itemvalue="JUnit.TestAppContextListener" />
-      <item itemvalue="JUnit.TestAppContextListener.testAppContextCreation" />
-      <item itemvalue="JUnit.TestAppContextListener.testAppContextDestroyed" />
-      <item itemvalue="JUnit.TestLocaleFilter" />
-      <item itemvalue="JUnit.TestSqlUtil$testPlayGround.test" />
+      <item itemvalue="JUnit.TestSqlUtil" />
+      <item itemvalue="JUnit.TestSqlUtil$TestGetAllEntitiesQuery" />
+      <item itemvalue="JUnit.TestSqlUtil$TestGetAllEntitiesQuery.testGetQueryNoFilters" />
+      <item itemvalue="JUnit.TestSqlUtil$TestGetAllEntitiesQuery.testGetQueryWithFilterAndSubquery" />
+      <item itemvalue="JUnit.TestRequestBuilder" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestSqlUtil$testPlayGround.test" />
-        <item itemvalue="JUnit.TestAppContextListener" />
-        <item itemvalue="JUnit.TestAppContextListener.testAppContextDestroyed" />
-        <item itemvalue="JUnit.TestAppContextListener.testAppContextCreation" />
-        <item itemvalue="JUnit.TestLocaleFilter" />
+        <item itemvalue="JUnit.TestSqlUtil" />
+        <item itemvalue="JUnit.TestSqlUtil$TestGetAllEntitiesQuery.testGetQueryWithFilterAndSubquery" />
+        <item itemvalue="JUnit.TestSqlUtil$TestGetAllEntitiesQuery" />
+        <item itemvalue="JUnit.TestSqlUtil$TestGetAllEntitiesQuery.testGetQueryNoFilters" />
+        <item itemvalue="JUnit.TestRequestBuilder" />
       </list>
     </recent_temporary>
   </component>
@@ -428,14 +404,17 @@
       <workItem from="1674172239704" duration="1046000" />
       <workItem from="1674173306506" duration="46181000" />
       <workItem from="1674330918514" duration="51654000" />
-      <workItem from="1674438010658" duration="5674000" />
-    </task>
-    <task id="LOCAL-00042" summary="implementing courses, bug fix of locale change">
-      <created>1672451573061</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1672451573061</updated>
+      <workItem from="1674438010658" duration="6301000" />
+      <workItem from="1674513660761" duration="1415000" />
+      <workItem from="1674516149006" duration="538000" />
+      <workItem from="1674517333582" duration="389000" />
+      <workItem from="1674517743697" duration="209000" />
+      <workItem from="1674517970331" duration="594000" />
+      <workItem from="1674518610867" duration="465000" />
+      <workItem from="1674519094319" duration="1076000" />
+      <workItem from="1674520191034" duration="38000" />
+      <workItem from="1674520368326" duration="663000" />
+      <workItem from="1674521058777" duration="1860000" />
     </task>
     <task id="LOCAL-00043" summary="custom tags (.tld and tag file) added, started courses page implementation">
       <created>1673300535862</created>
@@ -773,7 +752,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674417672574</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="huge dao refactoring (everything seems to work fine)">
+      <created>1674443978736</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1674443978737</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -794,7 +780,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="my courses toggle on courses page (works for teacher and student)" />
     <MESSAGE value="my courses toggler on courses page (works for teacher and student)" />
     <MESSAGE value="normal teacher/student my-course toggler reaction, withdraw student command implementation" />
     <MESSAGE value="minor logic changes" />
@@ -819,7 +804,8 @@
     <MESSAGE value="test for access pools" />
     <MESSAGE value="AccessFilter tests" />
     <MESSAGE value="more filters tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="more filters tests" />
+    <MESSAGE value="huge dao refactoring (everything seems to work fine)" />
+    <option name="LAST_COMMIT_MESSAGE" value="huge dao refactoring (everything seems to work fine)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -856,7 +842,7 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674420179385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674444219101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestEncodingFilter.ic" NAME="TestEncodingFilter Coverage Results" MODIFIED="1674392402801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.servlet.ejournal.controller.filters.*</FILTER>
     </SUITE>
