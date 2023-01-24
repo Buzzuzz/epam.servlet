@@ -3,6 +3,8 @@ package com.servlet.ejournal.constants;
 public interface AttributeConstants {
     // General
     String CONTROLLER_ATTR = "controller";
+    String APPLICATION_CONTEXT = "appContext";
+    String CONNECTION_POOL_CONFIG = "/db.properties";
     String PREVIOUS_REQUEST = "prevRequest";
     String ERROR_ATTR = "error";
     String NONE_ATTR = "none";

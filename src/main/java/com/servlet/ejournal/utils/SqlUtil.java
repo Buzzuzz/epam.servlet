@@ -1,21 +1,16 @@
 package com.servlet.ejournal.utils;
 
-import com.servlet.ejournal.constants.AttributeConstants;
-import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
-import com.servlet.ejournal.exceptions.UtilException;
 import com.servlet.ejournal.constants.RegexConstants;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 
-import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
 
-import static com.servlet.ejournal.model.dao.ConnectionPool.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static com.servlet.ejournal.constants.SQLQueries.*;
 

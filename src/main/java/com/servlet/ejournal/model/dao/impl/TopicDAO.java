@@ -12,7 +12,7 @@ import java.util.*;
 
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static com.servlet.ejournal.constants.SQLQueries.*;
-import static com.servlet.ejournal.model.dao.ConnectionPool.*;
+import static com.servlet.ejournal.model.dao.DataSource.*;
 
 /**
  * TopicDAO class is implementation of {@link DAO} interface for Topic table.

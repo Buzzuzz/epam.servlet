@@ -23,9 +23,6 @@ y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/databas
 .idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/pg_catalog.0S1ZNQ.meta,9/a/9a44a08d064027682d74748ac6631a7d8f8baf0a
 ]
 -.idea/artifacts/epam_servlet_war_exploded.xml,3\a\3ad6d356b7a42a0b4e7530b1623775202a584b38
-:
-
-.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 I
 src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
 j
@@ -166,8 +163,6 @@ p
 @src/test/java/com/servlet/ejournal/services/TestUserService.java,3\a\3a7fb9b6d12d4cf75ec404d6433a6aec0f970fe8
 ‡
 Wsrc/main/java/com/servlet/ejournal/controller/commands/impl/user/UpdateUserCommand.java,a\8\a89c3e8315098f35617ae29834481b65bece7998
-t
-Dsrc/main/java/com/servlet/ejournal/constants/AttributeConstants.java,1\f\1f72a7628723c5af26c000bc87c852fe305e864e
 p
 @src/main/java/com/servlet/ejournal/constants/RegexConstants.java,f\e\feca3d47e62a89854add2e154490d00e7772442c
 s

@@ -1,5 +1,6 @@
 package com.servlet.ejournal.model.dao;
 
+import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.exceptions.DAOException;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -11,14 +12,14 @@ import java.sql.SQLException;
 /**
  * DataSource class to get connection to database. <br>
  * Config file (default) for database connection located
- * <a href="/src/main/resources/config/db.properties">here.</a> <br>
+ * <a href="/src/main/resources/db.properties">here.</a> <br>
  * For connection pool used HikariCP.
  */
 @Log4j2
-public class ConnectionPool {
+public class DataSource {
     private static final HikariConfig config;
     private static final javax.sql.DataSource ds;
-    private static final String PATH = "/db.properties";
+    private static final String PATH = AttributeConstants.CONNECTION_POOL_CONFIG;
 
     static {
         try {
@@ -34,7 +35,7 @@ public class ConnectionPool {
     }
 
     // Suppress constructor
-    private ConnectionPool() {
+    private DataSource() {
     }
 
     /**
