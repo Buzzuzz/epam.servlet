@@ -14,11 +14,11 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.constants.SQLQueries.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
-import static com.servlet.ejournal.constants.AttributeConstants.*;
-import static com.servlet.ejournal.constants.SQLQueries.*;
 
 class TestSqlUtil {
     private static final HttpServletRequest reqMock = mock(HttpServletRequest.class);

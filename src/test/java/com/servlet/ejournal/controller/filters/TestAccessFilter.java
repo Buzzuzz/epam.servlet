@@ -2,7 +2,6 @@ package com.servlet.ejournal.controller.filters;
 
 import com.servlet.ejournal.exceptions.CommandException;
 import com.servlet.ejournal.model.entities.User;
-import com.servlet.ejournal.model.entities.UserType;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,11 +14,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.constants.AttributeConstants.COMMAND_ATTR;
+import static com.servlet.ejournal.constants.AttributeConstants.LOGGED_USER_ATTR;
 import static com.servlet.ejournal.constants.CommandNameConstants.*;
 import static com.servlet.ejournal.constants.PageConstants.*;
+import static com.servlet.ejournal.utils.TestEntitiesUtil.createTestUser;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.*;
 
 class TestAccessFilter {
     private final AccessFilter filter = new AccessFilter();
@@ -30,17 +31,7 @@ class TestAccessFilter {
 
     @BeforeEach
     void setup() {
-        User user = new User(
-                0,
-                "test@user.com",
-                null,
-                null,
-                null,
-                null,
-                UserType.STUDENT,
-                false,
-                false
-        );
+        User user = createTestUser();
 
         reqMock = mock(HttpServletRequest.class);
         HttpSession sessionMock = mock(HttpSession.class);

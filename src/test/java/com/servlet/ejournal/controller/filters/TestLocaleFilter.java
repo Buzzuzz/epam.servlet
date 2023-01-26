@@ -12,10 +12,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
-import static com.servlet.ejournal.constants.CommandNameConstants.*;
+import static com.servlet.ejournal.constants.CommandNameConstants.CHANGE_LOCALE_COMMAND;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.Mockito.*;
 
 // TODO : changed filter logic from session to cookies, rewrite tests
 

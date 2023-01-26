@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static com.servlet.ejournal.constants.CommandNameConstants.*;
+import static com.servlet.ejournal.utils.TestEntitiesUtil.createTestUser;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestCommandAccessPool {
     private static Pool<String, User> commands;
@@ -17,17 +18,7 @@ class TestCommandAccessPool {
     @BeforeAll
     static void setup() {
         commands = CommandAccessPool.getInstance();
-        user = new User(
-                1,
-                null,
-                null,
-                null,
-                null,
-                null,
-                UserType.STUDENT,
-                false,
-                false
-        );
+        user = createTestUser();
     }
 
 

@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static com.servlet.ejournal.utils.DateFormatterUtil.*;
+import static com.servlet.ejournal.utils.DateFormatterUtil.getTimestamp;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class TestDateFormatterUtil {
     @Test

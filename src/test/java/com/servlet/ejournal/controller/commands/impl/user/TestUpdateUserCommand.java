@@ -2,18 +2,24 @@ package com.servlet.ejournal.controller.commands.impl.user;
 
 import com.servlet.ejournal.constants.PageConstants;
 import com.servlet.ejournal.context.ApplicationContext;
-import com.servlet.ejournal.exceptions.*;
-import com.servlet.ejournal.model.entities.*;
+import com.servlet.ejournal.exceptions.CommandException;
+import com.servlet.ejournal.exceptions.ServiceException;
+import com.servlet.ejournal.exceptions.ValidationError;
+import com.servlet.ejournal.model.entities.User;
 import com.servlet.ejournal.services.UserService;
 import com.servlet.ejournal.services.dto.UserDTO;
-import com.servlet.ejournal.services.impl.UserServiceImpl;
 import jakarta.servlet.ServletContext;
-import jakarta.servlet.http.*;
-import org.junit.jupiter.api.*;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.mockito.Mockito.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.utils.TestEntitiesUtil.createTestUser;
+import static com.servlet.ejournal.utils.TestEntitiesUtil.createUserTestDTO;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class TestUpdateUserCommand {
     private User user;
@@ -25,19 +31,8 @@ class TestUpdateUserCommand {
 
     @BeforeEach
     void setup() throws ServiceException {
-        user = new User(
-                10,
-                "mail@mail.com",
-                "123456",
-                "name",
-                "surname",
-                "123456789",
-                UserType.STUDENT,
-                false,
-                false
-        );
-
-        userDTO = UserServiceImpl.getInstance().getUserDTO(user);
+        user = createTestUser();
+        userDTO = createUserTestDTO();
 
         when(reqMock.getSession()).thenReturn(mock(HttpSession.class));
         when(reqMock.getSession().getAttribute(LOGGED_USER_ATTR)).thenReturn(user);

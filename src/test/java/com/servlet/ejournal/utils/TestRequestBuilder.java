@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static com.servlet.ejournal.constants.CommandNameConstants.*;
 import static com.servlet.ejournal.utils.RequestBuilder.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestRequestBuilder {
     private static Map<String, String[]> params;

@@ -2,8 +2,10 @@ package com.servlet.ejournal.utils;
 
 import org.junit.jupiter.api.Test;
 
-import static com.servlet.ejournal.utils.PasswordHashUtil.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static com.servlet.ejournal.utils.PasswordHashUtil.encode;
+import static com.servlet.ejournal.utils.PasswordHashUtil.verify;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TestPasswordHashUtil {
     private static final String password = "password";

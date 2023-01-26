@@ -5,9 +5,10 @@ import jakarta.servlet.http.HttpSession;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.servlet.ejournal.constants.AttributeConstants.PREVIOUS_REQUEST;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.*;
-import static com.servlet.ejournal.constants.AttributeConstants.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class TestChangeLocaleCommand {
     private final ChangeLocaleCommand command = new ChangeLocaleCommand();

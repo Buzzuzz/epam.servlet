@@ -4,8 +4,8 @@ import com.servlet.ejournal.controller.commands.impl.ChangeLocaleCommand;
 import com.servlet.ejournal.exceptions.NoSuchCommandException;
 import org.junit.jupiter.api.Test;
 
+import static com.servlet.ejournal.constants.CommandNameConstants.CHANGE_LOCALE_COMMAND;
 import static org.junit.jupiter.api.Assertions.*;
-import static com.servlet.ejournal.constants.CommandNameConstants.*;
 
 class TestCommandPool {
     @Test

@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static com.servlet.ejournal.constants.PageConstants.*;
+import static com.servlet.ejournal.utils.TestEntitiesUtil.createTestUser;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestPageAccessPool {
     private static Pool<String, User> pages;
@@ -17,17 +18,7 @@ class TestPageAccessPool {
     @BeforeAll
     static void setup() {
         pages = PageAccessPool.getInstance();
-        user = new User(
-                0,
-                null,
-                null,
-                null,
-                null,
-                null,
-                UserType.STUDENT,
-                false,
-                false
-        );
+        user = createTestUser();
     }
 
     @Test

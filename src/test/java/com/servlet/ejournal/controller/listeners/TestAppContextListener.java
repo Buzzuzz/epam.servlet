@@ -5,8 +5,8 @@ import jakarta.servlet.ServletContextEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static com.servlet.ejournal.constants.AttributeConstants.CONTROLLER_ATTR;
 import static org.mockito.Mockito.*;
-import static com.servlet.ejournal.constants.AttributeConstants.*;
 
 class TestAppContextListener {
     private AppContextListener listener;

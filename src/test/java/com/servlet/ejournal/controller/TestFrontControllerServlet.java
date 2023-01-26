@@ -10,10 +10,11 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static com.servlet.ejournal.constants.AttributeConstants.PREVIOUS_REQUEST;
+import static com.servlet.ejournal.constants.CommandNameConstants.CHANGE_LOCALE_COMMAND;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
-import static com.servlet.ejournal.constants.AttributeConstants.*;
-import static com.servlet.ejournal.constants.CommandNameConstants.*;
 
 class TestFrontControllerServlet {
     private final HttpServletRequest reqMock = mock(HttpServletRequest.class);

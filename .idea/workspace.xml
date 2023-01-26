@@ -9,19 +9,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="minor name change, ApplicationContext implementation started">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/TestCommandPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/TestChangeLocaleCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestUpdateUserCommand.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="added ApplicationContext for loosing coupling between classes and easier testing">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/TestEntitiesUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestSignUpCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/context/ApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/context/ApplicationContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/CommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/CommandPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/UpdateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/UpdateUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/SqlUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/TestFrontControllerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/TestFrontControllerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/TestCommandPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/TestCommandPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/TestChangeLocaleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/TestChangeLocaleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestUpdateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestUpdateUserCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestAccessFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestAccessFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestEncodingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestEncodingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestLocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestLocaleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestStatusFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestStatusFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/listeners/TestAppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/listeners/TestAppContextListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/pools/TestCommandAccessPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/pools/TestCommandAccessPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/pools/TestPageAccessPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/pools/TestPageAccessPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestDateFormatterUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestDateFormatterUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestFullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestFullCourseUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestPasswordHashUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestPasswordHashUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestRequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestRequestBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestSqlUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestSqlUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestValidationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/tag_handlers/TestDateOnlyTagHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/tag_handlers/TestDateOnlyTagHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +153,7 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestUpdateUserCommand">
+  <component name="RunManager" selected="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents">
     <configuration name="All in epam.servlet" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="epam.servlet" />
       <option name="PACKAGE_NAME" value="" />
@@ -151,80 +162,79 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestChangeLocaleCommand.testGetNullValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestFullCourseUtil$TestGetCurrentTopic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.TestChangeLocaleCommand" />
-      <option name="METHOD_NAME" value="testGetNullValue" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestFrontControllerServlet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.TestFrontControllerServlet" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil$TestGetCurrentTopic" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUpdateUserCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestFullCourseUtil$TestSortByEnrolledStudents" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestUpdateUserCommand" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil$TestSortByEnrolledStudents" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUpdateUserCommand.testServiceFailToUpdateUserData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestFullCourseUtil$TestSortByEnrolledStudents.testSortByEnrolledStudentsAsc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestUpdateUserCommand" />
-      <option name="METHOD_NAME" value="testServiceFailToUpdateUserData" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil$TestSortByEnrolledStudents" />
+      <option name="METHOD_NAME" value="testSortByEnrolledStudentsAsc" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUpdateUserCommand.testSuccessfulUserUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestFullCourseUtil$TestSortByEnrolledStudents.testSortByEnrolledStudentsDesc" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestUpdateUserCommand" />
-      <option name="METHOD_NAME" value="testSuccessfulUserUpdate" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil$TestSortByEnrolledStudents" />
+      <option name="METHOD_NAME" value="testSortByEnrolledStudentsDesc" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestFullCourseUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -337,20 +347,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in epam.servlet" />
-      <item itemvalue="JUnit.TestUpdateUserCommand" />
-      <item itemvalue="JUnit.TestUpdateUserCommand.testServiceFailToUpdateUserData" />
-      <item itemvalue="JUnit.TestUpdateUserCommand.testSuccessfulUserUpdate" />
-      <item itemvalue="JUnit.TestChangeLocaleCommand.testGetNullValue" />
-      <item itemvalue="JUnit.TestFrontControllerServlet" />
+      <item itemvalue="JUnit.TestFullCourseUtil" />
+      <item itemvalue="JUnit.TestFullCourseUtil$TestGetCurrentTopic" />
+      <item itemvalue="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents" />
+      <item itemvalue="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents.testSortByEnrolledStudentsAsc" />
+      <item itemvalue="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents.testSortByEnrolledStudentsDesc" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestUpdateUserCommand" />
-        <item itemvalue="JUnit.TestUpdateUserCommand.testSuccessfulUserUpdate" />
-        <item itemvalue="JUnit.TestUpdateUserCommand.testServiceFailToUpdateUserData" />
-        <item itemvalue="JUnit.TestUpdateUserCommand.testSuccessfulUserUpdate" />
-        <item itemvalue="JUnit.TestChangeLocaleCommand.testGetNullValue" />
+        <item itemvalue="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents" />
+        <item itemvalue="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents.testSortByEnrolledStudentsDesc" />
+        <item itemvalue="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents.testSortByEnrolledStudentsAsc" />
+        <item itemvalue="JUnit.TestFullCourseUtil" />
+        <item itemvalue="JUnit.TestFullCourseUtil$TestGetCurrentTopic" />
       </list>
     </recent_temporary>
   </component>
@@ -441,14 +451,7 @@
       <workItem from="1674521058777" duration="2877000" />
       <workItem from="1674566717894" duration="25477000" />
       <workItem from="1674611141204" duration="8555000" />
-      <workItem from="1674733485815" duration="3823000" />
-    </task>
-    <task id="LOCAL-00047" summary="jsp layout changes, two new commands (GetAllTopicsCommand - in process, GetAllUsersCommand - implemented),">
-      <created>1673468415852</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1673468415852</updated>
+      <workItem from="1674733485815" duration="7945000" />
     </task>
     <task id="LOCAL-00048" summary="GetAllTopicsCommand implemented, topics jsp page - done, add topic command implemented">
       <created>1673476673019</created>
@@ -786,7 +789,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674594893903</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="added ApplicationContext for loosing coupling between classes and easier testing">
+      <created>1674737422354</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1674737422354</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -807,7 +817,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update marks command implemented" />
     <MESSAGE value="fixed teacher marks display bug, added, user mark display" />
     <MESSAGE value="moved everything to new package, added context listener" />
     <MESSAGE value="jsp forms change" />
@@ -832,7 +841,8 @@
     <MESSAGE value="moved locale to cookies" />
     <MESSAGE value="minor name change" />
     <MESSAGE value="minor name change, ApplicationContext implementation started" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor name change, ApplicationContext implementation started" />
+    <MESSAGE value="added ApplicationContext for loosing coupling between classes and easier testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ApplicationContext for loosing coupling between classes and easier testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

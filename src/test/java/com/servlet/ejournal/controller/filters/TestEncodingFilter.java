@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.constants.AttributeConstants.ENCODING_ATTR;
+import static com.servlet.ejournal.constants.AttributeConstants.ENCODING_UTF_8;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 class TestEncodingFilter {

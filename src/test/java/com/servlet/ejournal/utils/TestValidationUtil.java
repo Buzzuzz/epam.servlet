@@ -3,7 +3,6 @@ package com.servlet.ejournal.utils;
 import com.servlet.ejournal.exceptions.UtilException;
 import com.servlet.ejournal.model.dao.impl.UserDAO;
 import com.servlet.ejournal.model.entities.User;
-import com.servlet.ejournal.model.entities.UserType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -13,6 +12,7 @@ import java.sql.Timestamp;
 import java.util.Optional;
 
 import static com.servlet.ejournal.exceptions.ValidationError.*;
+import static com.servlet.ejournal.utils.TestEntitiesUtil.createTestUser;
 import static com.servlet.ejournal.utils.ValidationUtil.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -97,18 +97,7 @@ class TestValidationUtil {
 
         @BeforeEach
         void setup() {
-            user = new User(
-                    10,
-                    "email@gmail.com",
-                    "password",
-                    "name",
-                    "surname",
-                    "123456789",
-                    UserType.STUDENT,
-                    false,
-                    false
-            );
-
+            user = createTestUser();
             userDaoMock = mock(UserDAO.class);
             conMock = mock(Connection.class);
             util = ValidationUtil.getInstance();
@@ -155,18 +144,7 @@ class TestValidationUtil {
 
         @BeforeEach
         void setup() {
-            user = new User(
-                    10,
-                    "email@gmail.com",
-                    "password",
-                    "name",
-                    "surname",
-                    "123456789",
-                    UserType.STUDENT,
-                    false,
-                    false
-            );
-
+            user = createTestUser();
             daoMock = mock(UserDAO.class);
             conMock = mock(Connection.class);
             util = ValidationUtil.getInstance();
@@ -186,7 +164,7 @@ class TestValidationUtil {
         }
 
         @Test
-        void testIsEmailUniqueConnectionIsNull(){
+        void testIsEmailUniqueConnectionIsNull() {
             assertThrows(UtilException.class, () -> util.isEmailUnique(null, user.getEmail()));
         }
 
