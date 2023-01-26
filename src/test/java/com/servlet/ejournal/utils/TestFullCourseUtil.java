@@ -18,7 +18,6 @@ import org.junit.jupiter.api.Test;
 import java.sql.Connection;
 import java.sql.Timestamp;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static com.servlet.ejournal.constants.AttributeConstants.ENROLLED_ASC_SORTING;
 import static com.servlet.ejournal.constants.AttributeConstants.ENROLLED_DESC_SORTING;

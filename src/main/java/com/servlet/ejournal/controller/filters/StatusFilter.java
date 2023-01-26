@@ -1,11 +1,9 @@
 package com.servlet.ejournal.controller.filters;
 
-import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.CommandNameConstants;
 import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.model.entities.User;
 import com.servlet.ejournal.services.UserService;
-import com.servlet.ejournal.services.impl.UserServiceImpl;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
