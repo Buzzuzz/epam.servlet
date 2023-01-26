@@ -131,20 +131,16 @@ public class SqlUtil {
         return sb.toString();
     }
 
-    // TODO : refactor
     private static String buildFilters(Map<String, String[]> filters) {
         StringBuilder sb = new StringBuilder();
         if (filters != null && !filters.isEmpty()) {
             sb.append("where ");
-            filters.forEach((filter, values) -> {
-                if (values != null) {
-                    for (String concreteValue : values) {
-                        if (filter.equals(QUERY)) {
-                            sb.append(String.format("%s and ", concreteValue));
-                        } else {
-                            sb.append(String.format("%s = %s and ", filter,
-                                    isValidNumber(concreteValue) ? concreteValue : String.format("'%s'", concreteValue)));
-                        }
+            filters.keySet().stream().filter(key -> filters.get(key) != null).forEach(key -> {
+                for (String value : filters.get(key)) {
+                    if (key.equals(QUERY)) {
+                        sb.append(String.format("%s and ", value));
+                    } else {
+                        sb.append(String.format("%s = %s and ", key, isValidNumber(value) ? value : String.format("'%s'", value)));
                     }
                 }
             });

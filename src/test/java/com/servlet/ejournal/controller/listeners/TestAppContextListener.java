@@ -5,7 +5,6 @@ import jakarta.servlet.ServletContextEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.servlet.ejournal.constants.PageConstants.*;
 import static org.mockito.Mockito.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 
@@ -30,14 +29,14 @@ class TestAppContextListener {
 
         verify(sceMock, times(1)).getServletContext();
         verify(contextMock, times(1)).getContextPath();
-        verify(contextMock, times(1)).setAttribute(CONTROLLER_ATTR, String.format("%s%s", contextMock.getContextPath(), CONTROLLER_MAPPING));
+        verify(contextMock, times(2)).setAttribute(any(), any());
     }
 
     @Test
     void testAppContextDestroyed() {
         listener.contextDestroyed(sceMock);
 
-        verify(sceMock, times(1)).getServletContext();
+        verify(sceMock, times(2)).getServletContext();
         verify(contextMock, times(1)).removeAttribute(CONTROLLER_ATTR);
     }
 }

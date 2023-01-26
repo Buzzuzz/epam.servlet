@@ -1,6 +1,7 @@
 package com.servlet.ejournal.controller.commands.impl.user;
 
 import com.servlet.ejournal.constants.PageConstants;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import com.servlet.ejournal.exceptions.ValidationError;
@@ -9,7 +10,6 @@ import com.servlet.ejournal.services.UserService;
 import com.servlet.ejournal.exceptions.ServiceException;
 import com.servlet.ejournal.services.dto.UserDTO;
 import jakarta.servlet.http.HttpServletRequest;
-import com.servlet.ejournal.services.impl.UserServiceImpl;
 
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 
@@ -17,7 +17,8 @@ public class UpdateUserCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            UserService service = UserServiceImpl.getInstance();
+            ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(APPLICATION_CONTEXT);
+            UserService service = context.getUserService();
             User user = (User) req.getSession().getAttribute(LOGGED_USER_ATTR);
             UserDTO userDTO = new UserDTO(
                     user.getU_id(),
@@ -38,12 +39,12 @@ public class UpdateUserCommand implements Command {
 
             req.getSession().setAttribute(ERROR_ATTR, error);
 
-            if (error.equals(ValidationError.NONE)) {
+            if (error == ValidationError.NONE) {
                 service.getUser(user.getU_id()).ifPresent(u -> req.getSession().setAttribute(LOGGED_USER_ATTR, u));
             }
             return PageConstants.CABINET_PAGE;
         } catch (ServiceException e) {
-            throw new CommandException(e);
+            throw new CommandException(e.getMessage(), e);
         }
     }
 }
