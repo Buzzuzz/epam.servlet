@@ -9,18 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="tests for login, logout commands">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestCreateUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestDeleteUserCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestGetAllUsersCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestLogInCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestLogOutCommand.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="tests for create, getAll, delete users commands (delete tests don't work properly)">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestChangeUserLockStatusCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/CreateUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/CreateUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/DeleteUserCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/DeleteUserCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/GetAllUsersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/GetAllUsersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/LogInCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/LogInCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/ChangeUserLockStatusCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/ChangeUserLockStatusCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +143,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreateUserCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestChangeUserLockStatusCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -159,13 +152,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestCreateUserCommand" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestChangeUserLockStatusCommand" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreateUserCommand.testFailedToCreateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestChangeUserLockStatusCommand.testInvalidUserStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -174,14 +167,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestCreateUserCommand" />
-      <option name="METHOD_NAME" value="testFailedToCreateUser" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestChangeUserLockStatusCommand" />
+      <option name="METHOD_NAME" value="testInvalidUserStatus" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestCreateUserCommand.testSuccessfulCreateUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestChangeUserLockStatusCommand.testStatusChangeException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -190,8 +183,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestCreateUserCommand" />
-      <option name="METHOD_NAME" value="testSuccessfulCreateUser" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestChangeUserLockStatusCommand" />
+      <option name="METHOD_NAME" value="testStatusChangeException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestChangeUserLockStatusCommand.testSuccessfulStatusChange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestChangeUserLockStatusCommand" />
+      <option name="METHOD_NAME" value="testSuccessfulStatusChange" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -208,22 +217,6 @@
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
       <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestDeleteUserCommand" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestDeleteUserCommand.testNoValidUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestDeleteUserCommand" />
-      <option name="METHOD_NAME" value="testNoValidUserId" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -320,20 +313,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in epam.servlet" />
-      <item itemvalue="JUnit.TestCreateUserCommand" />
-      <item itemvalue="JUnit.TestCreateUserCommand.testFailedToCreateUser" />
-      <item itemvalue="JUnit.TestCreateUserCommand.testSuccessfulCreateUser" />
       <item itemvalue="JUnit.TestDeleteUserCommand" />
-      <item itemvalue="JUnit.TestDeleteUserCommand.testNoValidUserId" />
+      <item itemvalue="JUnit.TestChangeUserLockStatusCommand" />
+      <item itemvalue="JUnit.TestChangeUserLockStatusCommand.testInvalidUserStatus" />
+      <item itemvalue="JUnit.TestChangeUserLockStatusCommand.testStatusChangeException" />
+      <item itemvalue="JUnit.TestChangeUserLockStatusCommand.testSuccessfulStatusChange" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestCreateUserCommand" />
-        <item itemvalue="JUnit.TestCreateUserCommand.testFailedToCreateUser" />
-        <item itemvalue="JUnit.TestCreateUserCommand.testSuccessfulCreateUser" />
         <item itemvalue="JUnit.TestDeleteUserCommand" />
-        <item itemvalue="JUnit.TestDeleteUserCommand.testNoValidUserId" />
+        <item itemvalue="JUnit.TestChangeUserLockStatusCommand" />
+        <item itemvalue="JUnit.TestChangeUserLockStatusCommand.testSuccessfulStatusChange" />
+        <item itemvalue="JUnit.TestChangeUserLockStatusCommand.testStatusChangeException" />
+        <item itemvalue="JUnit.TestChangeUserLockStatusCommand.testInvalidUserStatus" />
       </list>
     </recent_temporary>
   </component>
@@ -426,14 +419,8 @@
       <workItem from="1674611141204" duration="8555000" />
       <workItem from="1674733485815" duration="9141000" />
       <workItem from="1674777171285" duration="2110000" />
-      <workItem from="1674813995797" duration="5506000" />
-    </task>
-    <task id="LOCAL-00051" summary="minor change in status filter and logic">
-      <created>1673543766270</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1673543766270</updated>
+      <workItem from="1674813995797" duration="7277000" />
+      <workItem from="1674821306128" duration="627000" />
     </task>
     <task id="LOCAL-00052" summary="create new user (any type) implemented, small changes in signup command">
       <created>1673561511196</created>
@@ -771,7 +758,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674779133121</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="tests for create, getAll, delete users commands (delete tests don't work properly)">
+      <created>1674819771717</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1674819771717</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -792,7 +786,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commands refactor (getAllCourses, getAllUsers, updateUser)" />
     <MESSAGE value="signup page message" />
     <MESSAGE value="signup success page message" />
     <MESSAGE value="user commands refactor" />
@@ -817,7 +810,8 @@
     <MESSAGE value="status filter tests" />
     <MESSAGE value="test signup command" />
     <MESSAGE value="tests for login, logout commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests for login, logout commands" />
+    <MESSAGE value="tests for create, getAll, delete users commands (delete tests don't work properly)" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests for create, getAll, delete users commands (delete tests don't work properly)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -854,7 +848,7 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674819022663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674819705631" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestEncodingFilter.ic" NAME="TestEncodingFilter Coverage Results" MODIFIED="1674392402801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.servlet.ejournal.controller.filters.*</FILTER>
     </SUITE>
