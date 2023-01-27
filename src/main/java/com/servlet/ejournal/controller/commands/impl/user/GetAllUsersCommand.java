@@ -1,12 +1,12 @@
 package com.servlet.ejournal.controller.commands.impl.user;
 
 import com.servlet.ejournal.constants.PageConstants;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.services.UserService;
-import com.servlet.ejournal.services.impl.UserServiceImpl;
 
 import java.util.Map;
 
@@ -17,7 +17,9 @@ import static com.servlet.ejournal.constants.AttributeConstants.*;
 public class GetAllUsersCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        UserService service = UserServiceImpl.getInstance();
+        ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(APPLICATION_CONTEXT);
+        UserService service = context.getUserService();
+
         int limit = getLimit(req);
         String sorting = getSortingType(req, DEFAULT_USER_SORTING);
         String filter = getFilter(req, USER_TYPE_DB);
