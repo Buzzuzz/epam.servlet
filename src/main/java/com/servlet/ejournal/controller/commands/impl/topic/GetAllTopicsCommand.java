@@ -1,6 +1,7 @@
 package com.servlet.ejournal.controller.commands.impl.topic;
 
 import com.servlet.ejournal.constants.PageConstants;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.services.impl.TopicServiceImpl;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
@@ -15,7 +16,9 @@ import static com.servlet.ejournal.constants.AttributeConstants.*;
 public class GetAllTopicsCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        TopicService service = TopicServiceImpl.getInstance();
+        ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(APPLICATION_CONTEXT);
+        TopicService service = context.getTopicService();
+
         int limit = getLimit(req);
         int[] pages = getPages(limit, service.getTopicCount());
         int currentPage = Math.min(getCurrentPage(req), pages.length);

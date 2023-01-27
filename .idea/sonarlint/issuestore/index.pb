@@ -63,16 +63,12 @@ W
 'src/main/webapp/WEB-INF/tags/Course.tag,0\1\01b76a9389d95a4d65579a6bbd207491a2471941
 n
 >src/main/java/com/servlet/ejournal/services/CourseService.java,d\9\d90cd03d3fe83238264c7afc426b778ac24ef6ee
-‰
-Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/CreateTopicCommand.java,a\2\a24b8c2a65e6f1ee4f44f552ac51d8b3876612c8
 o
 ?src/main/java/com/servlet/ejournal/exceptions/DAOException.java,2\4\240a808b1446a5754a785825e981349841324830
 Y
 )src/main/webapp/WEB-INF/tlds/dateOnly.tld,0\e\0e7fea0966a9238a08f0000f4f9e6e9fcccef712
 ‹
 [src/main/java/com/servlet/ejournal/controller/commands/impl/course/DeleteCourseCommand.java,e\f\efc5952f06a2759aa732b0b2b221ffba5e47f2cd
-‰
-Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/DeleteTopicCommand.java,3\4\34f9d785f27f7171d3760e0f3d0075613098f1bb
 Œ
 \src/main/java/com/servlet/ejournal/controller/commands/impl/course/EnrollStudentCommand.java,c\b\cb6b962aa0a0ed734b61d5f97f94c52489547763
 
@@ -174,8 +170,6 @@ n
 >src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java,6\9\69b420fc4e8a96058576e199c2004e1cbb735877
 u
 Esrc/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java,2\e\2e59f14e5f9d83206399e694a26dda06ef93f09d
-Š
-Zsrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/GetAllTopicsCommand.java,b\b\bb09a9c323e1c10071e05b349a19f63218e33922
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 y

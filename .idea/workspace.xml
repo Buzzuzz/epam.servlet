@@ -9,11 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="ChangeUserLockStatusCommand tests, fixed delete user tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/topic/TestUpdateTopicCommand.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="update topic command tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/topic/TestCreateTopicCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/topic/TestDeleteTopicCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/topic/TestGetAllTopicsCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/UpdateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/UpdateTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/CreateTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/CreateTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/DeleteTopicCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/DeleteTopicCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/GetAllTopicsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/topic/GetAllTopicsCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +138,7 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestUpdateTopicCommand">
+  <component name="RunManager" selected="JUnit.All in epam.servlet">
     <configuration name="All in epam.servlet" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="epam.servlet" />
       <option name="PACKAGE_NAME" value="" />
@@ -143,22 +147,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestDeleteUserCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCreateTopicCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.topic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestDeleteUserCommand" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.topic" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestCreateTopicCommand" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUpdateTopicCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCreateTopicCommand.testSuccessfulTopicCreation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -167,13 +171,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.topic" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestUpdateTopicCommand" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestCreateTopicCommand" />
+      <option name="METHOD_NAME" value="testSuccessfulTopicCreation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDeleteTopicCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.topic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.topic" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestDeleteTopicCommand" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUpdateTopicCommand.testInvalidTopicId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDeleteTopicCommand.testExceptionParsingId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -182,14 +202,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.topic" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestUpdateTopicCommand" />
-      <option name="METHOD_NAME" value="testInvalidTopicId" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestDeleteTopicCommand" />
+      <option name="METHOD_NAME" value="testExceptionParsingId" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestUpdateTopicCommand.testSuccessfulUpdateTopic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDeleteTopicCommand.testSuccessfulDeleteTopic" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
@@ -198,24 +218,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.topic" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestUpdateTopicCommand" />
-      <option name="METHOD_NAME" value="testSuccessfulUpdateTopic" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUpdateTopicCommand.testUpdateTopicException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.topic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.topic" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestUpdateTopicCommand" />
-      <option name="METHOD_NAME" value="testUpdateTopicException" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.topic.TestDeleteTopicCommand" />
+      <option name="METHOD_NAME" value="testSuccessfulDeleteTopic" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -313,20 +317,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in epam.servlet" />
-      <item itemvalue="JUnit.TestUpdateTopicCommand" />
-      <item itemvalue="JUnit.TestUpdateTopicCommand.testInvalidTopicId" />
-      <item itemvalue="JUnit.TestUpdateTopicCommand.testSuccessfulUpdateTopic" />
-      <item itemvalue="JUnit.TestUpdateTopicCommand.testUpdateTopicException" />
-      <item itemvalue="JUnit.TestDeleteUserCommand" />
+      <item itemvalue="JUnit.TestCreateTopicCommand" />
+      <item itemvalue="JUnit.TestCreateTopicCommand.testSuccessfulTopicCreation" />
+      <item itemvalue="JUnit.TestDeleteTopicCommand" />
+      <item itemvalue="JUnit.TestDeleteTopicCommand.testExceptionParsingId" />
+      <item itemvalue="JUnit.TestDeleteTopicCommand.testSuccessfulDeleteTopic" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestUpdateTopicCommand" />
-        <item itemvalue="JUnit.TestUpdateTopicCommand.testUpdateTopicException" />
-        <item itemvalue="JUnit.TestUpdateTopicCommand.testInvalidTopicId" />
-        <item itemvalue="JUnit.TestUpdateTopicCommand.testSuccessfulUpdateTopic" />
-        <item itemvalue="JUnit.TestDeleteUserCommand" />
+        <item itemvalue="JUnit.TestCreateTopicCommand" />
+        <item itemvalue="JUnit.TestCreateTopicCommand.testSuccessfulTopicCreation" />
+        <item itemvalue="JUnit.TestDeleteTopicCommand" />
+        <item itemvalue="JUnit.TestDeleteTopicCommand.testSuccessfulDeleteTopic" />
+        <item itemvalue="JUnit.TestDeleteTopicCommand.testExceptionParsingId" />
       </list>
     </recent_temporary>
   </component>
@@ -421,14 +425,7 @@
       <workItem from="1674777171285" duration="2110000" />
       <workItem from="1674813995797" duration="7277000" />
       <workItem from="1674821306128" duration="881000" />
-      <workItem from="1674823009857" duration="1023000" />
-    </task>
-    <task id="LOCAL-00053" summary="deleted tests, started pagination implementation in dao">
-      <created>1673568768884</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1673568768884</updated>
+      <workItem from="1674823009857" duration="2796000" />
     </task>
     <task id="LOCAL-00054" summary="user pagination done">
       <created>1673580910459</created>
@@ -766,7 +763,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674822165607</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="update topic command tests">
+      <created>1674824065405</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1674824065406</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -787,7 +791,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="signup success page message" />
     <MESSAGE value="user commands refactor" />
     <MESSAGE value="course commands refactor" />
     <MESSAGE value="courseDetails, courseMarks, updateCourseMarks refactor" />
@@ -812,7 +815,8 @@
     <MESSAGE value="tests for login, logout commands" />
     <MESSAGE value="tests for create, getAll, delete users commands (delete tests don't work properly)" />
     <MESSAGE value="ChangeUserLockStatusCommand tests, fixed delete user tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="ChangeUserLockStatusCommand tests, fixed delete user tests" />
+    <MESSAGE value="update topic command tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="update topic command tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -849,7 +853,7 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674822121255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674824125751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestEncodingFilter.ic" NAME="TestEncodingFilter Coverage Results" MODIFIED="1674392402801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.servlet.ejournal.controller.filters.*</FILTER>
     </SUITE>
