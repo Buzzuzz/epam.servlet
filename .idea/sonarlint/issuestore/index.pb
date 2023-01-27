@@ -61,8 +61,6 @@ m
 =src/main/java/com/servlet/ejournal/model/entities/Course.java,2\a\2aeea73ac04f22486175594ab632d72b5c560064
 W
 'src/main/webapp/WEB-INF/tags/Course.tag,0\1\01b76a9389d95a4d65579a6bbd207491a2471941
-n
->src/main/java/com/servlet/ejournal/services/CourseService.java,d\9\d90cd03d3fe83238264c7afc426b778ac24ef6ee
 o
 ?src/main/java/com/servlet/ejournal/exceptions/DAOException.java,2\4\240a808b1446a5754a785825e981349841324830
 Y
@@ -99,8 +97,6 @@ p
 @src/main/java/com/servlet/ejournal/exceptions/UtilException.java,d\2\d228c7220c7353b07d672f0b054195071542a149
 r
 Bsrc/main/java/com/servlet/ejournal/exceptions/ValidationError.java,a\2\a29ec46a12dc5992a96edbe1709c30e7c42feb6f
-Ž
-^src/main/java/com/servlet/ejournal/controller/commands/impl/course/WithdrawStudentCommand.java,5\3\53baa764e5c06d8b3e3fae4a2d867e061e3273ba
 O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 7
@@ -152,8 +148,6 @@ t
 Dsrc/main/java/com/servlet/ejournal/constants/AttributeConstants.java,1\f\1f72a7628723c5af26c000bc87c852fe305e864e
 p
 @src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java,3\7\37885727c886d0a0a7c9d7eb27dae7a66a6113f8
-w
-Gsrc/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java,0\f\0f487b27ca0748ae7d8bf891dbb9171e9cb4d2d5
 l
 <src/main/java/com/servlet/ejournal/model/dao/DataSource.java,1\4\1489434fd54ecb6abaa5ae66efd840505c3cbeed
 w
