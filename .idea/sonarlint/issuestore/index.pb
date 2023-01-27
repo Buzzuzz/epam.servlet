@@ -91,8 +91,6 @@ l
 [src/main/java/com/servlet/ejournal/controller/commands/impl/course/UpdateCourseCommand.java,8\6\866ddd9f64634524686dd168c9488d8a4de5cded
 ‰
 Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/course/UpdateCourseMarks.java,3\6\367efe951b7275c4d8a4fc6cbe9b3122f178ad48
-‰
-Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/UpdateTopicCommand.java,8\c\8ccf20f2ef16f72bdd18ca5f4544adc3d0d6a4e5
 k
 ;src/main/java/com/servlet/ejournal/model/entities/User.java,9\4\94c15b70e3e10829d47c4cd2e5fe9f16d5b10168
 q
@@ -276,3 +274,7 @@ Vsrc/test/java/com/servlet/ejournal/controller/commands/impl/user/TestLogInComma
 Wsrc/test/java/com/servlet/ejournal/controller/commands/impl/user/TestLogOutCommand.java,9\8\9865a6b9b238ec3fced579a5007474858295e756
 ‡
 Wsrc/main/java/com/servlet/ejournal/controller/commands/impl/user/CreateUserCommand.java,2\d\2d34ad292513004264b5d07217c7360b19c06550
+‘
+asrc/main/java/com/servlet/ejournal/controller/commands/impl/user/ChangeUserLockStatusCommand.java,7\d\7df079cf09627b1754ed8694956a3d235622c940
+•
+esrc/test/java/com/servlet/ejournal/controller/commands/impl/user/TestChangeUserLockStatusCommand.java,8\4\840292e2df41fb708c5af86d48320b95aa93d642
