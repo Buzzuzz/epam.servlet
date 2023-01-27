@@ -9,11 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="added test objects creator class, modified tests">
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="status filter tests">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/SignUpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/commands/impl/user/SignUpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestSignUpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/user/TestSignUpCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestStatusFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/filters/TestStatusFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestFullCourseUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestFullCourseUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +136,7 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestStatusFilter.testUserIsBlockedLogOutCommand">
+  <component name="RunManager" selected="JUnit.All in epam.servlet">
     <configuration name="All in epam.servlet" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="epam.servlet" />
       <option name="PACKAGE_NAME" value="" />
@@ -143,32 +145,64 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestFullCourseUtil$TestSortByEnrolledStudents" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSignUpCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestFullCourseUtil$TestSortByEnrolledStudents" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestSignUpCommand" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestStatusFilter.testUserIsBlocked" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestSignUpCommand.testSignUpException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam.servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.filters.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestStatusFilter" />
-      <option name="METHOD_NAME" value="testUserIsBlocked" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestSignUpCommand" />
+      <option name="METHOD_NAME" value="testSignUpException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSignUpCommand.testSuccessfulSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestSignUpCommand" />
+      <option name="METHOD_NAME" value="testSuccessfulSignUp" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSignUpCommand.testValidationErrorSignUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam.servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestSignUpCommand" />
+      <option name="METHOD_NAME" value="testValidationErrorSignUp" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,54 +219,6 @@
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
       <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestStatusFilter" />
       <option name="METHOD_NAME" value="testUserIsBlockedLogOutCommand" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestStatusFilter.testUserIsBlockedNoLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.filters.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestStatusFilter" />
-      <option name="METHOD_NAME" value="testUserIsBlockedNoLogout" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestStatusFilter.testUserIsNotBlocked" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.filters.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.filters" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.filters.TestStatusFilter" />
-      <option name="METHOD_NAME" value="testUserIsNotBlocked" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUpdateUserCommand.testSuccessfulUserUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.user.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.user" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.user.TestUpdateUserCommand" />
-      <option name="METHOD_NAME" value="testSuccessfulUserUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -330,20 +316,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in epam.servlet" />
-      <item itemvalue="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents" />
-      <item itemvalue="JUnit.TestStatusFilter.testUserIsBlocked" />
+      <item itemvalue="JUnit.TestSignUpCommand" />
+      <item itemvalue="JUnit.TestSignUpCommand.testSignUpException" />
+      <item itemvalue="JUnit.TestSignUpCommand.testSuccessfulSignUp" />
+      <item itemvalue="JUnit.TestSignUpCommand.testValidationErrorSignUp" />
       <item itemvalue="JUnit.TestStatusFilter.testUserIsBlockedLogOutCommand" />
-      <item itemvalue="JUnit.TestStatusFilter.testUserIsBlockedNoLogout" />
-      <item itemvalue="JUnit.TestStatusFilter.testUserIsNotBlocked" />
       <item itemvalue="Tomcat Server.Tomcat 10.0.27" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestSignUpCommand.testValidationErrorSignUp" />
+        <item itemvalue="JUnit.TestSignUpCommand.testSuccessfulSignUp" />
+        <item itemvalue="JUnit.TestSignUpCommand.testSignUpException" />
+        <item itemvalue="JUnit.TestSignUpCommand" />
         <item itemvalue="JUnit.TestStatusFilter.testUserIsBlockedLogOutCommand" />
-        <item itemvalue="JUnit.TestStatusFilter.testUserIsBlockedNoLogout" />
-        <item itemvalue="JUnit.TestStatusFilter.testUserIsBlocked" />
-        <item itemvalue="JUnit.TestStatusFilter.testUserIsNotBlocked" />
-        <item itemvalue="JUnit.TestFullCourseUtil$TestSortByEnrolledStudents" />
       </list>
     </recent_temporary>
   </component>
@@ -434,14 +420,8 @@
       <workItem from="1674521058777" duration="2877000" />
       <workItem from="1674566717894" duration="25477000" />
       <workItem from="1674611141204" duration="8555000" />
-      <workItem from="1674733485815" duration="8956000" />
-    </task>
-    <task id="LOCAL-00049" summary="Get, update, delete, insert topic done">
-      <created>1673479904809</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1673479904809</updated>
+      <workItem from="1674733485815" duration="9141000" />
+      <workItem from="1674777171285" duration="1648000" />
     </task>
     <task id="LOCAL-00050" summary="Get users, block (unblock) user, delete user commands done, separate packages for commands">
       <created>1673542766541</created>
@@ -779,7 +759,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674776011159</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="status filter tests">
+      <created>1674777052840</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1674777052840</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -800,7 +787,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="moved everything to new package, added context listener" />
     <MESSAGE value="jsp forms change" />
     <MESSAGE value="create user command fix" />
     <MESSAGE value="commands refactor (getAllCourses, getAllUsers, updateUser)" />
@@ -825,7 +811,8 @@
     <MESSAGE value="minor name change, ApplicationContext implementation started" />
     <MESSAGE value="added ApplicationContext for loosing coupling between classes and easier testing" />
     <MESSAGE value="added test objects creator class, modified tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test objects creator class, modified tests" />
+    <MESSAGE value="status filter tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="status filter tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -862,7 +849,7 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestConfigFileDataSource.ic" NAME="TestConfigFileDataSource Coverage Results" MODIFIED="1670356391505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>testDAO.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674776058865" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674777233025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestEncodingFilter.ic" NAME="TestEncodingFilter Coverage Results" MODIFIED="1674392402801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.servlet.ejournal.controller.filters.*</FILTER>
     </SUITE>

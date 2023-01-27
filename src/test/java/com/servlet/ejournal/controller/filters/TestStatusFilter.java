@@ -7,9 +7,7 @@ import com.servlet.ejournal.services.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,8 +20,7 @@ import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-// TODO : TestSetupClass to create test users, courses, topics and dtos
-public class TestStatusFilter {
+class TestStatusFilter {
     private final StatusFilter filter = new StatusFilter();
     private final HttpServletRequest reqMock = mock(HttpServletRequest.class);
     private final HttpServletResponse respMock = mock(HttpServletResponse.class);
