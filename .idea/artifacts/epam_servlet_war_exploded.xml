@@ -1,17 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="epam.servlet:war exploded">
-    <output-path>$PROJECT_DIR$/target/epam-servlet-0.1</output-path>
-    <properties id="maven-jee-properties">
-      <options>
-        <exploded>true</exploded>
-        <module>epam.servlet</module>
-        <packaging>war</packaging>
-      </options>
-    </properties>
+  <artifact type="exploded-war" name="epam-servlet:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/epam_servlet_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="epam.servlet" />
+          <element id="module-output" name="epam-servlet" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: de.mkammerer:argon2-jvm:2.11" />
@@ -28,10 +21,7 @@
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.19.0" />
         </element>
       </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/epam-servlet-0.1/META-INF/MANIFEST.MF" />
-      </element>
-      <element id="javaee-facet-resources" facet="epam.servlet/web/Web" />
+      <element id="javaee-facet-resources" facet="epam-servlet/web/Web" />
     </root>
   </artifact>
 </component>

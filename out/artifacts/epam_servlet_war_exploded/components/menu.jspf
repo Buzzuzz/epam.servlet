@@ -1,0 +1,118 @@
+<header>
+    <form action="${applicationScope.controller}">
+
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+
+                        <div class="container-fluid justify-content-center">
+                            <div class="row w-75">
+                                <div class="col-2 align-self-center">
+                                    <a class="nav-link" href="${pageContext.request.contextPath}/pages/index.jsp">
+                                        <fmt:message key="menu_logo"/>
+                                    </a>
+                                </div>
+
+                                <div class="col row align-items-center">
+                                    <div class="col-8">
+                                        <div class="row text-center">
+                                            <c:if test="${sessionScope.loggedUser != null}">
+                                                <div class="col">
+                                                    <label for="get-all-courses" class="nav-link">
+                                                        <input type="submit" hidden="hidden" name="command"
+                                                               value="get-all-courses" id="get-all-courses"/>
+                                                        <fmt:message key="courses"/>
+                                                    </label>
+                                                </div>
+                                            </c:if>
+                                            <c:if test="${sessionScope.userType eq 'ADMINISTRATOR'}">
+                                                <div class="col">
+                                                    <label for="get-all-topics" class="nav-link">
+                                                        <input type="submit" hidden name="command"
+                                                               value="get-all-topics"
+                                                               id="get-all-topics"/>
+                                                        <fmt:message key="topics"/>
+                                                    </label>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="get-all-users" class="nav-link">
+                                                        <input type="submit" hidden name="command"
+                                                               value="get-all-users" id="get-all-users"/>
+                                                        <fmt:message key="users"/>
+                                                    </label>
+                                                </div>
+                                            </c:if>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <ul class="navbar-nav justify-content-end align-items-center">
+                                            <c:if test="${sessionScope.loggedUser == null}">
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       href="${pageContext.request.contextPath}/pages/login.jsp">
+                                                        <fmt:message key="login"/>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       href="${pageContext.request.contextPath}/pages/signup.jsp">
+                                                        <fmt:message key="signup_title"/>
+                                                    </a>
+                                                </li>
+                                            </c:if>
+                                            <c:if test="${sessionScope.loggedUser != null}">
+                                                <li class="nav-item">
+                                                    <a class="nav-link"
+                                                       href="${pageContext.request.contextPath}/pages/cabinet.jsp">
+                                                        <fmt:message
+                                                                key="user_greeting"/> ${sessionScope.loggedUser.first_name}
+                                                    </a>
+                                                </li>
+                                            </c:if>
+                                            <li class="nav-item ms-2">
+                                                <form action="${applicationScope.controller}"
+                                                      class="m-0 p-0" method="get">
+                                                    <input hidden="hidden" name="command" value="change-locale"
+                                                           aria-label="change-locale"/>
+                                                    <div class="dropdown">
+                                                        <span class="nav-link dropdown-toggle"
+                                                              data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <c:choose>
+                                                                <c:when test="${cookie['locale'].value eq 'en'}">
+                                                                    <fmt:message key="en"/>
+                                                                </c:when>
+                                                                <c:when test="${cookie['locale'].value eq 'ua'}">
+                                                                    <fmt:message key="ua"/>
+                                                                </c:when>
+                                                            </c:choose>
+                                                        </span>
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <button type="submit" name="locale" value="en"
+                                                                        class="dropdown-item">
+                                                                    <fmt:message key="en"/>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button type="submit" name="locale" value="ua"
+                                                                        class="dropdown-item">
+                                                                    <fmt:message key="ua"/>
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </form>
+</header>

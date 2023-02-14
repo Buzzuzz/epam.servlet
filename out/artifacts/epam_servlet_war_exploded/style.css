@@ -1,0 +1,115 @@
+:root {
+    --blue: #243763;
+    --orange: #FF6E31;
+    --cream: #FFEBB7;
+    --brown: #AD8E70;
+    --cream-brown: #D5CEA3;
+    --cream-white: #E5E5CB;
+}
+
+a {
+    color: var(--blue);
+}
+
+body {
+    margin-top: 7%;
+    background-color: var(--brown);
+}
+
+header, .navbar, .nav-link {
+    background-color: var(--blue);
+    color: white;
+}
+
+.nav-link:hover {
+    color: var(--orange);
+}
+
+.dropdown-menu {
+    background: var(--cream-white);
+}
+
+.dropdown-menu > li > button:hover, button:active {
+    color: black;
+    background-color: var(--cream-brown);
+}
+
+footer {
+    background-color: var(--blue);
+    color: white;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .input-group-text {
+    background-color: var(--blue) !important;
+    border-color: var(--blue);
+    color: white;
+}
+
+.card {
+    background-color: var(--cream-brown);
+}
+
+.form-control, .form-control:focus {
+    background-color: var(--cream-white);
+    border-color: var(--cream-white);
+    box-shadow: none;
+}
+
+#home-button {
+    color: white !important;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+.form-select:active, .form-select:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.form-select {
+    background-color: var(--cream-white);
+}
+
+.page-link {
+    color: black;
+    background-color: var(--cream-brown);
+    border-color: var(--brown);
+}
+
+.page-link:hover {
+    color: black;
+    background-color: var(--cream);
+}
+
+.modal-content {
+    background-color: var(--cream-brown);
+}
+
+.selected {
+    background-color: var(--cream);
+}
+
+.alert {
+    padding: 20px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
