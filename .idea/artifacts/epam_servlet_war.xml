@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="epam-servlet:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>epam-servlet</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="epam-servlet-0.1.war">
+      <element id="artifact" artifact-name="epam-servlet:war exploded" />
+    </root>
+  </artifact>
+</component>

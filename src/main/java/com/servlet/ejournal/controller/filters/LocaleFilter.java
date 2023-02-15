@@ -56,13 +56,14 @@ public class LocaleFilter implements Filter {
     }
 
     private boolean isLocalePresent(HttpServletRequest req) {
-        return Arrays.stream(req.getCookies())
+        return req.getCookies() != null && Arrays.stream(req.getCookies())
                 .filter(cookie -> cookie.getName().equals(LOCALE_ATTR))
                 .map(Cookie::getValue).findAny().isPresent();
     }
 
     private String getInitLocale(HttpServletRequest req) {
-        return Arrays.stream(req.getCookies())
+        return req.getCookies() == null ? config.getInitParameter(LOCALE_ATTR) :
+                Arrays.stream(req.getCookies())
                 .filter(cookie -> cookie.getName().equals(LOCALE_ATTR))
                 .map(Cookie::getValue).findAny()
                 .orElse(config.getInitParameter(LOCALE_ATTR));

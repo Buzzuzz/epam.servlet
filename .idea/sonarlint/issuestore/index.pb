@@ -1,26 +1,6 @@
 
-w
-G.idea/sonarlint/issuestore/d/6/d6e45ffd833fed3d3f911d1e8a8577145c94e260,1\8\1892a11a748451d4b59332f1833709f41bc2f375
-w
-G.idea/sonarlint/issuestore/1/8/1892a11a748451d4b59332f1833709f41bc2f375,6\1\61a1cde95ef2c166208d64167d06d90b237f3be1
-j
-:.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b.xml,6/3/63f6ea0575d82860fcbde95a1b19a3c8baafc926
-–
-f.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA.meta,d/0/d0389946c7917abfc3305af63b82ea186324e2ee
-©
-y.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/epam.F5ovAA.meta,f/c/fc4e3d17a6056b444fdb698f1c3bfbcd5af62350
-¸
-‡.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/information_schema.FNRwLQ.meta,e/b/eb0c262b312d92b2618358953f9ec5df1056bf40
-¯
-.idea/dataSources/faa2baaf-ee99-4b40-9bcc-f79d3822d91b/storage_v2/_src_/database/epam_test.uhkxvA/schema/pg_catalog.0S1ZNQ.meta,9/a/9a44a08d064027682d74748ac6631a7d8f8baf0a
 I
 src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
-j
-:.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2.xml,3\d\3d85f972207e950affbb1f88c95863214abdd32d
-¤
-t.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/epam.F5ovAA.meta,4\2\424c97d7601bfa7487487c22d92c60c9c1984b3e
-¦
-v.idea/dataSources/01aaa583-71ff-4198-9277-c15f55a949e2/storage_v2/_src_/database/epam.F5ovAA/schema/public.abK9xQ.meta,e\b\eb641fe5cb933ef0ff5b768296a673fc24ee2525
 O
 src/main/webapp/pages/index.jsp,6\d\6d1882855c5a6ca4ae29c49e862e7c6d94997549
 Q
@@ -160,8 +140,6 @@ l
 <src/main/java/com/servlet/ejournal/services/dto/UserDTO.java,2\7\274586df3aff69b6ccceef5028c518b42796d031
 m
 =src/main/java/com/servlet/ejournal/services/dto/TopicDTO.java,5\6\5604313f126a87cb26b7704258d96bd7da7e62b0
-w
-Gsrc/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java,c\4\c47b746a7e418a100737a2462808350a984ad767
 y
 Isrc/main/java/com/servlet/ejournal/controller/filters/EncodingFilter.java,c\e\ce438b66657a4bbde57dcafe243536435d3695d2
 w
@@ -170,12 +148,8 @@ Gsrc/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java,b\3\b3
 Msrc/main/java/com/servlet/ejournal/utils/tag_handlers/DateOnlyTagHandler.java,6\9\6955a1cad29d7218e613c5497bb92cd1943a046d
 
 Osrc/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java,6\f\6fa581565da50395ae1af37eececf41699659ce5
-r
-Bsrc/main/java/com/servlet/ejournal/context/ApplicationContext.java,c\8\c886dd3cb524c23db9cd5f3a03cdfb25c384f25b
 w
 Gsrc/main/java/com/servlet/ejournal/controller/commands/CommandPool.java,8\a\8ae060de89947f651b23fa23fe2513ffe599d7d3
-O
-src/main/webapp/pages/error.jsp,9\9\99913bd45b22c0fbd30ca43131af12570289d3fc
 e
 5src/main/java/com/servlet/ejournal/utils/SqlUtil.java,0\6\06cf436a29805fa3b4176f2db71e4d1fea0b9c91
 r

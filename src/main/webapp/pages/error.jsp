@@ -9,11 +9,11 @@
         <fmt:message key="error_message"/>
     </h1>
 
-<%--    <jsp:scriptlet>--%>
+    <jsp:scriptlet>
 
-<%--            exception.printStackTrace(response.getWriter())--%>
+            exception.printStackTrace(response.getWriter())
 
-<%--    </jsp:scriptlet>--%>
+    </jsp:scriptlet>
 
     <div class="row row-cols-1 w-100 justify-content-center">
         <div class="col w-75">

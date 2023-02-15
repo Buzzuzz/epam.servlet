@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-223.8617.56">
-    <data-source name="postgres@localhost" uuid="01aaa583-71ff-4198-9277-c15f55a949e2">
-      <database-info product="PostgreSQL" version="15.1" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="15.1" exact-driver-version="42.5">
+    <data-source name="epam@localhost" uuid="25a3c277-da80-4898-b921-37e8649ae894">
+      <database-info product="PostgreSQL" version="15.2 (Ubuntu 15.2-1.pgdg22.04+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="15.2" exact-driver-version="42.5">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>postgres</user-name>
+      <user-name>adminter</user-name>
       <schema-mapping>
         <introspection-scope>
           <node negative="1">
@@ -15,30 +15,6 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="epam">
-              <node kind="schema">
-                <name qname="epam" />
-                <name qname="public" />
-              </node>
-            </node>
-            <node kind="database" qname="postgres" />
-          </node>
-        </introspection-scope>
-      </schema-mapping>
-    </data-source>
-    <data-source name="epam_test@localhost" uuid="faa2baaf-ee99-4b40-9bcc-f79d3822d91b">
-      <database-info product="PostgreSQL" version="12.13 (Ubuntu 12.13-1.pgdg20.04+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.5.0" dbms="POSTGRES" exact-version="12.13" exact-driver-version="42.5">
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>postgres</user-name>
-      <schema-mapping>
-        <introspection-scope>
-          <node negative="1">
-            <node kind="database" qname="@">
-              <node kind="schema" qname="@" />
-            </node>
-            <node kind="database" qname="epam_test">
               <node kind="schema" qname="epam" />
             </node>
           </node>
