@@ -1,9 +1,7 @@
 package com.servlet.ejournal.model.dao;
 
-import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.exceptions.DAOException;
 import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.log4j.Log4j2;
 
 import java.sql.Connection;
@@ -12,30 +10,32 @@ import java.sql.SQLException;
 /**
  * DataSource class to get connection to database. <br>
  * Config file (default) for database connection located
- * <a href="/src/main/resources/db.properties">here.</a> <br>
+ * <a href="src/main/resources/db.properties">here.</a> <br>
  * For connection pool used HikariCP.
  */
 @Log4j2
-public class DataSource {
-    private static final HikariConfig config;
-    private static final javax.sql.DataSource ds;
-    private static final String PATH = AttributeConstants.CONNECTION_POOL_CONFIG;
+public class HikariDataSource {
+    private static HikariDataSource instance;
+    private static javax.sql.DataSource ds;
 
-    static {
+    // Suppress constructor
+    private HikariDataSource(String path) {
         try {
             log.trace("Connection pool configuration...");
-            config = new HikariConfig(PATH);
-            ds = new HikariDataSource(config);
+            HikariConfig config = new HikariConfig(path);
+            ds = new com.zaxxer.hikari.HikariDataSource(config);
             log.trace("Connection pool configured successful!");
         } catch (Exception e) {
-            e.printStackTrace();
-            log.fatal("Can't configure connection pool!");
+            log.fatal("Can't configure connection pool!", e);
             throw new DAOException("Can't config connection pool", e);
         }
     }
 
-    // Suppress constructor
-    private DataSource() {
+    public static synchronized HikariDataSource getInstance(String path) {
+        if (instance == null) {
+            instance = new HikariDataSource(path);
+        }
+        return instance;
     }
 
     /**

@@ -23,7 +23,7 @@ import java.sql.Connection;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.servlet.ejournal.model.dao.DataSource.*;
+import static com.servlet.ejournal.model.dao.HikariDataSource.*;
 
 @Log4j2
 @Getter

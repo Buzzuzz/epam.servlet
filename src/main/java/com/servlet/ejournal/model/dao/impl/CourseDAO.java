@@ -9,7 +9,7 @@ import com.servlet.ejournal.model.dao.interfaces.DAO;
 import java.sql.*;
 import java.util.*;
 
-import static com.servlet.ejournal.model.dao.DataSource.*;
+import static com.servlet.ejournal.model.dao.HikariDataSource.*;
 import static com.servlet.ejournal.constants.SQLQueries.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
@@ -65,7 +65,6 @@ public class CourseDAO implements DAO<Course> {
         List<Course> courses = new ArrayList<>();
         String query = getAllEntitiesQuery(JOIN_COURSE_TOPIC_USER_TEACHER_TABLE, limit, offset, sorting, filters);
 
-        log.fatal(query);
         try (PreparedStatement statement = con.prepareStatement(query); ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 get(con, resultSet.getLong(COURSE_ID)).ifPresent(courses::add);

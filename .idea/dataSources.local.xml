@@ -15,7 +15,10 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="epam">
-              <node kind="schema" qname="epam" />
+              <node kind="schema">
+                <name qname="epam" />
+                <name qname="public" />
+              </node>
             </node>
           </node>
         </introspection-scope>

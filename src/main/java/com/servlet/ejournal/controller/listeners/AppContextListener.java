@@ -1,6 +1,7 @@
 package com.servlet.ejournal.controller.listeners;
 
 import com.servlet.ejournal.context.ApplicationContext;
+import com.servlet.ejournal.exceptions.ApplicationContextException;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
@@ -30,8 +31,14 @@ public class AppContextListener implements ServletContextListener {
         context.setAttribute(CONTROLLER_ATTR, String.format("%s%s", context.getContextPath(), CONTROLLER_MAPPING));
         log.info("Controller path mapping set successful!");
 
-        context.setAttribute(APPLICATION_CONTEXT, ApplicationContext.getInstance());
-        log.info("Application context set successful!");
+        try {
+            context.setAttribute(APPLICATION_CONTEXT, ApplicationContext.getInstance());
+            log.info("Application context set successful!");
+        } catch (ApplicationContextException e) {
+            log.error(e.getMessage(), e);
+            context.setAttribute(APPLICATION_CONTEXT, null);
+            log.fatal("Application context wasn't initialized! See logs for more info...");
+        }
     }
 
     /**

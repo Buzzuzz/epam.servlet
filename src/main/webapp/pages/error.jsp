@@ -1,6 +1,6 @@
 <%@page isErrorPage="true" %>
 <%@include file="../components/metadata.jspf" %>
-<html lang="${sessionScope.locale}">
+<html lang="${cookie['locale'].value}">
 <%@include file="../components/head.jspf" %>
 <body>
 <%@include file="../components/menu.jspf" %>

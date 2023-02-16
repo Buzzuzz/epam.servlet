@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.*;
 
 import static com.servlet.ejournal.constants.SQLQueries.*;
-import static com.servlet.ejournal.model.dao.DataSource.*;
+import static com.servlet.ejournal.model.dao.HikariDataSource.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 

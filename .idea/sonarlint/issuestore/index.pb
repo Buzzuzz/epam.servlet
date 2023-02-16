@@ -1,12 +1,8 @@
 
 I
 src/main/webapp/style.css,b\5\b5ddf58625eb7ca70f6133d70f13d616e61eadd7
-O
-src/main/webapp/pages/index.jsp,6\d\6d1882855c5a6ca4ae29c49e862e7c6d94997549
 Q
 !src/main/webapp/pages/restore.jsp,d\c\dcd64f48ab77e701c27768b7badae1723b2ca46c
-X
-(src/main/webapp/components/metadata.jspf,c\9\c9285f2570b0a57313b914bf65baed92ff4549d7
 O
 src/main/webapp/pages/users.jsp,9\2\92522604fe0b3dbcf72e0e58c1ecac7e547ca59b
 P
@@ -27,8 +23,6 @@ s
 Csrc/main/java/com/servlet/ejournal/exceptions/CommandException.java,7\2\72b5dc1e0e2fdbd8b5a7200d109b0824974f8fa5
 m
 =src/main/java/com/servlet/ejournal/model/entities/Course.java,2\a\2aeea73ac04f22486175594ab632d72b5c560064
-W
-'src/main/webapp/WEB-INF/tags/Course.tag,0\1\01b76a9389d95a4d65579a6bbd207491a2471941
 o
 ?src/main/java/com/servlet/ejournal/exceptions/DAOException.java,2\4\240a808b1446a5754a785825e981349841324830
 Y
@@ -63,8 +57,6 @@ o
 ?src/main/java/com/servlet/ejournal/model/entities/UserType.java,b\a\ba9b8944d376c09a523500d2f9bb04af8484afdc
 p
 @src/main/java/com/servlet/ejournal/exceptions/UtilException.java,d\2\d228c7220c7353b07d672f0b054195071542a149
-r
-Bsrc/main/java/com/servlet/ejournal/exceptions/ValidationError.java,a\2\a29ec46a12dc5992a96edbe1709c30e7c42feb6f
 O
 src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
 m
@@ -87,8 +79,6 @@ p
 @src/test/java/com/servlet/ejournal/services/TestUserService.java,3\a\3a7fb9b6d12d4cf75ec404d6433a6aec0f970fe8
 V
 &src/main/webapp/components/footer.jspf,2\6\26b3095d40a790d372e975ab3eb689d92183dd77
-T
-$src/main/webapp/components/head.jspf,b\4\b4bbcf6255cf8a7378728c7e7c77f99bbaa1c483
 n
 >src/main/java/com/servlet/ejournal/utils/PasswordHashUtil.java,4\9\4955d199d2ded3933794dc1ee806b11374879698
 o
@@ -108,24 +98,6 @@ l
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-p
-@src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java,3\7\37885727c886d0a0a7c9d7eb27dae7a66a6113f8
-l
-<src/main/java/com/servlet/ejournal/model/dao/DataSource.java,1\4\1489434fd54ecb6abaa5ae66efd840505c3cbeed
-w
-Gsrc/main/java/com/servlet/ejournal/model/dao/impl/TeacherCourseDAO.java,2\1\21a9db906dd26bcc5ba26d64b3e76fec18b436be
-u
-Esrc/main/java/com/servlet/ejournal/model/dao/impl/TopicCourseDAO.java,a\d\adb33f309694fabdf87f24675618b3a04972684c
-o
-?src/main/java/com/servlet/ejournal/model/dao/impl/TopicDAO.java,b\5\b50472f2555d3a57647fbe2d2f1b2b9f4cbb80e3
-v
-Fsrc/main/java/com/servlet/ejournal/services/impl/TopicServiceImpl.java,b\5\b5181e38026ab1db5e5a40be7add9bed1cc78e5d
-t
-Dsrc/main/java/com/servlet/ejournal/model/dao/impl/UserCourseDAO.java,5\6\56253a0a0f55fca53bc96e4b628a179d5e0ca762
-n
->src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java,6\9\69b420fc4e8a96058576e199c2004e1cbb735877
-u
-Esrc/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java,2\e\2e59f14e5f9d83206399e694a26dda06ef93f09d
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 ‹
@@ -146,8 +118,6 @@ w
 Gsrc/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java,b\3\b33f06db83d8912244d66aec7a64b0da280d5fe0
 }
 Msrc/main/java/com/servlet/ejournal/utils/tag_handlers/DateOnlyTagHandler.java,6\9\6955a1cad29d7218e613c5497bb92cd1943a046d
-
-Osrc/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java,6\f\6fa581565da50395ae1af37eececf41699659ce5
 w
 Gsrc/main/java/com/servlet/ejournal/controller/commands/CommandPool.java,8\a\8ae060de89947f651b23fa23fe2513ffe599d7d3
 e

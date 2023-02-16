@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ attribute name="value" type="com.servlet.ejournal.services.dto.FullCourseDTO" required="true" %>
-<fmt:setLocale value="${sessionScope.locale}"/>
+<fmt:setLocale value="${cookie['locale'].value}"/>
 <fmt:setBundle basename="locale"/>
 
 <form action="${pageContext.request.contextPath}/controller" method="get">
