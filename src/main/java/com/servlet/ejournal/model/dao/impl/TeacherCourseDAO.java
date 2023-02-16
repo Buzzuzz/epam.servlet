@@ -2,7 +2,9 @@ package com.servlet.ejournal.model.dao.impl;
 
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.model.dao.HikariDataSource;
 import com.servlet.ejournal.model.dao.interfaces.IntermediateTable;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.model.dao.interfaces.DAO;
 import com.servlet.ejournal.model.entities.TeacherCourse;
@@ -10,23 +12,27 @@ import com.servlet.ejournal.model.entities.TeacherCourse;
 import java.sql.*;
 import java.util.*;
 
-import static com.servlet.ejournal.model.dao.HikariDataSource.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static com.servlet.ejournal.constants.SQLQueries.*;
 
 @Log4j2
+@AllArgsConstructor
 public class TeacherCourseDAO implements DAO<TeacherCourse>, IntermediateTable<TeacherCourse> {
-    // Suppress constructor
-    private TeacherCourseDAO() {
-    }
+    private static TeacherCourseDAO instance;
+    private final HikariDataSource source;
 
-    private static class Holder {
-        private static final TeacherCourseDAO dao = new TeacherCourseDAO();
-    }
-
-    public static TeacherCourseDAO getInstance() {
-        return Holder.dao;
+    /**
+     * Method to get instance of current class
+     *
+     * @param source - {@link HikariDataSource DataSource} for getting connections to database
+     * @return instance of current class for specified entity {@link TeacherCourse}
+     */
+    public static synchronized TeacherCourseDAO getInstance(HikariDataSource source) {
+        if (instance == null) {
+            instance = new TeacherCourseDAO(source);
+        }
+        return instance;
     }
 
     @Override
@@ -36,15 +42,12 @@ public class TeacherCourseDAO implements DAO<TeacherCourse>, IntermediateTable<T
         try (PreparedStatement statement = con.prepareStatement(SQLQueries.FIND_TEACHER_COURSE_BY_ID)) {
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return Optional.of(createTeacherCourseObject(resultSet));
-            }
-            return Optional.empty();
+            return resultSet.next() ? Optional.of(createTeacherCourseObject(resultSet)) : Optional.empty();
         } catch (SQLException e) {
             log.error("Can't get teacher_course from database, course id: " + id, e);
             throw new DAOException("Can't get teacher_course from database, course id: " + id, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
@@ -65,7 +68,7 @@ public class TeacherCourseDAO implements DAO<TeacherCourse>, IntermediateTable<T
             log.error(msg, e);
             throw new DAOException(msg, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
@@ -124,7 +127,7 @@ public class TeacherCourseDAO implements DAO<TeacherCourse>, IntermediateTable<T
             log.error("Can't add teacher_course to database", e);
             throw new DAOException("Can't add teacher_course to database", e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 

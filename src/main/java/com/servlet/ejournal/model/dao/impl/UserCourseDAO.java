@@ -2,6 +2,7 @@ package com.servlet.ejournal.model.dao.impl;
 
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.model.dao.HikariDataSource;
 import com.servlet.ejournal.model.dao.interfaces.IntermediateTable;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.model.dao.interfaces.DAO;
@@ -16,13 +17,27 @@ import static com.servlet.ejournal.constants.AttributeConstants.*;
 
 @Log4j2
 public class UserCourseDAO implements DAO<UserCourse>, IntermediateTable<UserCourse> {
-    public static UserCourseDAO getInstance() {
-        return Holder.dao;
+    private static UserCourseDAO instance;
+    private final HikariDataSource source;
+
+    private UserCourseDAO(HikariDataSource source) {
+        this.source = source;
     }
 
-    private static class Holder {
-        private static final UserCourseDAO dao = new UserCourseDAO();
+    /**
+     * Method to acquire instance of current class
+     *
+     * @param source - {@link HikariDataSource DataSource} to get connection to database
+     * @return instance of {@link DAO dao} implementation for specified entity {@link UserCourse}
+     */
+
+    public static synchronized UserCourseDAO getInstance(HikariDataSource source) {
+        if (instance == null) {
+            instance = new UserCourseDAO(source);
+        }
+        return instance;
     }
+
 
     @Override
     public Optional<UserCourse> get(Connection con, long id) throws DAOException {
@@ -32,15 +47,12 @@ public class UserCourseDAO implements DAO<UserCourse>, IntermediateTable<UserCou
             statement.setLong(1, id);
             statement.setLong(2, -1);
             resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return Optional.of(createUserCourseObject(resultSet));
-            }
-            return Optional.empty();
+            return resultSet.next() ? Optional.of(createUserCourseObject(resultSet)) : Optional.empty();
         } catch (SQLException e) {
             log.error("Can't get join table user-course, id: " + id, e);
             throw new DAOException("Can't get join table user-course, id: " + id, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
@@ -61,7 +73,7 @@ public class UserCourseDAO implements DAO<UserCourse>, IntermediateTable<UserCou
             log.error(msg, e);
             throw new DAOException(msg, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
@@ -118,7 +130,7 @@ public class UserCourseDAO implements DAO<UserCourse>, IntermediateTable<UserCou
             log.error("Can't insert user_course", e);
             throw new DAOException("Can't insert user_course", e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 

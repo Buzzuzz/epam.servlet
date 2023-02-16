@@ -46,12 +46,12 @@ public class ApplicationContext {
         log.info("Application context initialization...");
         this.dataSource = HikariDataSource.getInstance(getDataBaseConfigPath());
 
-        this.courseDAO = CourseDAO.getInstance();
-        this.userDAO = UserDAO.getInstance();
-        this.topicDAO = TopicDAO.getInstance();
-        this.topicCourseDAO = TopicCourseDAO.getInstance();
-        this.userCourseDAO = UserCourseDAO.getInstance();
-        this.teacherCourseDAO = TeacherCourseDAO.getInstance();
+        this.courseDAO = CourseDAO.getInstance(dataSource);
+        this.userDAO = UserDAO.getInstance(dataSource);
+        this.topicDAO = TopicDAO.getInstance(dataSource);
+        this.topicCourseDAO = TopicCourseDAO.getInstance(dataSource);
+        this.userCourseDAO = UserCourseDAO.getInstance(dataSource);
+        this.teacherCourseDAO = TeacherCourseDAO.getInstance(dataSource);
         this.userCourseIntermediateTable = (IntermediateTable<UserCourse>) userCourseDAO;
         this.teacherCourseIntermediateTable = (IntermediateTable<TeacherCourse>) teacherCourseDAO;
         this.topicCourseIntermediateTable = (IntermediateTable<TopicCourse>) topicCourseDAO;

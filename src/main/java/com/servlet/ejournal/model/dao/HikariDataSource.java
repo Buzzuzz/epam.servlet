@@ -10,13 +10,13 @@ import java.sql.SQLException;
 /**
  * DataSource class to get connection to database. <br>
  * Config file (default) for database connection located
- * <a href="src/main/resources/db.properties">here.</a> <br>
+ * <a href="src/main/resources/db/db.properties">here.</a> <br>
  * For connection pool used HikariCP.
  */
 @Log4j2
 public class HikariDataSource {
     private static HikariDataSource instance;
-    private static javax.sql.DataSource ds;
+    private javax.sql.DataSource ds;
 
     // Suppress constructor
     private HikariDataSource(String path) {
@@ -44,7 +44,7 @@ public class HikariDataSource {
      * @return {@link Connection} to database defined in config file
      * @throws DAOException In case Hikari couldn't establish connection
      */
-    public static Connection getConnection() throws DAOException {
+    public Connection getConnection() throws DAOException {
         try {
             log.trace("Acquiring connection...");
             return ds.getConnection();
@@ -55,7 +55,7 @@ public class HikariDataSource {
         }
     }
 
-    public static void close(AutoCloseable closeable) throws DAOException {
+    public void close(AutoCloseable closeable) throws DAOException {
         try {
             if (closeable != null) {
                 closeable.close();
@@ -72,7 +72,7 @@ public class HikariDataSource {
      *
      * @param con {@link Connection} on which will be tried rollback
      */
-    public static void rollback(Connection con) throws DAOException {
+    public void rollback(Connection con) throws DAOException {
         try {
             con.rollback();
             log.trace("Transaction rolled back!");
@@ -82,7 +82,7 @@ public class HikariDataSource {
         }
     }
 
-    public static void commit(Connection con) {
+    public void commit(Connection con) {
         try {
             con.commit();
             log.trace("Transaction committed!");
@@ -92,7 +92,7 @@ public class HikariDataSource {
         }
     }
 
-    public static void setAutoCommit(Connection con, boolean type) {
+    public void setAutoCommit(Connection con, boolean type) {
         try {
             if (con != null) {
                 con.setAutoCommit(type);

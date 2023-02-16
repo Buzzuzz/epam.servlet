@@ -2,14 +2,15 @@ package com.servlet.ejournal.model.dao.impl;
 
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.model.dao.HikariDataSource;
 import com.servlet.ejournal.model.entities.Course;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.model.dao.interfaces.DAO;
 
 import java.sql.*;
 import java.util.*;
 
-import static com.servlet.ejournal.model.dao.HikariDataSource.*;
 import static com.servlet.ejournal.constants.SQLQueries.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
@@ -20,23 +21,24 @@ import static com.servlet.ejournal.constants.AttributeConstants.*;
  * for Course table from DataBase (Course entity specified).
  */
 @Log4j2
+@AllArgsConstructor
 public class CourseDAO implements DAO<Course> {
-    // Suppress constructor
-    private CourseDAO() {
-    }
+    private static CourseDAO instance;
+    private final HikariDataSource source;
 
     /**
      * Method to acquire specified {@link DAO} implementation ({@link Course} in this case).
      * Singleton pattern
      *
+     * @param source DataSource to acquire connection to database
      * @return {@link DAO} implementation for {@link Course} entity.
+     * @
      */
-    public static CourseDAO getInstance() {
-        return Holder.dao;
-    }
-
-    private static class Holder {
-        private static final CourseDAO dao = new CourseDAO();
+    public static synchronized CourseDAO getInstance(HikariDataSource source) {
+        if (instance == null) {
+            instance = new CourseDAO(source);
+        }
+        return instance;
     }
 
     @Override
@@ -55,7 +57,7 @@ public class CourseDAO implements DAO<Course> {
             log.error(msg, e);
             throw new DAOException(msg, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
 
     }
@@ -113,7 +115,7 @@ public class CourseDAO implements DAO<Course> {
             log.error("Can't create specified course" + course.getC_id(), e);
             throw new DAOException("Can't create specified course " + course.getC_id(), e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 

@@ -2,6 +2,7 @@ package com.servlet.ejournal.model.dao.impl;
 
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.model.dao.HikariDataSource;
 import com.servlet.ejournal.model.dao.interfaces.DAO;
 import com.servlet.ejournal.model.entities.User;
 import com.servlet.ejournal.model.entities.UserType;
@@ -11,7 +12,6 @@ import com.servlet.ejournal.utils.SqlUtil;
 import java.sql.*;
 import java.util.*;
 
-import static com.servlet.ejournal.model.dao.HikariDataSource.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 
 
@@ -22,26 +22,25 @@ import static com.servlet.ejournal.constants.AttributeConstants.*;
  */
 @Log4j2
 public class UserDAO implements DAO<User> {
+    private static UserDAO instance;
+    private final HikariDataSource source;
 
     //Suppress constructor
-    private UserDAO() {
+    private UserDAO(HikariDataSource source) {
+        this.source = source;
     }
 
     /**
-     * Method to acquire instance of this class (one and only one, singleton pattern)
+     * Method to get instance of UserDao implementation
      *
+     * @param source DataSource to acquire connection to database
      * @return {@link DAO} implementation for specified entity (Currently, {@link UserDAO}).
      */
-    public static UserDAO getInstance() {
-        return Holder.dao;
-    }
-
-    /**
-     * Nested Holder class that holds instance of {@link DAO} implementation (Currently, UserDAO).
-     * Implementation of Singleton pattern.
-     */
-    private static class Holder {
-        private static final UserDAO dao = new UserDAO();
+    public static synchronized UserDAO getInstance(HikariDataSource source) {
+        if (instance == null) {
+            instance = new UserDAO(source);
+        }
+        return instance;
     }
 
     public Optional<User> get(Connection con, long id) throws DAOException {
@@ -58,7 +57,7 @@ public class UserDAO implements DAO<User> {
             log.error("Can't get user from database, id: " + id, e);
             throw new DAOException("Can't get user from database, id: " + id, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
@@ -68,15 +67,12 @@ public class UserDAO implements DAO<User> {
         try (PreparedStatement statement = con.prepareStatement(SQLQueries.FIND_USER_BY_EMAIL)) {
             statement.setString(1, email);
             resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return Optional.of(createUserObject(resultSet));
-            }
-            return Optional.empty();
+            return resultSet.next() ? Optional.of(createUserObject(resultSet)) : Optional.empty();
         } catch (SQLException e) {
             log.error("Can't get user from database, email: " + email, e);
             throw new DAOException("Can't get user from database, email: " + email, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
@@ -135,7 +131,7 @@ public class UserDAO implements DAO<User> {
             log.error("Can't add user to database", e);
             throw new DAOException("Can't add user to database", e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 

@@ -2,6 +2,7 @@ package com.servlet.ejournal.model.dao.impl;
 
 import com.servlet.ejournal.constants.SQLQueries;
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.model.dao.HikariDataSource;
 import com.servlet.ejournal.model.dao.interfaces.DAO;
 import com.servlet.ejournal.model.entities.Topic;
 import com.servlet.ejournal.utils.SqlUtil;
@@ -12,7 +13,6 @@ import java.util.*;
 
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 import static com.servlet.ejournal.constants.SQLQueries.*;
-import static com.servlet.ejournal.model.dao.HikariDataSource.*;
 
 /**
  * TopicDAO class is implementation of {@link DAO} interface for Topic table.
@@ -20,21 +20,25 @@ import static com.servlet.ejournal.model.dao.HikariDataSource.*;
  */
 @Log4j2
 public class TopicDAO implements DAO<Topic> {
+    private static TopicDAO instance;
+    private final HikariDataSource source;
+
     //Suppress constructor
-    private TopicDAO() {
+    private TopicDAO(HikariDataSource source) {
+        this.source = source;
     }
 
     /**
-     * Method to acquire TopicDAO implementation of {@link DAO} interface (singleton pattern).
+     * Method to get TopicDao instance (singleton)
      *
+     * @param source - DataSource from where to acquire connections
      * @return {@link DAO} implementation for specified entity ({@link Topic} in this case)
      */
-    public static TopicDAO getInstance() {
-        return Holder.dao;
-    }
-
-    private static class Holder {
-        private static final TopicDAO dao = new TopicDAO();
+    public static synchronized TopicDAO getInstance(HikariDataSource source) {
+        if (instance == null) {
+            instance = new TopicDAO(source);
+        }
+        return instance;
     }
 
     @Override
@@ -44,16 +48,13 @@ public class TopicDAO implements DAO<Topic> {
         try (PreparedStatement statement = con.prepareStatement(FIND_TOPIC_BY_ID)) {
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return Optional.of(createTopicObject(resultSet));
-            }
-            return Optional.empty();
+            return resultSet.next() ? Optional.of(createTopicObject(resultSet)) : Optional.empty();
         } catch (SQLException e) {
             String message = String.format("%s %s", "Can't get topic from database, id:", id);
             log.error(message, e);
             throw new DAOException(message, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
@@ -118,7 +119,7 @@ public class TopicDAO implements DAO<Topic> {
             log.error("Can't add topic to database", e);
             throw new DAOException("Can't add topic to database", e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 

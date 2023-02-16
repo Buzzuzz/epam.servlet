@@ -1,7 +1,9 @@
 package com.servlet.ejournal.model.dao.impl;
 
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.model.dao.HikariDataSource;
 import com.servlet.ejournal.model.dao.interfaces.IntermediateTable;
+import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.model.dao.interfaces.DAO;
 import com.servlet.ejournal.model.entities.TopicCourse;
@@ -10,19 +12,26 @@ import java.sql.*;
 import java.util.*;
 
 import static com.servlet.ejournal.constants.SQLQueries.*;
-import static com.servlet.ejournal.model.dao.HikariDataSource.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
 
 @Log4j2
+@AllArgsConstructor
 public class TopicCourseDAO implements DAO<TopicCourse>, IntermediateTable<TopicCourse> {
+    private static TopicCourseDAO instance;
+    private final HikariDataSource source;
 
-    public static TopicCourseDAO getInstance() {
-        return Holder.dao;
-    }
-
-    private static class Holder {
-        private static final TopicCourseDAO dao = new TopicCourseDAO();
+    /**
+     * Method to acquire instance of current class
+     *
+     * @param source {@link HikariDataSource DataSource} for getting connections to database
+     * @return instance of {@link DAO} class for specified entity {@link TopicCourse}
+     */
+    public static synchronized TopicCourseDAO getInstance(HikariDataSource source) {
+        if (instance == null) {
+            instance = new TopicCourseDAO(source);
+        }
+        return instance;
     }
 
     @Override
@@ -32,15 +41,12 @@ public class TopicCourseDAO implements DAO<TopicCourse>, IntermediateTable<Topic
         try (PreparedStatement statement = con.prepareStatement(FIND_TOPIC_COURSE_BY_C_ID)) {
             statement.setLong(1, id);
             resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return Optional.of(createTopicCourseObject(resultSet));
-            }
-            return Optional.empty();
+            return resultSet.next() ? Optional.of(createTopicCourseObject(resultSet)) : Optional.empty();
         } catch (SQLException e) {
             log.error("Can't get topic_course, id: " + id, e);
             throw new DAOException("Can't get topic_course, id: " + id, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
@@ -61,7 +67,7 @@ public class TopicCourseDAO implements DAO<TopicCourse>, IntermediateTable<Topic
             log.error(msg, e);
             throw new DAOException(msg, e);
         } finally {
-            close(resultSet);
+            source.close(resultSet);
         }
     }
 
