@@ -24,8 +24,6 @@ public class ValidationUtil {
     private ValidationUtil() {
     }
 
-    private UserDAO dao = UserDAO.getInstance();
-
     private static class Holder {
         private static final ValidationUtil util = new ValidationUtil();
     }
@@ -41,7 +39,7 @@ public class ValidationUtil {
      * @param email Email to be checked for presence in database
      * @return NONE error {@link ValidationError} if email isn't registered (is unique), EMAIL error otherwise
      */
-    public ValidationError isEmailUnique(Connection con, String email) throws UtilException {
+    public ValidationError isEmailUnique(UserDAO dao, Connection con, String email) throws UtilException {
         try {
             if (con == null || email == null) throw new DAOException("One of parameters is null!");
             return dao.getByEmail(con, email).isPresent() ? EMAIL : NONE;
@@ -58,16 +56,13 @@ public class ValidationUtil {
      * @param repeatPassword repeated password from form to validate
      * @return {@link ValidationError} constant with info about error (or it absence)
      */
-    public ValidationError isNewUserValid(Connection con, User user, String repeatPassword) throws UtilException {
-        if (isEmailUnique(con, user.getEmail()).equals(NONE)) {
-            if (validatePassword(user.getPassword()).equals(NONE)) {
-                if (validateRepeatPassword(user.getPassword(), repeatPassword).equals(NONE)) {
-                    if (validatePhoneNumber(user.getPhone()).equals(NONE)) {
-                        return NONE;
-                    } else return PHONE_NUMBER;
-                } else return PASSWORD_REPEAT;
-            } else return PASSWORD;
-        } else return EMAIL;
+    public ValidationError isNewUserValid(UserDAO dao, Connection con, User user, String repeatPassword) throws UtilException {
+        if (!isEmailUnique(dao, con, user.getEmail()).equals(NONE)) return EMAIL;
+        if (!validatePassword(user.getPassword()).equals(NONE)) return PASSWORD;
+        if (!validateRepeatPassword(user.getPassword(), repeatPassword).equals(NONE)) return PASSWORD_REPEAT;
+        if (!validatePhoneNumber(user.getPhone()).equals(NONE)) return PHONE_NUMBER;
+
+        return NONE;
     }
 
     public static ValidationError validatePassword(String password) {

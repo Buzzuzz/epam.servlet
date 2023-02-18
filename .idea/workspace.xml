@@ -10,30 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="small locale fix (null safety added)">
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/ApplicationContextException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/exceptions/ConfigException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/props.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/AttributeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/constants/AttributeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/context/ApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/context/ApplicationContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/controller/listeners/AppContextListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/DataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/HikariDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TeacherCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TeacherCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/TopicDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserCourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/impl/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/TopicServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/TopicServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/urls.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/Course.tag" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/ValidationUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestValidationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/utils/TestValidationUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +92,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "preferences.rainbow.brackets",
     "settings.editor.splitter.proportion": "0.24691358",
     "vue.rearranger.settings.migration": "true"
   },
@@ -154,7 +135,7 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 10.1.5">
+  <component name="RunManager" selected="JUnit.All in epam-servlet">
     <configuration name="All in epam-servlet" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="epam-servlet" />
       <option name="PACKAGE_NAME" value="" />
@@ -246,7 +227,7 @@
     </configuration>
     <configuration name="Tomcat 10.1.5" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.5" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/epam_servlet_war_exploded" />
-      <option name="BROWSER_ID" value="1a5e7337-b2d1-400b-9640-ce92e0f932bd" />
+      <option name="BROWSER_ID" value="0cdc1403-888b-4784-9d4f-879a2bf292af" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="redeploy-artifacts" />
@@ -531,6 +512,12 @@
       <workItem from="1676500499258" duration="89000" />
       <workItem from="1676500788436" duration="744000" />
       <workItem from="1676502837242" duration="8649000" />
+      <workItem from="1676659856335" duration="15000" />
+      <workItem from="1676659879180" duration="475000" />
+      <workItem from="1676660367360" duration="88000" />
+      <workItem from="1676667796585" duration="278000" />
+      <workItem from="1676668088286" duration="8000" />
+      <workItem from="1676683334782" duration="896000" />
     </task>
     <task id="LOCAL-00058" summary="user service, commands, validation util, request builder refactor">
       <created>1673785889921</created>

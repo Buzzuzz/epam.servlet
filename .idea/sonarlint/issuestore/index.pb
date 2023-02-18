@@ -81,8 +81,6 @@ V
 &src/main/webapp/components/footer.jspf,2\6\26b3095d40a790d372e975ab3eb689d92183dd77
 n
 >src/main/java/com/servlet/ejournal/utils/PasswordHashUtil.java,4\9\4955d199d2ded3933794dc1ee806b11374879698
-o
-?src/main/java/com/servlet/ejournal/utils/DateFormatterUtil.java,3\8\38b520bd9aafc6ca7d0ff09a9f87c0cfcafbe4d7
 l
 <src/main/java/com/servlet/ejournal/utils/FullCourseUtil.java,a\c\acb84f1364e372e167cf65c583bd14771654a966
 Œ
@@ -93,8 +91,6 @@ b
 2src/main/java/com/servlet/ejournal/pools/Pool.java,a\0\a09e93105c9274f110a20f23c5870ebff5a4f988
 l
 <src/main/java/com/servlet/ejournal/utils/RequestBuilder.java,d\4\d46298f1d41619cc04c5d061ed54da100dd0cece
-l
-<src/main/java/com/servlet/ejournal/utils/ValidationUtil.java,e\4\e437220f10ec549fdad90c3a8b98a40d38dd048c
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -146,8 +142,6 @@ p
 @src/test/java/com/servlet/ejournal/utils/TestRequestBuilder.java,6\9\698b6f97f3f8550d7030d66ebdc7f81e1a98f022
 i
 9src/test/java/com/servlet/ejournal/utils/TestSqlUtil.java,b\1\b166bb58aec41a8f9004dde32212e951249f68ce
-p
-@src/test/java/com/servlet/ejournal/utils/TestValidationUtil.java,d\3\d3ba4d5ef9fa30a344d977856c8a663e5ae58609
 w
 Gsrc/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java,b\8\b871d2143ee3266ca450f0b838c8b113d024fb73
 p
@@ -196,3 +190,5 @@ p
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 v
 Fsrc/main/java/com/servlet/ejournal/constants/CommandNameConstants.java,0/9/09e4bece9930d92cc41729e4d2476bfc50aaf3ce
+o
+?src/main/java/com/servlet/ejournal/utils/DateFormatterUtil.java,3/8/38b520bd9aafc6ca7d0ff09a9f87c0cfcafbe4d7

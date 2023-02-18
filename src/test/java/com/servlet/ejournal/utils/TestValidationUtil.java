@@ -101,7 +101,6 @@ class TestValidationUtil {
             userDaoMock = mock(UserDAO.class);
             conMock = mock(Connection.class);
             util = ValidationUtil.getInstance();
-            util.setDao(userDaoMock);
             when(userDaoMock.getByEmail(conMock, user.getEmail())).thenReturn(Optional.empty());
         }
 
@@ -148,29 +147,28 @@ class TestValidationUtil {
             daoMock = mock(UserDAO.class);
             conMock = mock(Connection.class);
             util = ValidationUtil.getInstance();
-            util.setDao(daoMock);
             when(daoMock.getByEmail(conMock, user.getEmail())).thenReturn(Optional.of(user));
         }
 
         @Test
         void testEmailIsUnique() throws UtilException {
             when(daoMock.getByEmail(conMock, user.getEmail())).thenReturn(Optional.empty());
-            assertEquals(NONE, util.isEmailUnique(conMock, user.getEmail()));
+            assertEquals(NONE, util.isEmailUnique(daoMock, conMock, user.getEmail()));
         }
 
         @Test
         void testEmailIsNotUnique() throws UtilException {
-            assertEquals(EMAIL, util.isEmailUnique(conMock, user.getEmail()));
+            assertEquals(EMAIL, util.isEmailUnique(daoMock, conMock, user.getEmail()));
         }
 
         @Test
         void testIsEmailUniqueConnectionIsNull() {
-            assertThrows(UtilException.class, () -> util.isEmailUnique(null, user.getEmail()));
+            assertThrows(UtilException.class, () -> util.isEmailUnique(daoMock, null, user.getEmail()));
         }
 
         @Test
         void testIsEmailUniqueEmailIsNull() {
-            assertThrows(UtilException.class, () -> util.isEmailUnique(conMock, null));
+            assertThrows(UtilException.class, () -> util.isEmailUnique(daoMock, conMock, null));
         }
     }
 }
