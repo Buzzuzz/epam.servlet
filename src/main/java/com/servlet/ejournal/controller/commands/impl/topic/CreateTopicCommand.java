@@ -9,7 +9,6 @@ import com.servlet.ejournal.services.TopicService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.services.dto.TopicDTO;
-import com.servlet.ejournal.services.impl.TopicServiceImpl;
 import com.servlet.ejournal.utils.RequestBuilder;
 
 import static com.servlet.ejournal.constants.AttributeConstants.*;

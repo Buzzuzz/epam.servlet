@@ -56,9 +56,9 @@ public class ApplicationContext {
         this.teacherCourseIntermediateTable = (IntermediateTable<TeacherCourse>) teacherCourseDAO;
         this.topicCourseIntermediateTable = (IntermediateTable<TopicCourse>) topicCourseDAO;
 
-        this.userService = UserServiceImpl.getInstance();
-        this.courseService = CourseServiceImpl.getInstance();
-        this.topicService = TopicServiceImpl.getInstance();
+        this.userService = UserServiceImpl.getInstance(this);
+        this.courseService = CourseServiceImpl.getInstance(this);
+        this.topicService = TopicServiceImpl.getInstance(this);
 
         log.info("Application context initialized!");
     }

@@ -1,6 +1,8 @@
 package com.servlet.ejournal.utils;
 
 import com.servlet.ejournal.model.entities.*;
+import com.servlet.ejournal.services.TopicService;
+import com.servlet.ejournal.services.UserService;
 import com.servlet.ejournal.services.dto.FullCourseDTO;
 import com.servlet.ejournal.services.dto.TopicDTO;
 import com.servlet.ejournal.services.dto.UserDTO;
@@ -68,11 +70,11 @@ public class TestEntitiesUtil {
     }
 
     public static UserDTO createUserTestDTO() {
-        return UserServiceImpl.getInstance().getUserDTO(createTestUser());
+        return UserService.getUserDTO(createTestUser());
     }
 
     public static TopicDTO createTopicTestDTO() {
-        return TopicServiceImpl.getInstance().getTopicDTO(createTestTopic());
+        return TopicService.getTopicDTO(createTestTopic());
     }
 
     public static FullCourseDTO createFullCourseTestDTO() {

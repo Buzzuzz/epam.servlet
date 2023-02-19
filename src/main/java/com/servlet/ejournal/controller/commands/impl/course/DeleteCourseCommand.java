@@ -2,7 +2,7 @@ package com.servlet.ejournal.controller.commands.impl.course;
 
 import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.CommandNameConstants;
-import com.servlet.ejournal.services.impl.CourseServiceImpl;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +14,8 @@ public class DeleteCourseCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            CourseServiceImpl.getInstance().deleteCourse(Long.parseLong(req.getParameter(AttributeConstants.COURSE_ID)));
+            ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(AttributeConstants.APPLICATION_CONTEXT);
+            context.getCourseService().deleteCourse(Long.parseLong(req.getParameter(AttributeConstants.COURSE_ID)));
             return RequestBuilder.buildCommand(
                     req.getServletPath(),
                     CommandNameConstants.GET_ALL_COURSES_COMMAND,

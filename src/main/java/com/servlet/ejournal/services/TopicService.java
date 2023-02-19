@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface TopicService {
     List<TopicDTO> getAllTopics(int limit, int offset, String sorting);
+
     List<TopicDTO> getAllTopics();
 
     long createTopic(TopicDTO topicDTO) throws ServiceException;
@@ -16,9 +17,21 @@ public interface TopicService {
 
     long deleteTopic(long id) throws ServiceException;
 
-    Topic getTopicFromDTO(TopicDTO topicDTO);
+    static Topic getTopicFromDTO(TopicDTO topicDTO) {
+        return new Topic(
+                topicDTO.getTopicId(),
+                topicDTO.getTopicName(),
+                topicDTO.getTopicDescription()
+        );
+    }
 
-    TopicDTO getTopicDTO(Topic topic);
+    static TopicDTO getTopicDTO(Topic topic) {
+        return new TopicDTO(
+                topic.getT_id(),
+                topic.getName(),
+                topic.getDescription()
+        );
+    }
 
     int getTopicCount();
 }

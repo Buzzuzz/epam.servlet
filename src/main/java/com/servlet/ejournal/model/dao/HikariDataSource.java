@@ -16,7 +16,7 @@ import java.sql.SQLException;
 @Log4j2
 public class HikariDataSource {
     private static HikariDataSource instance;
-    private javax.sql.DataSource ds;
+    private final javax.sql.DataSource ds;
 
     // Suppress constructor
     private HikariDataSource(String path) {
@@ -67,11 +67,6 @@ public class HikariDataSource {
         }
     }
 
-    /**
-     * Method to try {@link Connection#rollback() rollback} transaction (and shorten boilerplate code)
-     *
-     * @param con {@link Connection} on which will be tried rollback
-     */
     public void rollback(Connection con) throws DAOException {
         try {
             con.rollback();

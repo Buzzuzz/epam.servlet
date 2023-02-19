@@ -2,8 +2,8 @@ package com.servlet.ejournal.controller.commands.impl.course;
 
 import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.CommandNameConstants;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.exceptions.ValidationError;
-import com.servlet.ejournal.services.impl.CourseServiceImpl;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,7 +11,6 @@ import com.servlet.ejournal.model.entities.UserCourse;
 import com.servlet.ejournal.services.CourseService;
 import com.servlet.ejournal.services.UserService;
 import com.servlet.ejournal.services.dto.UserCourseDTO;
-import com.servlet.ejournal.services.impl.UserServiceImpl;
 import com.servlet.ejournal.utils.RequestBuilder;
 import lombok.extern.log4j.Log4j2;
 
@@ -22,8 +21,9 @@ public class UpdateCourseMarks implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            UserService userService = UserServiceImpl.getInstance();
-            CourseService courseService = CourseServiceImpl.getInstance();
+            ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(AttributeConstants.APPLICATION_CONTEXT);
+            UserService userService = context.getUserService();
+            CourseService courseService = context.getCourseService();
             long courseId = Long.parseLong(req.getParameter(AttributeConstants.COURSE_ID));
             List<UserCourseDTO> userCourseList = userService.getEnrolledStudents(courseId);
             ValidationError error = ValidationError.NONE;

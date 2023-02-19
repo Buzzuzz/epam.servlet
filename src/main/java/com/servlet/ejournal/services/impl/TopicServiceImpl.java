@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.services.TopicService.*;
 
 @Log4j2
 @Getter
@@ -44,7 +45,7 @@ public class TopicServiceImpl implements TopicService {
             return dao
                     .getAll(con, limit, offset, sorting, null)
                     .stream()
-                    .map(this::getTopicDTO)
+                    .map(TopicService::getTopicDTO)
                     .collect(Collectors.toList());
         } catch (DAOException | SQLException e) {
             log.error(e.getMessage(), e);
@@ -109,23 +110,5 @@ public class TopicServiceImpl implements TopicService {
             log.error(e.getMessage(), e);
             return -1;
         }
-    }
-
-    @Override
-    public TopicDTO getTopicDTO(Topic topic) {
-        return new TopicDTO(
-                topic.getT_id(),
-                topic.getName(),
-                topic.getDescription()
-        );
-    }
-
-    @Override
-    public Topic getTopicFromDTO(TopicDTO topicDTO) {
-        return new Topic(
-                topicDTO.getTopicId(),
-                topicDTO.getTopicName(),
-                topicDTO.getTopicDescription()
-        );
     }
 }

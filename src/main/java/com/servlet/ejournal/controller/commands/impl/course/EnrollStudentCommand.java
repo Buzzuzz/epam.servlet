@@ -2,8 +2,8 @@ package com.servlet.ejournal.controller.commands.impl.course;
 
 import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.constants.CommandNameConstants;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.exceptions.ValidationError;
-import com.servlet.ejournal.services.impl.CourseServiceImpl;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,11 +16,11 @@ public class EnrollStudentCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
+            ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(AttributeConstants.APPLICATION_CONTEXT);
             User currentUser = (User) req.getSession().getAttribute(AttributeConstants.LOGGED_USER_ATTR);
-            ValidationError error = CourseServiceImpl.getInstance().enrollStudent(
+            ValidationError error = context.getCourseService().enrollStudent(
                     currentUser.getU_id(),
                     Long.parseLong(req.getParameter(AttributeConstants.COURSE_ID)));
-
             req.getSession().setAttribute(AttributeConstants.ERROR_ATTR, error);
             return RequestBuilder.buildCommand(req.getServletPath(), CommandNameConstants.COURSE_DETAILS_COMMAND,
                     RequestBuilder.getSpecifiedParamsMap(req.getParameterMap(), AttributeConstants.COURSE_ID));

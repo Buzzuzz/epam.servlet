@@ -6,7 +6,6 @@ import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import com.servlet.ejournal.services.TopicService;
 import jakarta.servlet.http.HttpServletRequest;
-import com.servlet.ejournal.services.impl.TopicServiceImpl;
 import com.servlet.ejournal.utils.RequestBuilder;
 
 import static com.servlet.ejournal.constants.AttributeConstants.*;

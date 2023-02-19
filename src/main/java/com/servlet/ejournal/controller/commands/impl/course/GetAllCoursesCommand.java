@@ -1,7 +1,10 @@
 package com.servlet.ejournal.controller.commands.impl.course;
 
 import com.servlet.ejournal.constants.PageConstants;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.services.CourseService;
+import com.servlet.ejournal.services.TopicService;
+import com.servlet.ejournal.services.UserService;
 import com.servlet.ejournal.services.dto.FullCourseDTO;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
@@ -9,11 +12,8 @@ import com.servlet.ejournal.utils.FullCourseUtil;
 import com.servlet.ejournal.constants.CommandNameConstants;
 import com.servlet.ejournal.model.entities.User;
 import com.servlet.ejournal.model.entities.UserType;
-import com.servlet.ejournal.services.impl.CourseServiceImpl;
-import com.servlet.ejournal.services.impl.TopicServiceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
-import com.servlet.ejournal.services.impl.UserServiceImpl;
 
 import java.util.*;
 
@@ -25,7 +25,10 @@ public class GetAllCoursesCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            CourseService service = CourseServiceImpl.getInstance();
+            ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(APPLICATION_CONTEXT);
+            CourseService courseService = context.getCourseService();
+            TopicService topicService = context.getTopicService();
+            UserService userService = context.getUserService();
             User currentUser = (User) req.getSession().getAttribute(LOGGED_USER_ATTR);
             // Pagination setup
             int limit = getLimit(req);
@@ -41,11 +44,11 @@ public class GetAllCoursesCommand implements Command {
             getMyCourseFilter(req, currentUser.getU_id(), filters);
 
             // Pagination setup (continuation)
-            int[] pages = getPages(limit, service.getCourseCount(filters));
+            int[] pages = getPages(limit, courseService.getCourseCount(filters));
             int currentPage = Math.min(getCurrentPage(req), pages.length);
             int offset = getOffset(limit, currentPage);
 
-            List<FullCourseDTO> courseList = service.getAllCourses(
+            List<FullCourseDTO> courseList = courseService.getAllCourses(
                     limit,
                     offset,
                     sorting.contains(CommandNameConstants.ENROLL_COMMAND) ? COURSE_ID : sorting,
@@ -61,8 +64,8 @@ public class GetAllCoursesCommand implements Command {
             req.setAttribute(TOPIC_ID, topicFilter);
             req.setAttribute(USER_ID, teacherFilter);
             req.setAttribute(END_DATE_FILTER, endDateFilter);
-            req.setAttribute(TOPICS_ATTR, TopicServiceImpl.getInstance().getAllTopics());
-            req.setAttribute(TEACHERS_ATTR, UserServiceImpl.getInstance().getAllUsers(UserType.TEACHER));
+            req.setAttribute(TOPICS_ATTR, topicService.getAllTopics());
+            req.setAttribute(TEACHERS_ATTR, userService.getAllUsers(UserType.TEACHER));
             req.setAttribute(ERROR_ATTR, req.getAttribute(ERROR_ATTR));
             req.setAttribute(COURSES_ATTR, courseList);
 

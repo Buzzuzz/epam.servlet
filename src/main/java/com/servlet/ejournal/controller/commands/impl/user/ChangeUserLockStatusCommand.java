@@ -15,8 +15,8 @@ import static com.servlet.ejournal.constants.AttributeConstants.*;
 public class ChangeUserLockStatusCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
-        ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(APPLICATION_CONTEXT);
         try {
+            ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(APPLICATION_CONTEXT);
             UserService service = context.getUserService();
             service.changeUserLockStatus(
                     Long.parseLong(req.getParameter(USER_ID)),

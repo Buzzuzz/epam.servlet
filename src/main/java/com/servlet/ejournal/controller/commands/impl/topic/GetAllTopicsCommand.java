@@ -2,7 +2,6 @@ package com.servlet.ejournal.controller.commands.impl.topic;
 
 import com.servlet.ejournal.constants.PageConstants;
 import com.servlet.ejournal.context.ApplicationContext;
-import com.servlet.ejournal.services.impl.TopicServiceImpl;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;

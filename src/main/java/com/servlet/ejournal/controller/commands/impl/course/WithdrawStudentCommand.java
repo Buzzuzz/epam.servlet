@@ -4,7 +4,6 @@ import com.servlet.ejournal.constants.CommandNameConstants;
 import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.exceptions.ValidationError;
 import com.servlet.ejournal.services.CourseService;
-import com.servlet.ejournal.services.impl.CourseServiceImpl;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;

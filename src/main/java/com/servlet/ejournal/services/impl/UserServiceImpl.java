@@ -1,52 +1,190 @@
 package com.servlet.ejournal.services.impl;
 
-import com.servlet.ejournal.exceptions.DAOException;
-import com.servlet.ejournal.exceptions.UtilException;
-import com.servlet.ejournal.exceptions.ValidationError;
-import com.servlet.ejournal.exceptions.ServiceException;
-import com.servlet.ejournal.model.dao.impl.UserCourseDAO;
+import com.servlet.ejournal.annotations.Transaction;
+import com.servlet.ejournal.annotations.handlers.TransactionHandler;
+import com.servlet.ejournal.context.ApplicationContext;
+import com.servlet.ejournal.exceptions.*;
+import com.servlet.ejournal.model.dao.HikariDataSource;
 import com.servlet.ejournal.model.dao.impl.UserDAO;
-import com.servlet.ejournal.model.entities.User;
-import com.servlet.ejournal.model.entities.UserCourse;
-import com.servlet.ejournal.model.entities.UserType;
+import com.servlet.ejournal.model.dao.interfaces.DAO;
+import com.servlet.ejournal.model.entities.*;
 import com.servlet.ejournal.services.UserService;
-import com.servlet.ejournal.services.dto.UserCourseDTO;
-import com.servlet.ejournal.services.dto.UserDTO;
-import com.servlet.ejournal.utils.SqlUtil;
-import com.servlet.ejournal.utils.PasswordHashUtil;
-import com.servlet.ejournal.utils.ValidationUtil;
+import com.servlet.ejournal.services.dto.*;
+import com.servlet.ejournal.utils.*;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 
-import java.sql.Connection;
+import java.sql.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.servlet.ejournal.constants.AttributeConstants.*;
+import static com.servlet.ejournal.utils.ValidationUtil.*;
+import static com.servlet.ejournal.exceptions.ValidationError.*;
+import static com.servlet.ejournal.services.UserService.*;
 
 @Log4j2
 @Getter
 public class UserServiceImpl implements UserService {
-    private UserDAO userDAO = UserDAO.getInstance();
-    private UserCourseDAO userCourseDAO = UserCourseDAO.getInstance();
+    private static UserService instance;
+    private final UserDAO userDAO;
+    private final DAO<UserCourse> userCourseDAO;
+    private final HikariDataSource source;
 
-    private static class Holder {
-        private static final UserService service = new UserServiceImpl();
+    private UserServiceImpl(ApplicationContext context) {
+        this.source = context.getDataSource();
+        this.userDAO = (UserDAO) context.getUserDAO();
+        this.userCourseDAO = context.getUserCourseDAO();
     }
 
-    // Suppress constructor
-    private UserServiceImpl() {
+    public static synchronized UserService getInstance(ApplicationContext context) {
+        if (instance == null) {
+            instance = new UserServiceImpl(context);
+        }
+        return instance;
     }
 
-    public static UserService getInstance() {
-        return Holder.service;
+    @Override
+    public Optional<User> getUser(long id) {
+        try (Connection con = source.getConnection()) {
+            return userDAO.get(con, id);
+        } catch (SQLException e) {
+            log.error(e.getMessage(), e);
+            return Optional.empty();
+        }
     }
 
-    public User logIn(String email, String password) throws ServiceException {
+    @Override
+    public int getUserCount(Map<String, String[]> filters) {
+        try (Connection con = source.getConnection()) {
+            return SqlUtil.getRecordsCount(con, USER_ID, USER_TABLE, filters);
+        } catch (SQLException | DAOException e) {
+            log.error(e.getMessage(), e);
+            return -1;
+        }
+    }
+
+    @Override
+    public List<UserDTO> getAllUsers(int limit, int offset, String sorting, Map<String, String[]> filters) {
+        try (Connection con = source.getConnection()) {
+            return userDAO
+                    .getAll(con, limit, offset, sorting, filters)
+                    .stream()
+                    .map(UserService::getUserDTO)
+                    .collect(Collectors.toList());
+        } catch (SQLException e) {
+            log.error(e.getMessage(), e);
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public List<UserDTO> getAllUsers(UserType type) {
+        Map<String, String[]> filters = new HashMap<>();
+        filters.put(USER_TYPE_DB, new String[]{type.name()});
+        return getAllUsers(getUserCount(filters), 0, DEFAULT_USER_SORTING, filters);
+    }
+
+    @Override
+    public List<String> getAllUserTypes() {
+        return Arrays.stream(UserType.values()).map(Enum::name).collect(Collectors.toList());
+    }
+
+
+    @Override
+    public List<UserCourseDTO> getEnrolledStudents(long courseId) {
         try {
-            Connection con = source.getConnection();
+            TransactionHandler handler = TransactionHandler.getInstance(source);
+            return handler.runTransaction(this, "getEnrolledStudentsTransaction", courseId);
+        } catch (TransactionException e) {
+            log.error(e.getMessage(), e);
+            return new ArrayList<>();
+        }
+    }
+
+    @Override
+    public ValidationError createUser(UserDTO userDTO, String password, String repeatPassword, String type) throws ServiceException {
+        try {
+            TransactionHandler handler = TransactionHandler.getInstance(source);
+            return handler.runTransaction(this, "createUserTransaction", userDTO, password, repeatPassword, type);
+        } catch (TransactionException e) {
+            log.error(e.getMessage(), e);
+            throw new ServiceException("Can't run transaction!", e);
+        }
+    }
+
+    @Override
+    public ValidationError updateUserData(UserDTO userDTO, String oldPassword, String newPassword, String repeatPassword) throws ServiceException {
+        User user = getUserFromDTO(userDTO, newPassword);
+        try (Connection con = source.getConnection()) {
+            ValidationError passwordCheck = validatePassword(newPassword);
+            ValidationError repeatPasswordCheck = validateRepeatPassword(newPassword, repeatPassword);
+            ValidationError phoneNumberCheck = validatePhoneNumber(user.getPhone());
+
+            if (passwordCheck == repeatPasswordCheck && passwordCheck == phoneNumberCheck) {
+                user.setPassword(user.getPassword().equals("") ? oldPassword :
+                        PasswordHashUtil.encode(user.getPassword()));
+                userDAO.update(con, user);
+                log.debug("User " + user.getEmail() + " updated successful");
+                return NONE;
+            }
+
+            if (passwordCheck != NONE) return passwordCheck;
+            if (repeatPasswordCheck != NONE) return repeatPasswordCheck;
+            return phoneNumberCheck;
+        } catch (DAOException | SQLException e) {
+            log.error("Can't update user " + user.getEmail(), e);
+            throw new ServiceException("Can't update user " + user.getEmail(), e);
+        }
+    }
+
+    @Override
+    public long deleteUser(long id) throws ServiceException {
+        try (Connection con = source.getConnection()) {
+            return userDAO.delete(con, id);
+        } catch (DAOException | SQLException e) {
+            log.error(e.getMessage(), e);
+            throw new ServiceException(e);
+        }
+    }
+
+    @Override
+    public long changeUserLockStatus(long id, boolean status) throws ServiceException {
+        long[] generated = new long[1];
+        try (Connection con = source.getConnection()) {
+            userDAO.get(con, id).ifPresent(user -> {
+                user.set_blocked(status);
+                generated[0] = userDAO.update(con, user);
+            });
+        } catch (Exception e) {
+            log.error("Can't change user lock status: " + id, e);
+            throw new ServiceException("Can't change user lock status: " + id, e);
+        }
+        return generated[0];
+    }
+
+    @Override
+    public ValidationError signUp(UserDTO userDTO, String password, String repeatPassword) throws ServiceException {
+        User user = getUserFromDTO(userDTO, password);
+        try (Connection con = source.getConnection()) {
+            ValidationError newUserValidation = isNewUserValid(userDAO, con, user, repeatPassword);
+            if (newUserValidation == NONE) {
+                user.setPassword(PasswordHashUtil.encode(user.getPassword()));
+                userDAO.save(con, user);
+                log.info(String.format("User %s registered successfully!", user.getEmail()));
+                return NONE;
+            }
+            return newUserValidation;
+        } catch (DAOException | SQLException | UtilException e) {
+            log.error(e.getMessage(), e);
+            throw new ServiceException("Can't register new user", e);
+        }
+    }
+
+    @Override
+    public User logIn(String email, String password) throws ServiceException {
+        try (Connection con = source.getConnection()) {
             Optional<User> daoResult = userDAO.getByEmail(con, email);
-            close(con);
 
             if (daoResult.isPresent()) {
                 User user = daoResult.get();
@@ -61,250 +199,60 @@ public class UserServiceImpl implements UserService {
                 log.debug("No user with email " + email);
                 throw new ServiceException(EMAIL_ATTR);
             }
-        } catch (DAOException e) {
+        } catch (DAOException | SQLException e) {
             log.error(e.getMessage(), e);
-            throw new ServiceException("Can't log in user " + email);
+            throw new ServiceException("Can't log in user " + email, e);
         }
     }
 
-    public ValidationError signUp(UserDTO userDTO, String password, String repeatPassword) throws ServiceException {
-        User user = getUserFromDTO(userDTO, password);
-        Connection con = null;
+    // Transactions logic
 
+    @Transaction
+    private ValidationError createUserTransaction(Object con, Object userDTO, Object password, Object repeatPassword, Object type) throws ServiceException {
+        User user = getUserFromDTO((UserDTO) userDTO, (String) password);
         try {
-            con = getConnection();
-            if (ValidationUtil.getInstance().isNewUserValid(con, user, repeatPassword).equals(ValidationError.NONE)) {
-                user.setPassword(PasswordHashUtil.encode(user.getPassword()));
-                userDAO.save(con, user);
-                log.info(String.format("User %s registered successfully!", user.getEmail()));
-                return ValidationError.NONE;
+            ValidationError error = signUp((UserDTO) userDTO, (String) password, (String) repeatPassword);
+            if (error.equals(NONE)) {
+                userDAO.getByEmail((Connection) con, user.getEmail()).ifPresent(u -> {
+                    u.setUser_type(UserType.valueOf((String) type));
+                    userDAO.update((Connection) con, u);
+                });
             }
-            return ValidationUtil.getInstance().isNewUserValid(con, user, repeatPassword);
-        } catch (DAOException | UtilException e) {
-            log.error(e.getMessage(), e);
-            throw new ServiceException("Can't register new user", e);
-        } finally {
-            close(con);
+            return error;
+        } catch (DAOException | IllegalArgumentException e) {
+            log.error(String.format("Can't create new user, cause: %s", e.getMessage()), e);
+            throw new ServiceException("Can't create new user!", e);
         }
     }
 
-    public ValidationError updateUserData(UserDTO userDTO, String oldPassword, String newPassword, String repeatPassword) throws ServiceException {
-        Connection con = null;
-        User user = getUserFromDTO(userDTO, newPassword);
-        log.info(user);
-        try {
-            con = getConnection();
-            if (ValidationUtil.validatePassword(newPassword).equals(ValidationError.NONE) &&
-                    ValidationUtil.validateRepeatPassword(newPassword, repeatPassword).equals(ValidationError.NONE) &&
-                    ValidationUtil.validatePhoneNumber(user.getPhone()).equals(ValidationError.NONE)) {
-                user.setPassword(user.getPassword().equals("") ? oldPassword :
-                        PasswordHashUtil.encode(user.getPassword()));
-                userDAO.update(con, user);
-                log.debug("User " + user.getEmail() + " updated successful");
-                return ValidationError.NONE;
-            }
-
-            if (ValidationUtil.validatePassword(newPassword).equals(ValidationError.NONE)) {
-                if (ValidationUtil.validateRepeatPassword(newPassword, repeatPassword).equals(ValidationError.NONE)) {
-                    if (ValidationUtil.validatePhoneNumber(user.getPhone()).equals(ValidationError.NONE)) {
-                        return ValidationError.NONE;
-                    } else return ValidationError.PHONE_NUMBER;
-                } else return ValidationError.PASSWORD_REPEAT;
-            } else return ValidationError.PASSWORD;
-
-        } catch (DAOException e) {
-            log.error("Can't update user " + user.getEmail(), e);
-            throw new ServiceException("Can't update user " + user.getEmail(), e);
-        } finally {
-            close(con);
-        }
-    }
-
-    @Override
-    public UserDTO getUserDTO(User user) {
-        return new UserDTO(
-                user.getU_id(),
-                user.getEmail(),
-                user.getFirst_name(),
-                user.getLast_name(),
-                user.getPhone(),
-                user.getUser_type().name(),
-                String.valueOf(user.is_blocked()),
-                String.valueOf(user.isSend_notification())
-        );
-    }
-
-    @Override
-    public User getUserFromDTO(UserDTO user, String password) throws ServiceException {
-        try {
-            return new User(
-                    user.getUserId(),
-                    user.getEmail(),
-                    password,
-                    user.getFirstName(),
-                    user.getLastName(),
-                    user.getPhoneNumber(),
-                    UserType.valueOf(user.getUserType()),
-                    Boolean.parseBoolean(user.getIsBlocked()),
-                    Boolean.parseBoolean(user.getSendNotification())
-            );
-        } catch (Exception e) {
-            log.error("Can't convert userDTO to user!", e);
-            throw new ServiceException("Can't convert userDTO to user!", e);
-        }
-    }
-
-    @Override
-    public List<UserDTO> getAllUsers(int limit, int offset, String sorting, Map<String, String[]> filters) {
-        Connection con = null;
-        try {
-            con = getConnection();
-            return userDAO
-                    .getAll(con, limit, offset, sorting, filters)
-                    .stream()
-                    .map(this::getUserDTO)
-                    .collect(Collectors.toList());
-        } finally {
-            close(con);
-        }
-    }
-
-    @Override
-    public List<UserDTO> getAllUsers(UserType type) {
-        return getAllUsers(
-                getUserCount(null), 0, DEFAULT_USER_SORTING,
-                new HashMap<String, String[]>() {{
-                    put(USER_TYPE_DB, new String[]{type.name()});
-                }});
-    }
-
-    @Override
-    public List<UserCourseDTO> getEnrolledStudents(long courseId) {
-        Connection con = null;
+    @Transaction
+    private List<UserCourseDTO> getEnrolledStudentsTransaction(Connection con, long courseId) {
         List<UserCourseDTO> users = new ArrayList<>();
-
         Map<String, String[]> filters = new HashMap<>();
         filters.put(COURSE_ID, new String[]{String.valueOf(courseId)});
         filters.put(QUERY, new String[]{String.format("%s > %s", FINAL_MARK, -1)});
         try {
-            con = getConnection();
-            setAutoCommit(con, false);
-
-            List<UserCourse> userCourseList = (List<UserCourse>) userCourseDAO.getAll(con,
-                    SqlUtil.getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters), 0, USER_ID, filters);
+            List<UserCourse> userCourseList = (List<UserCourse>) userCourseDAO.getAll(
+                    con,
+                    SqlUtil.getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters),
+                    0,
+                    USER_ID,
+                    filters);
 
             for (UserCourse uc : userCourseList) {
-                Optional<User> user = getUser(uc.getU_id());
-                user.ifPresent(u -> log.info(uc.getFinal_mark()));
-                user.ifPresent(value -> users.add(new UserCourseDTO(
-                        getUserDTO(value),
-                        uc.getU_c_id(),
-                        uc.getU_id(),
-                        uc.getC_id(),
-                        uc.getRegistration_date(),
-                        uc.getFinal_mark())));
+                getUser(uc.getU_id())
+                        .ifPresent(value -> users.add(new UserCourseDTO(
+                                getUserDTO(value),
+                                uc.getU_c_id(),
+                                uc.getU_id(),
+                                uc.getC_id(),
+                                uc.getRegistration_date(),
+                                uc.getFinal_mark())));
             }
 
-            commit(con);
         } catch (DAOException e) {
-            rollback(con);
             log.error(e.getMessage(), e);
-        } finally {
-            setAutoCommit(con, true);
-            close(con);
         }
-        log.info(users);
         return users;
-    }
-
-    @Override
-    public long deleteUser(long id) throws ServiceException {
-        Connection con = null;
-        try {
-            con = getConnection();
-            return userDAO.delete(con, id);
-        } catch (DAOException e) {
-            throw new ServiceException(e);
-        } finally {
-            close(con);
-        }
-    }
-
-    @Override
-    public long changeUserLockStatus(long id, boolean status) throws ServiceException {
-        Connection con = null;
-        long[] generated = new long[1];
-        try {
-            con = getConnection();
-            Connection finalCon = con;
-            userDAO.get(con, id).ifPresent(user -> {
-                user.set_blocked(status);
-                generated[0] = userDAO.update(finalCon, user);
-            });
-        } catch (Exception e) {
-            log.error("Can't lock user: " + id, e);
-            throw new ServiceException("Can't lock user: " + id, e);
-        } finally {
-            close(con);
-        }
-        return generated[0];
-    }
-
-    @Override
-    public Optional<User> getUser(long id) {
-        Connection con = null;
-        try {
-            con = getConnection();
-            return userDAO.get(con, id);
-        } finally {
-            close(con);
-        }
-    }
-
-    @Override
-    public ValidationError createUser(UserDTO userDTO, String password, String repeatPassword, String type) throws ServiceException {
-        Connection con = null;
-        User user = getUserFromDTO(userDTO, password);
-        try {
-            con = getConnection();
-            setAutoCommit(con, false);
-
-            ValidationError error = signUp(userDTO, password, repeatPassword);
-            if (error.equals(ValidationError.NONE)) {
-                Connection finalCon = con;
-                userDAO.getByEmail(con, user.getEmail()).ifPresent(u -> {
-                    u.setUser_type(UserType.valueOf(type));
-                    userDAO.update(finalCon, u);
-                });
-                commit(con);
-            }
-            return error;
-        } catch (DAOException e) {
-            rollback(con);
-            log.error(String.format("Can't create new user, cause: %s", e.getMessage()), e);
-            throw new ServiceException("Can't create new user!", e);
-        } catch (IllegalArgumentException e) {
-            log.error("Wrong userType passed!", e);
-            throw new ServiceException("Can't update user! Wrong userType!", e);
-        } finally {
-            setAutoCommit(con, true);
-            close(con);
-        }
-    }
-
-    @Override
-    public int getUserCount(Map<String, String[]> filters) {
-        Connection con = null;
-        try {
-            con = getConnection();
-            return SqlUtil.getRecordsCount(con, USER_ID, USER_TABLE, filters);
-        } finally {
-            close(con);
-        }
-    }
-
-    @Override
-    public List<String> getAllUserTypes() {
-        return Arrays.stream(UserType.values()).map(Enum::name).collect(Collectors.toList());
     }
 }

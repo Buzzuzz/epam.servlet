@@ -1,6 +1,7 @@
 package com.servlet.ejournal.controller.commands.impl.course;
 
 import com.servlet.ejournal.constants.CommandNameConstants;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import com.servlet.ejournal.exceptions.ServiceException;
@@ -12,7 +13,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.services.CourseService;
 import com.servlet.ejournal.services.dto.FullCourseDTO;
-import com.servlet.ejournal.services.impl.CourseServiceImpl;
 
 import java.sql.Timestamp;
 
@@ -24,7 +24,8 @@ public class UpdateCourseCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            CourseService service = CourseServiceImpl.getInstance();
+            ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(APPLICATION_CONTEXT);
+            CourseService service = context.getCourseService();
             Timestamp start = getTimestamp(req.getParameter(COURSE_START_DATE));
             Timestamp end = getTimestamp(req.getParameter(COURSE_END_DATE));
 

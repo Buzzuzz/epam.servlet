@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 import java.util.Optional;
 
 import static com.servlet.ejournal.exceptions.ValidationError.*;
-import static com.servlet.ejournal.utils.TestEntitiesUtil.createTestUser;
+import static com.servlet.ejournal.utils.TestEntitiesUtil.*;
 import static com.servlet.ejournal.utils.ValidationUtil.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -93,44 +93,42 @@ class TestValidationUtil {
         private User user;
         private UserDAO userDaoMock;
         private Connection conMock;
-        private ValidationUtil util;
 
         @BeforeEach
         void setup() {
             user = createTestUser();
             userDaoMock = mock(UserDAO.class);
             conMock = mock(Connection.class);
-            util = ValidationUtil.getInstance();
             when(userDaoMock.getByEmail(conMock, user.getEmail())).thenReturn(Optional.empty());
         }
 
         @Test
         void testUserInvalidEmail() throws UtilException {
             when(userDaoMock.getByEmail(conMock, user.getEmail())).thenReturn(Optional.of(user));
-            assertEquals(EMAIL, util.isNewUserValid(userDaoMock, conMock, user, repeatPassword));
+            assertEquals(EMAIL, isNewUserValid(userDaoMock, conMock, user, repeatPassword));
         }
 
         @Test
         void testUserInvalidPassword() throws UtilException {
             user.setPassword("1");
-            assertEquals(PASSWORD, util.isNewUserValid(userDaoMock, conMock, user, repeatPassword));
+            assertEquals(PASSWORD, isNewUserValid(userDaoMock, conMock, user, repeatPassword));
         }
 
         @Test
         void testUserInvalidPasswordRepeat() throws UtilException {
-            assertEquals(PASSWORD_REPEAT, util.isNewUserValid(userDaoMock, conMock, user, ""));
+            assertEquals(PASSWORD_REPEAT, isNewUserValid(userDaoMock, conMock, user, ""));
 
         }
 
         @Test
         void testUserInvalidPhone() throws UtilException {
             user.setPhone("");
-            assertEquals(PHONE_NUMBER, util.isNewUserValid(userDaoMock, conMock, user, repeatPassword));
+            assertEquals(PHONE_NUMBER, isNewUserValid(userDaoMock, conMock, user, repeatPassword));
         }
 
         @Test
         void testUserIsValid() throws UtilException {
-            assertEquals(NONE, util.isNewUserValid(userDaoMock, conMock, user, repeatPassword));
+            assertEquals(NONE, isNewUserValid(userDaoMock, conMock, user, repeatPassword));
         }
     }
 
@@ -139,36 +137,34 @@ class TestValidationUtil {
         private UserDAO daoMock;
         private Connection conMock;
         private User user;
-        private ValidationUtil util = ValidationUtil.getInstance();
 
         @BeforeEach
         void setup() {
             user = createTestUser();
             daoMock = mock(UserDAO.class);
             conMock = mock(Connection.class);
-            util = ValidationUtil.getInstance();
             when(daoMock.getByEmail(conMock, user.getEmail())).thenReturn(Optional.of(user));
         }
 
         @Test
         void testEmailIsUnique() throws UtilException {
             when(daoMock.getByEmail(conMock, user.getEmail())).thenReturn(Optional.empty());
-            assertEquals(NONE, util.isEmailUnique(daoMock, conMock, user.getEmail()));
+            assertEquals(NONE, isEmailUnique(daoMock, conMock, user.getEmail()));
         }
 
         @Test
         void testEmailIsNotUnique() throws UtilException {
-            assertEquals(EMAIL, util.isEmailUnique(daoMock, conMock, user.getEmail()));
+            assertEquals(EMAIL, isEmailUnique(daoMock, conMock, user.getEmail()));
         }
 
         @Test
         void testIsEmailUniqueConnectionIsNull() {
-            assertThrows(UtilException.class, () -> util.isEmailUnique(daoMock, null, user.getEmail()));
+            assertThrows(UtilException.class, () -> isEmailUnique(daoMock, null, user.getEmail()));
         }
 
         @Test
         void testIsEmailUniqueEmailIsNull() {
-            assertThrows(UtilException.class, () -> util.isEmailUnique(daoMock, conMock, null));
+            assertThrows(UtilException.class, () -> isEmailUnique(daoMock, conMock, null));
         }
     }
 }

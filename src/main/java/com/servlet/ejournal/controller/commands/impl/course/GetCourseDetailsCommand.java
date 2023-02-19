@@ -1,13 +1,13 @@
 package com.servlet.ejournal.controller.commands.impl.course;
 
 import com.servlet.ejournal.constants.AttributeConstants;
+import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.controller.commands.Command;
 import com.servlet.ejournal.exceptions.CommandException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.log4j.Log4j2;
 import com.servlet.ejournal.model.entities.User;
 import com.servlet.ejournal.services.CourseService;
-import com.servlet.ejournal.services.impl.CourseServiceImpl;
 
 import static com.servlet.ejournal.constants.PageConstants.COURSE_DETAILS_PAGE;
 
@@ -16,7 +16,8 @@ public class GetCourseDetailsCommand implements Command {
     @Override
     public String execute(HttpServletRequest req) throws CommandException {
         try {
-            CourseService service = CourseServiceImpl.getInstance();
+            ApplicationContext context = (ApplicationContext) req.getServletContext().getAttribute(AttributeConstants.APPLICATION_CONTEXT);
+            CourseService service = context.getCourseService();
             long courseId = Long.parseLong(req.getParameter(AttributeConstants.COURSE_ID));
             User currentUser = (User) req.getSession().getAttribute(AttributeConstants.LOGGED_USER_ATTR);
             service.getCourse(courseId)
