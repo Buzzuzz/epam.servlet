@@ -65,10 +65,10 @@ class TestLocaleFilter {
     @Test
     void testChangeLocaleChangeLocaleCommand() throws ServletException, IOException {
         filter.doFilter(reqMock, respMock, chainMock);
-        verify(reqMock, times(3)).getCookies();
+        verify(reqMock, times(5)).getCookies();
         verify(reqMock, times(2)).getParameter(any());
         verify(respMock, times(1)).addCookie(any());
-        verify(chainMock, atMostOnce()).doFilter(reqMock, respMock);
+        verify(chainMock, times(1)).doFilter(reqMock, respMock);
     }
 
     @Test
@@ -76,7 +76,7 @@ class TestLocaleFilter {
         when(reqMock.getParameter(COMMAND_ATTR)).thenReturn(null);
         when(reqMock.getCookies()).thenReturn(new Cookie[]{new Cookie(LOCALE_ATTR, LOCALE_EN)});
         filter.doFilter(reqMock, respMock, chainMock);
-        verify(reqMock, times(1)).getCookies();
+        verify(reqMock, times(2)).getCookies();
         verify(reqMock, times(1)).getParameter(any());
         verify(reqMock, times(1)).getSession();
     }

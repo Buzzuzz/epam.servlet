@@ -1,7 +1,6 @@
 package com.servlet.ejournal.services.impl;
 
 import com.servlet.ejournal.annotations.Transaction;
-import com.servlet.ejournal.annotations.handlers.TransactionHandler;
 import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.exceptions.*;
@@ -24,7 +23,7 @@ import static com.servlet.ejournal.utils.FullCourseUtil.*;
 import static com.servlet.ejournal.utils.SqlUtil.*;
 import static com.servlet.ejournal.utils.ValidationUtil.*;
 import static com.servlet.ejournal.exceptions.ValidationError.*;
-
+import static com.servlet.ejournal.services.CourseService.*;
 
 // TODO : on topic | teacher delete do something with courses (delete them, update, idk)
 @Log4j2
@@ -63,6 +62,29 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public Optional<Course> getCourse(long id) {
+        try (Connection con = source.getConnection()) {
+            return courseDAO.get(con, id);
+        } catch (SQLException e) {
+            log.error(e.getMessage(), e);
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public int getCourseCount(Map<String, String[]> filters) {
+        try (Connection con = source.getConnection()) {
+            return getRecordsCount(
+                    con,
+                    String.format("%s.%s", AttributeConstants.COURSE_TABLE, AttributeConstants.COURSE_ID),
+                    SQLQueries.JOIN_COURSE_TOPIC_USER_TEACHER_TABLE, filters);
+        } catch (SQLException e) {
+            log.error(e.getMessage(), e);
+            return 0;
+        }
+    }
+
+    @Override
     public List<FullCourseDTO> getAllCourses(int limit, int offset, String sorting, Map<String, String[]> filters) {
         try (Connection con = source.getConnection()) {
             return courseDAO.getAll(con, limit, offset, sorting, filters)
@@ -78,68 +100,22 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Optional<FullCourseDTO> getCourseDTO(Course course) {
-        try (Connection con = source.getConnection()) {
-
-            Topic currentTopic = getCurrentTopic(con, course.getC_id(), topicCourseDAO, topicDAO);
-            User currentTeacher = getCurrentTeacher(con, course.getC_id(), teacherCourseDAO, userDAO);
-            Map<String, String[]> filters = new HashMap<>();
-            filters.put(AttributeConstants.COURSE_ID, new String[]{String.valueOf(course.getC_id())});
-
-            FullCourseDTO courseDTO = new FullCourseDTO(
-                    course.getC_id(),
-                    currentTopic.getT_id(),
-                    currentTeacher.getU_id(),
-                    course.getName(),
-                    course.getDescription(),
-                    course.getStart_date(),
-                    course.getEnd_date(),
-                    getDuration(course.getStart_date(), course.getEnd_date()),
-                    getCourseCount(filters),
-                    topicService.getAllTopics(),
-                    currentTopic.getName(),
-                    currentTopic.getDescription(),
-                    userService.getAllUsers(UserType.TEACHER),
-                    String.format("%s %s", currentTeacher.getFirst_name(), currentTeacher.getLast_name())
-            );
-            return Optional.of(courseDTO);
-        } catch (DAOException | UtilException | SQLException e) {
+    public ValidationError createCourse(FullCourseDTO courseDTO) throws ServiceException {
+        try {
+            return source.runTransaction(this, "createCourseTransaction", courseDTO);
+        } catch (TransactionException e) {
             log.error(e.getMessage(), e);
-            return Optional.empty();
+            throw new ServiceException("Can't run transaction (create course)!");
         }
-    }
-
-    @Override
-    public Course getCourseFromDTO(FullCourseDTO courseDTO) {
-        return new Course(
-                courseDTO.getCourseId(),
-                courseDTO.getCourseName(),
-                courseDTO.getCourseDescription(),
-                courseDTO.getStartDate(),
-                courseDTO.getEndDate(),
-                courseDTO.getDuration()
-        );
     }
 
     @Override
     public ValidationError updateCourse(FullCourseDTO courseDTO) throws ServiceException {
         try {
-            TransactionHandler handler = TransactionHandler.getInstance(source);
-            return handler.runTransaction(this, "updateCourseTransaction", courseDTO);
+            return source.runTransaction(this, "updateCourseTransaction", courseDTO);
         } catch (TransactionException e) {
             log.error(e.getMessage(), e);
             throw new ServiceException("Can't run transaction (update course)!");
-        }
-    }
-
-    @Override
-    public ValidationError createCourse(FullCourseDTO courseDTO) throws ServiceException {
-        try {
-            TransactionHandler handler = TransactionHandler.getInstance(source);
-            return handler.runTransaction(this, "createCourseTransaction", courseDTO);
-        } catch (TransactionException e) {
-            log.error(e.getMessage(), e);
-            throw new ServiceException("Can't run transaction (create course)!");
         }
     }
 
@@ -205,45 +181,53 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Optional<Course> getCourse(long id) {
+    public Optional<FullCourseDTO> getCourseDTO(Course course) {
         try (Connection con = source.getConnection()) {
-            return courseDAO.get(con, id);
-        } catch (SQLException e) {
+            Topic currentTopic = getCurrentTopic(con, course.getC_id(), topicCourseDAO, topicDAO);
+            User currentTeacher = getCurrentTeacher(con, course.getC_id(), teacherCourseDAO, userDAO);
+            Map<String, String[]> filters = new HashMap<>();
+            filters.put(AttributeConstants.COURSE_ID, new String[]{String.valueOf(course.getC_id())});
+
+            FullCourseDTO courseDTO = new FullCourseDTO(
+                    course.getC_id(),
+                    currentTopic.getT_id(),
+                    currentTeacher.getU_id(),
+                    course.getName(),
+                    course.getDescription(),
+                    course.getStart_date(),
+                    course.getEnd_date(),
+                    getDuration(course.getStart_date(), course.getEnd_date()),
+                    getCourseCount(filters),
+                    topicService.getAllTopics(),
+                    currentTopic.getName(),
+                    currentTopic.getDescription(),
+                    userService.getAllUsers(UserType.TEACHER),
+                    String.format("%s %s", currentTeacher.getFirst_name(), currentTeacher.getLast_name())
+            );
+            return Optional.of(courseDTO);
+        } catch (DAOException | UtilException | SQLException e) {
             log.error(e.getMessage(), e);
             return Optional.empty();
         }
     }
 
-    @Override
-    public int getCourseCount(Map<String, String[]> filters) {
-        try (Connection con = source.getConnection()) {
-            return getRecordsCount(
-                    con,
-                    String.format("%s.%s", AttributeConstants.COURSE_TABLE, AttributeConstants.COURSE_ID),
-                    SQLQueries.JOIN_COURSE_TOPIC_USER_TEACHER_TABLE, filters);
-        } catch (SQLException e) {
-            log.error(e.getMessage(), e);
-            return 0;
-        }
-    }
-
     // Transaction logic
     @Transaction
-    private ValidationError createCourseLogic(Connection con, FullCourseDTO courseDTO) throws ServiceException {
-        Course course = getCourseFromDTO(courseDTO);
+    private ValidationError createCourseLogic(Object con, Object courseDTO) throws ServiceException {
+        Course course = getCourseFromDTO((FullCourseDTO) courseDTO);
         try {
-            ValidationError error = validateEndDate(courseDTO.getStartDate(), courseDTO.getEndDate());
+            ValidationError error = validateEndDate(((FullCourseDTO) courseDTO).getStartDate(), ((FullCourseDTO) courseDTO).getEndDate());
             if (error.equals(NONE)) {
-                long generatedId = courseDAO.save(con, course);
-                userCourseDAO.save(con, new UserCourse(
+                long generatedId = courseDAO.save((Connection) con, course);
+                userCourseDAO.save((Connection) con, new UserCourse(
                         0,
-                        courseDTO.getCurrentTeacherId(),
+                        ((FullCourseDTO) courseDTO).getCurrentTeacherId(),
                         generatedId,
                         new Timestamp(System.currentTimeMillis()),
                         -1
                 ));
-                teacherCourseDAO.save(con, new TeacherCourse(0, courseDTO.getCurrentTeacherId(), generatedId));
-                topicCourseDAO.save(con, new TopicCourse(courseDTO.getCurrentTopicId(), generatedId));
+                teacherCourseDAO.save((Connection) con, new TeacherCourse(0, ((FullCourseDTO) courseDTO).getCurrentTeacherId(), generatedId));
+                topicCourseDAO.save((Connection) con, new TopicCourse(((FullCourseDTO) courseDTO).getCurrentTopicId(), generatedId));
             }
             return error;
         } catch (DAOException e) {
@@ -253,22 +237,22 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Transaction
-    private ValidationError updateCourseTransaction(Connection con, FullCourseDTO courseDTO) throws ServiceException {
+    private ValidationError updateCourseTransaction(Object con, Object courseDTO) throws ServiceException {
         try {
-            ValidationError error = validateEndDate(courseDTO.getStartDate(), courseDTO.getEndDate());
+            ValidationError error = validateEndDate(((FullCourseDTO) courseDTO).getStartDate(), ((FullCourseDTO) courseDTO).getEndDate());
             if (error.equals(NONE)) {
-                UserCourse uc = userCourseDAO.get(con, courseDTO.getCourseId()).get();
-                TopicCourse tc = topicCourseDAO.get(con, courseDTO.getCourseId()).get();
-                TeacherCourse tchC = teacherCourseDAO.get(con, courseDTO.getCourseId()).get();
+                UserCourse uc = userCourseDAO.get((Connection) con, ((FullCourseDTO) courseDTO).getCourseId()).get();
+                TopicCourse tc = topicCourseDAO.get((Connection) con, ((FullCourseDTO) courseDTO).getCourseId()).get();
+                TeacherCourse tchC = teacherCourseDAO.get((Connection) con, ((FullCourseDTO) courseDTO).getCourseId()).get();
 
-                uc.setU_id(courseDTO.getCurrentTeacherId());
-                tc.setT_id(courseDTO.getCurrentTopicId());
-                tchC.setTch_id(courseDTO.getCurrentTeacherId());
-                userCourseDAO.update(con, uc);
-                teacherCourseDAO.update(con, tchC);
-                topicCourseDAO.update(con, tc);
+                uc.setU_id(((FullCourseDTO) courseDTO).getCurrentTeacherId());
+                tc.setT_id(((FullCourseDTO) courseDTO).getCurrentTopicId());
+                tchC.setTch_id(((FullCourseDTO) courseDTO).getCurrentTeacherId());
+                userCourseDAO.update((Connection) con, uc);
+                teacherCourseDAO.update((Connection) con, tchC);
+                topicCourseDAO.update((Connection) con, tc);
 
-                courseDAO.update(con, getCourseFromDTO(courseDTO));
+                courseDAO.update((Connection) con, getCourseFromDTO(((FullCourseDTO) courseDTO)));
             }
             return error;
         } catch (DAOException e) {

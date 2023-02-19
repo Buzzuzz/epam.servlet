@@ -11,11 +11,11 @@ import java.util.Map;
 import java.util.Optional;
 
 public interface CourseService {
+    Optional<Course> getCourse(long id);
+
+    int getCourseCount(Map<String, String[]> filters);
+
     List<FullCourseDTO> getAllCourses(int limit, int offset, String sorting, Map<String, String[]> filters);
-
-    Optional<FullCourseDTO> getCourseDTO(Course course);
-
-    Course getCourseFromDTO(FullCourseDTO courseDTO);
 
     ValidationError updateCourse(FullCourseDTO courseDTO) throws ServiceException;
 
@@ -30,7 +30,16 @@ public interface CourseService {
     double getStudentMark (long courseId, long userId);
     ValidationError updateStudentMark (UserCourse userCourse, double newMark);
 
-    Optional<Course> getCourse(long id);
+    Optional<FullCourseDTO> getCourseDTO(Course course);
 
-    int getCourseCount(Map<String, String[]> filters);
+    static Course getCourseFromDTO(FullCourseDTO courseDTO) {
+        return new Course(
+                courseDTO.getCourseId(),
+                courseDTO.getCourseName(),
+                courseDTO.getCourseDescription(),
+                courseDTO.getStartDate(),
+                courseDTO.getEndDate(),
+                courseDTO.getDuration()
+        );
+    }
 }

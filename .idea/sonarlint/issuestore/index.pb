@@ -106,8 +106,6 @@ s
 Csrc/test/java/com/servlet/ejournal/utils/TestDateFormatterUtil.java,4\8\48d182965a6f6376a2e361516f8ce539722f563e
 Å
 Qsrc/test/java/com/servlet/ejournal/utils/tag_handlers/TestDateOnlyTagHandler.java,6\5\6529fce374e66dac7f6687741a199a153f76a6d0
-{
-Ksrc/test/java/com/servlet/ejournal/controller/filters/TestLocaleFilter.java,6\9\695fa3190dd90391be76f00baaac054f46fe4bab
 p
 @src/test/java/com/servlet/ejournal/pools/TestPageAccessPool.java,b\6\b673f483d871b824910a6e6e4f2810e948eb8185
 r
@@ -168,8 +166,6 @@ Wsrc/main/java/com/servlet/ejournal/controller/commands/impl/user/UpdateUserComm
 Tsrc/main/java/com/servlet/ejournal/controller/commands/impl/ChangeLocaleCommand.java,9/f/9ffe5f938331d086c83f90476ac3f9a624b6178c
 w
 Gsrc/main/java/com/servlet/ejournal/controller/filters/AccessFilter.java,b/3/b33f06db83d8912244d66aec7a64b0da280d5fe0
-w
-Gsrc/main/java/com/servlet/ejournal/controller/filters/LocaleFilter.java,c/4/c47b746a7e418a100737a2462808350a984ad767
 w
 Gsrc/main/java/com/servlet/ejournal/controller/filters/StatusFilter.java,b/8/b871d2143ee3266ca450f0b838c8b113d024fb73
 y

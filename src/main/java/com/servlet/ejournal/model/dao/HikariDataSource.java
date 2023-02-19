@@ -1,11 +1,17 @@
 package com.servlet.ejournal.model.dao;
 
+import com.servlet.ejournal.annotations.Transaction;
 import com.servlet.ejournal.exceptions.DAOException;
+import com.servlet.ejournal.exceptions.TransactionException;
 import com.zaxxer.hikari.HikariConfig;
 import lombok.extern.log4j.Log4j2;
 
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * DataSource class to get connection to database. <br>
@@ -67,35 +73,43 @@ public class HikariDataSource {
         }
     }
 
-    public void rollback(Connection con) throws DAOException {
+    public <T> T runTransaction(Object classObject, String methodName, Object... args) throws TransactionException {
+        Connection con = null;
+        T returnValue;
         try {
-            con.rollback();
+            con = getConnection();
+            con.setAutoCommit(false);
+
+            List<Object> argsList = new ArrayList<>(Arrays.asList(args));
+            argsList.add(0, con);
+
+            Class<?> clazz = classObject.getClass();
+            for (Method classMethod : clazz.getDeclaredMethods()) {
+                if (classMethod.isAnnotationPresent(Transaction.class) && classMethod.getName().equals(methodName)) {
+                    classMethod.setAccessible(true);
+                    returnValue = (T) classMethod.invoke(classObject, argsList.toArray());
+                    con.commit();
+                    con.setAutoCommit(true);
+                    return returnValue;
+                }
+            }
+            throw new TransactionException("No methods that can satisfy current conditions (@Transaction annotation, provided method name)");
+        } catch (Exception e) {
+            rollback(con);
+            log.error(e.getMessage(), e);
+            throw new TransactionException("Can't run transaction properly, rollback...", e);
+        }
+    }
+
+    private void rollback(Connection con) throws DAOException {
+        try {
+            if (con != null) {
+                con.rollback();
+            }
             log.trace("Transaction rolled back!");
         } catch (Exception e) {
             log.error("Can't rollback transaction");
             throw new DAOException("Can't rollback transaction", e);
-        }
-    }
-
-    public void commit(Connection con) {
-        try {
-            con.commit();
-            log.trace("Transaction committed!");
-        } catch (SQLException e) {
-            log.error("Cant' commit!", e);
-            throw new DAOException("Can't commit!", e);
-        }
-    }
-
-    public void setAutoCommit(Connection con, boolean type) {
-        try {
-            if (con != null) {
-                con.setAutoCommit(type);
-                log.trace("AutoCommit Type changed!");
-            }
-        } catch (SQLException e) {
-            log.error("Can't set connection commit type to " + type, e);
-            throw new DAOException("Can't set connection commit type to " + type, e);
         }
     }
 }

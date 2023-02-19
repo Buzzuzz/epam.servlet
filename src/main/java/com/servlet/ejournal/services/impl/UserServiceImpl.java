@@ -1,7 +1,6 @@
 package com.servlet.ejournal.services.impl;
 
 import com.servlet.ejournal.annotations.Transaction;
-import com.servlet.ejournal.annotations.handlers.TransactionHandler;
 import com.servlet.ejournal.context.ApplicationContext;
 import com.servlet.ejournal.exceptions.*;
 import com.servlet.ejournal.model.dao.HikariDataSource;
@@ -90,12 +89,10 @@ public class UserServiceImpl implements UserService {
         return Arrays.stream(UserType.values()).map(Enum::name).collect(Collectors.toList());
     }
 
-
     @Override
     public List<UserCourseDTO> getEnrolledStudents(long courseId) {
         try {
-            TransactionHandler handler = TransactionHandler.getInstance(source);
-            return handler.runTransaction(this, "getEnrolledStudentsTransaction", courseId);
+            return source.runTransaction(this, "getEnrolledStudentsTransaction", courseId);
         } catch (TransactionException e) {
             log.error(e.getMessage(), e);
             return new ArrayList<>();
@@ -105,8 +102,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ValidationError createUser(UserDTO userDTO, String password, String repeatPassword, String type) throws ServiceException {
         try {
-            TransactionHandler handler = TransactionHandler.getInstance(source);
-            return handler.runTransaction(this, "createUserTransaction", userDTO, password, repeatPassword, type);
+            return source.runTransaction(this, "createUserTransaction", userDTO, password, repeatPassword, type);
         } catch (TransactionException e) {
             log.error(e.getMessage(), e);
             throw new ServiceException("Can't run transaction!", e);
@@ -167,14 +163,14 @@ public class UserServiceImpl implements UserService {
     public ValidationError signUp(UserDTO userDTO, String password, String repeatPassword) throws ServiceException {
         User user = getUserFromDTO(userDTO, password);
         try (Connection con = source.getConnection()) {
-            ValidationError newUserValidation = isNewUserValid(userDAO, con, user, repeatPassword);
-            if (newUserValidation == NONE) {
+            ValidationError userValidation = isNewUserValid(userDAO, con, user, repeatPassword);
+            if (userValidation == NONE) {
                 user.setPassword(PasswordHashUtil.encode(user.getPassword()));
                 userDAO.save(con, user);
                 log.info(String.format("User %s registered successfully!", user.getEmail()));
                 return NONE;
             }
-            return newUserValidation;
+            return userValidation;
         } catch (DAOException | SQLException | UtilException e) {
             log.error(e.getMessage(), e);
             throw new ServiceException("Can't register new user", e);
@@ -226,15 +222,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transaction
-    private List<UserCourseDTO> getEnrolledStudentsTransaction(Connection con, long courseId) {
+    private List<UserCourseDTO> getEnrolledStudentsTransaction(Object con, Object courseId) {
         List<UserCourseDTO> users = new ArrayList<>();
         Map<String, String[]> filters = new HashMap<>();
         filters.put(COURSE_ID, new String[]{String.valueOf(courseId)});
         filters.put(QUERY, new String[]{String.format("%s > %s", FINAL_MARK, -1)});
         try {
             List<UserCourse> userCourseList = (List<UserCourse>) userCourseDAO.getAll(
-                    con,
-                    SqlUtil.getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters),
+                    (Connection) con,
+                    SqlUtil.getRecordsCount((Connection) con, USER_ID, USER_COURSE_TABLE, filters),
                     0,
                     USER_ID,
                     filters);
