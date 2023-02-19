@@ -1,6 +1,5 @@
 package com.servlet.ejournal.services.impl;
 
-import com.servlet.ejournal.constants.AttributeConstants;
 import com.servlet.ejournal.exceptions.DAOException;
 import com.servlet.ejournal.exceptions.UtilException;
 import com.servlet.ejournal.exceptions.ValidationError;
@@ -23,7 +22,7 @@ import java.sql.Connection;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.servlet.ejournal.model.dao.HikariDataSource.*;
+import static com.servlet.ejournal.constants.AttributeConstants.*;
 
 @Log4j2
 @Getter
@@ -45,7 +44,7 @@ public class UserServiceImpl implements UserService {
 
     public User logIn(String email, String password) throws ServiceException {
         try {
-            Connection con = getConnection();
+            Connection con = source.getConnection();
             Optional<User> daoResult = userDAO.getByEmail(con, email);
             close(con);
 
@@ -56,11 +55,11 @@ public class UserServiceImpl implements UserService {
                     return user;
                 } else {
                     log.debug("Password doesn't match! " + user.getEmail());
-                    throw new ServiceException(AttributeConstants.PASSWORD_ATTR);
+                    throw new ServiceException(PASSWORD_ATTR);
                 }
             } else {
                 log.debug("No user with email " + email);
-                throw new ServiceException(AttributeConstants.EMAIL_ATTR);
+                throw new ServiceException(EMAIL_ATTR);
             }
         } catch (DAOException e) {
             log.error(e.getMessage(), e);
@@ -173,9 +172,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDTO> getAllUsers(UserType type) {
         return getAllUsers(
-                getUserCount(null), 0, AttributeConstants.DEFAULT_USER_SORTING,
+                getUserCount(null), 0, DEFAULT_USER_SORTING,
                 new HashMap<String, String[]>() {{
-                    put(AttributeConstants.USER_TYPE_DB, new String[]{type.name()});
+                    put(USER_TYPE_DB, new String[]{type.name()});
                 }});
     }
 
@@ -185,14 +184,14 @@ public class UserServiceImpl implements UserService {
         List<UserCourseDTO> users = new ArrayList<>();
 
         Map<String, String[]> filters = new HashMap<>();
-        filters.put(AttributeConstants.COURSE_ID, new String[]{String.valueOf(courseId)});
-        filters.put(AttributeConstants.QUERY, new String[]{String.format("%s > %s", AttributeConstants.FINAL_MARK, -1)});
+        filters.put(COURSE_ID, new String[]{String.valueOf(courseId)});
+        filters.put(QUERY, new String[]{String.format("%s > %s", FINAL_MARK, -1)});
         try {
             con = getConnection();
             setAutoCommit(con, false);
 
             List<UserCourse> userCourseList = (List<UserCourse>) userCourseDAO.getAll(con,
-                    SqlUtil.getRecordsCount(con, AttributeConstants.USER_ID, AttributeConstants.USER_COURSE_TABLE, filters), 0, AttributeConstants.USER_ID, filters);
+                    SqlUtil.getRecordsCount(con, USER_ID, USER_COURSE_TABLE, filters), 0, USER_ID, filters);
 
             for (UserCourse uc : userCourseList) {
                 Optional<User> user = getUser(uc.getU_id());
@@ -298,7 +297,7 @@ public class UserServiceImpl implements UserService {
         Connection con = null;
         try {
             con = getConnection();
-            return SqlUtil.getRecordsCount(con, AttributeConstants.USER_ID, AttributeConstants.USER_TABLE, filters);
+            return SqlUtil.getRecordsCount(con, USER_ID, USER_TABLE, filters);
         } finally {
             close(con);
         }

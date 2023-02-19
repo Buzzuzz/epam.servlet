@@ -192,3 +192,5 @@ v
 Fsrc/main/java/com/servlet/ejournal/constants/CommandNameConstants.java,0/9/09e4bece9930d92cc41729e4d2476bfc50aaf3ce
 o
 ?src/main/java/com/servlet/ejournal/utils/DateFormatterUtil.java,3/8/38b520bd9aafc6ca7d0ff09a9f87c0cfcafbe4d7
+l
+<src/main/java/com/servlet/ejournal/utils/ValidationUtil.java,e/4/e437220f10ec549fdad90c3a8b98a40d38dd048c

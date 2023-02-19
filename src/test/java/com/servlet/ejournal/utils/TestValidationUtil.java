@@ -107,30 +107,30 @@ class TestValidationUtil {
         @Test
         void testUserInvalidEmail() throws UtilException {
             when(userDaoMock.getByEmail(conMock, user.getEmail())).thenReturn(Optional.of(user));
-            assertEquals(EMAIL, util.isNewUserValid(conMock, user, repeatPassword));
+            assertEquals(EMAIL, util.isNewUserValid(userDaoMock, conMock, user, repeatPassword));
         }
 
         @Test
         void testUserInvalidPassword() throws UtilException {
             user.setPassword("1");
-            assertEquals(PASSWORD, util.isNewUserValid(conMock, user, repeatPassword));
+            assertEquals(PASSWORD, util.isNewUserValid(userDaoMock, conMock, user, repeatPassword));
         }
 
         @Test
         void testUserInvalidPasswordRepeat() throws UtilException {
-            assertEquals(PASSWORD_REPEAT, util.isNewUserValid(conMock, user, ""));
+            assertEquals(PASSWORD_REPEAT, util.isNewUserValid(userDaoMock, conMock, user, ""));
 
         }
 
         @Test
         void testUserInvalidPhone() throws UtilException {
             user.setPhone("");
-            assertEquals(PHONE_NUMBER, util.isNewUserValid(conMock, user, repeatPassword));
+            assertEquals(PHONE_NUMBER, util.isNewUserValid(userDaoMock, conMock, user, repeatPassword));
         }
 
         @Test
         void testUserIsValid() throws UtilException {
-            assertEquals(NONE, util.isNewUserValid(conMock, user, repeatPassword));
+            assertEquals(NONE, util.isNewUserValid(userDaoMock, conMock, user, repeatPassword));
         }
     }
 
