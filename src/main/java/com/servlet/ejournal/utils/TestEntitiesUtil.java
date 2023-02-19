@@ -5,6 +5,7 @@ import com.servlet.ejournal.services.TopicService;
 import com.servlet.ejournal.services.UserService;
 import com.servlet.ejournal.services.dto.FullCourseDTO;
 import com.servlet.ejournal.services.dto.TopicDTO;
+import com.servlet.ejournal.services.dto.UserCourseDTO;
 import com.servlet.ejournal.services.dto.UserDTO;
 import com.servlet.ejournal.services.impl.TopicServiceImpl;
 import com.servlet.ejournal.services.impl.UserServiceImpl;
@@ -12,6 +13,8 @@ import com.servlet.ejournal.services.impl.UserServiceImpl;
 import java.sql.Timestamp;
 
 import java.util.Collections;
+
+import static com.servlet.ejournal.services.UserService.getUserDTO;
 
 /**
  * Class for producing test {@link com.servlet.ejournal.model.entities Entites} and
@@ -97,5 +100,16 @@ public class TestEntitiesUtil {
                 Collections.singletonList(createUserTestDTO()),
                 user.getFirst_name() + " " + user.getLast_name()
         );
+    }
+
+    public static UserCourseDTO createUserCourseTestDTO() {
+        UserCourse uc = createTestUserCourse();
+        return new UserCourseDTO(
+                createUserTestDTO(),
+                uc.getU_c_id(),
+                uc.getU_id(),
+                uc.getC_id(),
+                uc.getRegistration_date(),
+                uc.getFinal_mark());
     }
 }

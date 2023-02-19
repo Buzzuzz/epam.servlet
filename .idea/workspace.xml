@@ -9,11 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="added application context, transactions, refactored services (a bit)">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/annotations/handlers/TransactionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/HikariDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/HikariDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="services refactor (even more)">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestUpdateCourseMarks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/TestEntitiesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/utils/TestEntitiesUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,23 +177,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestValidationUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUpdateCourseMarks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam-servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.utils.*" />
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.utils.TestValidationUtil" />
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestUpdateCourseMarks" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestWithdrawStudentCommand.testServiceExceptionWithdrawing" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
+    <configuration name="TestUpdateCourseMarks.testCantUpdateOneOfMarks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam-servlet" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
@@ -201,15 +201,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestWithdrawStudentCommand" />
-      <option name="METHOD_NAME" value="testServiceExceptionWithdrawing" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestUpdateCourseMarks" />
+      <option name="METHOD_NAME" value="testCantUpdateOneOfMarks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestWithdrawStudentCommand.testSuccessfulWithdraw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam.servlet" />
+    <configuration name="TestUpdateCourseMarks.testSuccessfulUpdateCourseMark" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam-servlet" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
@@ -217,8 +217,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestWithdrawStudentCommand" />
-      <option name="METHOD_NAME" value="testSuccessfulWithdraw" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestUpdateCourseMarks" />
+      <option name="METHOD_NAME" value="testSuccessfulUpdateCourseMark" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -396,18 +396,18 @@
       <item itemvalue="JUnit.All in epam-servlet" />
       <item itemvalue="JUnit.TestLocaleFilter.testChangeLocaleChangeLocaleCommand" />
       <item itemvalue="JUnit.TestLocaleFilter.testChangeLocaleNoChangeLocaleCommand" />
-      <item itemvalue="JUnit.TestValidationUtil" />
-      <item itemvalue="JUnit.TestWithdrawStudentCommand.testServiceExceptionWithdrawing" />
-      <item itemvalue="JUnit.TestWithdrawStudentCommand.testSuccessfulWithdraw" />
+      <item itemvalue="JUnit.TestUpdateCourseMarks" />
+      <item itemvalue="JUnit.TestUpdateCourseMarks.testCantUpdateOneOfMarks" />
+      <item itemvalue="JUnit.TestUpdateCourseMarks.testSuccessfulUpdateCourseMark" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.5" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestUpdateCourseMarks.testCantUpdateOneOfMarks" />
+        <item itemvalue="JUnit.TestUpdateCourseMarks" />
+        <item itemvalue="JUnit.TestUpdateCourseMarks.testSuccessfulUpdateCourseMark" />
         <item itemvalue="JUnit.TestLocaleFilter.testChangeLocaleNoChangeLocaleCommand" />
         <item itemvalue="JUnit.TestLocaleFilter.testChangeLocaleChangeLocaleCommand" />
-        <item itemvalue="JUnit.TestValidationUtil" />
-        <item itemvalue="JUnit.TestWithdrawStudentCommand.testSuccessfulWithdraw" />
-        <item itemvalue="JUnit.TestWithdrawStudentCommand.testServiceExceptionWithdrawing" />
       </list>
     </recent_temporary>
   </component>
@@ -523,14 +523,7 @@
       <workItem from="1676764325557" duration="994000" />
       <workItem from="1676814558171" duration="16312000" />
       <workItem from="1676831771258" duration="440000" />
-      <workItem from="1676832220837" duration="5976000" />
-    </task>
-    <task id="LOCAL-00061" summary="implemented add-course command">
-      <created>1673802086535</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1673802086535</updated>
+      <workItem from="1676832220837" duration="9583000" />
     </task>
     <task id="LOCAL-00062" summary="delete-course command implementation">
       <created>1673810283600</created>
@@ -868,7 +861,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676843992192</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="services refactor (even more)">
+      <created>1676846112570</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1676846112570</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -889,7 +889,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="DateFormatterUtil tests, FullCourseUtil tests" />
     <MESSAGE value="refactored ValidationUtil, added more test cases" />
     <MESSAGE value="test for access pools" />
     <MESSAGE value="AccessFilter tests" />
@@ -914,7 +913,8 @@
     <MESSAGE value="validation util loose coupling refactor" />
     <MESSAGE value="refactoring services (topic service), loose coupling" />
     <MESSAGE value="added application context, transactions, refactored services (a bit)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added application context, transactions, refactored services (a bit)" />
+    <MESSAGE value="services refactor (even more)" />
+    <option name="LAST_COMMIT_MESSAGE" value="services refactor (even more)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -951,7 +951,7 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestValidationUtil.ic" NAME="TestValidationUtil Coverage Results" MODIFIED="1674293691128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>utils.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam.servlet Coverage Results" MODIFIED="1674855811401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam-servlet Coverage Results" MODIFIED="1676847923745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$Tomcat_10_0_27.ic" NAME="Tomcat 10.0.27 Coverage Results" MODIFIED="1673966359880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestAppContextListener_testAppContextDestroyed.ic" NAME="TestAppContextListener.testAppContextDestroyed Coverage Results" MODIFIED="1674419912115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.servlet.ejournal.controller.listeners.*</FILTER>
