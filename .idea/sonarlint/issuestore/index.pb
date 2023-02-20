@@ -186,8 +186,6 @@ Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/DeleteTopicCo
 \src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetAllCoursesCommand.java,1/9/198525c9b4afb77ab39376ee02004a29b38a77dc
 ä
 Zsrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/GetAllTopicsCommand.java,b/b/bb09a9c323e1c10071e05b349a19f63218e33922
-è
-_src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetCourseDetailsCommand.java,1/2/1264ac8b5fc9d5594e1e2f97f2eff6f654d196f9
 w
 Gsrc/main/java/com/servlet/ejournal/exceptions/TransactionException.java,3/c/3ccaa754c4bddf4291523c69f09b7989817bba66
 l
@@ -206,10 +204,6 @@ m
 =src/main/java/com/servlet/ejournal/services/TopicService.java,8/a/8a5c20467648fe782f1336230a6bfc5c6ed28968
 v
 Fsrc/main/java/com/servlet/ejournal/services/impl/TopicServiceImpl.java,b/5/b5181e38026ab1db5e5a40be7add9bed1cc78e5d
-n
->src/main/java/com/servlet/ejournal/services/CourseService.java,d/9/d90cd03d3fe83238264c7afc426b778ac24ef6ee
-w
-Gsrc/main/java/com/servlet/ejournal/services/impl/CourseServiceImpl.java,0/f/0f487b27ca0748ae7d8bf891dbb9171e9cb4d2d5
 r
 Bsrc/main/java/com/servlet/ejournal/model/dao/HikariDataSource.java,9/7/97e82720b5de1910242aa87d37962598e37a69e9
 {
@@ -220,10 +214,6 @@ Msrc/main/java/com/servlet/ejournal/utils/tag_handlers/DateOnlyTagHandler.java,
 Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/course/UpdateCourseMarks.java,3/6/367efe951b7275c4d8a4fc6cbe9b3122f178ad48
 ç
 ]src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestUpdateCourseMarks.java,e/f/efdc2d64ed0985d90aa69920e429dccbb713ea31
-u
-Esrc/main/java/com/servlet/ejournal/services/impl/UserServiceImpl.java,2/e/2e59f14e5f9d83206399e694a26dda06ef93f09d
-l
-<src/main/java/com/servlet/ejournal/services/UserService.java,2/4/24fc67ae6d6d54eff50b81c5399ab31e47211f36
 n
 >src/main/java/com/servlet/ejournal/utils/TestEntitiesUtil.java,2/7/27d784cdd79e0b6c5464d5a53eed2c266d9f89ce
 r

@@ -9,8 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="tests for update course marks command">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestUpdateCourseCommand.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="tests for update course command">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestGetCourseDetailsCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestGetCourseMarksCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -144,6 +145,68 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestGetCourseDetailsCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam-servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestGetCourseDetailsCommand" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGetCourseMarksCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam-servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestGetCourseMarksCommand" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGetCourseMarksCommand.testExceptionParsingID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam-servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestGetCourseMarksCommand" />
+      <option name="METHOD_NAME" value="testExceptionParsingID" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGetCourseMarksCommand.testSuccessfulGetCourseMarks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epam-servlet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
+      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestGetCourseMarksCommand" />
+      <option name="METHOD_NAME" value="testSuccessfulGetCourseMarks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestUpdateCourseCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epam-servlet" />
       <extension name="coverage">
@@ -155,69 +218,6 @@
       <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
       <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestUpdateCourseCommand" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUpdateCourseCommand.testSuccessfulUpdateCourse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam-servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestUpdateCourseCommand" />
-      <option name="METHOD_NAME" value="testSuccessfulUpdateCourse" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUpdateCourseMarks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam-servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestUpdateCourseMarks" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUpdateCourseMarks.testCantUpdateOneOfMarks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam-servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestUpdateCourseMarks" />
-      <option name="METHOD_NAME" value="testCantUpdateOneOfMarks" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestUpdateCourseMarks.testSuccessfulUpdateCourseMark" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epam-servlet" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.servlet.ejournal.controller.commands.impl.course.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.servlet.ejournal.controller.commands.impl.course" />
-      <option name="MAIN_CLASS_NAME" value="com.servlet.ejournal.controller.commands.impl.course.TestUpdateCourseMarks" />
-      <option name="METHOD_NAME" value="testSuccessfulUpdateCourseMark" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -392,20 +392,20 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in epam-servlet" />
+      <item itemvalue="JUnit.TestGetCourseDetailsCommand" />
+      <item itemvalue="JUnit.TestGetCourseMarksCommand" />
+      <item itemvalue="JUnit.TestGetCourseMarksCommand.testExceptionParsingID" />
+      <item itemvalue="JUnit.TestGetCourseMarksCommand.testSuccessfulGetCourseMarks" />
       <item itemvalue="JUnit.TestUpdateCourseCommand" />
-      <item itemvalue="JUnit.TestUpdateCourseCommand.testSuccessfulUpdateCourse" />
-      <item itemvalue="JUnit.TestUpdateCourseMarks" />
-      <item itemvalue="JUnit.TestUpdateCourseMarks.testCantUpdateOneOfMarks" />
-      <item itemvalue="JUnit.TestUpdateCourseMarks.testSuccessfulUpdateCourseMark" />
       <item itemvalue="Tomcat Server.Tomcat 10.1.5" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestGetCourseDetailsCommand" />
+        <item itemvalue="JUnit.TestGetCourseMarksCommand" />
+        <item itemvalue="JUnit.TestGetCourseMarksCommand.testExceptionParsingID" />
+        <item itemvalue="JUnit.TestGetCourseMarksCommand.testSuccessfulGetCourseMarks" />
         <item itemvalue="JUnit.TestUpdateCourseCommand" />
-        <item itemvalue="JUnit.TestUpdateCourseCommand.testSuccessfulUpdateCourse" />
-        <item itemvalue="JUnit.TestUpdateCourseMarks.testCantUpdateOneOfMarks" />
-        <item itemvalue="JUnit.TestUpdateCourseMarks" />
-        <item itemvalue="JUnit.TestUpdateCourseMarks.testSuccessfulUpdateCourseMark" />
       </list>
     </recent_temporary>
   </component>
@@ -523,14 +523,7 @@
       <workItem from="1676831771258" duration="440000" />
       <workItem from="1676832220837" duration="10062000" />
       <workItem from="1676849257374" duration="215000" />
-      <workItem from="1676881046378" duration="527000" />
-    </task>
-    <task id="LOCAL-00063" summary="pagination util refactor, jsp changes, filtration implementation (not fully done)">
-      <created>1673821201507</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1673821201507</updated>
+      <workItem from="1676881046378" duration="1974000" />
     </task>
     <task id="LOCAL-00064" summary="filtration done, courses pagination, jsp changes">
       <created>1673868606137</created>
@@ -868,7 +861,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676848707477</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="tests for update course command">
+      <created>1676881852472</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1676881852472</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -889,7 +889,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test for access pools" />
     <MESSAGE value="AccessFilter tests" />
     <MESSAGE value="more filters tests" />
     <MESSAGE value="huge dao refactoring (everything seems to work fine)" />
@@ -914,7 +913,8 @@
     <MESSAGE value="added application context, transactions, refactored services (a bit)" />
     <MESSAGE value="services refactor (even more)" />
     <MESSAGE value="tests for update course marks command" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests for update course marks command" />
+    <MESSAGE value="tests for update course command" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests for update course command" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -951,7 +951,7 @@
     <SUITE FILE_PATH="coverage/epam_servlet$TestValidationUtil.ic" NAME="TestValidationUtil Coverage Results" MODIFIED="1674293691128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>utils.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam-servlet Coverage Results" MODIFIED="1676881067810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/epam_servlet$All_in_epam_servlet.ic" NAME="All in epam-servlet Coverage Results" MODIFIED="1676882654217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$Tomcat_10_0_27.ic" NAME="Tomcat 10.0.27 Coverage Results" MODIFIED="1673966359880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/epam_servlet$TestAppContextListener_testAppContextDestroyed.ic" NAME="TestAppContextListener.testAppContextDestroyed Coverage Results" MODIFIED="1674419912115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.servlet.ejournal.controller.listeners.*</FILTER>
