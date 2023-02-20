@@ -172,18 +172,10 @@ o
 ?src/main/java/com/servlet/ejournal/model/entities/UserType.java,b/a/ba9b8944d376c09a523500d2f9bb04af8484afdc
 ‘
 asrc/main/java/com/servlet/ejournal/controller/commands/impl/user/ChangeUserLockStatusCommand.java,7/d/7df079cf09627b1754ed8694956a3d235622c940
-‹
-[src/main/java/com/servlet/ejournal/controller/commands/impl/course/CreateCourseCommand.java,c/6/c67eb2d07508ec72b484b0e2340a04544a042996
 ‰
 Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/CreateTopicCommand.java,a/2/a24b8c2a65e6f1ee4f44f552ac51d8b3876612c8
-‹
-[src/main/java/com/servlet/ejournal/controller/commands/impl/course/DeleteCourseCommand.java,e/f/efc5952f06a2759aa732b0b2b221ffba5e47f2cd
 ‰
 Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/DeleteTopicCommand.java,3/4/34f9d785f27f7171d3760e0f3d0075613098f1bb
-Œ
-\src/main/java/com/servlet/ejournal/controller/commands/impl/course/EnrollStudentCommand.java,c/b/cb6b962aa0a0ed734b61d5f97f94c52489547763
-Œ
-\src/main/java/com/servlet/ejournal/controller/commands/impl/course/GetAllCoursesCommand.java,1/9/198525c9b4afb77ab39376ee02004a29b38a77dc
 Š
 Zsrc/main/java/com/servlet/ejournal/controller/commands/impl/topic/GetAllTopicsCommand.java,b/b/bb09a9c323e1c10071e05b349a19f63218e33922
 w
@@ -216,7 +208,5 @@ Ysrc/main/java/com/servlet/ejournal/controller/commands/impl/course/UpdateCourse
 ]src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestUpdateCourseMarks.java,e/f/efdc2d64ed0985d90aa69920e429dccbb713ea31
 n
 >src/main/java/com/servlet/ejournal/utils/TestEntitiesUtil.java,2/7/27d784cdd79e0b6c5464d5a53eed2c266d9f89ce
-r
-Bsrc/main/java/com/servlet/ejournal/context/ApplicationContext.java,c/8/c886dd3cb524c23db9cd5f3a03cdfb25c384f25b
 D
 ejournal/current.log,f/3/f3d583252f946374e1bdcc7dbb3fd894cdccb6aa
