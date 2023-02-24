@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="tests for get course details, get course marks">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestCreateCourseCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestDeleteCourseCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestEnrollStudentCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/servlet/ejournal/controller/commands/impl/course/TestGetAllCoursesCommand.java" afterDir="false" />
+    <list default="true" id="70d07f87-dc21-4cae-b257-a87e693874eb" name="Changes" comment="all tests for course commands">
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/context/ApplicationContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/context/ApplicationContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/HikariDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/servlet/ejournal/model/dao/HikariDataSource.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -525,14 +523,8 @@
       <workItem from="1676831771258" duration="440000" />
       <workItem from="1676832220837" duration="10062000" />
       <workItem from="1676849257374" duration="215000" />
-      <workItem from="1676881046378" duration="4073000" />
-    </task>
-    <task id="LOCAL-00065" summary="course duration added">
-      <created>1673911160930</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1673911160931</updated>
+      <workItem from="1676881046378" duration="5406000" />
+      <workItem from="1677280445111" duration="543000" />
     </task>
     <task id="LOCAL-00066" summary="implemented enrolled students count, filtration">
       <created>1673917645743</created>
@@ -870,7 +862,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676883322688</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="all tests for course commands">
+      <created>1676885170909</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1676885170909</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -891,7 +890,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="more filters tests" />
     <MESSAGE value="huge dao refactoring (everything seems to work fine)" />
     <MESSAGE value="fixed SqlUtil tests" />
     <MESSAGE value="moved locale to cookies" />
@@ -916,7 +914,8 @@
     <MESSAGE value="tests for update course marks command" />
     <MESSAGE value="tests for update course command" />
     <MESSAGE value="tests for get course details, get course marks" />
-    <option name="LAST_COMMIT_MESSAGE" value="tests for get course details, get course marks" />
+    <MESSAGE value="all tests for course commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="all tests for course commands" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

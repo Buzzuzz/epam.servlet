@@ -61,6 +61,12 @@ public class HikariDataSource {
         }
     }
 
+    /**
+     * Method to close AutoCloseable interface implementation (without catching exception)
+     *
+     * @param closeable Object to close
+     * @throws DAOException In case of unsuccessful close operation (already closed, etc.)
+     */
     public void close(AutoCloseable closeable) throws DAOException {
         try {
             if (closeable != null) {
@@ -73,6 +79,15 @@ public class HikariDataSource {
         }
     }
 
+    /**
+     * Method to run block of code in transaction
+     * @param classObject Class instance, where transaction block is located
+     * @param methodName Name of method to run as transaction
+     * @param args Arguments, needed for method
+     * @return Return value of that block of code
+     * @param <T> Return type of return value
+     * @throws TransactionException In case transaction cannot be done successful
+     */
     public <T> T runTransaction(Object classObject, String methodName, Object... args) throws TransactionException {
         Connection con = null;
         T returnValue;
@@ -101,6 +116,11 @@ public class HikariDataSource {
         }
     }
 
+    /**
+     * Method to rollback changes made on specified connection
+     * @param con {@link Connection, where changes were made}
+     * @throws DAOException In case rollback cannot be done successful
+     */
     private void rollback(Connection con) throws DAOException {
         try {
             if (con != null) {

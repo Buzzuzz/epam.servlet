@@ -63,6 +63,11 @@ public class ApplicationContext {
         log.info("Application context initialized!");
     }
 
+    /**
+     * Method to acquire instance of ApplicationContext class (contains all necessary dependencies for application)
+     * @return Instance of current class
+     * @throws ApplicationContextException If there's no paths in main properties file (props.properties)
+     */
     public static synchronized ApplicationContext getInstance() throws ApplicationContextException {
         if (context == null) {
             try {
